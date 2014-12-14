@@ -631,11 +631,15 @@ bool CWallet::AddToWalletIfInvolvingMe(const CTransaction& tx, const CBlock* pbl
         bool fExisted = mapWallet.count(hash);
         if (fExisted && !fUpdate) return false;
         
-        FindStealthTransactions(tx);
+        mapValue_t mapNarr;
+        FindStealthTransactions(tx, mapNarr);
         
         if (fExisted || IsMine(tx) || IsFromMe(tx))
         {
             CWalletTx wtx(this,tx);
+             
+            if (!mapNarr.empty())
+                wtx.mapValue.insert(mapNarr.begin(), mapNarr.end());
             
             // Get merkle branch if transaction was found in a block
             if (pblock)
@@ -1531,6 +1535,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                     // Insert change txn at random position:
                     vector<CTxOut>::iterator position = wtxNew.vout.begin()+GetRandInt(wtxNew.vout.size() + 1);
                     
+                    // -- don't put change output between value and narration outputs
                     if (position > wtxNew.vout.begin() && position < wtxNew.vout.end())
                     {
                         while (position > wtxNew.vout.begin())
@@ -1586,14 +1591,32 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
 
 
 
-bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, const CCoinControl* coinControl)
+bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue, std::string& sNarr, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, const CCoinControl* coinControl)
 {
     vector< pair<CScript, int64_t> > vecSend;
     vecSend.push_back(make_pair(scriptPubKey, nValue));
+    
+    if (sNarr.length() > 0)
+    {
+        std::vector<uint8_t> vNarr(sNarr.c_str(), sNarr.c_str() + sNarr.length());
+        std::vector<uint8_t> vNDesc;
         
+        vNDesc.resize(2);
+        vNDesc[0] = 'n';
+        vNDesc[1] = 'p';
+        
+        CScript scriptN = CScript() << OP_RETURN << vNDesc << OP_RETURN << vNarr;
+        
+        vecSend.push_back(make_pair(scriptN, 0));
+    }
+    
+    // -- CreateTransaction won't place change between value and narr output.
+    //    narration output will be for preceding output
+    
     int nChangePos;
     bool rv = CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, nChangePos, coinControl);
     
+    // -- narration will be added to mapValue later in FindStealthTransactions From CommitTransaction
     return rv;
 }
 
@@ -1933,24 +1956,47 @@ bool CWallet::UpdateStealthAddress(std::string &addr, std::string &label, bool a
     return true;
 }
 
-bool CWallet::CreateStealthTransaction(CScript scriptPubKey, int64_t nValue, std::vector<uint8_t>& P, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, const CCoinControl* coinControl)
+bool CWallet::CreateStealthTransaction(CScript scriptPubKey, int64_t nValue, std::vector<uint8_t>& P, std::vector<uint8_t>& narr, std::string& sNarr, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, const CCoinControl* coinControl)
 {
     vector< pair<CScript, int64_t> > vecSend;
     vecSend.push_back(make_pair(scriptPubKey, nValue));
     
     CScript scriptP = CScript() << OP_RETURN << P;
+    if (narr.size() > 0)
+        scriptP = scriptP << OP_RETURN << narr;
     
     vecSend.push_back(make_pair(scriptP, 0));
     
+    // -- shuffle inputs, change output won't mix enough as it must be not fully random for plantext narrations
     std::random_shuffle(vecSend.begin(), vecSend.end());
     
     int nChangePos;
     bool rv = CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, nChangePos, coinControl);
     
+    // -- the change txn is inserted in a random pos, check here to match narr to output
+    if (rv && narr.size() > 0)
+    {
+        for (unsigned int k = 0; k < wtxNew.vout.size(); ++k)
+        {
+            if (wtxNew.vout[k].scriptPubKey != scriptPubKey
+                || wtxNew.vout[k].nValue != nValue)
+                continue;
+            
+            char key[64];
+            if (snprintf(key, sizeof(key), "n_%u", k) < 1)
+            {
+                printf("CreateStealthTransaction(): Error creating narration key.");
+                break;
+            };
+            wtxNew.mapValue[key] = sNarr;
+            break;
+        };
+    };
+    
     return rv;
 }
 
-string CWallet::SendStealthMoney(CScript scriptPubKey, int64_t nValue, std::vector<uint8_t>& P, CWalletTx& wtxNew, bool fAskFee)
+string CWallet::SendStealthMoney(CScript scriptPubKey, int64_t nValue, std::vector<uint8_t>& P, std::vector<uint8_t>& narr, std::string& sNarr, CWalletTx& wtxNew, bool fAskFee)
 {
     CReserveKey reservekey(this);
     int64_t nFeeRequired;
@@ -1967,7 +2013,7 @@ string CWallet::SendStealthMoney(CScript scriptPubKey, int64_t nValue, std::vect
         printf("SendStealthMoney() : %s", strError.c_str());
         return strError;
     }
-    if (!CreateStealthTransaction(scriptPubKey, nValue, P, wtxNew, reservekey, nFeeRequired))
+    if (!CreateStealthTransaction(scriptPubKey, nValue, P, narr, sNarr, wtxNew, reservekey, nFeeRequired))
     {
         string strError;
         if (nValue + nFeeRequired > GetBalance())
@@ -1987,7 +2033,7 @@ string CWallet::SendStealthMoney(CScript scriptPubKey, int64_t nValue, std::vect
     return "";
 }
 
-bool CWallet::SendStealthMoneyToDestination(CStealthAddress& sxAddress, int64_t nValue, CWalletTx& wtxNew, std::string& sError, bool fAskFee)
+bool CWallet::SendStealthMoneyToDestination(CStealthAddress& sxAddress, int64_t nValue, std::string& sNarr, CWalletTx& wtxNew, std::string& sError, bool fAskFee)
 {
     // -- Check amount
     if (nValue <= 0)
@@ -2043,22 +2089,34 @@ bool CWallet::SendStealthMoneyToDestination(CStealthAddress& sxAddress, int64_t 
         printf("ephem_pubkey %"PRIszu": %s\n", ephem_pubkey.size(), HexStr(ephem_pubkey).c_str());
     };
     
+    std::vector<unsigned char> vchNarr;
+    if (sNarr.length() > 0)
+    {   
+        if (vchNarr.size() > 48)
+        {
+            sError = "Encrypted narration is too long.";
+            return false;
+        };
+    };
+    
     // -- Parse Bitcoin address
     CScript scriptPubKey;
     scriptPubKey.SetDestination(addrTo.Get());
     
-    if ((sError = SendStealthMoney(scriptPubKey, nValue, ephem_pubkey, wtxNew, fAskFee)) != "")
+    if ((sError = SendStealthMoney(scriptPubKey, nValue, ephem_pubkey, vchNarr, sNarr, wtxNew, fAskFee)) != "")
         return false;
     
     
     return true;
 }
 
-bool CWallet::FindStealthTransactions(const CTransaction& tx)
+bool CWallet::FindStealthTransactions(const CTransaction& tx, mapValue_t& mapNarr)
 {
     if (fDebug)
         printf("FindStealthTransactions() tx: %s\n", tx.GetHash().GetHex().c_str());
-        
+    
+    mapNarr.clear();
+    
     LOCK(cs_wallet);
     ec_secret sSpendR;
     ec_secret sSpend;
@@ -2069,6 +2127,9 @@ bool CWallet::FindStealthTransactions(const CTransaction& tx)
     
     std::vector<uint8_t> vchEphemPK;
     std::vector<uint8_t> vchDataB;
+    std::vector<uint8_t> vchENarr;
+    opcodetype opCode;
+    char cbuf[256];
     
     int32_t nOutputIdOuter = -1;
     BOOST_FOREACH(const CTxOut& txout, tx.vout)
@@ -2077,6 +2138,37 @@ bool CWallet::FindStealthTransactions(const CTransaction& tx)
         // -- for each OP_RETURN need to check all other valid outputs
         
         //printf("txout scriptPubKey %s\n",  txout.scriptPubKey.ToString().c_str());
+        CScript::const_iterator itTxA = txout.scriptPubKey.begin();
+        
+        if (!txout.scriptPubKey.GetOp(itTxA, opCode, vchEphemPK)
+            || opCode != OP_RETURN)
+            continue;
+        else
+        if (!txout.scriptPubKey.GetOp(itTxA, opCode, vchEphemPK)
+            || vchEphemPK.size() != 33)
+        {
+            // -- look for plaintext narrations
+            if (vchEphemPK.size() > 1
+                && vchEphemPK[0] == 'n'
+                && vchEphemPK[1] == 'p')
+            {
+                if (txout.scriptPubKey.GetOp(itTxA, opCode, vchENarr)
+                    && opCode == OP_RETURN
+                    && txout.scriptPubKey.GetOp(itTxA, opCode, vchENarr)
+                    && vchENarr.size() > 0)
+                {
+                    std::string sNarr = std::string(vchENarr.begin(), vchENarr.end());
+                    
+                    snprintf(cbuf, sizeof(cbuf), "n_%d", nOutputIdOuter-1); // plaintext narration always matches preceding value output
+                    mapNarr[cbuf] = sNarr;
+                } else
+                {
+                    printf("Warning: FindStealthTransactions() tx: %s, Could not extract plaintext narration.\n", tx.GetHash().GetHex().c_str());
+                };
+            }
+            
+            continue;
+        }
         
         int32_t nOutputId = -1;
         nStealth++;
@@ -2214,6 +2306,18 @@ bool CWallet::FindStealthTransactions(const CTransaction& tx)
                     std::string sLabel = it->Encoded();
                     SetAddressBookName(keyID, sLabel);
                     nFoundStealth++;
+                };
+                
+                if (txout.scriptPubKey.GetOp(itTxA, opCode, vchENarr)
+                    && opCode == OP_RETURN
+                    && txout.scriptPubKey.GetOp(itTxA, opCode, vchENarr)
+                    && vchENarr.size() > 0)
+                {
+                    std::vector<uint8_t> vchNarr;
+                    std::string sNarr = std::string(vchNarr.begin(), vchNarr.end());
+                    
+                    snprintf(cbuf, sizeof(cbuf), "n_%d", nOutputId);
+                    mapNarr[cbuf] = sNarr;
                 };
                 
                 txnMatch = true;
@@ -2502,8 +2606,15 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 // Call after CreateTransaction unless you want to abort
 bool CWallet::CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey)
 {
-    FindStealthTransactions(wtxNew);
-
+    mapValue_t mapNarr;
+    FindStealthTransactions(wtxNew, mapNarr);
+    
+    if (!mapNarr.empty())
+    {
+        BOOST_FOREACH(const PAIRTYPE(string,string)& item, mapNarr)
+            wtxNew.mapValue[item.first] = item.second;
+    };
+    
     {
         LOCK2(cs_main, cs_wallet);
         printf("CommitTransaction:\n%s", wtxNew.ToString().c_str());
@@ -2553,7 +2664,7 @@ bool CWallet::CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey)
 
 
 
-string CWallet::SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNew, bool fAskFee)
+string CWallet::SendMoney(CScript scriptPubKey, int64_t nValue, std::string& sNarr, CWalletTx& wtxNew, bool fAskFee)
 {
     CReserveKey reservekey(this);
     int64_t nFeeRequired;
@@ -2570,7 +2681,7 @@ string CWallet::SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNe
         printf("SendMoney() : %s", strError.c_str());
         return strError;
     }
-    if (!CreateTransaction(scriptPubKey, nValue, wtxNew, reservekey, nFeeRequired))
+    if (!CreateTransaction(scriptPubKey, nValue, sNarr, wtxNew, reservekey, nFeeRequired))
     {
         string strError;
         if (nValue + nFeeRequired > GetBalance())
@@ -2592,19 +2703,22 @@ string CWallet::SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNe
 
 
 
-string CWallet::SendMoneyToDestination(const CTxDestination& address, int64_t nValue, CWalletTx& wtxNew, bool fAskFee)
+string CWallet::SendMoneyToDestination(const CTxDestination& address, int64_t nValue, std::string& sNarr, CWalletTx& wtxNew, bool fAskFee)
 {
     // Check amount
     if (nValue <= 0)
         return _("Invalid amount");
     if (nValue + nTransactionFee > GetBalance())
         return _("Insufficient funds");
+
+    if (sNarr.length() > 24)
+        return _("Narration must be 24 characters or less.");
     
     // Parse Bitcoin address
     CScript scriptPubKey;
     scriptPubKey.SetDestination(address);
 
-    return SendMoney(scriptPubKey, nValue, wtxNew, fAskFee);
+    return SendMoney(scriptPubKey, nValue, sNarr, wtxNew, fAskFee);
 }
 
 

@@ -192,6 +192,8 @@ void AddressBookPage::on_signMessage_clicked()
         QVariant address = index.data();
         addr = address.toString();
     }
+
+    emit signMessage(addr);
 }
 
 void AddressBookPage::on_verifyMessage_clicked()
@@ -205,6 +207,8 @@ void AddressBookPage::on_verifyMessage_clicked()
         QVariant address = index.data();
         addr = address.toString();
     }
+
+    emit verifyMessage(addr);
 }
 
 void AddressBookPage::on_newAddressButton_clicked()

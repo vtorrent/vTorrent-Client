@@ -206,6 +206,8 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
         return SendCoinsReturn(AmountWithFeeExceedsBalance, nTransactionFee);
     }
     
+    std::map<int, std::string> mapStealthNarr;
+
     {
         LOCK2(cs_main, wallet->cs_wallet);
         
@@ -271,6 +273,31 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
                     
                     CScript scriptP = CScript() << OP_RETURN << ephem_pubkey;
                     
+                    if (rcp.narration.length() > 0)
+                    {
+                        std::string sNarr = rcp.narration.toStdString();
+                        
+                        if (sNarr.length() > 24)
+                        {
+                            printf("Narration is too long.\n");
+                            return NarrationTooLong;
+                        };
+                        
+                        std::vector<unsigned char> vchNarr;
+                        
+                        if (vchNarr.size() > 48)
+                        {
+                            printf("Encrypted narration is too long.\n");
+                            return Aborted;
+                        };
+                        
+                        if (vchNarr.size() > 0)
+                            scriptP = scriptP << OP_RETURN << vchNarr;
+                        
+                        int pos = vecSend.size()-1;
+                        mapStealthNarr[pos] = sNarr;
+                    };
+                    
                     vecSend.push_back(make_pair(scriptP, 0));
                     
                     continue;
@@ -281,6 +308,30 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
             scriptPubKey.SetDestination(CBitcoinAddress(sAddr).Get());
             vecSend.push_back(make_pair(scriptPubKey, rcp.amount));
             
+            
+            
+            
+            if (rcp.narration.length() > 0)
+            {
+                std::string sNarr = rcp.narration.toStdString();
+                
+                if (sNarr.length() > 24)
+                {
+                    printf("Narration is too long.\n");
+                    return NarrationTooLong;
+                };
+                
+                std::vector<uint8_t> vNarr(sNarr.c_str(), sNarr.c_str() + sNarr.length());
+                std::vector<uint8_t> vNDesc;
+                
+                vNDesc.resize(2);
+                vNDesc[0] = 'n';
+                vNDesc[1] = 'p';
+                
+                CScript scriptN = CScript() << OP_RETURN << vNDesc << OP_RETURN << vNarr;
+                
+                vecSend.push_back(make_pair(scriptN, 0));
+            }
         }
 
         
@@ -288,7 +339,24 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
         int64_t nFeeRequired = 0;
         int nChangePos = -1;
         bool fCreated = wallet->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, nChangePos, coinControl);
-
+        
+        std::map<int, std::string>::iterator it;
+        for (it = mapStealthNarr.begin(); it != mapStealthNarr.end(); ++it)
+        {
+            int pos = it->first;
+            if (nChangePos > -1 && it->first >= nChangePos)
+                pos++;
+            
+            char key[64];
+            if (snprintf(key, sizeof(key), "n_%u", pos) < 1)
+            {
+                printf("CreateStealthTransaction(): Error creating narration key.");
+                continue;
+            };
+            wtx.mapValue[key] = it->second;
+        };
+        
+        
         if(!fCreated)
         {
             if((total + nFeeRequired) > nBalance) // FIXME: could cause collisions in the future
