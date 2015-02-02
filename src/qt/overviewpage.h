@@ -2,6 +2,7 @@
 #define OVERVIEWPAGE_H
 
 #include <QWidget>
+#include <QtWebKit>
 
 QT_BEGIN_NAMESPACE
 class QModelIndex;

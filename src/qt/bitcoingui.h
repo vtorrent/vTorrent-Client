@@ -18,8 +18,14 @@ class SignVerifyMessageDialog;
 class Notificator;
 class RPCConsole;
 class BlockBrowser;
+#ifdef TRADING_BITTREX
+ class tradingBittrex;
+#endif
+#ifdef TRADING_EMPOEX
+ class tradingEmpoEX;
+#endif
 #ifdef TORRENT
-class Torrent;
+ class Torrent;
 #endif
 
 QT_BEGIN_NAMESPACE
@@ -89,6 +95,15 @@ private:
     SendCoinsDialog *sendCoinsPage;
     SignVerifyMessageDialog *signVerifyMessageDialog;
     BlockBrowser *blockBrowser;
+
+#ifdef TRADING_BITTREX
+    tradingBittrex *tradingBittrexPage;
+#endif
+
+#ifdef TRADING_EMPOEX
+    tradingEmpoEX *tradingEmpoEXPage;
+#endif
+
 #ifdef TORRENT
     Torrent *torrent;
 #endif
@@ -100,8 +115,11 @@ private:
     QLabel *progressBarLabel;
     QLabel *header;
     QLabel *mainLabel1;
-#ifdef TORRENT
+#ifdef TRADING_ENABLED
     QLabel *mainLabel2;
+#endif
+#ifdef TORRENT
+    QLabel *mainLabel3;
 #endif
     QToolBar *mainToolbar;
     QToolBar *secondaryToolbar;
@@ -129,6 +147,13 @@ private:
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
     QAction *blockAction;
+#ifdef TRADING_BITTREX
+    QAction *TradingBittrexAction;
+#endif
+#ifdef TRADING_EMPOEX
+    QAction *TradingEmpoEXAction;
+#endif
+
 #ifdef TORRENT
     QAction *torrentAction;
 #endif
@@ -186,12 +211,23 @@ private slots:
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage();
-    /** Switch to torrent page */
-#ifdef TORRENT
-    void gotoTorrent();
-#endif
     /** Switch to blockexplorer */
     void gotoBlockBrowser();
+
+#ifdef TRADING_BITTREX
+    /** Switch to trading Bittrex page */
+    void gototradingBittrex();
+#endif
+
+#ifdef TRADING_EMPOEX
+    /** Switch to trading EmpoEX page */
+    void gototradingEmpoEX();
+#endif
+
+#ifdef TORRENT
+    /** Switch to torrent page */
+    void gotoTorrent();
+#endif
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");

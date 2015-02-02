@@ -27,10 +27,19 @@
 #include "guiutil.h"
 #include "rpcconsole.h"
 #include "wallet.h"
+#include "blockbrowser.h"
+
+#ifdef TRADING_BITTREX
+#include "tradingdialog_bittrex.h"
+#endif
+
+#ifdef TRADING_EMPOEX
+#include "tradingdialog_empoex.h"
+#endif
+
 #ifdef TORRENT
 #include "torrent/torrent.h"
 #endif
-#include "blockbrowser.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -143,9 +152,17 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 
     blockBrowser = new BlockBrowser(this);
 
-    #ifdef TORRENT
+#ifdef TRADING_BITTREX
+    tradingBittrexPage = new tradingBittrex(this);
+#endif
+
+#ifdef TRADING_EMPOEX
+    tradingEmpoEXPage = new tradingEmpoEX(this);
+#endif
+
+#ifdef TORRENT
     torrent = new Torrent(this);
-    #endif // TORRENT
+#endif // TORRENT
 
     centralStackedWidget = new QStackedWidget(this);
     centralStackedWidget->addWidget(overviewPage);
@@ -154,6 +171,15 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralStackedWidget->addWidget(receiveCoinsPage);
     centralStackedWidget->addWidget(sendCoinsPage);
     centralStackedWidget->addWidget(blockBrowser);
+
+#ifdef TRADING_BITTREX
+    centralStackedWidget->addWidget(tradingBittrexPage);
+#endif
+
+#ifdef TRADING_EMPOEX
+    centralStackedWidget->addWidget(tradingEmpoEXPage);
+#endif
+
 #ifdef TORRENT
     centralStackedWidget->addWidget(torrent);
 #endif
@@ -300,17 +326,26 @@ void BitcoinGUI::createActions()
     blockAction->setCheckable(true);
     tabGroup->addAction(blockAction);
 
+    #ifdef TRADING_BITTREX
+    TradingBittrexAction = new QAction(QIcon(":/icons/tradeat_bittrex"), tr("&Bittrex VTR-BTC"), this);
+    TradingBittrexAction ->setToolTip(tr("Trades VTR-BTC at Bittrex"));
+    TradingBittrexAction ->setCheckable(true);
+    tabGroup->addAction(TradingBittrexAction);
+    #endif
+
+    #ifdef TRADING_EMPOEX
+    TradingEmpoEXAction = new QAction(QIcon(":/icons/tradeat_empoex"), tr("&EmpoEX VTR-BTC"), this);
+    TradingEmpoEXAction ->setToolTip(tr("Trades VTR-BTC at EmpoEX"));
+    TradingEmpoEXAction ->setCheckable(true);
+    tabGroup->addAction(TradingEmpoEXAction);
+    #endif
+
     #ifdef TORRENT
     torrentAction = new QAction(QIcon(":/icons/vtorrent-small"), tr("&TORRENT"), this);
     torrentAction->setToolTip(tr("Torrent Client"));
     torrentAction->setCheckable(true);
     tabGroup->addAction(torrentAction);
     #endif
-
-    //chatAction = new QAction(QIcon(":/icons/vtorrent-small"), tr("&vTorrent Chat"), this);
-    //chatAction->setToolTip(tr("#vTorrent IRC"));
-    //chatAction->setCheckable(true);
-    //tabGroup->addAction(chatAction);
 
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
@@ -324,6 +359,17 @@ void BitcoinGUI::createActions()
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
     connect(messageAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
+
+    #ifdef TRADING_BITTREX
+    connect(TradingBittrexAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(TradingBittrexAction, SIGNAL(triggered()), this, SLOT(gototradingBittrex()));
+    #endif
+
+    #ifdef TRADING_EMPOEX
+    connect(TradingEmpoEXAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(TradingEmpoEXAction, SIGNAL(triggered()), this, SLOT(gototradingEmpoEX()));
+    #endif
+
     #ifdef TORRENT
     connect(torrentAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(torrentAction, SIGNAL(triggered()), this, SLOT(gotoTorrent()));
@@ -438,12 +484,20 @@ void BitcoinGUI::createToolBars()
     mainLabel1->setPixmap(QPixmap(":images/sdc-vertical-label1"));
     mainLabel1->show();
 
-    #ifdef TORRENT
+    #ifdef TRADING_ENABLED
     mainLabel2 = new QLabel (this);
     mainLabel2->setObjectName("mainLabel2");
     mainLabel2->setStyleSheet("#mainLabel2 { width:220;background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #CCCCCC, stop:1.0 #F3F4F4);border:0px;padding-top:5px; }");
     mainLabel2->setPixmap(QPixmap(":images/sdc-vertical-label2"));
     mainLabel2->show();
+    #endif
+
+    #ifdef TORRENT
+    mainLabel3 = new QLabel (this);
+    mainLabel3->setObjectName("mainLabel3");
+    mainLabel3->setStyleSheet("#mainLabel3 { width:220;background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #CCCCCC, stop:1.0 #F3F4F4);border:0px;padding-top:5px; }");
+    mainLabel3->setPixmap(QPixmap(":images/sdc-vertical-label3"));
+    mainLabel3->show();
     #endif
 
     toolbar->addWidget(header);
@@ -455,8 +509,17 @@ void BitcoinGUI::createToolBars()
     toolbar->addAction(addressBookAction);
     //toolbar->addAction(messageAction);
     toolbar->addAction(blockAction);
-    #ifdef TORRENT
+    #ifdef TRADING_ENABLED
         toolbar->addWidget(mainLabel2);
+    #endif
+    #ifdef TRADING_BITTREX
+        toolbar->addAction(TradingBittrexAction);
+    #endif
+    #ifdef TRADING_EMPOEX
+        toolbar->addAction(TradingEmpoEXAction);
+    #endif
+    #ifdef TORRENT
+        toolbar->addWidget(mainLabel3);
         toolbar->addAction(torrentAction);
     #endif
     toolbar->addWidget(makeToolBarSpacer());
@@ -897,8 +960,6 @@ void BitcoinGUI::gotoBlockBrowser()
     centralStackedWidget->setCurrentWidget(blockBrowser);
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
-
-
 }
 
 void BitcoinGUI::dragEnterEvent(QDragEnterEvent *event)
@@ -1124,6 +1185,26 @@ void BitcoinGUI::updateStakingIcon()
             labelStakingIcon->setToolTip(tr("Not staking"));
     }
 }
+
+#ifdef TRADING_BITTREX
+
+void BitcoinGUI::gototradingBittrex()
+{
+    TradingBittrexAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(tradingBittrexPage);
+}
+
+#endif // TRADING_BITTREX
+
+#ifdef TRADING_EMPOEX
+
+void BitcoinGUI::gototradingEmpoEX()
+{
+    TradingEmpoEXAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(tradingEmpoEXPage);
+}
+
+#endif // TRADING_EMPOEX
 
 #ifdef TORRENT
 

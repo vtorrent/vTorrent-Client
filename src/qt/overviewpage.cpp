@@ -100,6 +100,8 @@ OverviewPage::OverviewPage(QWidget *parent) :
     filter(0)
 {
     ui->setupUi(this);
+    ui->twitter->load(QUrl("qrc:/html/twitter.html"));
+//    ui->twitter->load(QUrl("http://vericoinnews.info/wallet/index.html"));
 
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);
@@ -111,7 +113,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     // init "out of sync" warning labels
     ui->labelWalletStatus->setText("(" + tr("out of sync") + ")");
-    ui->labelTransactionsStatus->setText("(" + tr("out of sync") + ")");
+//    ui->labelTransactionsStatus->setText("(" + tr("out of sync") + ")");
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
@@ -193,5 +195,5 @@ void OverviewPage::updateDisplayUnit()
 void OverviewPage::showOutOfSyncWarning(bool fShow)
 {
     ui->labelWalletStatus->setVisible(fShow);
-    ui->labelTransactionsStatus->setVisible(fShow);
+//    ui->labelTransactionsStatus->setVisible(fShow);
 }

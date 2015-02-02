@@ -10,12 +10,21 @@ CONFIG += thread
 #CONFIG += torrent_sample
 #CONFIG += torrent_enable
 
-QT += core gui network
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-lessThan(QT_MAJOR_VERSION, 5): CONFIG += static
+DEFINES += TRADING_ENABLED
 
+DEFINES += TRADING_BITTREX
+CONFIG += trading_bittrex
+
+#DEFINES += TRADING_EMPOEX
+#CONFIG += trading_empoex
+
+!win32 {
+CONFIG += static
+}
+
+QT += network webkit
 greaterThan(QT_MAJOR_VERSION, 4) {
-    QT += widgets
+    QT += webkitwidgets
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
 
@@ -378,6 +387,18 @@ FORMS += \
     src/qt/plugins/mrichtexteditor/mrichtextedit.ui \
     src/qt/forms/blockbrowser.ui
 
+trading_bittrex {
+HEADERS += src/qt/tradingdialog_bittrex.h
+SOURCES += src/qt/tradingdialog_bittrex.cpp
+FORMS += src/qt/forms/tradingdialog_bittrex.ui
+}#trading_bittrex
+
+#trading_empoex {
+#HEADERS += src/qt/tradingdialog_empoex.h
+#SOURCES += src/qt/tradingdialog_empoex.cpp
+#FORMS += src/qt/forms/tradingdialog_empoex.ui
+#}#trading_empoex
+
 torrent_sample {
 HEADERS += src/qt/torrent/torrent.h
 SOURCES += src/qt/torrent/torrent.cpp
@@ -497,7 +518,7 @@ macx:QMAKE_CXXFLAGS_THREAD += -pthread
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
 INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
 LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
-LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
+LIBS += -lssl -lcrypto -lz -ldb_cxx$$BDB_LIB_SUFFIX
 # -lgdi32 has to happen after -lcrypto (see  #681)
 windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32
 LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX -lboost_program_options$$BOOST_LIB_SUFFIX -lboost_thread$$BOOST_THREAD_LIB_SUFFIX

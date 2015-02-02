@@ -1346,21 +1346,17 @@ void ThreadDNSAddressSeed2(void* parg)
     printf("%d addresses found from DNS seeds\n", found);
 }
 
-
-
-
-
-
-
-
-
-
 unsigned int pnSeed[] =
 {
     0x5c30dc1f,
+    0xfef23d6c,
+    0x430d63c0,
+    0xccad236c,
+    0x2c8f1855,
+    0x7014ec68,
+    0x17a4ccd4,
+    0xb69b2518,
 };
-
-
 
 void DumpAddresses()
 {
@@ -1521,6 +1517,7 @@ void ThreadOpenConnections2(void* parg)
                 addr.nTime = GetTime()-GetRand(nOneWeek)-nOneWeek;
                 vAdd.push_back(addr);
             }
+
             addrman.Add(vAdd, CNetAddr("127.0.0.1"));
         }
 
