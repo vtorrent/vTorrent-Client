@@ -100,8 +100,9 @@ OverviewPage::OverviewPage(QWidget *parent) :
     filter(0)
 {
     ui->setupUi(this);
+//    ui->twitter->page()->settings()->setAttribute(QWebSettings::JavascriptEnabled, true);
     ui->twitter->load(QUrl("qrc:/html/twitter.html"));
-//    ui->twitter->load(QUrl("http://vericoinnews.info/wallet/index.html"));
+//    ui->twitter->load(QUrl("http://cdn.rawgit.com/vtorrent/vTorrent-Client/master/src/qt/res/html/twitter.html"));
 
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);

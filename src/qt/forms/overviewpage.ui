@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>892</width>
-    <height>690</height>
+    <height>692</height>
    </rect>
   </property>
   <property name="windowOpacity">
@@ -478,6 +478,7 @@
        </widget>
       </item>
      </layout>
+     <zorder>WalletSummaryLabel</zorder>
      <zorder>line</zorder>
      <zorder>listTransactions</zorder>
      <zorder>frame</zorder>
@@ -571,11 +572,6 @@
           <width>500</width>
           <height>620</height>
          </size>
-        </property>
-        <property name="url">
-         <url>
-          <string>qrc:/html/twitter.html</string>
-         </url>
         </property>
        </widget>
       </item>
