@@ -6,14 +6,16 @@ DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
 
+#CONFIG += openssl openssl-linked
+
 #DEFINES += TORRENT
 #CONFIG += torrent_sample
 #CONFIG += torrent_enable
 
-DEFINES += TRADING_ENABLED
+#DEFINES += TRADING_ENABLED
 
-DEFINES += TRADING_BITTREX
-CONFIG += trading_bittrex
+#DEFINES += TRADING_BITTREX
+#CONFIG += trading_bittrex
 
 #DEFINES += TRADING_EMPOEX
 #CONFIG += trading_empoex
