@@ -16,9 +16,13 @@
 
 typedef std::vector<uint8_t> data_chunk;
 
+const uint32_t MAX_STEALTH_NARRATION_SIZE = 48;
+
 const size_t ec_secret_size = 32;
 const size_t ec_compressed_size = 33;
 const size_t ec_uncompressed_size = 65;
+
+const uint8_t stealth_version_byte = 0x2c;
 
 typedef struct ec_secret { uint8_t e[ec_secret_size]; } ec_secret;
 typedef data_chunk ec_point;
@@ -91,8 +95,6 @@ public:
         READWRITE(this->spend_secret);
     );
     
-    
-
 };
 
 void AppendChecksum(data_chunk& data);

@@ -269,12 +269,16 @@ void RPCConsole::setClientModel(ClientModel *model)
 
         updateTrafficStats(model->getTotalBytesRecv(), model->getTotalBytesSent());
         connect(model, SIGNAL(bytesChanged(quint64,quint64)), this, SLOT(updateTrafficStats(quint64, quint64)));
-        
-        
+               
+        QString verDetail = "";
+        #ifdef USE_SECP256K1
+            verDetail = "-secp256k1";
+        #endif
+
         // Provide initial values
-        ui->clientVersion->setText(model->formatFullVersion());
+        ui->clientVersion->setText(model->formatFullVersion() + verDetail);
+
         ui->clientName->setText(model->clientName());
-        ui->buildDate->setText(model->formatBuildDate());
         ui->startupTime->setText(model->formatClientStartupTime());
 
         setNumConnections(model->getNumConnections());

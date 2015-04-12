@@ -36,20 +36,20 @@ public:
     int heightPrevious;
     int connectionPrevious;
     int volumePrevious;
-    double rewardPrevious;
+    int stakeminPrevious;
+    int stakemaxPrevious;
+    QString stakecPrevious;
+    QString rewardPrevious;
     double netPawratePrevious;
-    double pawratePrevious;
+    QString pawratePrevious;
     double hardnessPrevious;
+    double hardnessPrevious2;
     
 public slots:
-    //int pawMultiplier();
-    
-   // void updateInfo();
-  //  void calculate();
-   // void updateStatistics();
-  //  void updatePrevious(int, double, double, double, double, int, int);
-    void updateNet();
-    void nodeAdd();
+
+    void updateStatistics();
+    void updatePrevious(int, int, int, QString, QString, double, double, double, QString, int, int);
+
 private slots:
 
 private:

@@ -4,6 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "util.h"
+#include "state.h"
 #include "sync.h"
 #include "strlcpy.h"
 #include "version.h"
@@ -19,6 +20,7 @@ namespace boost {
         std::string to_internal(const std::string&);
     }
 }
+
 
 #include <boost/program_options/detail/config_file.hpp>
 #include <boost/program_options/parsers.hpp>
@@ -59,21 +61,9 @@ using namespace std;
 
 map<string, string> mapArgs;
 map<string, vector<string> > mapMultiArgs;
-bool fDebug = false;
-bool fDebugNet = false;
-bool fPrintToConsole = false;
-bool fPrintToDebugger = false;
-bool fRequestShutdown = false;
-bool fShutdown = false;
-bool fDaemon = false;
-bool fServer = false;
-bool fCommandLine = false;
-string strMiscWarning;
-bool fTestNet = false;
-bool fNoListen = false;
-bool fLogTimestamps = false;
+
 CMedianFilter<int64_t> vTimeOffsets(200,0);
-bool fReopenDebugLog = false;
+
 
 // Init OpenSSL library multithreading support
 static CCriticalSection** ppmutexOpenSSL;
@@ -120,13 +110,6 @@ public:
     }
 }
 instance_of_cinit;
-
-
-
-
-
-
-
 
 void RandAddSeed()
 {
@@ -183,6 +166,11 @@ int GetRandInt(int nMax)
     return GetRand(nMax);
 }
 
+uint32_t GetRandUInt32()
+{
+    return GetRand(numeric_limits<uint32_t>::max());
+}
+
 uint256 GetRandHash()
 {
     uint256 hash;
@@ -190,10 +178,62 @@ uint256 GetRandHash()
     return hash;
 }
 
+inline uint32_t ROTL32 ( uint32_t x, int8_t r )
+{
+    return (x << r) | (x >> (32 - r));
+}
 
+unsigned int MurmurHash3(unsigned int nHashSeed, const std::vector<unsigned char>& vDataToHash)
+{
+    // The following is MurmurHash3 (x86_32), see http://code.google.com/p/smhasher/source/browse/trunk/MurmurHash3.cpp
+    uint32_t h1 = nHashSeed;
+    const uint32_t c1 = 0xcc9e2d51;
+    const uint32_t c2 = 0x1b873593;
 
+    const int nblocks = vDataToHash.size() / 4;
 
+    //----------
+    // body
+    const uint32_t * blocks = (const uint32_t *)(&vDataToHash[0] + nblocks*4);
 
+    for(int i = -nblocks; i; i++)
+    {
+        uint32_t k1 = blocks[i];
+
+        k1 *= c1;
+        k1 = ROTL32(k1,15);
+        k1 *= c2;
+
+        h1 ^= k1;
+        h1 = ROTL32(h1,13); 
+        h1 = h1*5+0xe6546b64;
+    }
+
+    //----------
+    // tail
+    const uint8_t * tail = (const uint8_t*)(&vDataToHash[0] + nblocks*4);
+
+    uint32_t k1 = 0;
+
+    switch(vDataToHash.size() & 3)
+    {
+    case 3: k1 ^= tail[2] << 16;
+    case 2: k1 ^= tail[1] << 8;
+    case 1: k1 ^= tail[0];
+            k1 *= c1; k1 = ROTL32(k1,15); k1 *= c2; h1 ^= k1;
+    };
+
+    //----------
+    // finalization
+    h1 ^= vDataToHash.size();
+    h1 ^= h1 >> 16;
+    h1 *= 0x85ebca6b;
+    h1 ^= h1 >> 13;
+    h1 *= 0xc2b2ae35;
+    h1 ^= h1 >> 16;
+
+    return h1;
+}
 
 
 inline int OutputDebugStringF(const char* pszFormat, ...)
@@ -206,8 +246,8 @@ inline int OutputDebugStringF(const char* pszFormat, ...)
         va_start(arg_ptr, pszFormat);
         ret = vprintf(pszFormat, arg_ptr);
         va_end(arg_ptr);
-    }
-    else if (!fPrintToDebugger)
+    } else
+    if (!fPrintToDebugger)
     {
         // print to debug.log
         static FILE* fileout = NULL;
@@ -216,42 +256,50 @@ inline int OutputDebugStringF(const char* pszFormat, ...)
         {
             boost::filesystem::path pathDebug = GetDataDir() / "debug.log";
             fileout = fopen(pathDebug.string().c_str(), "a");
-            if (fileout) setbuf(fileout, NULL); // unbuffered
-        }
+            if (fileout)
+                setbuf(fileout, NULL); // unbuffered
+        };
+        
         if (fileout)
         {
-            static bool fStartedNewLine = true;
+            static bool fStartedNewLine = false;
 
             // This routine may be called by global destructors during shutdown.
             // Since the order of destruction of static/global objects is undefined,
             // allocate mutexDebugLog on the heap the first time this routine
             // is called to avoid crashes during shutdown.
             static boost::mutex* mutexDebugLog = NULL;
-            if (mutexDebugLog == NULL) mutexDebugLog = new boost::mutex();
+            if (mutexDebugLog == NULL)
+                mutexDebugLog = new boost::mutex();
             boost::mutex::scoped_lock scoped_lock(*mutexDebugLog);
 
             // reopen the log file, if requested
-            if (fReopenDebugLog) {
+            if (fReopenDebugLog)
+            {
                 fReopenDebugLog = false;
                 boost::filesystem::path pathDebug = GetDataDir() / "debug.log";
                 if (freopen(pathDebug.string().c_str(),"a",fileout) != NULL)
                     setbuf(fileout, NULL); // unbuffered
-            }
-
+            };
+            
             // Debug print useful for profiling
-            if (fLogTimestamps && fStartedNewLine)
-                fprintf(fileout, "%s ", DateTimeStrFormat("%x %H:%M:%S", GetTime()).c_str());
-            if (pszFormat[strlen(pszFormat) - 1] == '\n')
-                fStartedNewLine = true;
-            else
-                fStartedNewLine = false;
-
+            if (fLogTimestamps)
+            {
+                if (fStartedNewLine)
+                    fprintf(fileout, "%s ", DateTimeStrFormat("%x %H:%M:%S", GetTime()).c_str());
+                
+                if (pszFormat[strlen(pszFormat) - 1] == '\n')
+                    fStartedNewLine = true;
+                else
+                    fStartedNewLine = false;
+            };
+            
             va_list arg_ptr;
             va_start(arg_ptr, pszFormat);
             ret = vfprintf(fileout, pszFormat, arg_ptr);
             va_end(arg_ptr);
-        }
-    }
+        };
+    };
 
 #ifdef WIN32
     if (fPrintToDebugger)
@@ -358,6 +406,20 @@ void ParseString(const string& str, char c, vector<string>& v)
         v.push_back(str.substr(i1, i2-i1));
         i1 = i2+1;
     }
+}
+
+// safeChars chosen to allow simple messages/URLs/email addresses, but avoid anything
+// even possibly remotely dangerous like & or >
+static string safeChars("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890 .,;_/:?@");
+string SanitizeString(const string& str)
+{
+    string strResult;
+    for (std::string::size_type i = 0; i < str.size(); i++)
+    {
+        if (safeChars.find(str[i]) != std::string::npos)
+            strResult.push_back(str[i]);
+    }
+    return strResult;
 }
 
 
@@ -545,6 +607,24 @@ void ParseParameters(int argc, const char* const argv[])
     }
 }
 
+namespace vtr
+{
+void* memrchr(const void *s, int c, size_t n)
+{
+    if (n < 1)
+        return NULL;
+    
+    unsigned char* cp = (unsigned char*) s + n;
+    
+    do {
+        if (*(--cp) == (unsigned char) c)
+            return (void*) cp;
+    } while (--n != 0);
+    
+    return NULL;
+};
+}
+
 std::string GetArg(const std::string& strArg, const std::string& strDefault)
 {
     if (mapArgs.count(strArg))
@@ -584,6 +664,12 @@ bool SoftSetBoolArg(const std::string& strArg, bool fValue)
         return SoftSetArg(strArg, std::string("1"));
     else
         return SoftSetArg(strArg, std::string("0"));
+}
+
+bool SetArg(const std::string& strArg, const std::string& strValue)
+{
+    mapArgs[strArg] = strValue;
+    return true;
 }
 
 
@@ -1030,21 +1116,29 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific)
 
     LOCK(csPathCached);
 
-    if (mapArgs.count("-datadir")) {
+    if (mapArgs.count("-datadir"))
+    {
         path = fs::system_complete(mapArgs["-datadir"]);
-        if (!fs::is_directory(path)) {
+        if (!fs::is_directory(path))
+        {
             path = "";
             return path;
         }
-    } else {
+    } else
+    {
         path = GetDefaultDataDir();
     }
+    
+    //if (nNodeMode != NT_FULL)
+    //    path /= "thin";
+    
     if (fNetSpecific && GetBoolArg("-testnet", false))
         path /= "testnet";
 
-    fs::create_directory(path);
+    fs::create_directories(path);
 
-    cachedPath[fNetSpecific]=true;
+    cachedPath[fNetSpecific] = true;
+    
     return path;
 }
 
@@ -1119,6 +1213,59 @@ void FileCommit(FILE *fileout)
 #endif
 }
 
+const char *GetNodeModeName(int modeInd)
+{
+    switch (modeInd)
+    {
+        case NT_FULL:   return "full";
+        case NT_THIN:   return "thin";
+    };
+    
+    return "unknown";
+};
+
+const char *GetNodeStateName(int stateInd)
+{
+    switch (stateInd)
+    {
+        case NS_STARTUP:                return "Startup";
+        case NS_GET_HEADERS:            return "Get Headers";
+        case NS_GET_FILTERED_BLOCKS:    return "Get Filtered Blocks";
+        case NS_READY:                  return "Ready";
+    };
+    
+    return "unknown";
+};
+
+std::string getTimeString(int64_t timestamp, char *buffer, size_t nBuffer)
+{
+    struct tm* dt;
+    time_t t = timestamp;
+    dt = localtime(&t);
+    
+    strftime(buffer, nBuffer, "%Y-%m-%d %H:%M:%S %z", dt); // %Z shows long strings on windows
+    return std::string(buffer); // copies the null-terminated character sequence
+};
+
+std::string bytesReadable(uint64_t nBytes)
+{
+    char buffer[128];
+    if (nBytes >= 1024ll*1024ll*1024ll*1024ll)
+        snprintf(buffer, sizeof(buffer), "%.2f TB", nBytes/1024.0/1024.0/1024.0/1024.0);
+    else
+    if (nBytes >= 1024*1024*1024)
+        snprintf(buffer, sizeof(buffer), "%.2f GB", nBytes/1024.0/1024.0/1024.0);
+    else
+    if (nBytes >= 1024*1024)
+        snprintf(buffer, sizeof(buffer), "%.2f MB", nBytes/1024.0/1024.0);
+    else
+    if (nBytes >= 1024)
+        snprintf(buffer, sizeof(buffer), "%.2f KB", nBytes/1024.0);
+    else
+        snprintf(buffer, sizeof(buffer), "%"PRIu64" B", nBytes);
+    return std::string(buffer);
+};
+
 void ShrinkDebugFile()
 {
     // Scroll debug.log if it's getting too big
@@ -1137,8 +1284,8 @@ void ShrinkDebugFile()
         {
             fwrite(pch, 1, nBytes, file);
             fclose(file);
-        }
-    }
+        };
+    };
 }
 
 //
@@ -1152,7 +1299,8 @@ static int64_t nMockTime = 0;  // For unit testing
 
 int64_t GetTime()
 {
-    if (nMockTime) return nMockTime;
+    if (nMockTime)
+        return nMockTime;
 
     return time(NULL);
 }
@@ -1232,18 +1380,19 @@ uint32_t insecure_rand_Rw = 11;
 void seed_insecure_rand(bool fDeterministic)
 {
     //The seed values have some unlikely fixed points which we avoid.
-    if(fDeterministic)
+    if (fDeterministic)
     {
         insecure_rand_Rz = insecure_rand_Rw = 11;
-    } else {
+    } else
+    {
         uint32_t tmp;
-        do{
+        do {
             RAND_bytes((unsigned char*)&tmp,4);
-        }while(tmp==0 || tmp==0x9068ffffU);
+        } while(tmp==0 || tmp==0x9068ffffU);
         insecure_rand_Rz=tmp;
-        do{
+        do {
             RAND_bytes((unsigned char*)&tmp,4);
-        }while(tmp==0 || tmp==0x464fffffU);
+        } while(tmp==0 || tmp==0x464fffffU);
         insecure_rand_Rw=tmp;
     }
 }
@@ -1328,4 +1477,46 @@ bool NewThread(void(*pfn)(void*), void* parg)
         return false;
     }
     return true;
+}
+
+
+int HMAC_SHA512_Init(HMAC_SHA512_CTX *pctx, const void *pkey, size_t len)
+{
+    unsigned char key[128];
+    if (len <= 128)
+    {
+        memcpy(key, pkey, len);
+        memset(key + len, 0, 128-len);
+    }
+    else
+    {
+        SHA512_CTX ctxKey;
+        SHA512_Init(&ctxKey);
+        SHA512_Update(&ctxKey, pkey, len);
+        SHA512_Final(key, &ctxKey);
+        memset(key + 64, 0, 64);
+    }
+
+    for (int n=0; n<128; n++)
+        key[n] ^= 0x5c;
+    SHA512_Init(&pctx->ctxOuter);
+    SHA512_Update(&pctx->ctxOuter, key, 128);
+
+    for (int n=0; n<128; n++)
+        key[n] ^= 0x5c ^ 0x36;
+    SHA512_Init(&pctx->ctxInner);
+    return SHA512_Update(&pctx->ctxInner, key, 128);
+}
+
+int HMAC_SHA512_Update(HMAC_SHA512_CTX *pctx, const void *pdata, size_t len)
+{
+    return SHA512_Update(&pctx->ctxInner, pdata, len);
+}
+
+int HMAC_SHA512_Final(unsigned char *pmd, HMAC_SHA512_CTX *pctx)
+{
+    unsigned char buf[64];
+    SHA512_Final(buf, &pctx->ctxInner);
+    SHA512_Update(&pctx->ctxOuter, buf, 64);
+    return SHA512_Final(pmd, &pctx->ctxOuter);
 }

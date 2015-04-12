@@ -52,38 +52,46 @@ int64_t DecodeDumpTime(const std::string& s)
         is.imbue(formats[i]);
         is >> pt;
         if(pt != bt::ptime()) break;
-    }
+    };
 
     return pt_to_time_t(pt);
 }
 
-std::string static EncodeDumpTime(int64_t nTime) {
+std::string static EncodeDumpTime(int64_t nTime)
+{
     return DateTimeStrFormat("%Y-%m-%dT%H:%M:%SZ", nTime);
 }
 
-std::string static EncodeDumpString(const std::string &str) {
+std::string static EncodeDumpString(const std::string &str)
+{
     std::stringstream ret;
-    BOOST_FOREACH(unsigned char c, str) {
-        if (c <= 32 || c >= 128 || c == '%') {
+    BOOST_FOREACH(unsigned char c, str)
+    {
+        if (c <= 32 || c >= 128 || c == '%')
+        {
             ret << '%' << HexStr(&c, &c + 1);
-        } else {
+        } else
+        {
             ret << c;
-        }
-    }
+        };
+    };
     return ret.str();
 }
 
-std::string DecodeDumpString(const std::string &str) {
+std::string DecodeDumpString(const std::string &str)
+{
     std::stringstream ret;
-    for (unsigned int pos = 0; pos < str.length(); pos++) {
+    for (unsigned int pos = 0; pos < str.length(); pos++)
+    {
         unsigned char c = str[pos];
-        if (c == '%' && pos+2 < str.length()) {
-            c = (((str[pos+1]>>6)*9+((str[pos+1]-'0')&15)) << 4) | 
-                ((str[pos+2]>>6)*9+((str[pos+2]-'0')&15));
+        if (c == '%' && pos+2 < str.length())
+        {
+            c = (((str[pos+1]>>6)*9+((str[pos+1]-'0')&15)) << 4)
+                | ((str[pos+2]>>6)*9+((str[pos+2]-'0')&15));
             pos += 2;
-        }
+        };
         ret << c;
-    }
+    };
     return ret.str();
 }
 
@@ -109,7 +117,7 @@ Value importprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "importprivkey <vTorrentprivkey> [label]\n"
+            "importprivkey <vTorrentPrivkey> [label]\n"
             "Adds a private key (as returned by dumpprivkey) to your wallet.");
 
     string strSecret = params[0].get_str();
@@ -123,11 +131,9 @@ Value importprivkey(const Array& params, bool fHelp)
     if (fWalletUnlockStakingOnly)
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Wallet is unlocked for staking only.");
 
-    CKey key;
-    bool fCompressed;
-    CSecret secret = vchSecret.GetSecret(fCompressed);
-    key.SetSecret(secret, fCompressed);
-    CKeyID vchAddress = key.GetPubKey().GetID();
+    CKey key = vchSecret.GetKey();
+    CPubKey pubkey = key.GetPubKey();
+    CKeyID vchAddress = pubkey.GetID();
     {
         LOCK2(cs_main, pwalletMain->cs_wallet);
 
@@ -148,7 +154,7 @@ Value importprivkey(const Array& params, bool fHelp)
 
         pwalletMain->ScanForWalletTransactions(pindexGenesisBlock, true);
         pwalletMain->ReacceptWalletTransactions();
-    }
+    };
 
     return Value::null;
 }
@@ -171,7 +177,8 @@ Value importwallet(const Array& params, bool fHelp)
 
     bool fGood = true;
 
-    while (file.good()) {
+    while (file.good())
+    {
         std::string line;
         std::getline(file, line);
         if (line.empty() || line[0] == '#')
@@ -185,41 +192,46 @@ Value importwallet(const Array& params, bool fHelp)
         if (!vchSecret.SetString(vstr[0]))
             continue;
 
-        bool fCompressed;
-        CKey key;
-        CSecret secret = vchSecret.GetSecret(fCompressed);
-        key.SetSecret(secret, fCompressed);
-        CKeyID keyid = key.GetPubKey().GetID();
+        CKey key = vchSecret.GetKey();
+        CPubKey pubkey = key.GetPubKey();
+        CKeyID keyid = pubkey.GetID();
 
-        if (pwalletMain->HaveKey(keyid)) {
+        if (pwalletMain->HaveKey(keyid))
+        {
             printf("Skipping import of %s (key already present)\n", CBitcoinAddress(keyid).ToString().c_str());
             continue;
-        }
+        };
+        
         int64_t nTime = DecodeDumpTime(vstr[1]);
         std::string strLabel;
         bool fLabel = true;
-        for (unsigned int nStr = 2; nStr < vstr.size(); nStr++) {
+        for (unsigned int nStr = 2; nStr < vstr.size(); nStr++)
+        {
             if (boost::algorithm::starts_with(vstr[nStr], "#"))
                 break;
             if (vstr[nStr] == "change=1")
                 fLabel = false;
             if (vstr[nStr] == "reserve=1")
                 fLabel = false;
-            if (boost::algorithm::starts_with(vstr[nStr], "label=")) {
+            if (boost::algorithm::starts_with(vstr[nStr], "label="))
+            {
                 strLabel = DecodeDumpString(vstr[nStr].substr(6));
                 fLabel = true;
-            }
-        }
+            };
+        };
+        
         printf("Importing %s...\n", CBitcoinAddress(keyid).ToString().c_str());
-        if (!pwalletMain->AddKey(key)) {
+        if (!pwalletMain->AddKey(key))
+        {
             fGood = false;
             continue;
-        }
+        };
+        
         pwalletMain->mapKeyMetadata[keyid].nCreateTime = nTime;
         if (fLabel)
             pwalletMain->SetAddressBookName(keyid, strLabel);
         nTimeBegin = std::min(nTimeBegin, nTime);
-    }
+    };
     file.close();
 
     CBlockIndex *pindex = pindexBest;
@@ -245,8 +257,8 @@ Value dumpprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "dumpprivkey <vTorrentaddress>\n"
-            "Reveals the private key corresponding to <vTorrentaddress>.");
+            "dumpprivkey <vTorrentAddress>\n"
+            "Reveals the private key corresponding to <vTorrentAddress>.");
 
     EnsureWalletIsUnlocked();
 
@@ -257,30 +269,12 @@ Value dumpprivkey(const Array& params, bool fHelp)
     if (fWalletUnlockStakingOnly)
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Wallet is unlocked for staking only.");
     CKeyID keyID;
-
-    // Stealth Address handling Courtesy of Bittrex richie http://www.bittrex.com
-    std::set<CStealthAddress>::iterator it;
-    for (it = pwalletMain->stealthAddresses.begin(); it != pwalletMain->stealthAddresses.end(); ++it)
-    {
-        if (it->scan_secret.size() < 1)
-            continue; // stealth address is not owned
-
-        if (it->Encoded() == params[0].get_str())
-        {
-                string privKey = HexStr(it->scan_secret.begin(), it->scan_secret.end())+":"+HexStr(it->spend_secret.begin(), it->spend_secret.end());
-                return privKey;
-        };
-    }
-
-    // never gets here if key is found
-
     if (!address.GetKeyID(keyID))
         throw JSONRPCError(RPC_TYPE_ERROR, "Address does not refer to a key");
-    CSecret vchSecret;
-    bool fCompressed;
-    if (!pwalletMain->GetSecret(keyID, vchSecret, fCompressed))
+    CKey vchSecret;
+    if (!pwalletMain->GetKey(keyID, vchSecret))
         throw JSONRPCError(RPC_WALLET_ERROR, "Private key for address " + strAddress + " is not known");
-    return CBitcoinSecret(vchSecret, fCompressed).ToString();
+    return CBitcoinSecret(vchSecret).ToString();
 }
 
 Value dumpwallet(const Array& params, bool fHelp)
@@ -307,9 +301,11 @@ Value dumpwallet(const Array& params, bool fHelp)
 
     // sort time/key pairs
     std::vector<std::pair<int64_t, CKeyID> > vKeyBirth;
-    for (std::map<CKeyID, int64_t>::const_iterator it = mapKeyBirth.begin(); it != mapKeyBirth.end(); it++) {
+    for (std::map<CKeyID, int64_t>::const_iterator it = mapKeyBirth.begin(); it != mapKeyBirth.end(); it++)
+    {
         vKeyBirth.push_back(std::make_pair(it->second, it->first));
-    }
+    };
+    
     mapKeyBirth.clear();
     std::sort(vKeyBirth.begin(), vKeyBirth.end());
 
@@ -319,23 +315,20 @@ Value dumpwallet(const Array& params, bool fHelp)
     file << strprintf("# * Best block at time of backup was %i (%s),\n", nBestHeight, hashBestChain.ToString().c_str());
     file << strprintf("#   mined on %s\n", EncodeDumpTime(pindexBest->nTime).c_str());
     file << "\n";
-    for (std::vector<std::pair<int64_t, CKeyID> >::const_iterator it = vKeyBirth.begin(); it != vKeyBirth.end(); it++) {
+    for (std::vector<std::pair<int64_t, CKeyID> >::const_iterator it = vKeyBirth.begin(); it != vKeyBirth.end(); it++)
+    {
         const CKeyID &keyid = it->second;
         std::string strTime = EncodeDumpTime(it->first);
         std::string strAddr = CBitcoinAddress(keyid).ToString();
-        bool IsCompressed;
 
         CKey key;
         if (pwalletMain->GetKey(keyid, key)) {
             if (pwalletMain->mapAddressBook.count(keyid)) {
-                CSecret secret = key.GetSecret(IsCompressed);
-                file << strprintf("%s %s label=%s # addr=%s\n", CBitcoinSecret(secret, IsCompressed).ToString().c_str(), strTime.c_str(), EncodeDumpString(pwalletMain->mapAddressBook[keyid]).c_str(), strAddr.c_str());
+                file << strprintf("%s %s label=%s # addr=%s\n", CBitcoinSecret(key).ToString().c_str(), strTime.c_str(), EncodeDumpString(pwalletMain->mapAddressBook[keyid]).c_str(), strAddr.c_str());
             } else if (setKeyPool.count(keyid)) {
-                CSecret secret = key.GetSecret(IsCompressed);
-                file << strprintf("%s %s reserve=1 # addr=%s\n", CBitcoinSecret(secret, IsCompressed).ToString().c_str(), strTime.c_str(), strAddr.c_str());
+                file << strprintf("%s %s reserve=1 # addr=%s\n", CBitcoinSecret(key).ToString().c_str(), strTime.c_str(), strAddr.c_str());
             } else {
-                CSecret secret = key.GetSecret(IsCompressed);
-                file << strprintf("%s %s change=1 # addr=%s\n", CBitcoinSecret(secret, IsCompressed).ToString().c_str(), strTime.c_str(), strAddr.c_str());
+                file << strprintf("%s %s change=1 # addr=%s\n", CBitcoinSecret(key).ToString().c_str(), strTime.c_str(), strAddr.c_str());
             }
         }
     }

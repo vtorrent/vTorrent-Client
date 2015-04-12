@@ -7,6 +7,7 @@
 #include "txdb.h"
 #include "miner.h"
 #include "kernel.h"
+#include "core.h"
 
 using namespace std;
 
@@ -16,10 +17,15 @@ using namespace std;
 //
 
 extern unsigned int nMinerSleep;
+extern unsigned int nBlockMaxSize;
+extern unsigned int nBlockPrioritySize;
+extern unsigned int nBlockMinSize;
+
+extern int64_t nMinTxFee;
 
 int static FormatHashBlocks(void* pbuffer, unsigned int len)
 {
-    unsigned char* pdata = (unsigned char*)pbuffer;
+    unsigned char* pdata = (unsigned char*) pbuffer;
     unsigned int blocks = 1 + ((len + 8) / 64);
     unsigned char* pend = pdata + 64 * blocks;
     memset(pdata + len, 0, 64 * blocks - len);
@@ -61,11 +67,21 @@ public:
     set<uint256> setDependsOn;
     double dPriority;
     double dFeePerKb;
+    int64_t nFee;
 
     COrphan(CTransaction* ptxIn)
     {
         ptx = ptxIn;
         dPriority = dFeePerKb = 0;
+        nFee = 0;
+    }
+
+    COrphan(double dPriority_, double dFeePerKb_, int64_t nFee_, CTransaction* ptxIn)
+    {
+        dPriority = dPriority_;
+        dFeePerKb = dFeePerKb_;
+        nFee = nFee_;
+        ptx = ptxIn;
     }
 
     void print() const
@@ -81,9 +97,9 @@ public:
 uint64_t nLastBlockTx = 0;
 uint64_t nLastBlockSize = 0;
 int64_t nLastCoinStakeSearchInterval = 0;
- 
+
 // We want to sort transactions by priority and fee, so:
-typedef boost::tuple<double, double, CTransaction*> TxPriority;
+typedef boost::tuple<double, double, int64_t, CTransaction*> TxPriority;
 class TxPriorityCompare
 {
     bool byFee;
@@ -96,8 +112,7 @@ public:
             if (a.get<1>() == b.get<1>())
                 return a.get<0>() < b.get<0>();
             return a.get<1>() < b.get<1>();
-        }
-        else
+        } else
         {
             if (a.get<0>() == b.get<0>())
                 return a.get<1>() < b.get<1>();
@@ -121,8 +136,8 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
     txNew.vin.resize(1);
     txNew.vin[0].prevout.SetNull();
     txNew.vout.resize(1);
-    
-    
+
+
     int nHeight = pindexPrev->nHeight+1; // height of new block
 
     if (!fProofOfStake)
@@ -132,43 +147,17 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
         if (!reservekey.GetReservedKey(pubkey))
             return NULL;
         txNew.vout[0].scriptPubKey.SetDestination(pubkey.GetID());
-    }
-    else
+    } else
     {
         // Height first in coinbase required for block.version=2
         txNew.vin[0].scriptSig = (CScript() << nHeight) + COINBASE_FLAGS;
         assert(txNew.vin[0].scriptSig.size() <= 100);
 
         txNew.vout[0].SetEmpty();
-    }
+    };
 
     // Add our coinbase tx as first transaction
     pblock->vtx.push_back(txNew);
-
-    // Largest block you're willing to create:
-    unsigned int nBlockMaxSize = GetArg("-blockmaxsize", MAX_BLOCK_SIZE_GEN/2);
-    // Limit to betweeen 1K and MAX_BLOCK_SIZE-1K for sanity:
-    nBlockMaxSize = std::max((unsigned int)1000, std::min((unsigned int)(MAX_BLOCK_SIZE-1000), nBlockMaxSize));
-
-    // How much of the block should be dedicated to high-priority transactions,
-    // included regardless of the fees they pay
-    unsigned int nBlockPrioritySize = GetArg("-blockprioritysize", 27000);
-    nBlockPrioritySize = std::min(nBlockMaxSize, nBlockPrioritySize);
-
-    // Minimum block size you want to create; block will be filled with free transactions
-    // until there are no more or the block reaches this size:
-    unsigned int nBlockMinSize = GetArg("-blockminsize", 0);
-    nBlockMinSize = std::min(nBlockMaxSize, nBlockMinSize);
-
-    // Fee-per-kilobyte amount considered the same as "free"
-    // Be careful setting this: if you set it to zero then
-    // a transaction spammer can cheaply fill blocks using
-    // 1-satoshi-fee transactions. It should be set above the real
-    // cost to you of processing a transaction.
-    int64_t nMinTxFee = MIN_TX_FEE;
-    if (mapArgs.count("-mintxfee"))
-        ParseMoney(mapArgs["-mintxfee"], nMinTxFee);
-
     pblock->nBits = GetNextTargetRequired(pindexPrev, fProofOfStake);
 
     // Collect memory pool transactions into the block
@@ -196,6 +185,10 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
             bool fMissingInputs = false;
             BOOST_FOREACH(const CTxIn& txin, tx.vin)
             {
+                if (tx.nVersion == ANON_TXN_VERSION
+                    && txin.IsAnonInput()) // anon inputs are verified later in CheckAnonInputs()
+                    continue;
+
                 // Read prev transaction
                 CTransaction txPrev;
                 CTxIndex txindex;
@@ -212,7 +205,7 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
                         if (porphan)
                             vOrphan.pop_back();
                         break;
-                    }
+                    };
 
                     // Has to wait for dependencies
                     if (!porphan)
@@ -220,19 +213,39 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
                         // Use list for automatic deletion
                         vOrphan.push_back(COrphan(&tx));
                         porphan = &vOrphan.back();
-                    }
+                    };
+
                     mapDependers[txin.prevout.hash].push_back(porphan);
                     porphan->setDependsOn.insert(txin.prevout.hash);
                     nTotalIn += mempool.mapTx[txin.prevout.hash].vout[txin.prevout.n].nValue;
                     continue;
-                }
+                };
+
                 int64_t nValueIn = txPrev.vout[txin.prevout.n].nValue;
                 nTotalIn += nValueIn;
 
-                int nConf = txindex.GetDepthInMainChain();
+                int nConf = txindex.GetDepthInMainChainFromIndex();
                 dPriority += (double)nValueIn * nConf;
-            }
-            if (fMissingInputs) continue;
+            };
+
+
+            if (tx.nVersion == ANON_TXN_VERSION)
+            {
+                int64_t nSumAnon;
+                bool fInvalid;
+                if (!tx.CheckAnonInputs(txdb, nSumAnon, fInvalid, false))
+                {
+                    if (fInvalid)
+                        printf("CreateNewBlock() : CheckAnonInputs found invalid tx %s\n", tx.GetHash().ToString().substr(0,10).c_str());
+                    fMissingInputs = true;
+                    continue;
+                };
+
+                nTotalIn += nSumAnon;
+            };
+
+            if (fMissingInputs)
+                continue;
 
             // Priority is sum(valuein * age) / txsize
             unsigned int nTxSize = ::GetSerializeSize(tx, SER_NETWORK, PROTOCOL_VERSION);
@@ -241,16 +254,18 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
             // This is a more accurate fee-per-kilobyte than is used by the client code, because the
             // client code rounds up the size to the nearest 1K. That's good, because it gives an
             // incentive to create smaller transactions.
-            double dFeePerKb =  double(nTotalIn-tx.GetValueOut()) / (double(nTxSize)/1000.0);
+            int64_t nFee = nTotalIn-tx.GetValueOut();
+            double dFeePerKb =  double(nFee) / (double(nTxSize)/1000.0);
 
             if (porphan)
             {
                 porphan->dPriority = dPriority;
                 porphan->dFeePerKb = dFeePerKb;
-            }
-            else
-                vecPriority.push_back(TxPriority(dPriority, dFeePerKb, &(*mi).second));
-        }
+            } else
+            {
+                vecPriority.push_back(TxPriority(dPriority, dFeePerKb, nFee, &(*mi).second));
+            };
+        };
 
         // Collect transactions into block
         map<uint256, CTxIndex> mapTestPool;
@@ -267,7 +282,8 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
             // Take highest priority transaction off the priority queue:
             double dPriority = vecPriority.front().get<0>();
             double dFeePerKb = vecPriority.front().get<1>();
-            CTransaction& tx = *(vecPriority.front().get<2>());
+            int64_t nFee = vecPriority.front().get<2>();
+            CTransaction& tx = *(vecPriority.front().get<3>());
 
             std::pop_heap(vecPriority.begin(), vecPriority.end(), comparer);
             vecPriority.pop_back();
@@ -287,7 +303,7 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
                 continue;
 
             // Transaction fee
-            int64_t nMinFee = tx.GetMinFee(nBlockSize, GMF_BLOCK);
+            int64_t nMinFee = tx.GetMinFee(nBlockSize, GMF_BLOCK); // will get GMF_ANON if tx.nVersion == ANON_TXN_VERSION
 
             // Skip free transactions if we're past the minimum block size:
             if (fSortedByFee && (dFeePerKb < nMinTxFee) && (nBlockSize + nTxSize >= nBlockMinSize))
@@ -295,13 +311,13 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
 
             // Prioritize by fee once past the priority size or we run out of high-priority
             // transactions:
-            if (!fSortedByFee &&
-                ((nBlockSize + nTxSize >= nBlockPrioritySize) || (dPriority < COIN * 144 / 250)))
+            if (!fSortedByFee
+                && ((nBlockSize + nTxSize >= nBlockPrioritySize) || (dPriority < COIN * 144 / 250)))
             {
                 fSortedByFee = true;
                 comparer = TxPriorityCompare(fSortedByFee);
                 std::make_heap(vecPriority.begin(), vecPriority.end(), comparer);
-            }
+            };
 
             // Connecting shouldn't fail due to dependency on other memory pool transactions
             // because we're already processing them in order of dependency
@@ -311,8 +327,35 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
             if (!tx.FetchInputs(txdb, mapTestPoolTmp, false, true, mapInputs, fInvalid))
                 continue;
 
-            int64_t nTxFees = tx.GetValueIn(mapInputs)-tx.GetValueOut();
-            if (nTxFees < nMinFee)
+            //int64_t nTxFees = tx.GetValueIn(mapInputs)-tx.GetValueOut();
+
+            // -- Avoid calling CheckAnonInputs twice, use nFee from vecPriority
+            if (nFee == 0) // tx came from COrphan
+            {
+                int64_t nTxFees = tx.GetValueIn(mapInputs)-tx.GetValueOut();
+
+                if (tx.nVersion == ANON_TXN_VERSION)
+                {
+                    int64_t nSumAnon;
+                    bool fInvalid;
+                    if (!tx.CheckAnonInputs(txdb, nSumAnon, fInvalid, false))
+                    {
+                        if (fInvalid)
+                            printf("CreateNewBlock() : CheckAnonInputs found invalid tx %s\n", tx.GetHash().ToString().substr(0,10).c_str());
+                        continue;
+                    };
+
+                    nTxFees += nSumAnon;
+                };
+                nFee = nTxFees;
+            };
+
+
+            // TODO: must this be done twice!?
+            // Need to look at COrphan
+
+
+            if (nFee < nMinFee)
                 continue;
 
             nTxSigOps += tx.GetP2SHSigOpCount(mapInputs);
@@ -321,6 +364,7 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
 
             if (!tx.ConnectInputs(txdb, mapInputs, mapTestPoolTmp, CDiskTxPos(1,1,1), pindexPrev, false, true))
                 continue;
+
             mapTestPoolTmp[tx.GetHash()] = CTxIndex(CDiskTxPos(1,1,1), tx.vout.size());
             swap(mapTestPool, mapTestPoolTmp);
 
@@ -329,13 +373,13 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
             nBlockSize += nTxSize;
             ++nBlockTx;
             nBlockSigOps += nTxSigOps;
-            nFees += nTxFees;
+            nFees += nFee;
 
             if (fDebug && GetBoolArg("-printpriority"))
             {
                 printf("priority %.1f feeperkb %.1f txid %s\n",
                        dPriority, dFeePerKb, tx.GetHash().ToString().c_str());
-            }
+            };
 
             // Add transactions that depend on this one to the priority queue
             uint256 hash = tx.GetHash();
@@ -348,13 +392,13 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
                         porphan->setDependsOn.erase(hash);
                         if (porphan->setDependsOn.empty())
                         {
-                            vecPriority.push_back(TxPriority(porphan->dPriority, porphan->dFeePerKb, porphan->ptx));
+                            vecPriority.push_back(TxPriority(porphan->dPriority, porphan->dFeePerKb, porphan->nFee, porphan->ptx));
                             std::push_heap(vecPriority.begin(), vecPriority.end(), comparer);
-                        }
-                    }
-                }
-            }
-        }
+                        };
+                    };
+                };
+            };
+        };
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
@@ -389,7 +433,8 @@ void IncrementExtraNonce(CBlock* pblock, CBlockIndex* pindexPrev, unsigned int& 
     {
         nExtraNonce = 0;
         hashPrevBlock = pblock->hashPrevBlock;
-    }
+    };
+
     ++nExtraNonce;
 
     unsigned int nHeight = pindexPrev->nHeight+1; // Height first in coinbase required for block.version=2
@@ -478,7 +523,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         }
 
         // Process this block the same as if we had received it from another node
-        if (!ProcessBlock(NULL, pblock))
+        if (!ProcessBlock(NULL, pblock, hashBlock))
             return error("CheckWork() : ProcessBlock, block not accepted");
     }
 
@@ -490,7 +535,7 @@ bool CheckStake(CBlock* pblock, CWallet& wallet)
     uint256 proofHash = 0, hashTarget = 0;
     uint256 hashBlock = pblock->GetHash();
 
-    if(!pblock->IsProofOfStake())
+    if (!pblock->IsProofOfStake())
         return error("CheckStake() : %s is not a proof-of-stake block", hashBlock.GetHex().c_str());
 
     // verify hash target and signature of coinstake tx
@@ -515,7 +560,7 @@ bool CheckStake(CBlock* pblock, CWallet& wallet)
         }
 
         // Process this block the same as if we had received it from another node
-        if (!ProcessBlock(NULL, pblock))
+        if (!ProcessBlock(NULL, pblock, hashBlock))
             return error("CheckStake() : ProcessBlock, block not accepted");
     }
 
@@ -530,6 +575,7 @@ void StakeMiner(CWallet *pwallet)
     RenameThread("vTorrent-miner");
 
     bool fTryToSync = true;
+    int64_t nTimeLastStake = 0;
 
     while (true)
     {
@@ -539,29 +585,50 @@ void StakeMiner(CWallet *pwallet)
         while (pwallet->IsLocked())
         {
             nLastCoinStakeSearchInterval = 0;
-            MilliSleep(1000);
+            MilliSleep(2000);
             if (fShutdown)
                 return;
-        }
+        };
 
         while (vNodes.empty() || IsInitialBlockDownload())
         {
             nLastCoinStakeSearchInterval = 0;
             fTryToSync = true;
-            MilliSleep(1000);
+            if (fDebug  && GetBoolArg("-printcoinstake"))
+                printf("StakeMiner() IsInitialBlockDownload\n");
+            MilliSleep(2000);
             if (fShutdown)
                 return;
-        }
+        };
 
         if (fTryToSync)
         {
             fTryToSync = false;
+
             if (vNodes.size() < 3 || nBestHeight < GetNumBlocksOfPeers())
             {
+                if (fDebug  && GetBoolArg("-printcoinstake"))
+                    printf("StakeMiner() TryToSync\n");
                 MilliSleep(60000);
                 continue;
-            }
-        }
+            };
+        };
+
+        if (nBestHeight < GetNumBlocksOfPeers()-1)
+        {
+            if (fDebug  && GetBoolArg("-printcoinstake"))
+                printf("StakeMiner() nBestHeight < GetNumBlocksOfPeers()\n");
+            MilliSleep(nMinerSleep * 4);
+            continue;
+        };
+
+        if (nMinStakeInterval > 0 && nTimeLastStake + (int64_t)nMinStakeInterval > GetTime())
+        {
+            if (fDebug)
+                printf("StakeMiner() Rate limited to 1 / %d seconds.\n", nMinStakeInterval);
+            MilliSleep(nMinStakeInterval * 500); // nMinStakeInterval / 2 seconds
+            continue;
+        };
 
         //
         // Create new block
@@ -571,15 +638,16 @@ void StakeMiner(CWallet *pwallet)
         if (!pblock.get())
             return;
 
+
         // Trying to sign a block
         if (pblock->SignBlock(*pwallet, nFees))
         {
             SetThreadPriority(THREAD_PRIORITY_NORMAL);
-            CheckStake(pblock.get(), *pwallet);
+            if (CheckStake(pblock.get(), *pwallet))
+                nTimeLastStake = GetTime();
             SetThreadPriority(THREAD_PRIORITY_LOWEST);
-            MilliSleep(500);
-        }
-        else
-            MilliSleep(nMinerSleep);
-    }
+        };
+        
+        MilliSleep(nMinerSleep);
+    };
 }

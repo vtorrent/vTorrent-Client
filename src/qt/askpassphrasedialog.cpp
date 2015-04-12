@@ -27,12 +27,14 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
     ui->passEdit2->installEventFilter(this);
     ui->passEdit3->installEventFilter(this);
 
+    ui->stakingCheckBox->setChecked(fWalletUnlockStakingOnly);
+
     switch(mode)
     {
         case Encrypt: // Ask passphrase x2
             ui->passLabel1->hide();
             ui->passEdit1->hide();
-            ui->warningLabel->setText(tr("Enter the new passphrase to the client.<br/>Please use a passphrase of <b>10 or more random characters</b>, or <b>eight or more words</b>."));
+            ui->warningLabel->setText(tr("Enter the new passphrase to the client.<br/><br/>Please use a passphrase of <b>10 or more random characters</b>.<br/>"));
             setWindowTitle(tr("Encrypt client"));
             break;
         case UnlockStaking:
@@ -40,7 +42,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             ui->stakingCheckBox->show();
             // fallthru
         case Unlock: // Ask passphrase
-            ui->warningLabel->setText(tr("This operation needs your client passphrase to unlock the client."));
+            ui->warningLabel->setText(tr("This operation needs your client passphrase to unlock the client.<br/><br/>"));
             ui->passLabel2->hide();
             ui->passEdit2->hide();
             ui->passLabel3->hide();
@@ -48,7 +50,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             setWindowTitle(tr("Unlock client"));
             break;
         case Decrypt:   // Ask passphrase
-            ui->warningLabel->setText(tr("This operation needs your client passphrase to decrypt the client."));
+            ui->warningLabel->setText(tr("This operation needs your client passphrase to decrypt the client.<br/><br/>"));
             ui->passLabel2->hide();
             ui->passEdit2->hide();
             ui->passLabel3->hide();
@@ -57,7 +59,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             break;
         case ChangePass: // Ask old passphrase + new passphrase x2
             setWindowTitle(tr("Change passphrase"));
-            ui->warningLabel->setText(tr("Enter the old and new passphrase to the client."));
+            ui->warningLabel->setText(tr("Enter the old and new passphrase to the client.<br/><br/>"));
             break;
     }
 
@@ -103,7 +105,7 @@ void AskPassphraseDialog::accept()
             break;
         }
         QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm client encryption"),
-                 tr("Warning: If you encrypt your client and lose your passphrase, you will <b>LOSE ALL OF YOUR SHARES</b>!") + "<br><br>" + tr("Are you sure you wish to encrypt your client?"),
+                 tr("Warning: If you encrypt your client and lose your passphrase, you will <b>LOSE ALL OF YOUR VTR</b>!") + "<br><br>" + tr("Are you sure you wish to encrypt your client?"),
                  QMessageBox::Yes|QMessageBox::Cancel,
                  QMessageBox::Cancel);
         if(retval == QMessageBox::Yes)

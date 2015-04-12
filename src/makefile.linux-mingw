@@ -11,7 +11,7 @@ CXX:=$(TARGET_PLATFORM)-w64-mingw32-g++
 RANLIB=$(TARGET_PLATFORM)-w64-mingw32-ranlib
 STRIP=$(TARGET_PLATFORM)-w64-mingw32-strip
 
-USE_UPNP:=0
+USE_UPNP:=1
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
@@ -35,6 +35,7 @@ LIBS= \
  -l db_cxx \
  -l ssl \
  -l crypto \
+ -l secp256k1 \
  -l z
 
 DEFS=-D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE

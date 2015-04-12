@@ -1,10 +1,21 @@
 /*
  * W.J. van der Laan 2011-2012
  */
+
+#ifdef FULLCLIENT
 #include "bitcoingui.h"
+#else
+#include "bitcoingui_c.h"
+#endif
+
 #include "clientmodel.h"
 #include "walletmodel.h"
 #include "optionsmodel.h"
+
+#ifdef MESSAGING_ENABLED
+#include "messagemodel.h"
+#endif
+
 #include "guiutil.h"
 #include "guiconstants.h"
 
@@ -87,7 +98,7 @@ static void InitMessage(const std::string &message)
 {
     if(splashref)
     {
-        splashref->showMessage(QString::fromStdString(message), Qt::AlignBottom|Qt::AlignHCenter, QColor(200,0,0));
+        splashref->showMessage(QString::fromStdString(message), Qt::AlignBottom|Qt::AlignRight, QColor(255, 255, 255));
         QApplication::instance()->processEvents();
     }
 }
@@ -215,6 +226,8 @@ int main(int argc, char *argv[])
 
     try
     {
+        GUIUtil::SetThemeQSS(app);
+
         // Regenerate startup link, to fix links to old versions
         if (GUIUtil::GetStartOnSystemStartup())
             GUIUtil::SetStartOnSystemStartup(true);
@@ -232,9 +245,12 @@ int main(int argc, char *argv[])
 
                 ClientModel clientModel(&optionsModel);
                 WalletModel walletModel(pwalletMain, &optionsModel);
-
                 window.setClientModel(&clientModel);
                 window.setWalletModel(&walletModel);
+#ifdef MESSAGING_ENABLED
+                MessageModel messageModel(pwalletMain, &walletModel);
+                window.setMessageModel(&messageModel);
+#endif
 
                 // If -min option passed, start window minimized.
                 if(GetBoolArg("-min"))
@@ -254,6 +270,9 @@ int main(int argc, char *argv[])
                 window.hide();
                 window.setClientModel(0);
                 window.setWalletModel(0);
+#ifdef MESSAGING_ENABLED
+                window.setMessageModel(0);
+#endif
                 guiref = 0;
             }
             // Shutdown the core and its threads, but don't exit Bitcoin-Qt here

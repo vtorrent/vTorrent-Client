@@ -9,7 +9,6 @@
 #include "walletdb.h" // for BackupWallet
 #include "base58.h"
 
-#include <QCoreApplication>
 #include <QSet>
 #include <QTimer>
 
@@ -80,13 +79,13 @@ void WalletModel::pollBalanceChanged()
     // Get required locks upfront. This avoids the GUI from getting stuck on
     // periodical polls if the core is holding the locks for a longer time -
     // for example, during a wallet rescan.
-    /*TRY_LOCK(cs_main, lockMain);
+    TRY_LOCK(cs_main, lockMain);
     if(!lockMain)
         return;
     TRY_LOCK(wallet->cs_wallet, lockWallet);
     if(!lockWallet)
         return;
-*/
+
     if(nBestHeight != cachedNumBlocks)
     {
         // Balance and number of transactions might have changed
@@ -129,31 +128,20 @@ void WalletModel::updateTransaction(const QString &hash, int status)
         cachedNumTransactions = newNumTransactions;
         emit numTransactionsChanged(newNumTransactions);
     }
-
-    QCoreApplication::sendPostedEvents();
-    QCoreApplication::processEvents();
 }
 
 void WalletModel::updateAddressBook(const QString &address, const QString &label, bool isMine, int status)
 {
     if(addressTableModel)
         addressTableModel->updateEntry(address, label, isMine, status);
-
-    QCoreApplication::sendPostedEvents();
-    QCoreApplication::processEvents();
 }
 
 bool WalletModel::validateAddress(const QString &address)
 {
-    std::string sAddr = address.toStdString();
-    
-    if (sAddr.length() > 75)
-    {
-        if (IsStealthAddress(sAddr))
-            return true;
-    };
-    
-    CBitcoinAddress addressParsed(sAddr);
+    if (address.length() > 75)
+        return IsStealthAddress(address.toStdString());
+
+    CBitcoinAddress addressParsed(address.toStdString());
     return addressParsed.IsValid();
 }
 
@@ -185,9 +173,9 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
     }
 
     if(recipients.size() > setAddress.size())
-    {
-        return DuplicateAddress;
-    }
+        foreach(QString rcpAddr, setAddress)
+            if(!IsStealthAddress(rcpAddr.toStdString()))
+                return DuplicateAddress;
 
     int64_t nBalance = 0;
     std::vector<COutput> vCoins;
@@ -248,11 +236,9 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
                         printf("Invalid public key generated.\n");
                         return Aborted;
                     };
-                    
-                    CKeyID ckidTo = cpkTo.GetID();
-                    
-                    CBitcoinAddress addrTo(ckidTo);
-                    
+
+                    CBitcoinAddress addrTo(cpkTo.GetID());
+
                     if (SecretToPublicKey(ephem_secret, ephem_pubkey) != 0)
                     {
                         printf("Could not generate ephem public key.\n");
@@ -285,6 +271,15 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
                         
                         std::vector<unsigned char> vchNarr;
                         
+                        SecMsgCrypter crypter;
+                        crypter.SetKey(&secretShared.e[0], &ephem_pubkey[0]);
+                        
+                        if (!crypter.Encrypt((uint8_t*)&sNarr[0], sNarr.length(), vchNarr))
+                        {
+                            printf("Narration encryption failed.\n");
+                            return Aborted;
+                        };
+                        
                         if (vchNarr.size() > 48)
                         {
                             printf("Encrypted narration is too long.\n");
@@ -307,10 +302,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
             CScript scriptPubKey;
             scriptPubKey.SetDestination(CBitcoinAddress(sAddr).Get());
             vecSend.push_back(make_pair(scriptPubKey, rcp.amount));
-            
-            
-            
-            
+
             if (rcp.narration.length() > 0)
             {
                 std::string sNarr = rcp.narration.toStdString();
@@ -382,7 +374,6 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
     foreach(const SendCoinsRecipient &rcp, recipients)
     {
         std::string strAddress = rcp.address.toStdString();
-        CTxDestination dest = CBitcoinAddress(strAddress).Get();
         std::string strLabel = rcp.label.toStdString();
         {
             LOCK(wallet->cs_wallet);
@@ -392,6 +383,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
                 wallet->UpdateStealthAddress(strAddress, strLabel, true);
             } else
             {
+                CTxDestination dest = CBitcoinAddress(strAddress).Get();
                 std::map<CTxDestination, std::string>::iterator mi = wallet->mapAddressBook.find(dest);
                 
                 // Check if we have a new address or an updated label
@@ -401,7 +393,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
                 };
             };
         }
-    }
+    };
 
     return SendCoinsReturn(OK, 0, hex);
 }
@@ -482,22 +474,20 @@ bool WalletModel::backupWallet(const QString &filename)
 }
 
 // Handlers for core signals
-static void NotifyKeyStoreStatusChanged(WalletModel *walletmodel, CCryptoKeyStore *wallet)
+static void NotifyKeyStoreStatusChanged(WalletModel *walletModel, CCryptoKeyStore *wallet)
 {
     OutputDebugStringF("NotifyKeyStoreStatusChanged\n");
-    QMetaObject::invokeMethod(walletmodel, "updateStatus", Qt::QueuedConnection);
-    QCoreApplication::sendPostedEvents();
-    QCoreApplication::processEvents();
+    QMetaObject::invokeMethod(walletModel, "updateStatus", Qt::QueuedConnection);
 }
 
-static void NotifyAddressBookChanged(WalletModel *walletmodel, CWallet *wallet, const CTxDestination &address, const std::string &label, bool isMine, ChangeType status)
+static void NotifyAddressBookChanged(WalletModel *walletModel, CWallet *wallet, const CTxDestination &address, const std::string &label, bool isMine, ChangeType status)
 {
     if (address.type() == typeid(CStealthAddress))
     {
         CStealthAddress sxAddr = boost::get<CStealthAddress>(address);
         std::string enc = sxAddr.Encoded();
         OutputDebugStringF("NotifyAddressBookChanged %s %s isMine=%i status=%i\n", enc.c_str(), label.c_str(), isMine, status);
-        QMetaObject::invokeMethod(walletmodel, "updateAddressBook", Qt::QueuedConnection,
+        QMetaObject::invokeMethod(walletModel, "updateAddressBook", Qt::QueuedConnection,
                                   Q_ARG(QString, QString::fromStdString(enc)),
                                   Q_ARG(QString, QString::fromStdString(label)),
                                   Q_ARG(bool, isMine),
@@ -505,29 +495,20 @@ static void NotifyAddressBookChanged(WalletModel *walletmodel, CWallet *wallet, 
     } else
     {
         OutputDebugStringF("NotifyAddressBookChanged %s %s isMine=%i status=%i\n", CBitcoinAddress(address).ToString().c_str(), label.c_str(), isMine, status);
-        QMetaObject::invokeMethod(walletmodel, "updateAddressBook", Qt::QueuedConnection,
+        QMetaObject::invokeMethod(walletModel, "updateAddressBook", Qt::QueuedConnection,
                                   Q_ARG(QString, QString::fromStdString(CBitcoinAddress(address).ToString())),
                                   Q_ARG(QString, QString::fromStdString(label)),
                                   Q_ARG(bool, isMine),
                                   Q_ARG(int, status));
     }
-
-    QCoreApplication::sendPostedEvents();
-    QCoreApplication::processEvents();
 }
 
-static void NotifyTransactionChanged(WalletModel *walletmodel, CWallet *wallet, const uint256 &hash, ChangeType status)
+static void NotifyTransactionChanged(WalletModel *walletModel, CWallet *wallet, const uint256 &hash, ChangeType status)
 {
-    if(IsInitialBlockDownload())
-        return;
-
     OutputDebugStringF("NotifyTransactionChanged %s status=%i\n", hash.GetHex().c_str(), status);
-    QMetaObject::invokeMethod(walletmodel, "updateTransaction", Qt::QueuedConnection,
+    QMetaObject::invokeMethod(walletModel, "updateTransaction", Qt::QueuedConnection,
                               Q_ARG(QString, QString::fromStdString(hash.GetHex())),
                               Q_ARG(int, status));
-
-    QCoreApplication::sendPostedEvents();
-    QCoreApplication::processEvents();
 }
 
 void WalletModel::subscribeToCoreSignals()
@@ -536,6 +517,8 @@ void WalletModel::subscribeToCoreSignals()
     wallet->NotifyStatusChanged.connect(boost::bind(&NotifyKeyStoreStatusChanged, this, _1));
     wallet->NotifyAddressBookChanged.connect(boost::bind(NotifyAddressBookChanged, this, _1, _2, _3, _4, _5));
     wallet->NotifyTransactionChanged.connect(boost::bind(NotifyTransactionChanged, this, _1, _2, _3));
+
+    connect(this, SIGNAL(encryptionStatusChanged(int)), addressTableModel, SLOT(setEncryptionStatus(int)));
 }
 
 void WalletModel::unsubscribeFromCoreSignals()
@@ -544,6 +527,8 @@ void WalletModel::unsubscribeFromCoreSignals()
     wallet->NotifyStatusChanged.disconnect(boost::bind(&NotifyKeyStoreStatusChanged, this, _1));
     wallet->NotifyAddressBookChanged.disconnect(boost::bind(NotifyAddressBookChanged, this, _1, _2, _3, _4, _5));
     wallet->NotifyTransactionChanged.disconnect(boost::bind(NotifyTransactionChanged, this, _1, _2, _3));
+
+    disconnect(this, SIGNAL(encryptionStatusChanged(int)), addressTableModel, SLOT(setEncryptionStatus(int)));
 }
 
 // WalletModel::UnlockContext implementation
@@ -592,7 +577,7 @@ void WalletModel::UnlockContext::CopyFrom(const UnlockContext& rhs)
 
 bool WalletModel::getPubKey(const CKeyID &address, CPubKey& vchPubKeyOut) const
 {
-    return wallet->GetPubKey(address, vchPubKeyOut);   
+    return wallet->GetPubKey(address, vchPubKeyOut);
 }
 
 // returns a list of COutputs from COutPoints
@@ -609,7 +594,7 @@ void WalletModel::getOutputs(const std::vector<COutPoint>& vOutpoints, std::vect
     }
 }
 
-// AvailableCoins + LockedCoins grouped by wallet address (put change in one group with wallet address) 
+// AvailableCoins + LockedCoins grouped by wallet address (put change in one group with wallet address)
 void WalletModel::listCoins(std::map<QString, std::vector<COutput> >& mapCoins) const
 {
     std::vector<COutput> vCoins;

@@ -23,8 +23,8 @@ public:
         Date = 1,
         Type = 2,
         ToAddress = 3,
-        Narration = 4,
-        Amount = 5
+        Amount = 4,
+        Narration = 5
     };
 
     /** Roles to get specific information from a transaction row.
@@ -75,6 +75,7 @@ private:
     QString formatTooltip(const TransactionRecord *rec) const;
     QVariant txStatusDecoration(const TransactionRecord *wtx) const;
     QVariant txAddressDecoration(const TransactionRecord *wtx) const;
+    QVariant NarrationDecoration(const TransactionRecord *wtx) const;
 
 public slots:
     void updateTransaction(const QString &hash, int status);

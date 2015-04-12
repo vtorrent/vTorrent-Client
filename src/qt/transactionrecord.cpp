@@ -46,16 +46,17 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             if (wallet->IsMine(txout))
             {
                 TransactionRecord sub(hash, nTime);
-                CTxDestination address;
                 sub.idx = parts.size(); // sequence number
+
+                CTxDestination address;
+
                 sub.credit = txout.nValue;
                 if (ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
                 {
                     // Received by Bitcoin Address
                     sub.type = TransactionRecord::RecvWithAddress;
                     sub.address = CBitcoinAddress(address).ToString();
-                }
-                else
+                } else
                 {
                     // Received by IP connection (deprecated features), or a multisignature or other non-simple transaction
                     sub.type = TransactionRecord::RecvFromOther;
@@ -71,7 +72,8 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                 {
                     // Generated (proof-of-work)
                     sub.type = TransactionRecord::Generated;
-                }
+                };
+
                 if (wtx.IsCoinStake())
                 {
                     // Generated (proof-of-stake)
@@ -82,13 +84,12 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                     sub.type = TransactionRecord::Generated;
                     sub.credit = nNet > 0 ? nNet : wtx.GetValueOut() - nDebit;
                     hashPrev = hash;
-                }
+                };
 
                 parts.append(sub);
             }
         }
-    }
-    else
+    } else
     {
         bool fAllFromMe = true;
         BOOST_FOREACH(const CTxIn& txin, wtx.vin)
@@ -131,8 +132,8 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             
             parts.append(TransactionRecord(hash, nTime, TransactionRecord::SendToSelf, "", narration,
                             -(nDebit - nChange), nCredit - nChange));
-        }
-        else if (fAllFromMe)
+        } else
+        if (fAllFromMe)
         {
             //
             // Debit
@@ -143,6 +144,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
             for (unsigned int nOut = 0; nOut < wtx.vout.size(); nOut++)
             {
                 const CTxOut& txout = wtx.vout[nOut];
+
                 TransactionRecord sub(hash, nTime);
                 sub.idx = parts.size();
                 
@@ -219,6 +221,7 @@ void TransactionRecord::updateStatus(const CWalletTx &wtx)
         (wtx.IsCoinBase() ? 1 : 0),
         wtx.nTimeReceived,
         idx);
+
     status.countsForBalance = wtx.IsTrusted() && !(wtx.GetBlocksToMaturity() > 0);
     status.depth = wtx.GetDepthInMainChain();
     status.cur_num_blocks = nBestHeight;

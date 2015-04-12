@@ -28,8 +28,10 @@ class CScript;
 
 static const unsigned int MAX_SIZE = 0x02000000;
 
-// Used to bypass the rule against non-const reference to temporary
-// where it makes sense with wrappers such as CFlatData or CTxDB
+/**
+ * Used to bypass the rule against non-const reference to temporary
+ * where it makes sense with wrappers such as CFlatData or CTxDB
+ */
 template<typename T>
 inline T& REF(const T& val)
 {

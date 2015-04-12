@@ -24,25 +24,16 @@ static int column_alignments[] = {
         Qt::AlignLeft|Qt::AlignVCenter,
         Qt::AlignLeft|Qt::AlignVCenter,
         Qt::AlignLeft|Qt::AlignVCenter,
-        Qt::AlignLeft|Qt::AlignVCenter,
+        Qt::AlignRight|Qt::AlignVCenter,
         Qt::AlignRight|Qt::AlignVCenter
     };
 
 // Comparison operator for sort/binary search of model tx list
 struct TxLessThan
 {
-    bool operator()(const TransactionRecord &a, const TransactionRecord &b) const
-    {
-        return a.hash < b.hash;
-    }
-    bool operator()(const TransactionRecord &a, const uint256 &b) const
-    {
-        return a.hash < b;
-    }
-    bool operator()(const uint256 &a, const TransactionRecord &b) const
-    {
-        return a < b.hash;
-    }
+    bool operator()(const TransactionRecord &a, const TransactionRecord &b) const { return a.hash < b.hash; }
+    bool operator()(const TransactionRecord &a, const uint256 &b)           const { return a.hash < b;      }
+    bool operator()(const uint256 &a, const TransactionRecord &b)           const { return a      < b.hash; }
 };
 
 // Private implementation
@@ -69,13 +60,12 @@ public:
     {
         OutputDebugStringF("refreshWallet\n");
         cachedWallet.clear();
+
         {
             LOCK2(cs_main, wallet->cs_wallet);
-            for(std::map<uint256, CWalletTx>::iterator it = wallet->mapWallet.begin(); it != wallet->mapWallet.end(); ++it)
-            {
-                if(TransactionRecord::showTransaction(it->second))
+            for (std::map<uint256, CWalletTx>::iterator it = wallet->mapWallet.begin(); it != wallet->mapWallet.end(); ++it)
+                if (TransactionRecord::showTransaction(it->second))
                     cachedWallet.append(TransactionRecord::decomposeTransaction(wallet, it->second));
-            }
         }
     }
 
@@ -106,13 +96,13 @@ public:
             // Determine whether to show transaction or not
             bool showTransaction = (inWallet && TransactionRecord::showTransaction(mi->second));
 
-            if(status == CT_UPDATED)
+            if (status == CT_UPDATED)
             {
-                if(showTransaction && !inModel)
+                if (showTransaction && !inModel)
                     status = CT_NEW; /* Not in model, but want to show, treat as new */
-                if(!showTransaction && inModel)
+                if (!showTransaction && inModel)
                     status = CT_DELETED; /* In model, but want to hide, treat as deleted */
-            }
+            };
 
             OutputDebugStringF("   inWallet=%i inModel=%i Index=%i-%i showTransaction=%i derivedStatus=%i\n",
                      inWallet, inModel, lowerIndex, upperIndex, showTransaction, status);
@@ -186,10 +176,11 @@ public:
             //  update the status of this transaction from the wallet. Otherwise,
             // simply re-use the cached status.
             TRY_LOCK(cs_main, lockMain);
-            if(lockMain)
+
+            if(lockMain && rec->statusUpdateNeeded())
             {
                 TRY_LOCK(wallet->cs_wallet, lockWallet);
-                if(lockWallet && rec->statusUpdateNeeded())
+                if(lockWallet)
                 {
                     std::map<uint256, CWalletTx>::iterator mi = wallet->mapWallet.find(rec->hash);
 
@@ -228,7 +219,7 @@ TransactionTableModel::TransactionTableModel(CWallet* wallet, WalletModel *paren
         walletModel(parent),
         priv(new TransactionTablePriv(wallet, this))
 {
-    columns << QString() << tr("Date") << tr("Type") << tr("Address") << tr("Narration") << tr("Amount");
+    columns << QString() << tr("Date/Time") << tr("Type") << tr("Address") << tr("Amount (VTR)") << QString();
 
     priv->refreshWallet();
 
@@ -379,6 +370,13 @@ QVariant TransactionTableModel::txAddressDecoration(const TransactionRecord *wtx
     return QVariant();
 }
 
+QVariant TransactionTableModel::NarrationDecoration(const TransactionRecord *wtx) const
+{
+    if(!wtx->narration.empty())
+        return QIcon(":/icons/narration");
+    return QVariant();
+}
+
 QString TransactionTableModel::formatTxToAddress(const TransactionRecord *wtx, bool tooltip) const
 {
     switch(wtx->type)
@@ -499,6 +497,8 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
             return txStatusDecoration(rec);
         case ToAddress:
             return txAddressDecoration(rec);
+        case Narration:
+            return NarrationDecoration(rec);
         }
         break;
     case Qt::DisplayRole:
@@ -510,8 +510,6 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
             return formatTxType(rec);
         case ToAddress:
             return formatTxToAddress(rec, false);
-        case Narration:
-            return formatNarration(rec);
         case Amount:
             return formatTxAmount(rec);
         }
@@ -533,7 +531,14 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         }
         break;
     case Qt::ToolTipRole:
-        return formatTooltip(rec);
+        switch(index.column())
+        {
+        case Narration:
+            return formatNarration(rec);
+        default:
+            return formatTooltip(rec);
+        }
+        break;
     case Qt::TextAlignmentRole:
         return column_alignments[index.column()];
     case Qt::ForegroundRole:

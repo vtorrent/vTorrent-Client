@@ -35,8 +35,7 @@
 #include <stdint.h>
 #include <inttypes.h>
 
-static const int64_t COIN = 100000000;
-static const int64_t CENT = 1000000;
+
 
 #define BEGIN(a)            ((char*)&(a))
 #define END(a)              ((char*)&((&(a))[1]))
@@ -121,25 +120,8 @@ inline void MilliSleep(int64_t n)
 
 
 
-
-
-
 extern std::map<std::string, std::string> mapArgs;
 extern std::map<std::string, std::vector<std::string> > mapMultiArgs;
-extern bool fDebug;
-extern bool fDebugNet;
-extern bool fPrintToConsole;
-extern bool fPrintToDebugger;
-extern bool fRequestShutdown;
-extern bool fShutdown;
-extern bool fDaemon;
-extern bool fServer;
-extern bool fCommandLine;
-extern std::string strMiscWarning;
-extern bool fTestNet;
-extern bool fNoListen;
-extern bool fLogTimestamps;
-extern bool fReopenDebugLog;
 
 void RandAddSeed();
 void RandAddSeedPerfmon();
@@ -174,6 +156,7 @@ bool ATTR_WARN_PRINTF(1,2) error(const char *format, ...);
 void PrintException(std::exception* pex, const char* pszThread);
 void PrintExceptionContinue(std::exception* pex, const char* pszThread);
 void ParseString(const std::string& str, char c, std::vector<std::string>& v);
+std::string SanitizeString(const std::string& str);
 std::string FormatMoney(int64_t n, bool fPlus=false);
 bool ParseMoney(const std::string& str, int64_t& nRet);
 bool ParseMoney(const char* pszIn, int64_t& nRet);
@@ -204,8 +187,16 @@ void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet, std::map
 #ifdef WIN32
 boost::filesystem::path GetSpecialFolderPath(int nFolder, bool fCreate = true);
 #endif
+
+const char *GetNodeModeName(int modeInd);
+const char *GetNodeStateName(int stateInd);
+
+std::string getTimeString(int64_t timestamp, char *buffer, size_t nBuffer);
+std::string bytesReadable(uint64_t nBytes);
+
 void ShrinkDebugFile();
 int GetRandInt(int nMax);
+uint32_t GetRandUInt32();
 uint64_t GetRand(uint64_t nMax);
 uint256 GetRandHash();
 int64_t GetTime();
@@ -290,7 +281,7 @@ std::string HexStr(const T itbegin, const T itend, bool fSpaces=false)
     static const char hexmap[16] = { '0', '1', '2', '3', '4', '5', '6', '7',
                                      '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
     rv.reserve((itend-itbegin)*3);
-    for(T it = itbegin; it < itend; ++it)
+    for (T it = itbegin; it < itend; ++it)
     {
         unsigned char val = (unsigned char)(*it);
         if(fSpaces && it != itbegin)
@@ -364,6 +355,10 @@ inline bool IsSwitchChar(char c)
 #endif
 }
 
+namespace vtr
+{
+    void* memrchr(const void *s, int c, size_t n);
+}
 /**
  * Return string argument or default value
  *
@@ -410,6 +405,21 @@ bool SoftSetArg(const std::string& strArg, const std::string& strValue);
 bool SoftSetBoolArg(const std::string& strArg, bool fValue);
 
 /**
+ * Set an argument
+ * for boolean arguments use "1" / "0"
+ *
+ * @param strArg Argument to set (e.g. "-foo")
+ * @param strValue Value (e.g. "1")
+ * @return true
+ */
+bool SetArg(const std::string& strArg, const std::string& strValue);
+
+inline bool SetBoolArg(const std::string& strArg, bool fValue)
+{
+    return SetArg(strArg, fValue ? "1" : "0");
+};
+
+/**
  * MWC RNG of George Marsaglia
  * This is intended to be fast. It has a period of 2^59.3, though the
  * least significant 16 bits only have a period of about 2^30.1.
@@ -451,21 +461,25 @@ public:
     int nType;
     int nVersion;
 
-    void Init() {
+    void Init()
+    {
         SHA256_Init(&ctx);
     }
 
-    CHashWriter(int nTypeIn, int nVersionIn) : nType(nTypeIn), nVersion(nVersionIn) {
+    CHashWriter(int nTypeIn, int nVersionIn) : nType(nTypeIn), nVersion(nVersionIn)
+    {
         Init();
     }
 
-    CHashWriter& write(const char *pch, size_t size) {
+    CHashWriter& write(const char *pch, size_t size)
+    {
         SHA256_Update(&ctx, pch, size);
         return (*this);
     }
 
     // invalidates the object
-    uint256 GetHash() {
+    uint256 GetHash()
+    {
         uint256 hash1;
         SHA256_Final((unsigned char*)&hash1, &ctx);
         uint256 hash2;
@@ -524,14 +538,23 @@ uint256 SerializeHash(const T& obj, int nType=SER_GETHASH, int nVersion=PROTOCOL
     return ss.GetHash();
 }
 
-inline uint160 Hash160(const std::vector<unsigned char>& vch)
+template<typename T1>
+inline uint160 Hash160(const T1 pbegin, const T1 pend)
 {
+    static unsigned char pblank[1];
     uint256 hash1;
-    SHA256(&vch[0], vch.size(), (unsigned char*)&hash1);
+    SHA256((pbegin == pend ? pblank : (unsigned char*)&pbegin[0]), (pend - pbegin) * sizeof(pbegin[0]), (unsigned char*)&hash1);
     uint160 hash2;
     RIPEMD160((unsigned char*)&hash1, sizeof(hash1), (unsigned char*)&hash2);
     return hash2;
 }
+
+inline uint160 Hash160(const std::vector<unsigned char>& vch)
+{
+    return Hash160(vch.begin(), vch.end());
+}
+
+unsigned int MurmurHash3(unsigned int nHashSeed, const std::vector<unsigned char>& vDataToHash);
 
 /**
  * Timing-attack-resistant comparison.
@@ -568,7 +591,7 @@ public:
 
     void input(T value)
     {
-        if(vValues.size() == nSize)
+        if (vValues.size() == nSize)
         {
             vValues.erase(vValues.begin());
         }
@@ -583,11 +606,10 @@ public:
     {
         int size = vSorted.size();
         assert(size>0);
-        if(size & 1) // Odd number of elements
+        if (size & 1) // Odd number of elements
         {
             return vSorted[size/2];
-        }
-        else // Even number of elements
+        } else // Even number of elements
         {
             return (vSorted[size/2-1] + vSorted[size/2]) / 2;
         }
@@ -598,7 +620,7 @@ public:
         return vValues.size();
     }
 
-    std::vector<T> sorted () const
+    std::vector<T> sorted() const
     {
         return vSorted;
     }
@@ -642,6 +664,16 @@ inline uint32_t ByteReverse(uint32_t value)
     value = ((value & 0xFF00FF00) >> 8) | ((value & 0x00FF00FF) << 8);
     return (value<<16) | (value>>16);
 }
+
+typedef struct
+{
+    SHA512_CTX ctxInner;
+    SHA512_CTX ctxOuter;
+} HMAC_SHA512_CTX;
+
+int HMAC_SHA512_Init(HMAC_SHA512_CTX *pctx, const void *pkey, size_t len);
+int HMAC_SHA512_Update(HMAC_SHA512_CTX *pctx, const void *pdata, size_t len);
+int HMAC_SHA512_Final(unsigned char *pmd, HMAC_SHA512_CTX *pctx);
 
 #endif
 

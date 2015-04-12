@@ -18,18 +18,20 @@ SendCoinsEntry::SendCoinsEntry(QWidget *parent) :
 {
     ui->setupUi(this);
 
-#ifdef Q_OS_MAC
-    ui->payToLayout->setSpacing(4);
-#endif
 #if QT_VERSION >= 0x040700
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
     ui->payTo->setPlaceholderText(tr("Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)"));
+    ui->narration->setPlaceholderText(tr("Enter a short note to send with payment (max 24 characters)"));
 #endif
     setFocusPolicy(Qt::TabFocus);
     setFocusProxy(ui->payTo);
 
+    ui->addAsLabel->setFont(GUIUtil::bitcoinAddressFont());
+    ui->narration->setFont(GUIUtil::bitcoinAddressFont());
+
     GUIUtil::setupAddressWidget(ui->payTo, this);
+    ui->narration->setMaxLength(24);
 }
 
 SendCoinsEntry::~SendCoinsEntry()
@@ -47,7 +49,7 @@ void SendCoinsEntry::on_addressBookButton_clicked()
 {
     if(!model)
         return;
-    AddressBookPage dlg(AddressBookPage::ForSending, AddressBookPage::SendingTab, this);
+    AddressBookPage dlg(AddressBookPage::ForSending, AddressBookPage::SendingTabDialog, this);
     dlg.setModel(model->getAddressTableModel());
     if(dlg.exec())
     {
@@ -90,6 +92,7 @@ void SendCoinsEntry::clear()
     ui->payTo->clear();
     ui->addAsLabel->clear();
     ui->payAmount->clear();
+    ui->narration->clear();
     ui->payTo->setFocus();
     // update the display unit, to not use the default ("BTC")
     updateDisplayUnit();
@@ -135,8 +138,9 @@ SendCoinsRecipient SendCoinsEntry::getValue()
 
     rv.address = ui->payTo->text();
     rv.label = ui->addAsLabel->text();
-
-    if (rv.address.length() > 75
+    rv.narration = ui->narration->text();
+    
+    if (rv.address.length() > 75 
         && IsStealthAddress(rv.address.toStdString()))
         rv.typeInd = AddressTableModel::AT_Stealth;
     else
@@ -154,12 +158,14 @@ QWidget *SendCoinsEntry::setupTabChain(QWidget *prev)
     QWidget::setTabOrder(ui->addressBookButton, ui->pasteButton);
     QWidget::setTabOrder(ui->pasteButton, ui->deleteButton);
     QWidget::setTabOrder(ui->deleteButton, ui->addAsLabel);
-    return ui->payAmount->setupTabChain(ui->addAsLabel);
+    QWidget::setTabOrder(ui->addAsLabel, ui->narration);
+    return ui->payAmount->setupTabChain(ui->narration);
 }
 
 void SendCoinsEntry::setValue(const SendCoinsRecipient &value)
 {
     ui->payTo->setText(value.address);
+    ui->narration->setText(value.narration);
     ui->addAsLabel->setText(value.label);
     ui->payAmount->setValue(value.amount);
 }

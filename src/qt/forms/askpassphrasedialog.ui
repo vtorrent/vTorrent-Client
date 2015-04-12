@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>598</width>
-    <height>198</height>
+    <width>550</width>
+    <height>180</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -26,6 +26,9 @@
    <string>Passphrase Dialog</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>10</number>
+   </property>
    <item>
     <widget class="QLabel" name="warningLabel">
      <property name="textFormat">
@@ -104,14 +107,14 @@
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="visible">
+        <bool>false</bool>
+       </property>
        <property name="toolTip">
         <string>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</string>
        </property>
        <property name="text">
         <string>For staking only</string>
-       </property>
-       <property name="visible">
-        <bool>false</bool>
        </property>
       </widget>
      </item>

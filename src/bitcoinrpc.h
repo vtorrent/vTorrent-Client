@@ -11,6 +11,7 @@
 #include <map>
 
 class CBlockIndex;
+class CBlockThinIndex;
 
 #include "json/json_spirit_reader_template.h"
 #include "json/json_spirit_writer_template.h"
@@ -88,6 +89,9 @@ void RPCTypeCheck(const json_spirit::Array& params,
 void RPCTypeCheck(const json_spirit::Object& o,
                   const std::map<std::string, json_spirit::Value_type>& typesExpected, bool fAllowNull=false);
 
+bool IsStringBoolPositive(std::string& value);
+bool IsStringBoolNegative(std::string& value);
+
 typedef json_spirit::Value(*rpcfn_type)(const json_spirit::Array& params, bool fHelp);
 
 class CRPCCommand
@@ -127,6 +131,7 @@ extern int64_t nWalletUnlockTime;
 extern int64_t AmountFromValue(const json_spirit::Value& value);
 extern json_spirit::Value ValueFromAmount(int64_t amount);
 extern double GetDifficulty(const CBlockIndex* blockindex = NULL);
+extern double GetHeaderDifficulty(const CBlockThinIndex* blockindex = NULL);
 
 extern double GetPoWMHashPS();
 extern double GetPoSKernelPS();
@@ -216,6 +221,9 @@ extern json_spirit::Value getrawmempool(const json_spirit::Array& params, bool f
 extern json_spirit::Value getblockhash(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value getblock(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value getblockbynumber(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value setbestblockbyheight(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value rewindchain(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value nextorphan(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value getcheckpoint(const json_spirit::Array& params, bool fHelp);
 
 extern json_spirit::Value getnewstealthaddress(const json_spirit::Array& params, bool fHelp);
@@ -225,5 +233,36 @@ extern json_spirit::Value sendtostealthaddress(const json_spirit::Array& params,
 extern json_spirit::Value clearwallettransactions(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value scanforalltxns(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value scanforstealthtxns(const json_spirit::Array& params, bool fHelp);
+
+extern json_spirit::Value sendvtrtoanon(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value sendanontoanon(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value sendanontovtr(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value estimateanonfee(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value anonoutputs(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value anoninfo(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value reloadanondata(const json_spirit::Array& params, bool fHelp);
+
+
+extern json_spirit::Value txnreport(const json_spirit::Array& params, bool fHelp);
+
+
+extern json_spirit::Value smsgenable(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsgdisable(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsglocalkeys(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsgoptions(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsgscanchain(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsgscanbuckets(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsgaddkey(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsggetpubkey(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsgsend(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsgsendanon(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsginbox(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsgoutbox(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value smsgbuckets(const json_spirit::Array& params, bool fHelp);
+
+
+extern json_spirit::Value thinscanmerkleblocks(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value thinforcestate(const json_spirit::Array& params, bool fHelp);
+
 
 #endif

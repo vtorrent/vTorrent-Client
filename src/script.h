@@ -17,6 +17,7 @@
 #include "keystore.h"
 #include "bignum.h"
 #include "stealth.h"
+#include "ringsig.h"
 
 typedef std::vector<unsigned char> valtype;
 
@@ -195,8 +196,7 @@ enum opcodetype
     OP_NOP7 = 0xb6,
     OP_NOP8 = 0xb7,
     OP_NOP9 = 0xb8,
-    OP_NOP10 = 0xb9,
-
+    OP_ANON_MARKER = 0xb9,
 
 
     // template matching params
@@ -249,8 +249,7 @@ protected:
         if (n == -1 || (n >= 1 && n <= 16))
         {
             push_back(n + (OP_1 - 1));
-        }
-        else
+        } else
         {
             CBigNum bn(n);
             *this << bn.getvch();
@@ -263,8 +262,7 @@ protected:
         if (n >= 1 && n <= 16)
         {
             push_back(n + (OP_1 - 1));
-        }
-        else
+        } else
         {
             CBigNum bn(n);
             *this << bn.getvch();
@@ -363,24 +361,23 @@ public:
         if (b.size() < OP_PUSHDATA1)
         {
             insert(end(), (unsigned char)b.size());
-        }
-        else if (b.size() <= 0xff)
+        } else
+        if (b.size() <= 0xff)
         {
             insert(end(), OP_PUSHDATA1);
             insert(end(), (unsigned char)b.size());
-        }
-        else if (b.size() <= 0xffff)
+        } else
+        if (b.size() <= 0xffff)
         {
             insert(end(), OP_PUSHDATA2);
             unsigned short nSize = b.size();
             insert(end(), (unsigned char*)&nSize, (unsigned char*)&nSize + sizeof(nSize));
-        }
-        else
+        } else
         {
             insert(end(), OP_PUSHDATA4);
             unsigned int nSize = b.size();
             insert(end(), (unsigned char*)&nSize, (unsigned char*)&nSize + sizeof(nSize));
-        }
+        };
         insert(end(), b.begin(), b.end());
         return *this;
     }
@@ -550,7 +547,7 @@ public:
     bool HasCanonicalPushes() const;
 
     void SetDestination(const CTxDestination& address);
-    void SetMultisig(int nRequired, const std::vector<CKey>& keys);
+    void SetMultisig(int nRequired, const std::vector<CPubKey>& keys);
 
     std::string ToString(bool fShort=false) const
     {

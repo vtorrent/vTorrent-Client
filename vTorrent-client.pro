@@ -1,45 +1,38 @@
+#CONFIG += FULLCLIENT
+#CONFIG += torrent_sample
+#CONFIG += torrent_enable
+
+FULLCLIENT {
+    TARGET = vTorrent-Client
+} else {
+    TARGET = vTorrent-Classic
+}
+
 TEMPLATE = app
-TARGET = vTorrent-client
-VERSION = 1.1.0.0
+VERSION = 0.7.2.0
 INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
 
-#CONFIG += openssl openssl-linked
+#DEFINES += QT_NO_DEBUG_OUTPUT
 
-#DEFINES += TORRENT
-#CONFIG += torrent_sample
-#CONFIG += torrent_enable
+# Mobile devices
+android:ios{
+    CONFIG += mobility
+    MOBILITY =
+}
 
-#DEFINES += TRADING_ENABLED
-
-#DEFINES += TRADING_BITTREX
-#CONFIG += trading_bittrex
-
-#DEFINES += TRADING_EMPOEX
-#CONFIG += trading_empoex
+CONFIG += openssl openssl-linked
 
 !win32 {
 CONFIG += static
 }
 
-QT += network webkit
+QT += network core
 greaterThan(QT_MAJOR_VERSION, 4) {
-    QT += webkitwidgets
+    QT += widgets
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
-}
-
-win32 {
-    BOOST_LIB_SUFFIX=-mgw48-mt-s-1_55
-    BOOST_INCLUDE_PATH=C:/deps/boost_1_55_0
-    BOOST_LIB_PATH=C:/deps/boost_1_55_0/stage/lib
-    BDB_INCLUDE_PATH=C:/deps/db-4.8.30.NC/build_unix
-    BDB_LIB_PATH=C:/deps/db-4.8.30.NC/build_unix
-    OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1g/include
-    OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1g
-    MINIUPNPC_INCLUDE_PATH=C:/deps/
-    MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
 }
 
 # for boost 1.37, add -mt to the boost libraries
@@ -56,48 +49,96 @@ OBJECTS_DIR = build
 MOC_DIR = build
 UI_DIR = build
 
-build_macosx64 {
-    BOOST_LIB_SUFFIX=-mt
-    BOOST_INCLUDE_PATH=/usr/local/Cellar/boost/1.56.0/include
-    BOOST_LIB_PATH=/usr/local/Cellar/boost/1.56.0/lib
+android {
+    INCLUDEPATH += src/qt/android
 
-    BDB_INCLUDE_PATH=/usr/local/opt/berkeley-db4/include
+    QT += androidextras
 
+    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+
+    OTHER_FILES +=
+
+    HEADERS +=
+    SOURCES +=
+
+    OBJECTS_DIR = build-android
+    MOC_DIR = build-android
+    UI_DIR = build-android
+}
+
+# use: qmake "USE_SECP256K1=1"
+# libsecp256k1 (https://github.com/bitcoin/secp256k1) must be installed for support
+# use: QMAKE_CXXFLAGS *= -DUSE_SECP256K1
+#contains(USE_SECP256K1, 1) { // use SECP256K1 is NOT OPTIONAL until smessage.cpp is coded for non-secp256k1
+    message(Building with libsecp256k1 support)
+    DEFINES += USE_SECP256K1
+    QMAKE_CXXFLAGS *= -DUSE_SECP256K1
+
+!win32 {
+    SECP256K1_LIB_PATH = /usr/local/lib
+    SECP256K1_INCLUDE_PATH = /usr/local/include
+} else {
+    SECP256K1_LIB_PATH=c:/deps/secp256k1/.libs
+    SECP256K1_INCLUDE_PATH=c:/deps/secp256k1/include
+}
+
+    INCLUDEPATH += $$SECP256K1_INCLUDE_PATH
+    LIBS += $$join(SECP256K1_LIB_PATH,,-L,) -lsecp256k1
+#} // USE SECP256K1 NOT OPTIONAL UNTIL SMSG WORKS WITH SSL
+
+macx {
     OPENSSL_INCLUDE_PATH=/usr/local/opt/openssl/include
     OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib
+
+    BOOST_LIB_SUFFIX=-mt
+    BOOST_INCLUDE_PATH=/usr/local/Cellar/boost/1.57.0/include
+    BOOST_LIB_PATH=/usr/local/Cellar/boost/1.57.0/lib
+
+    BDB_INCLUDE_PATH=/usr/local/Cellar/berkeley-db/6.1.19/include
+    BDB_LIB_PATH=/usr/local/Cellar/berkeley-db/6.1.19/lib
 
     MINIUPNPC_INCLUDE_PATH=/usr/local/Cellar/miniupnpc/1.9.20141027/include
     MINIUPNPC_LIB_PATH=/usr/local/Cellar/miniupnpc/1.9.20141027/lib
 
-    QRENCODE_INCLUDE_PATH=/usr/local/opt/qrencode/include
-    QRENCODE_LIB_PATH=/usr/local/opt/qrencode/lib
+    QRENCODE_INCLUDE_PATH=/usr/local/Cellar/qrencode/3.4.4/include
+    QRENCODE_LIB_PATH=/usr/local/Cellar/qrencode/3.4.4/lib
 
-    DEFINES += IS_ARCH_64
+    SNAPPY_INCLUDE_PATH=/usr/local/Cellar/snappy/1.1.1/include
+    SNAPPY_LIB_PATH=/usr/local/Cellar/snappy/1.1.1/lib
+
+    INCLUDEPATH += $$SNAPPY_INCLUDE_PATH
+    LIBS += $$join(SNAPPY_LIB_PATH,,-L,) -lsnappy
+
+#    LIBEVENT_INCLUDE_PATH = /usr/local/Cellar/libevent/2.0.22/include
+#    LIBEVENT_LIB_PATH = /usr/local/Cellar/libevent/2.0.22/lib
+
+#    INCLUDEPATH += $$LIBEVENT_INCLUDE_PATH
+#    LIBS += $$join(LIBEVENT_LIB_PATH,,-L,) -levent
+
+#    DEFINES += IS_ARCH_64 #unsure if needed?
     QMAKE_CXXFLAGS += -arch x86_64 -stdlib=libc++
     QMAKE_CFLAGS += -arch x86_64
     QMAKE_LFLAGS += -arch x86_64 -stdlib=libc++
 }
 
-isEmpty(MINIUPNPC_INCLUDE_PATH) {
-    macx:MINIUPNPC_INCLUDE_PATH=/usr/local/Cellar/miniupnpc/1.9.20141027/include
-}
-
-isEmpty(MINIUPNPC_LIB_PATH) {
-    macx:MINIUPNPC_LIB_PATH=/usr/local/Cellar/miniupnpc/1.9.20141027/lib
-}
-
-isEmpty(QRENCODE_INCLUDE_PATH) {
-    macx:QRENCODE_INCLUDE_PATH=/usr/local/opt/qrencode/include
-}
-
-isEmpty(QRENCODE_LIB_PATH) {
-    macx:QRENCODE_LIB_PATH=/usr/local/opt/qrencode/lib
+win32 {
+    OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1j/include
+    OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1j
+    BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
+    BOOST_INCLUDE_PATH=C:/deps/boost_1_57_0
+    BOOST_LIB_PATH=C:/deps/boost_1_57_0/stage/lib
+    BDB_INCLUDE_PATH=C:/deps/db-6.1.23.NC/build_unix
+    BDB_LIB_PATH=C:/deps/db-6.1.23.NC/build_unix
+    MINIUPNPC_INCLUDE_PATH=C:/deps/
+    MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
+    QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
+    QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
 }
 
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
-    # Mac: compile for maximum compatibility (10.5, 32-bit)
-    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.5 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+
+    CONFIG += static
 
     !windows:!macx {
         # Linux: static link
@@ -113,7 +154,7 @@ QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
 # This can be enabled for Windows, when we switch to MinGW >= 4.4.x.
 }
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
-win32:QMAKE_LFLAGS *= -Wl,--large-address-aware -static
+win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat,--large-address-aware -static
 win32:QMAKE_LFLAGS += -static-libgcc -static-libstdc++
 lessThan(QT_MAJOR_VERSION, 5): win32: QMAKE_LFLAGS *= -static
 
@@ -125,7 +166,7 @@ contains(USE_QRCODE, 1) {
     LIBS += -lqrencode
 }
 
-# use: qmake "USE_UPNP=1" ( enabled by default; default)
+# use: qmake "USE_UPNP=1" (enabled by default; default)
 #  or: qmake "USE_UPNP=0" (disabled by default)
 #  or: qmake "USE_UPNP=-" (not supported)
 # miniupnpc (http://miniupnp.free.fr/files/) must be installed for support
@@ -136,7 +177,7 @@ contains(USE_UPNP, -) {
     count(USE_UPNP, 0) {
         USE_UPNP=1
     }
-    DEFINES += USE_UPNP=$$USE_UPNP STATICLIB
+    DEFINES += USE_UPNP=$$USE_UPNP MINIUPNP_STATICLIB STATICLIB
     INCLUDEPATH += $$MINIUPNPC_INCLUDE_PATH
     LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc
     win32:LIBS += -liphlpapi
@@ -160,6 +201,7 @@ contains(BITCOIN_NEED_QT_PLUGINS, 1) {
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
 SOURCES += src/txdb-leveldb.cpp
+
 !win32 {
     # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
     genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a
@@ -203,12 +245,11 @@ contains(USE_O3, 1) {
     QMAKE_CFLAGS += -msse2
 }
 
-QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
+QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
 
 # Input
 DEPENDPATH += src src/json src/qt
-HEADERS += src/qt/bitcoingui.h \
-    src/qt/transactiontablemodel.h \
+HEADERS += src/qt/transactiontablemodel.h \
     src/qt/addresstablemodel.h \
     src/qt/optionsdialog.h \
     src/qt/coincontroldialog.h \
@@ -234,6 +275,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/pbkdf2.h \
     src/serialize.h \
     src/strlcpy.h \
+    src/smessage.h \
     src/main.h \
     src/miner.h \
     src/net.h \
@@ -243,6 +285,10 @@ HEADERS += src/qt/bitcoingui.h \
     src/walletdb.h \
     src/script.h \
     src/stealth.h \
+    src/ringsig.h  \
+    src/core.h  \
+    src/state.h \
+    src/bloom.h \
     src/init.h \
     src/irc.h \
     src/mruset.h \
@@ -270,7 +316,6 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/transactionview.h \
     src/qt/walletmodel.h \
     src/bitcoinrpc.h \
-    src/qt/overviewpage.h \
     src/qt/csvmodelwriter.h \
     src/crypter.h \
     src/qt/sendcoinsentry.h \
@@ -289,12 +334,10 @@ HEADERS += src/qt/bitcoingui.h \
     src/netbase.h \
     src/clientversion.h \
     src/threadsafety.h \
-    src/qt/plugins/mrichtexteditor/mrichtextedit.h \
     src/qt/qvalidatedtextedit.h \
-    src/json.h \
-    src/qt/blockbrowser.h
+    src/json.h
 
-SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
+SOURCES += src/qt/bitcoin.cpp \
     src/qt/transactiontablemodel.cpp \
     src/qt/addresstablemodel.cpp \
     src/qt/optionsdialog.cpp \
@@ -309,6 +352,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/alert.cpp \
     src/version.cpp \
     src/sync.cpp \
+    src/smessage.cpp \
     src/util.cpp \
     src/netbase.cpp \
     src/key.cpp \
@@ -343,7 +387,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/rpcwallet.cpp \
     src/rpcblockchain.cpp \
     src/rpcrawtransaction.cpp \
-    src/qt/overviewpage.cpp \
+    src/rpcsmessage.cpp \
     src/qt/csvmodelwriter.cpp \
     src/crypter.cpp \
     src/qt/sendcoinsentry.cpp \
@@ -357,7 +401,6 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/rpcconsole.cpp \
     src/qt/trafficgraphwidget.cpp \
     src/qt/qvalidatedtextedit.cpp \
-    src/qt/plugins/mrichtexteditor/mrichtextedit.cpp \
     src/noui.cpp \
     src/kernel.cpp \
     src/scrypt-arm.S \
@@ -367,7 +410,10 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/pbkdf2.cpp \
     src/stealth.cpp \
     src/json.cpp \
-    src/qt/blockbrowser.cpp
+    src/ringsig.cpp  \
+    src/core.cpp  \
+    src/state.cpp \
+    src/bloom.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc \
@@ -381,57 +427,105 @@ FORMS += \
     src/qt/forms/aboutdialog.ui \
     src/qt/forms/editaddressdialog.ui \
     src/qt/forms/transactiondescdialog.ui \
-    src/qt/forms/overviewpage.ui \
+    src/qt/forms/transactionpage.ui \
     src/qt/forms/sendcoinsentry.ui \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
-    src/qt/forms/optionsdialog.ui \
-    src/qt/plugins/mrichtexteditor/mrichtextedit.ui \
-    src/qt/forms/blockbrowser.ui
+    src/qt/forms/optionsdialog.ui
+
+FULLCLIENT {
+
+    message(Building Full vTorrent Client)
+
+    HEADERS += src/qt/bitcoingui.h \
+               src/qt/overviewpage.h
+
+    SOURCES += src/qt/bitcoingui.cpp \
+               src/qt/overviewpage.cpp
+
+    FORMS += src/qt/forms/overviewpage.ui
+
+    DEFINES += FULLCLIENT
+    DEFINES += TRADING_ENABLED
+
+    CONFIG += trading_bittrex
+    CONFIG += messaging_enabled
+
+} else {
+
+    message(Building Classic vTorrent Client)
+
+    HEADERS += src/qt/bitcoingui_c.h \
+               src/qt/overviewpage_c.h
+
+    SOURCES += src/qt/bitcoingui_c.cpp \
+               src/qt/overviewpage_c.cpp
+
+    FORMS += src/qt/forms/overviewpage_c.ui
+
+}
+
+messaging_enabled {
+
+    DEFINES += MESSAGING_ENABLED
+
+    HEADERS += src/qt/messagepage.h \
+               src/qt/messagemodel.h \
+               src/qt/sendmessagesdialog.h \
+               src/qt/sendmessagesentry.h \
+               src/qt/plugins/mrichtexteditor/mrichtextedit.h \
+               src/qt/plugins/mrichtexteditor/qmessageedit.h
+
+    SOURCES += src/qt/messagepage.cpp \
+               src/qt/messagemodel.cpp \
+               src/qt/sendmessagesdialog.cpp \
+               src/qt/sendmessagesentry.cpp \
+               src/qt/plugins/mrichtexteditor/mrichtextedit.cpp \
+               src/qt/plugins/mrichtexteditor/qmessageedit.cpp
+
+    FORMS += src/qt/forms/messagepage.ui \
+             src/qt/forms/sendmessagesentry.ui \
+             src/qt/forms/sendmessagesdialog.ui \
+             src/qt/plugins/mrichtexteditor/mrichtextedit.ui
+}
+
 
 trading_bittrex {
-HEADERS += src/qt/tradingdialog_bittrex.h
-SOURCES += src/qt/tradingdialog_bittrex.cpp
-FORMS += src/qt/forms/tradingdialog_bittrex.ui
-}#trading_bittrex
+    DEFINES += TRADING_BITTREX
 
-#trading_empoex {
-#HEADERS += src/qt/tradingdialog_empoex.h
-#SOURCES += src/qt/tradingdialog_empoex.cpp
-#FORMS += src/qt/forms/tradingdialog_empoex.ui
-#}#trading_empoex
+    HEADERS += src/qt/tradingdialog_bittrex.h
+    SOURCES += src/qt/tradingdialog_bittrex.cpp
+    FORMS += src/qt/forms/tradingdialog_bittrex.ui
+} #trading_bittrex
 
 torrent_sample {
-HEADERS += src/qt/torrent/torrent.h
-SOURCES += src/qt/torrent/torrent.cpp
-FORMS += src/qt/torrent/torrent.ui
-}#torrent_sample
+
+    DEFINES += TORRENT
+
+    HEADERS += src/qt/torrent/torrent.h
+    SOURCES += src/qt/torrent/torrent.cpp
+    FORMS += src/qt/torrent/torrent.ui
+} #torrent_sample
 
 torrent_enable {
 
-HEADERS += src/qt/torrent/qbtsession.h \
-           src/qt/torrent/qtorrenthandle.h \
-           src/qt/torrent/bandwidthscheduler.h \
-           src/qt/torrent/trackerinfos.h \
-           src/qt/torrent/torrentspeedmonitor.h \
-           src/qt/torrent/filterparserthread.h \
-           src/qt/torrent/alertdispatcher.h \
-           src/qt/torrent/torrentstatistics.h
+    DEFINES += TORRENT
 
-SOURCES += src/qt/torrent/qbtsession.cpp \
-           src/qt/torrent/qtorrenthandle.cpp \
-           src/qt/torrent/torrentspeedmonitor.cpp \
-           src/qt/torrent/alertdispatcher.cpp \
-           src/qt/torrent/torrentstatistics.cpp \
-           src/qt/torrent/filterparserthread.cpp
+    HEADERS += src/qt/torrent/qbtsession.h \
+               src/qt/torrent/qtorrenthandle.h \
+               src/qt/torrent/bandwidthscheduler.h \
+               src/qt/torrent/trackerinfos.h \
+               src/qt/torrent/torrentspeedmonitor.h \
+               src/qt/torrent/filterparserthread.h \
+               src/qt/torrent/alertdispatcher.h \
+               src/qt/torrent/torrentstatistics.h
 
-!contains(DEFINES, DISABLE_GUI) {
-  HEADERS += src/qt/torrent/torrentmodel.h \
-             src/qt/torrent/shutdownconfirm.h
-
-  SOURCES += src/qt/torrent/torrentmodel.cpp \
-             src/qt/torrent/shutdownconfirm.cpp
-}
+    SOURCES += src/qt/torrent/qbtsession.cpp \
+               src/qt/torrent/qtorrenthandle.cpp \
+               src/qt/torrent/torrentspeedmonitor.cpp \
+               src/qt/torrent/alertdispatcher.cpp \
+               src/qt/torrent/torrentstatistics.cpp \
+               src/qt/torrent/filterparserthread.cpp
 } #torrent_enable
 
 contains(USE_QRCODE, 1) {
@@ -464,33 +558,9 @@ OTHER_FILES += \
     doc/*.rst doc/*.txt doc/README README.md res/bitcoin-qt.rc
 
 # platform specific defaults, if not overridden on command line
-isEmpty(BOOST_LIB_SUFFIX) {
-    macx:BOOST_LIB_SUFFIX = -mt
-    windows:BOOST_LIB_SUFFIX = -mt
-}
 
 isEmpty(BOOST_THREAD_LIB_SUFFIX) {
     BOOST_THREAD_LIB_SUFFIX = $$BOOST_LIB_SUFFIX
-}
-
-isEmpty(BDB_LIB_PATH) {
-    macx:BDB_LIB_PATH = /usr/local/opt/berkeley-db4/lib
-}
-
-isEmpty(BDB_LIB_SUFFIX) {
-    macx:BDB_LIB_SUFFIX = -4.8
-}
-
-isEmpty(BDB_INCLUDE_PATH) {
-    macx:BDB_INCLUDE_PATH = /usr/local/opt/berkeley-db4/include
-}
-
-isEmpty(BOOST_LIB_PATH) {
-    macx:BOOST_LIB_PATH = /usr/local/Cellar/boost/1.56.0/lib
-}
-
-isEmpty(BOOST_INCLUDE_PATH) {
-    macx:BOOST_INCLUDE_PATH = /usr/local/Cellar/boost/1.56.0/include
 }
 
 windows:DEFINES += WIN32
@@ -507,12 +577,13 @@ windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     QMAKE_LIBS_QT_ENTRY = -lmingwthrd $$QMAKE_LIBS_QT_ENTRY
 }
 
-macx:HEADERS += src/qt/macdockiconhandler.h
-macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
+macx:HEADERS += src/qt/macdockiconhandler.h \
+                src/qt/macnotificationhandler.h
+macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm \
+                          src/qt/macnotificationhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
-macx:TARGET = "vTorrent-Client"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread
@@ -521,6 +592,7 @@ macx:QMAKE_CXXFLAGS_THREAD += -pthread
 INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
 LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
 LIBS += -lssl -lcrypto -lz -ldb_cxx$$BDB_LIB_SUFFIX
+
 # -lgdi32 has to happen after -lcrypto (see  #681)
 windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32
 LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX -lboost_program_options$$BOOST_LIB_SUFFIX -lboost_thread$$BOOST_THREAD_LIB_SUFFIX
@@ -533,7 +605,7 @@ contains(RELEASE, 1) {
     }
 }
 
-!windows:!macx {
+!windows:!macx:!android:!ios {
     DEFINES += LINUX
     LIBS += -lrt -ldl
 }

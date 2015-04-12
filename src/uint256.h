@@ -350,6 +350,16 @@ public:
     {
         return (unsigned char*)&pn[WIDTH];
     }
+    
+    const unsigned char* begin() const
+    {
+        return (unsigned char*)&pn[0];
+    }
+
+    const unsigned char* end() const
+    {
+        return (unsigned char*)&pn[WIDTH];
+    }
 
     unsigned int size()
     {
@@ -453,6 +463,15 @@ public:
         else
             *this = 0;
     }
+    
+    explicit uint160(const unsigned char* p, int len)
+    {
+        if (len == sizeof(pn))
+            memcpy(pn, p, sizeof(pn));
+        else
+            *this = 0;
+    }
+    
 };
 
 inline bool operator==(const uint160& a, uint64_t b)                         { return (base_uint160)a == b; }
@@ -565,6 +584,14 @@ public:
     {
         if (vch.size() == sizeof(pn))
             memcpy(pn, &vch[0], sizeof(pn));
+        else
+            *this = 0;
+    }
+    
+    explicit uint256(const unsigned char* p, int len)
+    {
+        if (len == sizeof(pn))
+            memcpy(pn, p, sizeof(pn));
         else
             *this = 0;
     }

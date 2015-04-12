@@ -116,6 +116,10 @@ CoinControlDialog::CoinControlDialog(QWidget *parent) :
     ui->treeWidget->setColumnHidden(COLUMN_AMOUNT_INT64, true);   // store amount int64_t in this column, but dont show it
     ui->treeWidget->setColumnHidden(COLUMN_PRIORITY_INT64, true); // store priority int64_t in this column, but dont show it
 
+    // Set Align/Style
+    ui->treeWidget->header()->setDefaultAlignment(Qt::AlignLeft);
+    ui->treeWidget->setStyleSheet("QHeaderView::section { border: 1px; padding: 4px; font-weight :bold}");
+
     // default view is sorted by amount desc
     sortView(COLUMN_AMOUNT_INT64, Qt::DescendingOrder);
 }

@@ -120,6 +120,15 @@ std::string HexBits(unsigned int nBits)
     return HexStr(BEGIN(uBits.cBits), END(uBits.cBits));
 }
 
+bool IsStringBoolPositive(std::string& value)
+{
+    return (value == "+" || value == "on"  || value == "true"  || value == "1" || value == "yes");
+};
+
+bool IsStringBoolNegative(std::string& value)
+{
+    return (value == "-" || value == "off" || value == "false" || value == "0" || value == "no");
+};
 
 //
 // Utilities: convert hex-encoded Values
@@ -164,6 +173,9 @@ vector<unsigned char> ParseHexO(const Object& o, string strKey)
 
 string CRPCTable::help(string strCommand) const
 {
+    bool fAllAnon = strCommand == "anon" ? true : false;
+    
+    printf("fAllAnon %d %s\n", fAllAnon, strCommand.c_str());
     string strRet;
     set<rpcfn_type> setDone;
     for (map<string, const CRPCCommand*>::const_iterator mi = mapCommands.begin(); mi != mapCommands.end(); ++mi)
@@ -173,6 +185,18 @@ string CRPCTable::help(string strCommand) const
         // We already filter duplicates, but these deprecated screw up the sort order
         if (strMethod.find("label") != string::npos)
             continue;
+        
+        if (fAllAnon)
+        {
+            if (strMethod != "sendvtrtoanon"
+                && strMethod != "sendanontoanon"
+                && strMethod != "sendanontovtr"
+                && strMethod != "estimateanonfee"
+                && strMethod != "anonoutputs"
+                && strMethod != "anoninfo"
+                && strMethod != "reloadanondata")
+            continue;
+        } else
         if (strCommand != "" && strMethod != strCommand)
             continue;
         try
@@ -181,17 +205,16 @@ string CRPCTable::help(string strCommand) const
             rpcfn_type pfn = pcmd->actor;
             if (setDone.insert(pfn).second)
                 (*pfn)(params, true);
-        }
-        catch (std::exception& e)
+        } catch (std::exception& e)
         {
             // Help text is returned in an exception
             string strHelp = string(e.what());
-            if (strCommand == "")
+            if (fAllAnon || strCommand == "")
                 if (strHelp.find('\n') != string::npos)
                     strHelp = strHelp.substr(0, strHelp.find('\n'));
             strRet += strHelp + "\n";
-        }
-    }
+        };
+    };
     if (strRet == "")
         strRet = strprintf("help: unknown command: %s\n", strCommand.c_str());
     strRet = strRet.substr(0,strRet.size()-1);
@@ -276,6 +299,9 @@ static const CRPCCommand vRPCCommands[] =
     { "getrawmempool",          &getrawmempool,          true,   false },
     { "getblock",               &getblock,               false,  false },
     { "getblockbynumber",       &getblockbynumber,       false,  false },
+    { "setbestblockbyheight",   &setbestblockbyheight,   false,  false },
+    { "rewindchain",            &rewindchain,            false,  false },
+    { "nextorphan",             &nextorphan,             false,  false },
     { "getblockhash",           &getblockhash,           false,  false },
     { "gettransaction",         &gettransaction,         false,  false },
     { "listtransactions",       &listtransactions,       false,  false },
@@ -315,6 +341,37 @@ static const CRPCCommand vRPCCommands[] =
     { "clearwallettransactions",&clearwallettransactions,false,  false},
     { "scanforalltxns",         &scanforalltxns,         false,  false},
     { "scanforstealthtxns",     &scanforstealthtxns,     false,  false},
+    
+    { "sendvtrtoanon",          &sendvtrtoanon,          false,  false},
+    { "sendanontoanon",         &sendanontoanon,         false,  false},
+    { "sendanontovtr",          &sendanontovtr,          false,  false},
+    { "estimateanonfee",        &estimateanonfee,        false,  false},
+    { "anonoutputs",            &anonoutputs,            false,  false},
+    { "anoninfo",               &anoninfo,               false,  false},
+    { "reloadanondata",         &reloadanondata,         false,  false},
+    
+    { "txnreport",              &txnreport,              false,  false},
+    
+    
+    
+    { "smsgenable",             &smsgenable,             false,  false},
+    { "smsgdisable",            &smsgdisable,            false,  false},
+    { "smsglocalkeys",          &smsglocalkeys,          false,  false},
+    { "smsgoptions",            &smsgoptions,            false,  false},
+    { "smsgscanchain",          &smsgscanchain,          false,  false},
+    { "smsgscanbuckets",        &smsgscanbuckets,        false,  false},
+    { "smsgaddkey",             &smsgaddkey,             false,  false},
+    { "smsggetpubkey",          &smsggetpubkey,          false,  false},
+    { "smsgsend",               &smsgsend,               false,  false},
+    { "smsgsendanon",           &smsgsendanon,           false,  false},
+    { "smsginbox",              &smsginbox,              false,  false},
+    { "smsgoutbox",             &smsgoutbox,             false,  false},
+    { "smsgbuckets",            &smsgbuckets,            false,  false},
+    
+    { "thinscanmerkleblocks",   &thinscanmerkleblocks,   false,  false},
+    { "thinforcestate",         &thinforcestate,         false,  false},
+    
+    
     
 };
 
@@ -1101,8 +1158,7 @@ json_spirit::Value CRPCTable::execute(const std::string &strMethod, const json_s
             }
         }
         return result;
-    }
-    catch (std::exception& e)
+    } catch (std::exception& e)
     {
         throw JSONRPCError(RPC_MISC_ERROR, e.what());
     }
@@ -1209,6 +1265,8 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "getblock"               && n > 1) ConvertTo<bool>(params[1]);
     if (strMethod == "getblockbynumber"       && n > 0) ConvertTo<int64_t>(params[0]);
     if (strMethod == "getblockbynumber"       && n > 1) ConvertTo<bool>(params[1]);
+    if (strMethod == "setbestblockbyheight"   && n > 0) ConvertTo<int64_t>(params[0]);
+    if (strMethod == "rewindchain"            && n > 0) ConvertTo<int64_t>(params[0]);
     if (strMethod == "getblockhash"           && n > 0) ConvertTo<int64_t>(params[0]);
     if (strMethod == "move"                   && n > 2) ConvertTo<double>(params[2]);
     if (strMethod == "move"                   && n > 3) ConvertTo<int64_t>(params[3]);
@@ -1221,6 +1279,9 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "walletpassphrase"       && n > 2) ConvertTo<bool>(params[2]);
     if (strMethod == "getblocktemplate"       && n > 0) ConvertTo<Object>(params[0]);
     if (strMethod == "listsinceblock"         && n > 1) ConvertTo<int64_t>(params[1]);
+
+    if (strMethod == "scanforalltxns"         && n > 0) ConvertTo<int64_t>(params[0]);
+    if (strMethod == "scanforstealthtxns"     && n > 0) ConvertTo<int64_t>(params[0]);
 
     if (strMethod == "sendalert"              && n > 2) ConvertTo<int64_t>(params[2]);
     if (strMethod == "sendalert"              && n > 3) ConvertTo<int64_t>(params[3]);
@@ -1245,7 +1306,20 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "keypoolrefill"          && n > 0) ConvertTo<int64_t>(params[0]);
     
     if (strMethod == "sendtostealthaddress"   && n > 1) ConvertTo<double>(params[1]);
-
+    
+    if (strMethod == "sendvtrtoanon"          && n > 1) ConvertTo<double>(params[1]);
+    if (strMethod == "sendanontoanon"         && n > 1) ConvertTo<double>(params[1]);
+    if (strMethod == "sendanontoanon"         && n > 2) ConvertTo<int>(params[2]);
+    if (strMethod == "sendanontovtr"          && n > 1) ConvertTo<double>(params[1]);
+    if (strMethod == "sendanontovtr"          && n > 2) ConvertTo<int>(params[2]);
+    if (strMethod == "estimateanonfee"        && n > 0) ConvertTo<double>(params[0]);
+    if (strMethod == "estimateanonfee"        && n > 1) ConvertTo<int>(params[1]);
+    
+    
+    if (strMethod == "thinscanmerkleblocks"   && n > 0) ConvertTo<int64_t>(params[0]);
+    if (strMethod == "thinforcestate"         && n > 0) ConvertTo<int>(params[0]);
+    
+    
     return params;
 }
 
@@ -1350,3 +1424,4 @@ int main(int argc, char *argv[])
 #endif
 
 const CRPCTable tableRPC;
+

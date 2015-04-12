@@ -1,22 +1,23 @@
 #ifndef WALLETMODEL_H
 #define WALLETMODEL_H
 
-#include <QObject>
-#include <vector>
-#include <map>
-
 #include "allocators.h" /* for SecureString */
 
-class OptionsModel;
+#include <map>
+#include <vector>
+
+#include <QObject>
+
 class AddressTableModel;
+class OptionsModel;
 class TransactionTableModel;
-class CWallet;
-class CKeyID;
-class CPubKey;
-class COutput;
-class COutPoint;
-class uint256;
 class CCoinControl;
+class CKeyID;
+class COutPoint;
+class COutput;
+class CPubKey;
+class CWallet;
+class uint256;
 
 QT_BEGIN_NAMESPACE
 class QTimer;
@@ -85,7 +86,7 @@ public:
             status(status), fee(fee), hex(hex) {}
         StatusCode status;
         qint64 fee; // is used in case status is "AmountWithFeeExceedsBalance"
-        QString hex; // is filled with the transaction hash if status is "OK"
+        QString hex; // is filled with the transaction hash if status is "OK", error message otherwise
     };
 
     // Send coins to a list of recipients

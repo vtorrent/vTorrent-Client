@@ -38,8 +38,10 @@ BOOST_AUTO_TEST_CASE(acc_orderupgrade)
     walletdb.WriteAccountingEntry(ae);
 
     wtx.mapValue["comment"] = "z";
+    
+    uint256 hash = wtx.GetHash();
     pwalletMain->AddToWallet(wtx);
-    vpwtx.push_back(&pwalletMain->mapWallet[wtx.GetHash()]);
+    vpwtx.push_back(&pwalletMain->mapWallet[hash]);
     vpwtx[0]->nTimeReceived = (unsigned int)1333333335;
     vpwtx[0]->nOrderPos = -1;
 
@@ -76,14 +78,18 @@ BOOST_AUTO_TEST_CASE(acc_orderupgrade)
 
     wtx.mapValue["comment"] = "y";
     --wtx.nLockTime;  // Just to change the hash :)
-    pwalletMain->AddToWallet(wtx);
-    vpwtx.push_back(&pwalletMain->mapWallet[wtx.GetHash()]);
+    
+    uint256 hash = wtx.GetHash();
+    pwalletMain->AddToWallet(wtx, hash);
+    vpwtx.push_back(&pwalletMain->mapWallet[hash]);
     vpwtx[1]->nTimeReceived = (unsigned int)1333333336;
 
     wtx.mapValue["comment"] = "x";
     --wtx.nLockTime;  // Just to change the hash :)
-    pwalletMain->AddToWallet(wtx);
-    vpwtx.push_back(&pwalletMain->mapWallet[wtx.GetHash()]);
+    
+    uint256 hash = wtx.GetHash();
+    pwalletMain->AddToWallet(wtx, hash);
+    vpwtx.push_back(&pwalletMain->mapWallet[hash]);
     vpwtx[2]->nTimeReceived = (unsigned int)1333333329;
     vpwtx[2]->nOrderPos = -1;
 

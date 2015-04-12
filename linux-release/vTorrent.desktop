@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=vTorrent
+Comment=vTorrent Client
+Exec=/home/ubuntu/vTorrent-qt/release/vTorrent-client %u
+Terminal=false
+Type=Application
+Icon=/home/ubuntu/vTorrent-qt/release/vTorrent-32.png
+MimeType=x-scheme-handler/vtorrent;
+Categories=Office;Finance;

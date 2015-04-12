@@ -86,7 +86,7 @@ void SignVerifyMessageDialog::on_addressBookButton_SM_clicked()
 {
     if (model && model->getAddressTableModel())
     {
-        AddressBookPage dlg(AddressBookPage::ForSending, AddressBookPage::ReceivingTab, this);
+        AddressBookPage dlg(AddressBookPage::ForSending, AddressBookPage::ReceivingTabDialog, this);
         dlg.setModel(model->getAddressTableModel());
         if (dlg.exec())
         {
@@ -110,7 +110,7 @@ void SignVerifyMessageDialog::on_signMessageButton_SM_clicked()
     {
         ui->addressIn_SM->setValid(false);
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
-        ui->statusLabel_SM->setText(tr("The entered address is invalid.") + QString("  ") + tr("Stealth address is not yet supported.") + QString(" ") + tr("Please check the address and retry."));
+        ui->statusLabel_SM->setText(tr("The entered address is invalid.") + QString(" ") + tr("Stealth address is not yet supported.") + QString(" ") + tr("Please check the address and retry."));
         return;
     }
     CKeyID keyID;
@@ -175,7 +175,7 @@ void SignVerifyMessageDialog::on_addressBookButton_VM_clicked()
 {
     if (model && model->getAddressTableModel())
     {
-        AddressBookPage dlg(AddressBookPage::ForSending, AddressBookPage::SendingTab, this);
+        AddressBookPage dlg(AddressBookPage::ForSending, AddressBookPage::SendingTabDialog, this);
         dlg.setModel(model->getAddressTableModel());
         if (dlg.exec())
         {
@@ -191,7 +191,7 @@ void SignVerifyMessageDialog::on_verifyMessageButton_VM_clicked()
     {
         ui->addressIn_VM->setValid(false);
         ui->statusLabel_VM->setStyleSheet("QLabel { color: red; }");
-        ui->statusLabel_VM->setText(tr("The entered address is invalid.") + QString("  ") + tr("Stealth address is not yet supported.") + QString(" ") + tr("Please check the address and retry."));
+        ui->statusLabel_VM->setText(tr("The entered address is invalid.") + QString(" ") + tr("Stealth address is not yet supported.") + QString(" ") + tr("Please check the address and retry."));
         return;
     }
     CKeyID keyID;
@@ -199,7 +199,7 @@ void SignVerifyMessageDialog::on_verifyMessageButton_VM_clicked()
     {
         ui->addressIn_VM->setValid(false);
         ui->statusLabel_VM->setStyleSheet("QLabel { color: red; }");
-        ui->statusLabel_VM->setText(tr("The entered address does not refer to a key.") + QString("  ") + tr("Stealth address is not yet supported.") + QString(" ") + tr("Please check the address and retry."));
+        ui->statusLabel_VM->setText(tr("The entered address does not refer to a key.") + QString(" ") + tr("Stealth address is not yet supported.") + QString(" ") + tr("Please check the address and retry."));
         return;
     }
 
@@ -218,8 +218,8 @@ void SignVerifyMessageDialog::on_verifyMessageButton_VM_clicked()
     ss << strMessageMagic;
     ss << ui->messageIn_VM->document()->toPlainText().toStdString();
 
-    CKey key;
-    if (!key.SetCompactSignature(Hash(ss.begin(), ss.end()), vchSig))
+    CPubKey pubkey;
+    if (!pubkey.RecoverCompact(Hash(ss.begin(), ss.end()), vchSig))
     {
         ui->signatureIn_VM->setValid(false);
         ui->statusLabel_VM->setStyleSheet("QLabel { color: red; }");
@@ -227,7 +227,7 @@ void SignVerifyMessageDialog::on_verifyMessageButton_VM_clicked()
         return;
     }
 
-    if (!(CBitcoinAddress(key.GetPubKey().GetID()) == addr))
+    if (!(CBitcoinAddress(pubkey.GetID()) == addr))
     {
         ui->statusLabel_VM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_VM->setText(QString("<nobr>") + tr("Message verification failed.") + QString("</nobr>"));

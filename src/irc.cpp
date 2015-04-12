@@ -92,10 +92,10 @@ bool RecvLineIRC(SOCKET hSocket, string& strLine)
                 strLine += '\r';
                 Send(hSocket, strLine.c_str());
                 continue;
-            }
-        }
+            };
+        };
         return fRet;
-    }
+    };
 }
 
 int RecvUntil(SOCKET hSocket, const char* psz1, const char* psz2=NULL, const char* psz3=NULL, const char* psz4=NULL)
@@ -194,12 +194,14 @@ void ThreadIRCSeed(void* parg)
     try
     {
         ThreadIRCSeed2(parg);
-    }
-    catch (std::exception& e) {
+    } catch (std::exception& e)
+    {
         PrintExceptionContinue(&e, "ThreadIRCSeed()");
-    } catch (...) {
+    } catch (...)
+    {
         PrintExceptionContinue(NULL, "ThreadIRCSeed()");
-    }
+    };
+    
     printf("ThreadIRCSeed exited\n");
 }
 
@@ -239,7 +241,7 @@ void ThreadIRCSeed2(void* parg)
                 continue;
             else
                 return;
-        }
+        };
 
         if (!RecvUntil(hSocket, "Found your hostname", "using your IP address instead", "Couldn't look up your hostname", "ignoring hostname"))
         {
@@ -250,7 +252,7 @@ void ThreadIRCSeed2(void* parg)
                 continue;
             else
                 return;
-        }
+        };
 
         CNetAddr addrIPv4("1.2.3.4"); // arbitrary IPv4 address to make GetLocal prefer IPv4 addresses
         CService addrLocal;
@@ -276,13 +278,14 @@ void ThreadIRCSeed2(void* parg)
                 nNameRetry++;
                 Wait(10);
                 continue;
-            }
+            };
             nErrorWait = nErrorWait * 11 / 10;
             if (Wait(nErrorWait += 60))
                 continue;
             else
                 return;
-        }
+        };
+        
         nNameRetry = 0;
         MilliSleep(500);
 
@@ -298,8 +301,8 @@ void ThreadIRCSeed2(void* parg)
                 AddLocal(addrFromIRC, LOCAL_IRC);
                 strMyName = EncodeAddress(GetLocalAddress(&addrConnect));
                 Send(hSocket, strprintf("NICK %s\r", strMyName.c_str()).c_str());
-            }
-        }
+            };
+        };
 
         if (fTestNet)
         {
@@ -338,7 +341,7 @@ void ThreadIRCSeed2(void* parg)
                 // could get full length name at index 10, but would be different from join messages
                 strlcpy(pszName, vWords[7].c_str(), sizeof(pszName));
                 printf("IRC got who\n");
-            }
+            };
 
             if (vWords[1] == "JOIN" && vWords[0].size() > 1)
             {
@@ -347,7 +350,7 @@ void ThreadIRCSeed2(void* parg)
                 if (strchr(pszName, '!'))
                     *strchr(pszName, '!') = '\0';
                 printf("IRC got join\n");
-            }
+            };
 
             if (pszName[0] == 'u')
             {
@@ -361,9 +364,9 @@ void ThreadIRCSeed2(void* parg)
                 } else
                 {
                     printf("IRC decode failed\n");
-                }
-            }
-        }
+                };
+            };
+        };
         closesocket(hSocket);
         hSocket = INVALID_SOCKET;
 
@@ -371,12 +374,12 @@ void ThreadIRCSeed2(void* parg)
         {
             nErrorWait /= 3;
             nRetryWait /= 3;
-        }
+        };
 
         nRetryWait = nRetryWait * 11 / 10;
         if (!Wait(nRetryWait += 60))
             return;
-    }
+    };
 }
 
 

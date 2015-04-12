@@ -5,6 +5,7 @@
 #include "util.h"
 #include "init.h"
 
+// #include <QDebug>
 #include <QString>
 #include <QDateTime>
 #include <QDoubleValidator>
@@ -398,12 +399,16 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         // Write a bitcoin.desktop file to the autostart directory:
-        optionFile << "[Desktop Entry]\n";
-        optionFile << "Type=Application\n";
-        optionFile << "Name=vTorrent\n";
-        optionFile << "Exec=" << pszExePath << " -min\n";
-        optionFile << "Terminal=false\n";
-        optionFile << "Hidden=false\n";
+        optionFile << "[Desktop Entry]\n" \
+                   << "Version=" << FormatFullVersion() << "\n" \
+                   << "Type=Application\n" \
+                   << "Name=vTorrent\n" \
+                   << "Exec=" << pszExePath << "%u -min\n" \
+                   << "Icon=" <<  QFileInfo(":/icons/bitcoin").absoluteFilePath().toStdString() << "\n" \
+                   << "Terminal=false\n" \
+                   << "Hidden=false\n" \
+                   << "Categories=Application;Network;\n" \
+                   << "MimeType=x-scheme-handler/vtorrent;\n";
         optionFile.close();
     }
     return true;
@@ -421,9 +426,9 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
-    header = tr("vTorrent-Client") + " " + tr("version") + " " +
-        QString::fromStdString(FormatFullVersion()) + "\n\n" +
-        tr("Usage:") + "\n" +
+    header = tr("vTorrent-Core") + " " + tr("version") + " " +
+        QString::fromStdString(FormatFullVersion()) + "\n\n\n" +
+        tr("Usage:") + "\n\n" +
         "  vTorrent-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
@@ -433,7 +438,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         "  -min                   " + tr("Start minimized") + "\n" +
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
-    setWindowTitle(tr("vTorrent-Client"));
+    setWindowTitle(tr("vTorrent-Core"));
     setTextFormat(Qt::PlainText);
     // setMinimumWidth is ignored for QMessageBox so put in non-breaking spaces to make it wider.
     setText(header + QString(QChar(0x2003)).repeated(50));
@@ -456,6 +461,35 @@ void HelpMessageBox::showOrPrint()
         // On other operating systems, print help text to console
         printToConsole();
 #endif
+}
+
+void SetThemeQSS(QApplication& app)
+{
+    app.setStyleSheet(
+                      "QLabel { color: rgb(59, 59, 59); }"
+                      "QDialog { background-color: rgb(255, 255, 255); }"
+                      "QPushButton    { background-color: rgb(220,220,220); color: rgb(0, 0, 0); border-style: outset; border-width: 0px; padding: 5px;}"
+                      "QPushButton:disabled { background-color: rgb(220,220,220,100); color: rgb(0, 0, 0, 100); border-style: outset; border-width: 0px; padding: 5px;}"
+                      "QPushButton:pressed { background-color: rgb(82,82,82); color: rgb(255,255,255); border-style: inset; border-width: 0px; padding: 5px;}"
+                      "QPushButton:hover { background-color: rgb(82,82,82,100); color: rgb(255,255,255); border-style: inset; border-width: 0px; padding: 5px;}"
+                      "QButton    { background-color: rgb(220,220,220); color: rgb(0, 0, 0); border-style: outset; border-width: 0px; padding: 5px;}"
+                      "QDoubleSpinBox { background: rgb(250,250,250); color: rgb(57,57,57); border-color: rgb(194,194,194); }"
+                      "QLineEdit      { background: rgb(250,250,250); color: rgb(57,57,57); border-color: rgb(194,194,194); }"
+                      "QTextEdit      { background: rgb(250,250,250); color: rgb(57,57,57); }"
+                      "QPlainTextEdit { background: rgb(250,250,250); color: rgb(57,57,57); }"
+                      "QMenuBar       { background-color: #4A3132; color: rgb(250,250,250); border-color: rgb(250,250,250); font-size:12px;}"
+                      "QMenuBar::item { background-color: #4A3132; color: rgb(250,250,250); }"
+                      "QMenu          { background-color: #4A3132; color: rgb(250,250,250); font-size:12px;}"
+                      "QMenu::item    { background-color: #4A3132; color: rgb(250,250,250); padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px;}"
+                      "QMenu::item:disabled { color: rgb(200,200,200); }"
+                      "QMenu::item:selected { background: rgb(82,82,82); }"
+                      "QMenu::item:!selected { }"
+                      "QProgressBar   { color: rgb(255,255,255); background-color: #9E9E9E; border: 1px solid grey; padding: 1px; text-align: center; }"
+                      "QProgressBar::chunk { color: rgb(255,255,255); background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #78d, stop: 0.4999 #46a, stop: 0.5 #45a, stop: 1 #238 ); }"
+                      "QTableView     { background: rgb(255,255,255); color: rgb(0,0,0); gridline-color: rgb(157,160,165); }"
+                      "QTabWidget::pane { background-color: rgb(250,250,250);}"
+                      "QHeaderView::section { background: rgb(110,110,110); color: rgb(255,255,255); }"
+                      );
 }
 
 } // namespace GUIUtil

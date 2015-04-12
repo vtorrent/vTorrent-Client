@@ -1,33 +1,49 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="tr">
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../forms/aboutdialog.ui" line="+14"/>
+        <location filename="../forms/aboutdialog.ui" line="+26"/>
         <source>About vTorrent</source>
         <translation>vTorrent Hakkında</translation>
     </message>
     <message>
-        <location line="+39"/>
-        <source>&lt;b&gt;vTorrent&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;vTorrent&lt;/b&gt; versiyonu</translation>
+        <location line="+63"/>
+        <source>&lt;b&gt;vTorrent&lt;/b&gt; core</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The vTorrent developers
-Copyright © 2014 The vTorrent developers</source>
-        <translation type="unfinished"/>
+Copyright © 2014-2015 The BlackCoin developers
+Copyright © 2014-2015 The ShadowCoin developers
+Copyright © 2014-2015 The vTorrent developers</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+17"/>
+        <source>
+This is experimental software.
+
+Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
+
+This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href=&quot;https://www.openssl.org/&quot;&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;vTorrent&lt;/b&gt; version</source>
+        <translation type="vanished">&lt;b&gt;vTorrent&lt;/b&gt; versiyonu</translation>
+    </message>
+    <message>
         <source>
 This is experimental software.
 
 Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation>
+        <translation type="vanished">
  Bu, deneysel bir yazılımdır.
 
  MIT/X11 yazılım lisansı kapsamında yayınlanmıştır, beraberindeki COPYING dosyasına ya da http://www.opensource.org/licenses/mit-license.php sayfasına bakınız.
@@ -43,7 +59,17 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Adres Defteri</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+32"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Receive vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>These are your addresses for receiving payments. Give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
         <source>Double-click to edit address or label</source>
         <translation>Adresi ya da etiketi düzenlemek için çift tıklayınız</translation>
     </message>
@@ -63,12 +89,11 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Yeni Adres</translation>
     </message>
     <message>
-        <location line="-46"/>
         <source>These are your vTorrent addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Bunlar, ödeme almak için vTorrent adreslerinizdir. Her bir göndericiye farklı birini verebilir, böylece size kimin ödeme yaptığını takip edebilirsiniz.</translation>
+        <translation type="vanished">Bunlar, ödeme almak için vTorrent adreslerinizdir. Her bir göndericiye farklı birini verebilir, böylece size kimin ödeme yaptığını takip edebilirsiniz.</translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="+14"/>
         <source>&amp;Copy Address</source>
         <translation>Adresi &amp;Kopyala</translation>
     </message>
@@ -108,7 +133,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Sil</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+65"/>
+        <location filename="../addressbookpage.cpp" line="+73"/>
         <source>Copy &amp;Label</source>
         <translation>&amp;Etiketi Kopyala</translation>
     </message>
@@ -118,7 +143,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Düzenle</translation>
     </message>
     <message>
-        <location line="+250"/>
+        <location line="+308"/>
         <source>Export Address Book Data</source>
         <translation>Adres Defteri Verisini Dışarı Aktar</translation>
     </message>
@@ -141,7 +166,7 @@ This product includes software developed by the OpenSSL Project for use in the O
 <context>
     <name>AddressTableModel</name>
     <message>
-        <location filename="../addresstablemodel.cpp" line="+144"/>
+        <location filename="../addresstablemodel.cpp" line="+156"/>
         <source>Label</source>
         <translation>Etiket</translation>
     </message>
@@ -164,7 +189,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Parola Diyaloğu</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+24"/>
         <source>Enter passphrase</source>
         <translation>Parolayı giriniz</translation>
     </message>
@@ -179,7 +204,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Yeni parolayı tekrarlayınız</translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+36"/>
         <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
         <translation>OS hesabı tehlike girdiğinde önemsiz para gönderme özelliğini devre dışı bırakmayı sağlar. Gerçek anlamda bir güvenlik sağlamaz.</translation>
     </message>
@@ -189,34 +214,58 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Sadece pay almak için</translation>
     </message>
     <message>
-        <location filename="../askpassphrasedialog.cpp" line="+35"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Cüzdanınız için yeni parolayı giriniz.&lt;br/&gt;Lütfen &lt;b&gt;10 ya da daha fazla rastgele karakter&lt;/b&gt; veya &lt;b&gt;sekiz ya da daha fazla kelime&lt;/b&gt; içeren bir parola seçiniz.</translation>
+        <translation type="vanished">Cüzdanınız için yeni parolayı giriniz.&lt;br/&gt;Lütfen &lt;b&gt;10 ya da daha fazla rastgele karakter&lt;/b&gt; veya &lt;b&gt;sekiz ya da daha fazla kelime&lt;/b&gt; içeren bir parola seçiniz.</translation>
+    </message>
+    <message>
+        <source>Encrypt wallet</source>
+        <translation type="vanished">Cüzdanı şifrele</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation type="vanished">Bu işlem cüzdan kilidini açmak için cüzdan parolanızı gerektirir.</translation>
+    </message>
+    <message>
+        <source>Unlock wallet</source>
+        <translation type="vanished">Cüzdan kilidini aç</translation>
+    </message>
+    <message>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation type="vanished">Bu işlem, cüzdan şifresini açmak için cüzdan parolasını gerektirir.</translation>
+    </message>
+    <message>
+        <source>Decrypt wallet</source>
+        <translation type="vanished">Cüzdan şifresini aç</translation>
+    </message>
+    <message>
+        <location filename="../askpassphrasedialog.cpp" line="+37"/>
+        <source>Enter the new passphrase to the client.&lt;br/&gt;&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;.&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Encrypt wallet</source>
-        <translation>Cüzdanı şifrele</translation>
+        <source>Encrypt client</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation>Bu işlem cüzdan kilidini açmak için cüzdan parolanızı gerektirir.</translation>
+        <source>This operation needs your client passphrase to unlock the client.&lt;br/&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Unlock wallet</source>
-        <translation>Cüzdan kilidini aç</translation>
+        <source>Unlock client</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation>Bu işlem, cüzdan şifresini açmak için cüzdan parolasını gerektirir.</translation>
+        <source>This operation needs your client passphrase to decrypt the client.&lt;br/&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Decrypt wallet</source>
-        <translation>Cüzdan şifresini aç</translation>
+        <source>Decrypt client</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
@@ -225,147 +274,192 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+1"/>
-        <source>Enter the old and new passphrase to the wallet.</source>
-        <translation>Cüzdan için eski ve yeni parolaları giriniz.</translation>
+        <source>Enter the old and new passphrase to the client.&lt;br/&gt;&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+46"/>
-        <source>Confirm wallet encryption</source>
-        <translation>Cüzdan şifrelenmesini teyit eder</translation>
+        <location line="+45"/>
+        <source>Confirm client encryption</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
-        <translation>Uyarı: Eğer cüzdanınızı şifreleyip parolanızı kaybederseniz, &lt;b&gt; TÜM COINLERİNİZİ KAYBEDECEKSİNİZ&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your client and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR SHARES&lt;/b&gt;!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+0"/>
-        <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation>Cüzdanınızı şifrelemek istediğinizden emin misiniz?</translation>
+        <source>Are you sure you wish to encrypt your client?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation>ÖNEMLİ: Önceden yapmış olduğunuz cüzdan dosyası yedeklemelerinin yeni oluşturulan, şifrelenmiş cüzdan dosyası ile değiştirilmeleri gerekmektedir. Güvenlik nedenleriyle yeni, şifrelenmiş cüzdanı kullanmaya başladığınızda, şifrelenmemiş cüzdan dosyasının önceki yedekleri işe yaramaz hale gelecektir.</translation>
-    </message>
-    <message>
-        <location line="+103"/>
-        <location line="+24"/>
-        <source>Warning: The Caps Lock key is on!</source>
-        <translation>Uyarı: Caps Lock tuşu faal durumda!</translation>
-    </message>
-    <message>
-        <location line="-133"/>
+        <location line="+9"/>
         <location line="+60"/>
-        <source>Wallet encrypted</source>
-        <translation>Cüzdan şifrelendi</translation>
+        <source>Client encrypted</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-58"/>
-        <source>vTorrent will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>vTorrent, şifreleme işlemini tamamlamak için şimdi kapatılacak. Cüzdanınızı şifrelemenin; coinlerinizin, bilgisayarınızı etkileyen zararlı yazılımlar tarafından çalınmasını bütünüyle engelleyemeyebileceğini unutmayınız.</translation>
+        <source>vTorrent will close now to finish the encryption process. Remember that encrypting your client cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+4"/>
+        <source>IMPORTANT: Any previous backups you have made of your client file should be replaced with the newly generated, encrypted client file. For security reasons, previous backups of the unencrypted client file will become useless as soon as you start using the new, encrypted client.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
         <location line="+7"/>
         <location line="+44"/>
         <location line="+6"/>
-        <source>Wallet encryption failed</source>
-        <translation>Cüzdan şifrelemesi başarısız oldu</translation>
+        <source>Client encryption failed</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-56"/>
-        <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
-        <translation>Dahili bir hata sebebiyle cüzdan şifrelemesi başarısız oldu. Cüzdanınız şifrelenmedi.</translation>
+        <source>Client encryption failed due to an internal error. Your client was not encrypted.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <location line="+50"/>
-        <source>The supplied passphrases do not match.</source>
-        <translation>Girilen parolalar birbirleriyle eşleşmiyor.</translation>
-    </message>
-    <message>
-        <location line="-38"/>
-        <source>Wallet unlock failed</source>
-        <translation>Cüzdan kilidinin açılması başarısız oldu</translation>
+        <location line="+19"/>
+        <source>Client unlock failed</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
         <location line="+12"/>
         <location line="+19"/>
-        <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation>Cüzdan şifresinin açılması için girilen parola yanlıştı.</translation>
+        <source>The passphrase entered for the client decryption was incorrect.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-20"/>
-        <source>Wallet decryption failed</source>
-        <translation>Cüzdan şifresinin açılması başarısız oldu</translation>
+        <source>Client decryption failed</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+14"/>
+        <source>Client passphrase was successfully changed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter the old and new passphrase to the wallet.</source>
+        <translation type="vanished">Cüzdan için eski ve yeni parolaları giriniz.</translation>
+    </message>
+    <message>
+        <source>Confirm wallet encryption</source>
+        <translation type="vanished">Cüzdan şifrelenmesini teyit eder</translation>
+    </message>
+    <message>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
+        <translation type="vanished">Uyarı: Eğer cüzdanınızı şifreleyip parolanızı kaybederseniz, &lt;b&gt; TÜM COINLERİNİZİ KAYBEDECEKSİNİZ&lt;/b&gt;!</translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to encrypt your wallet?</source>
+        <translation type="vanished">Cüzdanınızı şifrelemek istediğinizden emin misiniz?</translation>
+    </message>
+    <message>
+        <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
+        <translation type="vanished">ÖNEMLİ: Önceden yapmış olduğunuz cüzdan dosyası yedeklemelerinin yeni oluşturulan, şifrelenmiş cüzdan dosyası ile değiştirilmeleri gerekmektedir. Güvenlik nedenleriyle yeni, şifrelenmiş cüzdanı kullanmaya başladığınızda, şifrelenmemiş cüzdan dosyasının önceki yedekleri işe yaramaz hale gelecektir.</translation>
+    </message>
+    <message>
+        <location line="+48"/>
+        <location line="+24"/>
+        <source>Warning: The Caps Lock key is on!</source>
+        <translation>Uyarı: Caps Lock tuşu faal durumda!</translation>
+    </message>
+    <message>
+        <source>Wallet encrypted</source>
+        <translation type="vanished">Cüzdan şifrelendi</translation>
+    </message>
+    <message>
+        <source>vTorrent will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <translation type="vanished">vTorrent, şifreleme işlemini tamamlamak için şimdi kapatılacak. Cüzdanınızı şifrelemenin; coinlerinizin, bilgisayarınızı etkileyen zararlı yazılımlar tarafından çalınmasını bütünüyle engelleyemeyebileceğini unutmayınız.</translation>
+    </message>
+    <message>
+        <source>Wallet encryption failed</source>
+        <translation type="vanished">Cüzdan şifrelemesi başarısız oldu</translation>
+    </message>
+    <message>
+        <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
+        <translation type="vanished">Dahili bir hata sebebiyle cüzdan şifrelemesi başarısız oldu. Cüzdanınız şifrelenmedi.</translation>
+    </message>
+    <message>
+        <location line="-110"/>
+        <location line="+50"/>
+        <source>The supplied passphrases do not match.</source>
+        <translation>Girilen parolalar birbirleriyle eşleşmiyor.</translation>
+    </message>
+    <message>
+        <source>Wallet unlock failed</source>
+        <translation type="vanished">Cüzdan kilidinin açılması başarısız oldu</translation>
+    </message>
+    <message>
+        <source>The passphrase entered for the wallet decryption was incorrect.</source>
+        <translation type="vanished">Cüzdan şifresinin açılması için girilen parola yanlıştı.</translation>
+    </message>
+    <message>
+        <source>Wallet decryption failed</source>
+        <translation type="vanished">Cüzdan şifresinin açılması başarısız oldu</translation>
+    </message>
+    <message>
         <source>Wallet passphrase was successfully changed.</source>
-        <translation>Cüzdan parolası başarılı bir şekilde değiştirildi.</translation>
+        <translation type="vanished">Cüzdan parolası başarılı bir şekilde değiştirildi.</translation>
     </message>
 </context>
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+280"/>
+        <location filename="../bitcoingui.cpp" line="+412"/>
         <source>Sign &amp;message...</source>
         <translation>&amp;Mesaj imzala...</translation>
     </message>
     <message>
-        <location line="+242"/>
+        <location line="+321"/>
         <source>Synchronizing with network...</source>
         <translation>Ağ ile senkronizasyon...</translation>
     </message>
     <message>
-        <location line="-308"/>
         <source>&amp;Overview</source>
-        <translation>&amp;Genel bakış</translation>
+        <translation type="vanished">&amp;Genel bakış</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Show general overview of wallet</source>
-        <translation>Cüzdana genel bakışı göster</translation>
+        <translation type="vanished">Cüzdana genel bakışı göster</translation>
     </message>
     <message>
-        <location line="+17"/>
         <source>&amp;Transactions</source>
-        <translation>&amp;İşlemler</translation>
+        <translation type="vanished">&amp;İşlemler</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-419"/>
         <source>Browse transaction history</source>
         <translation>İşlem geçmişine göz at</translation>
     </message>
     <message>
-        <location line="+5"/>
         <source>&amp;Address Book</source>
-        <translation>&amp;Adres Defteri</translation>
+        <translation type="vanished">&amp;Adres Defteri</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+6"/>
         <source>Edit the list of stored addresses and labels</source>
         <translation>Kayıtlı adresler ve etiketler listesini düzenle</translation>
     </message>
     <message>
-        <location line="-13"/>
         <source>&amp;Receive coins</source>
-        <translation>Coin &amp;al</translation>
+        <translation type="vanished">Coin &amp;al</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Show the list of addresses for receiving payments</source>
-        <translation>Ödeme almak için kullanılan adres listesini göster</translation>
+        <translation type="vanished">Ödeme almak için kullanılan adres listesini göster</translation>
     </message>
     <message>
-        <location line="-7"/>
         <source>&amp;Send coins</source>
-        <translation>Coin &amp;gönder</translation>
+        <translation type="vanished">Coin &amp;gönder</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+67"/>
         <source>E&amp;xit</source>
         <translation>&amp;Çık</translation>
     </message>
@@ -395,42 +489,41 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Seçenekler...</translation>
     </message>
     <message>
-        <location line="+4"/>
         <source>&amp;Encrypt Wallet...</source>
-        <translation>Cüzdanı &amp;Şifrele...</translation>
+        <translation type="vanished">Cüzdanı &amp;Şifrele...</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>&amp;Backup Wallet...</source>
-        <translation>Cüzdanı &amp;Yedekle...</translation>
+        <translation type="vanished">Cüzdanı &amp;Yedekle...</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+9"/>
         <source>&amp;Change Passphrase...</source>
         <translation>Parolayı &amp;Değiştir...</translation>
     </message>
     <message numerus="yes">
-        <location line="+250"/>
+        <location line="+329"/>
         <source>~%n block(s) remaining</source>
-        <translation><numerusform>~%n blok kaldı</numerusform><numerusform>~%n blok kaldı</numerusform></translation>
+        <translation>
+            <numerusform>~%n blok kaldı</numerusform>
+        </translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
         <source>Downloaded %1 of %2 blocks of transaction history (%3% done).</source>
         <translation>İşlem geçmişindeki %2 bloğun %1&apos;i indirildi (%3% tamamlandı).</translation>
     </message>
     <message>
-        <location line="-247"/>
+        <location line="-327"/>
         <source>&amp;Export...</source>
         <translation>&amp;Dışarı aktar...</translation>
     </message>
     <message>
-        <location line="-62"/>
         <source>Send coins to a vTorrent address</source>
-        <translation>Bir vTorrent adresine coin gönder</translation>
+        <translation type="vanished">Bir vTorrent adresine coin gönder</translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="-17"/>
         <source>Modify configuration options for vTorrent</source>
         <translation>vTorrent yapılandırma seçeneklerini değiştir</translation>
     </message>
@@ -440,22 +533,19 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Mevcut sekmedeki veriyi bir dosyaya aktar</translation>
     </message>
     <message>
-        <location line="-14"/>
         <source>Encrypt or decrypt wallet</source>
-        <translation>Cüzdanı şifrele veya cüzdanın şifresini aç</translation>
+        <translation type="vanished">Cüzdanı şifrele veya cüzdanın şifresini aç</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>Backup wallet to another location</source>
-        <translation>Cüzdanı başka bir konuma yedekle</translation>
+        <translation type="vanished">Cüzdanı başka bir konuma yedekle</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation>Cüzdan şifrelemesi için kullanılan parolayı değiştir</translation>
+        <translation type="vanished">Cüzdan şifrelemesi için kullanılan parolayı değiştir</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+1"/>
         <source>&amp;Debug window</source>
         <translation>&amp;Hata ayıklama penceresi</translation>
     </message>
@@ -470,17 +560,16 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Mesajı &amp;doğrula...</translation>
     </message>
     <message>
-        <location line="-200"/>
+        <location line="-303"/>
         <source>vTorrent</source>
         <translation>vTorrent</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>Wallet</source>
-        <translation>Cüzdan</translation>
+        <translation type="vanished">Cüzdan</translation>
     </message>
     <message>
-        <location line="+178"/>
+        <location line="+281"/>
         <source>&amp;About vTorrent</source>
         <translation>vTorrent &amp;Hakkında</translation>
     </message>
@@ -490,22 +579,19 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Göster / Gizle</translation>
     </message>
     <message>
-        <location line="+9"/>
         <source>Unlock wallet</source>
-        <translation>Cüzdanın kilidini aç</translation>
+        <translation type="vanished">Cüzdanın kilidini aç</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Lock Wallet</source>
-        <translation>Cüzdanı &amp;Kilitle</translation>
+        <translation type="vanished">Cüzdanı &amp;Kilitle</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Lock wallet</source>
-        <translation>Cüzdanı kilitle</translation>
+        <translation type="vanished">Cüzdanı kilitle</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+45"/>
         <source>&amp;File</source>
         <translation>&amp;Dosya</translation>
     </message>
@@ -520,86 +606,261 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Yardım</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+17"/>
         <source>Tabs toolbar</source>
         <translation>Sekme araç çubuğu</translation>
     </message>
     <message>
-        <location line="+8"/>
         <source>Actions toolbar</source>
-        <translation>Eylem araç çubuğu</translation>
+        <translation type="vanished">Eylem araç çubuğu</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+75"/>
         <location line="+9"/>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
     </message>
     <message>
         <location line="+0"/>
-        <location line="+60"/>
+        <location line="+75"/>
         <source>vTorrent client</source>
         <translation>vTorrent istemcisi</translation>
     </message>
     <message numerus="yes">
         <location line="+70"/>
         <source>%n active connection(s) to vTorrent network</source>
-        <translation><numerusform>vTorrent ağına %n etkin bağlantı</numerusform><numerusform>vTorrent ağına %n etkin bağlantı</numerusform></translation>
+        <translation>
+            <numerusform>vTorrent ağına %n etkin bağlantı</numerusform>
+        </translation>
     </message>
     <message>
-        <location line="+40"/>
+        <location line="+43"/>
         <source>Downloaded %1 blocks of transaction history.</source>
         <translation>İşlem geçmişinin %1 bloğu indirildi.</translation>
     </message>
     <message>
-        <location line="+413"/>
+        <location line="+326"/>
+        <source>Client is &lt;b&gt;not encrypted&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Client is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Client is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Backup Client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Client Data (*.dat)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>There was an error trying to save the client data to the new location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+107"/>
         <source>Staking.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
         <translation>Pay alınıyor.&lt;br&gt;Sizin ağırlığınız %1&lt;br&gt;Ağın ağırlığı %2&lt;br&gt;Ödül almak için tahmini süre %3</translation>
     </message>
     <message>
-        <location line="+6"/>
         <source>Not staking because wallet is locked</source>
-        <translation>Pay alınmıyor çünkü cüzdan kilitlidir</translation>
+        <translation type="vanished">Pay alınmıyor çünkü cüzdan kilitlidir</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>Not staking because wallet is offline</source>
-        <translation>Pay alınmıyor çünkü cüzdan çevrimdışıdır</translation>
+        <translation type="vanished">Pay alınmıyor çünkü cüzdan çevrimdışıdır</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>Not staking because wallet is syncing</source>
-        <translation>Pay alınmıyor çünkü cüzdan senkronize ediliyor</translation>
+        <translation type="vanished">Pay alınmıyor çünkü cüzdan senkronize ediliyor</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+12"/>
         <source>Not staking because you don&apos;t have mature coins</source>
         <translation>Pay alınmıyor çünkü olgunlaşmış coininiz yoktur</translation>
     </message>
     <message numerus="yes">
-        <location line="-403"/>
+        <location line="-474"/>
         <source>%n second(s) ago</source>
-        <translation><numerusform>%n saniye önce</numerusform><numerusform>%n saniye önce</numerusform></translation>
+        <translation>
+            <numerusform>%n saniye önce</numerusform>
+        </translation>
     </message>
     <message>
-        <location line="-284"/>
         <source>&amp;Unlock Wallet...</source>
-        <translation>Cüzdanı &amp;Kilitle...</translation>
+        <translation type="vanished">Cüzdanı &amp;Kilitle...</translation>
+    </message>
+    <message>
+        <location line="-663"/>
+        <source>Client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+185"/>
+        <source>&amp;DASHBOARD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Show general overview of client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>&amp;SEND</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Send shares to a vTorrent address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>&amp;RECEIVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Show the list of addresses for receiving shares</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>&amp;HISTORY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>&amp;ADDRESSES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>&amp;MESSAGES</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>View and Send Encrypted messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>&amp;BLOCK EXPLORER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Explore the BlockChain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>&amp;Bittrex VTR-BTC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Trades VTR-BTC at Bittrex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>&amp;EmpoEX VTR-BTC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Trades VTR-BTC at EmpoEX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>&amp;TORRENT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Torrent Client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+48"/>
+        <source>&amp;Encrypt Client...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Encrypt or decrypt client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Backup Client...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Backup client private key to another location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Change the passphrase used for client encryption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>&amp;Unlock Client...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Unlock client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>&amp;Lock Client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Lock client</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+288"/>
+        <location line="+366"/>
         <source>%n minute(s) ago</source>
-        <translation><numerusform>%n dakika önce</numerusform><numerusform>%n dakika önce</numerusform></translation>
+        <translation>
+            <numerusform>%n dakika önce</numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n hour(s) ago</source>
-        <translation><numerusform>%n saat önce</numerusform><numerusform>%n saat önce</numerusform></translation>
+        <translation>
+            <numerusform>%n saat önce</numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n gün önce</numerusform><numerusform>%n gün önce</numerusform></translation>
+        <translation>
+            <numerusform>%n gün önce</numerusform>
+        </translation>
     </message>
     <message>
         <location line="+6"/>
@@ -612,12 +873,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Aralık kapatılıyor...</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+11"/>
         <source>Last received block was generated %1.</source>
         <translation>Son alınan blok, üretildi %1.</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+61"/>
         <source>This transaction is over the size limit.  You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network.  Do you want to pay the fee?</source>
         <translation>Bu işlem, büyüklük sınırının üzerindedir. İşleminizi gerçekleştirecek devrelere gidecek ve ağı desteklemeye yardımcı olacak %1 ücretle coin gönderebilirsiniz. Ücreti ödemek istiyor musunuz?</translation>
     </message>
@@ -650,7 +911,21 @@ Adres: %4
 </translation>
     </message>
     <message>
-        <location line="+100"/>
+        <location line="+28"/>
+        <source>Incoming Message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Date: %1
+From Address: %2
+To Address: %3
+Message: %4
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+119"/>
         <location line="+15"/>
         <source>URI handling</source>
         <translation>URI işleme</translation>
@@ -662,70 +937,205 @@ Adres: %4
         <translation>URI ayrıştırılamadı! Bu, geçersiz bir vTorrent adresi veya hatalı URI parametreleri nedeniyle olabilir.</translation>
     </message>
     <message>
-        <location line="+18"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation>Cüzdan &lt;b&gt;şifrelenmiştir&lt;/b&gt; ve şu anda &lt;b&gt;kilidi açıktır&lt;/b&gt;</translation>
+        <translation type="vanished">Cüzdan &lt;b&gt;şifrelenmiştir&lt;/b&gt; ve şu anda &lt;b&gt;kilidi açıktır&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+10"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation>Cüzdan &lt;b&gt;şifrelenmiştir&lt;/b&gt; ve şu anda &lt;b&gt;kilitlidir&lt;/b&gt;</translation>
+        <translation type="vanished">Cüzdan &lt;b&gt;şifrelenmiştir&lt;/b&gt; ve şu anda &lt;b&gt;kilitlidir&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+25"/>
         <source>Backup Wallet</source>
-        <translation>Cüzdanı Yedekle</translation>
+        <translation type="vanished">Cüzdanı Yedekle</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>Wallet Data (*.dat)</source>
-        <translation>Cüzdan Verisi (*.dat)</translation>
+        <translation type="vanished">Cüzdan Verisi (*.dat)</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+61"/>
         <source>Backup Failed</source>
         <translation>Yedekleme Başarısız Oldu</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>There was an error trying to save the wallet data to the new location.</source>
-        <translation>Cüzdan verisi, yeni bir konuma kaydedilmeye çalışılırken bir hata oluştu.</translation>
+        <translation type="vanished">Cüzdan verisi, yeni bir konuma kaydedilmeye çalışılırken bir hata oluştu.</translation>
     </message>
     <message numerus="yes">
-        <location line="+76"/>
+        <location line="+91"/>
         <source>%n second(s)</source>
-        <translation><numerusform>%n saniye</numerusform><numerusform>%n saniye</numerusform></translation>
+        <translation>
+            <numerusform>%n saniye</numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n minute(s)</source>
-        <translation><numerusform>%n dakika</numerusform><numerusform>%n dakika</numerusform></translation>
+        <translation>
+            <numerusform>%n dakika</numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n hour(s)</source>
-        <translation><numerusform>%n saat</numerusform><numerusform>%n saat</numerusform></translation>
+        <translation>
+            <numerusform>%n saat</numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n day(s)</source>
-        <translation><numerusform>%n gün</numerusform><numerusform>%n gün</numerusform></translation>
+        <translation>
+            <numerusform>%n gün</numerusform>
+        </translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+10"/>
+        <source>Not staking because client is locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Not staking because client is offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Not staking because client is syncing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Not staking</source>
         <translation>Pay alınmıyor</translation>
     </message>
     <message>
-        <location filename="../bitcoin.cpp" line="+109"/>
+        <location filename="../bitcoin.cpp" line="+114"/>
         <source>A fatal error occurred. vTorrent can no longer continue safely and will quit.</source>
         <translation>Önemli bir hata oluştu. vTorrent artık güvenli bir şekilde devam edemez ve şimdi kapatılacak.</translation>
     </message>
 </context>
 <context>
+    <name>BlockBrowser</name>
+    <message>
+        <location filename="../forms/blockbrowser.ui" line="+23"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+57"/>
+        <source>vTorrent - Block Explorer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+79"/>
+        <source>Jump to Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Block Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+63"/>
+        <location line="+14"/>
+        <location line="+14"/>
+        <source>0</source>
+        <translation type="unfinished">0</translation>
+    </message>
+    <message>
+        <location line="-84"/>
+        <source>Block Hash:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <location line="+20"/>
+        <source>0x0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-13"/>
+        <source>Block Merkle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Block nNonce:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Block nBits:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Block Timestamp:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Block Difficulty:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>0.00</source>
+        <translation type="unfinished">0.00</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Block Hashrate:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>0000 KH/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+56"/>
+        <source>Decode Transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Transaction ID:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>000</source>
+        <translation type="unfinished">000</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Value out:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Fees:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Outputs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Inputs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+90"/>
+        <location filename="../clientmodel.cpp" line="+110"/>
         <source>Network Alert</source>
         <translation>Ağ Uyarısı</translation>
     </message>
@@ -733,37 +1143,37 @@ Adres: %4
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+14"/>
+        <location filename="../forms/coincontroldialog.ui" line="+20"/>
         <source>Coin Control</source>
         <translation>Coin Kontrolü</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+34"/>
         <source>Quantity:</source>
         <translation>Adet:</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+31"/>
         <source>Bytes:</source>
         <translation>Bayt:</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+47"/>
         <source>Amount:</source>
         <translation>Miktar:</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+31"/>
         <source>Priority:</source>
         <translation>Öncelik:</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+47"/>
         <source>Fee:</source>
         <translation>Ücret:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+34"/>
         <source>Low Output:</source>
         <translation>Düşük Çıktı:</translation>
     </message>
@@ -773,17 +1183,17 @@ Adres: %4
         <translation>hayır</translation>
     </message>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+51"/>
+        <location filename="../forms/coincontroldialog.ui" line="+50"/>
         <source>After Fee:</source>
         <translation>Ücretten sonra:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+34"/>
         <source>Change:</source>
         <translation>Para üstü:</translation>
     </message>
     <message>
-        <location line="+69"/>
+        <location line="+68"/>
         <source>(un)select all</source>
         <translation>tümünü seç(me)</translation>
     </message>
@@ -1001,7 +1411,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>EditAddressDialog</name>
     <message>
-        <location filename="../forms/editaddressdialog.ui" line="+14"/>
+        <location filename="../forms/editaddressdialog.ui" line="+26"/>
         <source>Edit Address</source>
         <translation>Adresi düzenle</translation>
     </message>
@@ -1011,7 +1421,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Etiket</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+22"/>
         <source>The label associated with this address book entry</source>
         <translation>Bu adres defteri kaydıyla ilişkili etiket</translation>
     </message>
@@ -1021,9 +1431,14 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Adres</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+22"/>
         <source>The address associated with this address book entry. This can only be modified for sending addresses.</source>
         <translation>Bu adres defteri kaydıyla ilişkili etiket. Bu, sadece gönderi adresleri için değiştirilebilir.</translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>&amp;Stealth Address</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editaddressdialog.cpp" line="+20"/>
@@ -1031,22 +1446,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Yeni alım adresi</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+9"/>
         <source>New sending address</source>
         <translation>Yeni gönderi adresi</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Edit receiving address</source>
         <translation>Alım adresini düzenle</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>Edit sending address</source>
         <translation>Gönderi adresini düzenle</translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+82"/>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
         <translation>Girilen &quot;%1&quot; adresi hâlihazırda adres defterinde mevcuttur.</translation>
     </message>
@@ -1069,7 +1484,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+420"/>
+        <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
         <source>vTorrent-Client</source>
         <translation>vTorrent-Client</translation>
@@ -1111,19 +1526,360 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
+    <name>MRichTextEdit</name>
+    <message>
+        <location filename="../plugins/mrichtexteditor/mrichtextedit.ui" line="+56"/>
+        <source>Paragraph formatting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Undo (CTRL+Z)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <location line="+3"/>
+        <source>Redo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>Cut (CTRL+X)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>Copy (CTRL+C)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>Paste (CTRL+V)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Link (CTRL+L)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+34"/>
+        <source>Bold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Italic (CTRL+I)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Italic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Underline (CTRL+U)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Underline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>Strike Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Bullet list (CTRL+-)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Bullet list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Ordered list (CTRL+=)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Ordered list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Decrease indentation (CTRL+,)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Decrease indentation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>Increase indentation (CTRL+.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Increase indentation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+40"/>
+        <source>Text background color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Font size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugins/mrichtexteditor/mrichtextedit.cpp" line="+59"/>
+        <source>Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Heading 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Heading 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Heading 3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Heading 4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Monospace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+143"/>
+        <source>Create a link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Link URL:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MessageModel</name>
+    <message>
+        <location filename="../messagemodel.cpp" line="+310"/>
+        <source>Type</source>
+        <translation type="unfinished">Tür</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Sent Date Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Received Date Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Label</source>
+        <translation type="unfinished">Etiket</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>To Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>From Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Message</source>
+        <translation type="unfinished">Mesaj</translation>
+    </message>
+    <message>
+        <location line="+82"/>
+        <source>Send Secure Message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Send failed: %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+67"/>
+        <source>(no label)</source>
+        <translation type="unfinished">(boş etiket)</translation>
+    </message>
+</context>
+<context>
+    <name>MessagePage</name>
+    <message>
+        <location filename="../forms/messagepage.ui" line="+14"/>
+        <source>Address Book</source>
+        <translation type="unfinished">Adres Defteri</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>These are your sent and received encrypted messages. Click on an item to read it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Click on a message to view it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+50"/>
+        <source>&amp;Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Contact:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+50"/>
+        <source>&amp;Conversation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Sign a message to prove you own a vTorrent address</source>
+        <translation type="unfinished">Bir vTorrent adresine sahip olduğunu ispatlamak için bir mesaj imzala</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Send</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <location line="+14"/>
+        <source>Copy the currently selected address to the system clipboard</source>
+        <translation type="unfinished">Seçili adresi sistem panosuna kopyala</translation>
+    </message>
+    <message>
+        <location line="-11"/>
+        <source>&amp;Copy From Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Copy To &amp;Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Delete the currently selected address from the list</source>
+        <translation type="unfinished">Seçili adresi listeden sil</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Delete</source>
+        <translation type="unfinished">&amp;Sil</translation>
+    </message>
+    <message>
+        <location filename="../messagepage.cpp" line="+182"/>
+        <source>Send Secure Message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Send failed: %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+213"/>
+        <source>Export Messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Comma separated file (*.csv)</source>
+        <translation type="unfinished">Virgülle ayrılmış değerler dosyası (*.csv)</translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Error exporting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Could not write to file %1.</source>
+        <translation type="unfinished">%1 dosyasına yazılamadı.</translation>
+    </message>
+</context>
+<context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+14"/>
+        <location filename="../forms/optionsdialog.ui" line="+26"/>
         <source>Options</source>
         <translation>Seçenekler</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+32"/>
         <source>&amp;Main</source>
         <translation>&amp;Esas ayarlar</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+17"/>
         <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.01 recommended.</source>
         <translation>İşlemlerinizin hızlıca gerçekleştirilmesini sağlayan kB başına opsiyonel işlem ücreti. Birçok işlem 1 kB&apos;tır. Tavsiye edilen ücret 0.01&apos;dir.</translation>
     </message>
@@ -1163,12 +1919,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Kapanışta veritabanlarını &amp;ayır</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+23"/>
         <source>&amp;Network</source>
         <translation>&amp;Şebeke</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+14"/>
         <source>Automatically open the vTorrent client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Yönelticide vTorrent istemci portunu otomatik olarak aç. Bu, sadece yönelticiniz UPnP&apos;i desteklediğinde ve etkin olduğunda çalışır.</translation>
     </message>
@@ -1218,12 +1974,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Vekil sunucunun SOCKS sürümü (mesela 5)</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+38"/>
         <source>&amp;Window</source>
         <translation>&amp;Pencere</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+11"/>
         <source>Show only a tray icon after minimizing the window.</source>
         <translation>Küçültüldükten sonra sadece çekmece ikonu göster.</translation>
     </message>
@@ -1243,12 +1999,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Kapatma sırasında k&amp;üçült</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+23"/>
         <source>&amp;Display</source>
         <translation>&amp;Görünüm</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+16"/>
         <source>User Interface &amp;language:</source>
         <translation>Kullanıcı arayüzü &amp;lisanı:</translation>
     </message>
@@ -1268,7 +2024,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Bitcoin gönderildiğinde arayüzde gösterilecek varsayılan alt birimi seçiniz.</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+12"/>
         <source>Whether to show vTorrent addresses in the transaction list or not.</source>
         <translation>vTorrent adresinin işlem listesinde gösterilmesi veya gösterilmemesi</translation>
     </message>
@@ -1288,7 +2044,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Coin &amp;kontrol özelliklerini göster (sadece uzman kişiler!)</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+82"/>
         <source>&amp;OK</source>
         <translation>&amp;Tamam</translation>
     </message>
@@ -1328,79 +2084,85 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+14"/>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation type="vanished">Form</translation>
     </message>
     <message>
-        <location line="+33"/>
-        <location line="+231"/>
+        <location filename="../forms/overviewpage.ui" line="+65"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the vTorrent network after a connection is established, but this process has not completed yet.</source>
         <translation>Görüntülenen bilginin tarihi geçmiş olabilir. Cüzdanınız, bağlantı kurulduktan sonra otomatik olarak vTorrent ağı ile senkronize olur ancak bu süreç, henüz tamamlanmamıştır.</translation>
     </message>
     <message>
-        <location line="-160"/>
+        <location line="+77"/>
+        <source>&lt;b&gt;Current Balance&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+132"/>
         <source>Stake:</source>
         <translation>Pay:</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+61"/>
         <source>Unconfirmed:</source>
         <translation>Doğrulanmamış:</translation>
     </message>
     <message>
-        <location line="-107"/>
         <source>Wallet</source>
-        <translation>Cüzdan</translation>
+        <translation type="vanished">Cüzdan</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="-122"/>
         <source>Spendable:</source>
         <translation>Harcanabilir:</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+30"/>
         <source>Your current spendable balance</source>
         <translation>Güncel harcanabilir bakiyeniz</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+153"/>
         <source>Immature:</source>
         <translation>Olgunlaşmamış:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+27"/>
         <source>Mined balance that has not yet matured</source>
         <translation>Oluşturulan bakiye henüz olgunlaşmamıştır</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+42"/>
         <source>Total:</source>
         <translation>Toplam:</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+30"/>
         <source>Your current total balance</source>
         <translation>Güncel toplam bakiyeniz</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+30"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Son muameleler&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-108"/>
+        <location line="-160"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
         <translation>Henüz onaylanmamış ve mevcut bakiyede yer almayan işlemler toplamı</translation>
     </message>
     <message>
-        <location line="-29"/>
+        <location line="-315"/>
+        <source>Wallet Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+254"/>
         <source>Total of coins that was staked, and do not yet count toward the current balance</source>
         <translation>Pay alınmış ve mevcut bakiyede yer almayan coin toplamı</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+113"/>
-        <location line="+1"/>
+        <location filename="../overviewpage.cpp" line="+114"/>
         <source>out of sync</source>
         <translation>eşleşme dışı</translation>
     </message>
@@ -1408,32 +2170,32 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>QRCodeDialog</name>
     <message>
-        <location filename="../forms/qrcodedialog.ui" line="+14"/>
+        <location filename="../forms/qrcodedialog.ui" line="+20"/>
         <source>QR Code Dialog</source>
         <translation>QR Kodu İletisi</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+79"/>
         <source>Request Payment</source>
         <translation>Ödeme Talep Et</translation>
     </message>
     <message>
-        <location line="+56"/>
+        <location line="+19"/>
         <source>Amount:</source>
         <translation>Miktar:</translation>
     </message>
     <message>
-        <location line="-44"/>
+        <location line="+52"/>
         <source>Label:</source>
         <translation>Etiket:</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+29"/>
         <source>Message:</source>
         <translation>Mesaj:</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+36"/>
         <source>&amp;Save As...</source>
         <translation>&amp;Farklı Kaydet...</translation>
     </message>
@@ -1444,7 +2206,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+40"/>
-        <source>The entered amount is invalid, please check.</source>
+        <source>The entered amount is invalid.</source>
         <translation>Girilen miktar geçersizdir, lütfen kontrol ediniz.</translation>
     </message>
     <message>
@@ -1466,133 +2228,170 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+46"/>
+        <location filename="../forms/rpcconsole.ui" line="+148"/>
         <source>Client name</source>
         <translation>İstemci ismi</translation>
     </message>
     <message>
-        <location line="+10"/>
-        <location line="+23"/>
-        <location line="+26"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location line="+36"/>
-        <location line="+53"/>
-        <location line="+23"/>
-        <location line="+23"/>
-        <location filename="../rpcconsole.cpp" line="+348"/>
+        <location line="+22"/>
+        <location line="+65"/>
+        <location line="+68"/>
+        <location line="+65"/>
+        <location line="+117"/>
+        <location line="+65"/>
+        <location line="+65"/>
+        <location line="+111"/>
+        <location filename="../rpcconsole.cpp" line="+356"/>
         <source>N/A</source>
         <translation>Mevcut değil</translation>
     </message>
     <message>
-        <location line="-217"/>
+        <location line="-513"/>
         <source>Client version</source>
         <translation>İstemci sürümü</translation>
     </message>
     <message>
-        <location line="-45"/>
+        <location line="-150"/>
         <source>&amp;Information</source>
         <translation>&amp;Malumat</translation>
     </message>
     <message>
-        <location line="+68"/>
+        <location line="+51"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;vTorrent Core&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+164"/>
         <source>Using OpenSSL version</source>
         <translation>Kullanılan OpenSSL sürümü</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+68"/>
         <source>Startup time</source>
         <translation>Başlama zamanı</translation>
     </message>
     <message>
-        <location line="+29"/>
         <source>Network</source>
-        <translation>Şebeke</translation>
+        <translation type="vanished">Şebeke</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+358"/>
         <source>Number of connections</source>
         <translation>Bağlantı sayısı</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+59"/>
         <source>On testnet</source>
         <translation>Testnet üzerinde</translation>
     </message>
     <message>
-        <location line="+23"/>
         <source>Block chain</source>
-        <translation>Blok zinciri</translation>
+        <translation type="vanished">Blok zinciri</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-300"/>
         <source>Current number of blocks</source>
         <translation>Güncel blok sayısı</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+65"/>
         <source>Estimated total blocks</source>
         <translation>Tahmini toplam blok sayısı</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+65"/>
         <source>Last block time</source>
         <translation>Son blok zamanı</translation>
     </message>
     <message>
-        <location line="+52"/>
         <source>&amp;Open</source>
-        <translation>&amp;Aç</translation>
+        <translation type="vanished">&amp;Aç</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+261"/>
         <source>Command-line options</source>
         <translation>Komut satırı seçenekleri</translation>
     </message>
     <message>
-        <location line="+7"/>
         <source>Show the vTorrent-Client help message to get a list with possible vTorrent command-line options.</source>
-        <translation>Muhtemel vTorrent komut satırı seçeneklerinin bir listesini getirmek için vTorrent-Client yardım mesajını göster</translation>
+        <translation type="vanished">Muhtemel vTorrent komut satırı seçeneklerinin bir listesini getirmek için vTorrent-Client yardım mesajını göster</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>&amp;Show</source>
-        <translation>&amp;Göster</translation>
+        <translation type="vanished">&amp;Göster</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+46"/>
         <source>&amp;Console</source>
         <translation>&amp;Konsol</translation>
     </message>
     <message>
-        <location line="-260"/>
         <source>Build date</source>
-        <translation>Derleme tarihi</translation>
+        <translation type="vanished">Derleme tarihi</translation>
     </message>
     <message>
-        <location line="-104"/>
+        <location line="-868"/>
         <source>vTorrent - Debug window</source>
         <translation>vTorrent - Hata ayıklama penceresi</translation>
     </message>
     <message>
-        <location line="+25"/>
         <source>vTorrent Core</source>
-        <translation>vTorrent Core</translation>
+        <translation type="vanished">vTorrent Core</translation>
     </message>
     <message>
-        <location line="+279"/>
+        <location line="+841"/>
         <source>Debug log file</source>
         <translation>Hata ayıklama kütük dosyası</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-3"/>
         <source>Open the vTorrent debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>vTorrent hata ayıklama günlük kütüğü dosyasını, mevcut veri klasöründen aç. Bu işlem, büyük günlük kütüğü dosyaları için birkaç saniye sürebilir.</translation>
     </message>
     <message>
-        <location line="+102"/>
+        <location line="-441"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Block chain&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+247"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Network&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+175"/>
+        <source>Show the vTorrent-Qt help message to get a list with possible XCash command-line options.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+107"/>
         <source>Clear console</source>
         <translation>Konsolu temizle</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>&amp;Network Traffic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>&amp;Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Totals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+65"/>
+        <source>In:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+80"/>
+        <source>Out:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
@@ -1609,6 +2408,41 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
         <translation>Mevcut komutların listesi için &lt;b&gt;help&lt;/b&gt; yazınız.</translation>
     </message>
+    <message>
+        <location line="+126"/>
+        <source>%1 B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>%1 m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>%1 h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 h %2 m</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SendCoinsDialog</name>
@@ -1621,11 +2455,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+6"/>
         <location line="+5"/>
         <location line="+5"/>
+        <location line="+5"/>
         <source>Send Coins</source>
         <translation>Bitcoin yolla</translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+32"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Send vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+72"/>
         <source>Coin Control Features</source>
         <translation>Para kontrolü özellikleri</translation>
     </message>
@@ -1645,41 +2485,41 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Yetersiz fon!</translation>
     </message>
     <message>
-        <location line="+77"/>
+        <location line="+86"/>
         <source>Quantity:</source>
         <translation>Miktar:</translation>
     </message>
     <message>
-        <location line="+22"/>
-        <location line="+35"/>
+        <location line="+21"/>
+        <location line="+34"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location line="-19"/>
+        <location line="-18"/>
         <source>Bytes:</source>
         <translation>Bayt:</translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+50"/>
         <source>Amount:</source>
         <translation>Meblağ:</translation>
     </message>
     <message>
-        <location line="+22"/>
-        <location line="+86"/>
-        <location line="+86"/>
-        <location line="+32"/>
+        <location line="+21"/>
+        <location line="+84"/>
+        <location line="+84"/>
+        <location line="+31"/>
         <source>0.00 VTR</source>
         <translation>123.456 VTR {0.00 ?}</translation>
     </message>
     <message>
-        <location line="-191"/>
+        <location line="-186"/>
         <source>Priority:</source>
         <translation>Öncelik:</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+18"/>
         <source>medium</source>
         <translation>orta</translation>
     </message>
@@ -1689,12 +2529,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Ücret:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+34"/>
         <source>Low Output:</source>
         <translation>Düşük çıktı:</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+18"/>
         <source>no</source>
         <translation>hayır</translation>
     </message>
@@ -1704,17 +2544,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Ücretten sonra:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+34"/>
         <source>Change</source>
         <translation>Değiştir</translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+49"/>
         <source>custom change address</source>
         <translation>özel adres değişikliği</translation>
     </message>
     <message>
-        <location line="+106"/>
+        <location line="+121"/>
         <source>Send to multiple recipients at once</source>
         <translation>Birçok alıcıya aynı anda gönder</translation>
     </message>
@@ -1724,7 +2564,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Alıcı ekle</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+16"/>
         <source>Remove all transaction fields</source>
         <translation>Tüm işlem alanlarını kaldır</translation>
     </message>
@@ -1734,9 +2574,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Tümünü &amp;temizle</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+30"/>
+        <source>Spendable:</source>
+        <translation type="unfinished">Harcanabilir:</translation>
+    </message>
+    <message>
         <source>Balance:</source>
-        <translation>Bakiye:</translation>
+        <translation type="vanished">Bakiye:</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -1754,9 +2598,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>G&amp;önder</translation>
     </message>
     <message>
-        <location filename="../sendcoinsdialog.cpp" line="-173"/>
         <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation>Bir vTorrent adresi gir (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <translation type="vanished">Bir vTorrent adresi gir (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+    </message>
+    <message>
+        <location filename="../sendcoinsdialog.cpp" line="-178"/>
+        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1854,9 +2702,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Hata: İşlem reddedildi. Bu, örneğin wallet.dat dosyasının bir kopyasını kullandıysanız ve coinler, kopyada harcanmış ve burada harcanmış olarak işaretlenmemişse, cüzdanınızdaki coinlerin bir bölümünün harcanması nedeniyle olabilir. </translation>
     </message>
     <message>
+        <location line="+5"/>
+        <source>Error: Narration is too long.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+251"/>
+        <source>WARNING: Invalid address, stealth address is not supported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>WARNING: Invalid vTorrent address</source>
-        <translation>UYARI: Geçersiz vTorrent adresi</translation>
+        <translation type="vanished">UYARI: Geçersiz vTorrent adresi</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1877,33 +2734,48 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Form</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+60"/>
+        <source>The address to send the payment to  (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+182"/>
+        <source>N&amp;arration:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <location filename="../sendcoinsentry.cpp" line="+25"/>
+        <source>Enter a short note to send with payment (max 24 characters)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+42"/>
         <source>A&amp;mount:</source>
         <translation>Mebla&amp;ğ:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="-271"/>
         <source>Pay &amp;To:</source>
         <translation>&amp;Şu adrese öde:</translation>
     </message>
     <message>
-        <location line="+24"/>
-        <location filename="../sendcoinsentry.cpp" line="+25"/>
+        <location line="+169"/>
+        <location filename="../sendcoinsentry.cpp" line="-2"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Adres defterinize eklemek için bu adrese ilişik bir etiket giriniz</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="-25"/>
         <source>&amp;Label:</source>
         <translation>&amp;Etiket:</translation>
     </message>
     <message>
-        <location line="+18"/>
         <source>The address to send the payment to  (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation>Ödemenin gönderileceği adres (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <translation type="vanished">Ödemenin gönderileceği adres (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="-100"/>
         <source>Choose address from address book</source>
         <translation>Adres defterinden adres seç</translation>
     </message>
@@ -1913,7 +2785,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+19"/>
         <source>Paste address from clipboard</source>
         <translation>Panodan adres yapıştır</translation>
     </message>
@@ -1923,73 +2795,295 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Alt+P</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+19"/>
         <source>Remove this recipient</source>
         <translation>Bu alıcıyı kaldır</translation>
     </message>
     <message>
-        <location filename="../sendcoinsentry.cpp" line="+1"/>
         <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation>Bir vTorrent adresi girin (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <translation type="vanished">Bir vTorrent adresi girin (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+    </message>
+    <message>
+        <location filename="../sendcoinsentry.cpp" line="+1"/>
+        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SendMessagesDialog</name>
+    <message>
+        <location filename="../forms/sendmessagesdialog.ui" line="+14"/>
+        <source>Send Messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+30"/>
+        <source>Address &amp;From:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Choose address from address book</source>
+        <translation type="unfinished">Adres defterinden adres seç</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Alt+A</source>
+        <translation type="unfinished">Alt+A</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Paste address from clipboard</source>
+        <translation type="unfinished">Panodan adres yapıştır</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Alt+P</source>
+        <translation type="unfinished">Alt+P</translation>
+    </message>
+    <message>
+        <location line="+65"/>
+        <source>Send to multiple recipients at once</source>
+        <translation type="unfinished">Birçok alıcıya aynı anda gönder</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Add &amp;Recipient</source>
+        <translation type="unfinished">&amp;Alıcı ekle</translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Remove all transaction fields</source>
+        <translation type="unfinished">Tüm işlem alanlarını kaldır</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Clear &amp;All</source>
+        <translation type="unfinished">Tümünü &amp;temizle</translation>
+    </message>
+    <message>
+        <location line="+36"/>
+        <source>Confirm the send action</source>
+        <translation type="unfinished">Yollama etkinliğini teyit ediniz</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>S&amp;end</source>
+        <translation type="unfinished">G&amp;önder</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sendmessagesdialog.cpp" line="+37"/>
+        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+121"/>
+        <source>&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</source>
+        <translation type="unfinished">&lt;b&gt;%1&lt;/b&gt; %2&apos;ye (%3)</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Confirm send messages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Are you sure you want to send %1?</source>
+        <translation type="unfinished">%1 göndermek istediğinizden emin misiniz?</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source> and </source>
+        <translation type="unfinished">ve</translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <location line="+5"/>
+        <location line="+5"/>
+        <location line="+5"/>
+        <location line="+5"/>
+        <source>Send Message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-19"/>
+        <source>The recipient address is not valid, please recheck.</source>
+        <translation type="unfinished">Alıcı adresi geçerli değildir, lütfen denetleyiniz.</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>The message can&apos;t be empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Duplicate address found, can only send to each address once per send operation.</source>
+        <translation type="unfinished">Çift adres bulundu, belli bir gönderi sırasında her adrese sadece tek bir gönderide bulunulabilir.</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Error: Message creation failed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Error: The message was rejected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SendMessagesEntry</name>
+    <message>
+        <location filename="../forms/sendmessagesentry.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>The address to send the payment to  (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Choose address from address book</source>
+        <translation type="unfinished">Adres defterinden adres seç</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Alt+A</source>
+        <translation type="unfinished">Alt+A</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Paste address from clipboard</source>
+        <translation type="unfinished">Panodan adres yapıştır</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Alt+P</source>
+        <translation type="unfinished">Alt+P</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Remove this recipient</source>
+        <translation type="unfinished">Bu alıcıyı kaldır</translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>&amp;Message:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Send &amp;To:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <location filename="../sendmessagesentry.cpp" line="+27"/>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation type="unfinished">Adres defterinize eklemek için bu adrese ilişik bir etiket giriniz</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&amp;Label:</source>
+        <translation type="unfinished">&amp;Etiket:</translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>&amp;Public Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sendmessagesentry.cpp" line="+1"/>
+        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Enter the public key for the address above, it is not in the blockchain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>You cannot send a blank message!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <location filename="../forms/signverifymessagedialog.ui" line="+14"/>
+        <location filename="../forms/signverifymessagedialog.ui" line="+20"/>
         <source>Signatures - Sign / Verify a Message</source>
         <translation>İmzalar - Mesaj İmzala / Kontrol et</translation>
     </message>
     <message>
-        <location line="+13"/>
-        <location line="+124"/>
+        <location line="+31"/>
+        <location line="+195"/>
         <source>&amp;Sign Message</source>
         <translation>Mesaj &amp;imzala</translation>
     </message>
     <message>
-        <location line="-118"/>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Bir adresin sizin olduğunu ispatlamak için adresinizle mesaj imzalayabilirsiniz. Oltalama saldırılarının kimliğinizi imzanızla elde etmeyi deneyebilecekleri için belirsiz hiçbir şey imzalamamaya dikkat ediniz. Sadece ayrıntılı açıklaması olan ve tümüne katıldığınız ifadeleri imzalayınız.</translation>
+        <translation type="vanished">Bir adresin sizin olduğunu ispatlamak için adresinizle mesaj imzalayabilirsiniz. Oltalama saldırılarının kimliğinizi imzanızla elde etmeyi deneyebilecekleri için belirsiz hiçbir şey imzalamamaya dikkat ediniz. Sadece ayrıntılı açıklaması olan ve tümüne katıldığınız ifadeleri imzalayınız.</translation>
     </message>
     <message>
-        <location line="+18"/>
         <source>The address to sign the message with (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation>Mesajın imzalanacağı adres (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <translation type="vanished">Mesajın imzalanacağı adres (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+    </message>
+    <message>
+        <location line="-183"/>
+        <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague. Only sign fully-detailed statements you agree to. Only normal addresses is supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+43"/>
+        <source>The address to sign the message with (e.g. SDywGBZBowrSSUwwNUo1DFSDTibzKid93H)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+10"/>
-        <location line="+203"/>
+        <location line="+275"/>
         <source>Choose an address from the address book</source>
         <translation>Adres defterinden adres seç</translation>
     </message>
     <message>
-        <location line="-193"/>
-        <location line="+203"/>
+        <location line="-265"/>
+        <location line="+275"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location line="-193"/>
+        <location line="-265"/>
+        <location line="+275"/>
+        <location line="+63"/>
         <source>Paste address from clipboard</source>
         <translation>Panodan adres yapıştır</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="-328"/>
+        <location line="+275"/>
+        <location line="+63"/>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="-325"/>
         <source>Enter the message you want to sign here</source>
         <translation>İmzalamak istediğiniz mesajı burada giriniz</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+49"/>
         <source>Copy the current signature to the system clipboard</source>
         <translation>Güncel imzayı sistem panosuna kopyala</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+35"/>
         <source>Sign the message to prove you own this vTorrent address</source>
         <translation>Bu vTorrent adresine sahip olduğunuzu ispatlamak için mesajı imzala</translation>
     </message>
@@ -2000,28 +3094,36 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <location line="+146"/>
+        <location line="+269"/>
         <source>Clear &amp;All</source>
         <translation>Tümünü &amp;temizle</translation>
     </message>
     <message>
-        <location line="-87"/>
-        <location line="+70"/>
+        <location line="-203"/>
+        <location line="+186"/>
         <source>&amp;Verify Message</source>
         <translation>Mesaj &amp;kontrol et</translation>
     </message>
     <message>
-        <location line="-64"/>
-        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
-        <translation>İmza için kullanılan adresi, mesajı (satır sonları, boşluklar, sekmeler vs. karakterleri tam olarak kopyaladığınızdan emin olunuz) ve imzayı aşağıda giriniz. Bir ortadaki adam saldırısı tarafından kandırılmaya mâni olmak için imzadan, imzalı mesajın içeriğini aşan bir anlam çıkarmamaya dikkat ediniz.</translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>The address the message was signed with (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation>Mesajın imzalandığı adres (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <location line="-174"/>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Only normal addresses is supported.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+40"/>
+        <source>The address the message was signed with (e.g. SDywGBZBowrSSUwwNUo1DFSDTibzKid93H)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
+        <translation type="vanished">İmza için kullanılan adresi, mesajı (satır sonları, boşluklar, sekmeler vs. karakterleri tam olarak kopyaladığınızdan emin olunuz) ve imzayı aşağıda giriniz. Bir ortadaki adam saldırısı tarafından kandırılmaya mâni olmak için imzadan, imzalı mesajın içeriğini aşan bir anlam çıkarmamaya dikkat ediniz.</translation>
+    </message>
+    <message>
+        <source>The address the message was signed with (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
+        <translation type="vanished">Mesajın imzalandığı adres (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+    </message>
+    <message>
+        <location line="+131"/>
         <source>Verify the message to ensure it was signed with the specified vTorrent address</source>
         <translation>Mesajın, belirtilen vTorrent adresiyle imzalandığından emin olmak için onu doğrula</translation>
     </message>
@@ -2031,13 +3133,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Tüm mesaj kontrolü alanlarını sıfırla</translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+27"/>
-        <location line="+3"/>
         <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation>Bir vTorrent adresi girin (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <translation type="vanished">Bir vTorrent adresi girin (örn: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
     </message>
     <message>
-        <location line="-2"/>
+        <location filename="../signverifymessagedialog.cpp" line="+28"/>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
         <translation>İmzayı oluşturmak için &quot;Mesaj İmzala&quot; unsurunu tıklayın</translation>
     </message>
@@ -2047,18 +3147,40 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>vTorrent imzası gir</translation>
     </message>
     <message>
-        <location line="+82"/>
-        <location line="+81"/>
         <source>The entered address is invalid. Stealth address is not supported.</source>
-        <translation>Girilen adres geçersizdir.</translation>
+        <translation type="vanished">Girilen adres geçersizdir.</translation>
+    </message>
+    <message>
+        <source>Please check the address and try again.</source>
+        <translation type="vanished">Adresi kontrol edip tekrar deneyiniz.</translation>
+    </message>
+    <message>
+        <location line="-4"/>
+        <location line="+3"/>
+        <source>Enter an vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+83"/>
+        <location line="+81"/>
+        <source>The entered address is invalid.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-81"/>
         <location line="+8"/>
         <location line="+73"/>
         <location line="+8"/>
-        <source>Please check the address and try again.</source>
-        <translation>Adresi kontrol edip tekrar deneyiniz.</translation>
+        <source>Stealth address is not yet supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-89"/>
+        <location line="+8"/>
+        <location line="+73"/>
+        <location line="+8"/>
+        <source>Please check the address and retry.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-81"/>
@@ -2114,16 +3236,26 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
+    <name>TrafficGraphWidget</name>
+    <message>
+        <location filename="../trafficgraphwidget.cpp" line="+79"/>
+        <source>KB/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TransactionDesc</name>
     <message>
-        <location filename="../transactiondesc.cpp" line="+19"/>
+        <location filename="../transactiondesc.cpp" line="+20"/>
         <source>Open until %1</source>
         <translation>%1 değerine dek açık</translation>
     </message>
     <message numerus="yes">
         <location line="-2"/>
         <source>Open for %n block(s)</source>
-        <translation><numerusform>%n blok için aç</numerusform><numerusform>%n blok için aç</numerusform></translation>
+        <translation>
+            <numerusform>%n blok için aç</numerusform>
+        </translation>
     </message>
     <message>
         <location line="+8"/>
@@ -2146,14 +3278,16 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>%1 teyit</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+17"/>
         <source>Status</source>
         <translation>Durum</translation>
     </message>
     <message numerus="yes">
         <location line="+7"/>
         <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>, %n devre üzerinde yayınlama</numerusform><numerusform>, %n devre üzerinde yayınlama</numerusform></translation>
+        <translation>
+            <numerusform>, %n devre üzerinde yayınlama</numerusform>
+        </translation>
     </message>
     <message>
         <location line="+4"/>
@@ -2199,14 +3333,16 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+12"/>
         <location line="+45"/>
         <location line="+17"/>
-        <location line="+30"/>
+        <location line="+38"/>
         <source>Credit</source>
         <translation>Gider</translation>
     </message>
     <message numerus="yes">
-        <location line="-102"/>
+        <location line="-110"/>
         <source>matures in %n more block(s)</source>
-        <translation><numerusform>%n blok içerisinde olgunlaşıyor</numerusform><numerusform>%n blok içerisinde olgunlaşıyor</numerusform></translation>
+        <translation>
+            <numerusform>%n blok içerisinde olgunlaşıyor</numerusform>
+        </translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2217,12 +3353,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+44"/>
         <location line="+8"/>
         <location line="+15"/>
-        <location line="+30"/>
+        <location line="+38"/>
         <source>Debit</source>
         <translation>Gelir</translation>
     </message>
     <message>
-        <location line="-39"/>
+        <location line="-47"/>
         <source>Transaction fee</source>
         <translation>Muamele ücreti</translation>
     </message>
@@ -2242,7 +3378,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Yorum</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+10"/>
         <source>Transaction ID</source>
         <translation>Muamele tanımlayıcı</translation>
     </message>
@@ -2267,7 +3403,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Girdiler</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>Amount</source>
         <translation>Meblağ</translation>
     </message>
@@ -2282,7 +3418,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>yanlış</translation>
     </message>
     <message>
-        <location line="-211"/>
+        <location line="-217"/>
         <source>, has not been successfully broadcast yet</source>
         <translation>, henüz başarılı bir şekilde yayınlanmadı</translation>
     </message>
@@ -2295,7 +3431,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TransactionDescDialog</name>
     <message>
-        <location filename="../forms/transactiondescdialog.ui" line="+14"/>
+        <location filename="../forms/transactiondescdialog.ui" line="+20"/>
         <source>Transaction details</source>
         <translation>Muamele detayları</translation>
     </message>
@@ -2306,9 +3442,37 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
+    <name>TransactionPage</name>
+    <message>
+        <location filename="../forms/transactionpage.ui" line="+6"/>
+        <source>Address Book</source>
+        <translation type="unfinished">Adres Defteri</translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wallet Transactions&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+121"/>
+        <source>Specify Range:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>to</source>
+        <translation type="unfinished">ilâ</translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Double-click to edit address or label</source>
+        <translation type="unfinished">Adresi ya da etiketi düzenlemek için çift tıklayınız</translation>
+    </message>
+</context>
+<context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+226"/>
+        <location filename="../transactiontablemodel.cpp" line="+231"/>
         <source>Date</source>
         <translation>Tarih</translation>
     </message>
@@ -2328,7 +3492,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Meblağ</translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="+52"/>
         <source>Open until %1</source>
         <translation>%1 değerine dek açık</translation>
     </message>
@@ -2340,10 +3504,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message numerus="yes">
         <location line="-15"/>
         <source>Open for %n more block(s)</source>
-        <translation><numerusform>%n blok için aç</numerusform><numerusform>%n blok için aç</numerusform></translation>
+        <translation>
+            <numerusform>%n blok için aç</numerusform>
+        </translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="-49"/>
+        <source>Narration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+55"/>
         <source>Offline</source>
         <translation>Çevrim dışı</translation>
     </message>
@@ -2408,7 +3579,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>(mevcut değil)</translation>
     </message>
     <message>
-        <location line="+190"/>
+        <location line="+198"/>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
         <translation>Muamele durumu. Doğrulama sayısını görüntülemek için imleci bu alanda tutunuz.</translation>
     </message>
@@ -2436,13 +3607,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TransactionView</name>
     <message>
-        <location filename="../transactionview.cpp" line="+55"/>
-        <location line="+16"/>
+        <location filename="../transactionview.cpp" line="+41"/>
+        <location line="+8"/>
         <source>All</source>
         <translation>Hepsi</translation>
     </message>
     <message>
-        <location line="-15"/>
+        <location line="-7"/>
         <source>Today</source>
         <translation>Bugün</translation>
     </message>
@@ -2472,7 +3643,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Aralık...</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+3"/>
         <source>Received with</source>
         <translation>Şununla alınan</translation>
     </message>
@@ -2497,17 +3668,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Diğer</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+4"/>
         <source>Enter address or label to search</source>
         <translation>Aranacak adres ya da etiket giriniz</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+5"/>
         <source>Min amount</source>
         <translation>Asgari meblağ</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+23"/>
         <source>Copy address</source>
         <translation>Adresi kopyala</translation>
     </message>
@@ -2537,7 +3708,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Muamele detaylarını göster</translation>
     </message>
     <message>
-        <location line="+144"/>
+        <location line="+149"/>
         <source>Export Transaction Data</source>
         <translation>İşlem Verisini Dışarı Aktar</translation>
     </message>
@@ -2592,20 +3763,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>%1 dosyasına yazılamadı.</translation>
     </message>
     <message>
-        <location line="+100"/>
         <source>Range:</source>
-        <translation>Aralık:</translation>
+        <translation type="vanished">Aralık:</translation>
     </message>
     <message>
-        <location line="+8"/>
         <source>to</source>
-        <translation>ilâ</translation>
+        <translation type="vanished">ilâ</translation>
     </message>
 </context>
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+206"/>
+        <location filename="../walletmodel.cpp" line="+370"/>
         <source>Sending...</source>
         <translation>Gönderiyor...</translation>
     </message>
@@ -2674,8 +3843,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+6"/>
-        <source>Listen for connections on &lt;port&gt; (default: 31737 or testnet: 31997)</source>
-        <translation>&lt;port&gt; üzerinde bağlantıları dinle (varsayılan: 31737 veya testnet: 31997)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 22524 or testnet: 22525)</source>
+        <translation>&lt;port&gt; üzerinde bağlantıları dinle (varsayılan: 22524 veya testnet: 22525)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2734,8 +3903,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="-87"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 51736 or testnet: 51996)</source>
-        <translation>&lt;port&gt; üzerinde JSON-RPC bağlantılarını dinle (varsayılan: 51736 veya testnet: 51996)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 22523 or testnet: 22521)</source>
+        <translation>&lt;port&gt; üzerinde JSON-RPC bağlantılarını dinle (varsayılan: 22523 veya testnet: 22521)</translation>
     </message>
     <message>
         <location line="-11"/>
@@ -3022,7 +4191,7 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="+15"/>
         <source>When creating transactions, ignore inputs with value less than this (default: 0.01)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+16"/>
@@ -3047,17 +4216,17 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="+3"/>
         <source>Require a confirmations for change (default: 0)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Enforce transaction scripts to use canonical PUSH operators (default: 1)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Execute command when a relevant alert is received (%s in cmd is replaced by message)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3077,17 +4246,17 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="+2"/>
         <source>How many blocks to check at startup (default: 2500, 0 = all)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>How thorough the block verification is (0-6, default: 1)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Imports blocks from external blk000?.dat file</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+8"/>
@@ -3107,17 +4276,17 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="+1"/>
         <source>Acceptable ciphers (default: TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+53"/>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+18"/>
         <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-158"/>
@@ -3127,17 +4296,17 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="+95"/>
         <source>Wallet %s resides outside data directory %s.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Cannot obtain a lock on data directory %s.  vTorrent is probably already running.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-98"/>
         <source>vTorrent</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">vTorrent</translation>
     </message>
     <message>
         <location line="+140"/>
@@ -3147,7 +4316,7 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="-130"/>
         <source>Connect through socks proxy</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3162,7 +4331,7 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="-15"/>
         <source>Error loading blkindex.dat</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3172,12 +4341,12 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="+4"/>
         <source>Error loading wallet.dat: Wallet requires newer version of vTorrent</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Wallet needed to be rewritten: restart vTorrent to complete</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3217,12 +4386,12 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="+44"/>
         <source>Error: could not start node</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Sending...</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Gönderiyor...</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -3247,17 +4416,17 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="+122"/>
         <source>Unable to bind to %s on this computer. vTorrent is probably already running.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-97"/>
         <source>Fee per KB to add to transactions you send</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+55"/>
         <source>Invalid amount for -mininput=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+25"/>
@@ -3272,7 +4441,7 @@ alertnotify ayarlamanız da ayrıca tavsiye edilir böylece sorunlar, size bildi
     <message>
         <location line="+1"/>
         <source>Cannot initialize keypool</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3307,6 +4476,555 @@ If the file does not exist, create it with owner-readable-only file permissions.
         <translation>rpcpassword=&lt;parola&gt; şu yapılandırma dosyasında belirtilmelidir:
 %s
 Dosya mevcut değilse, sadece sahibi için okumayla sınırlı izin ile oluşturunuz.</translation>
+    </message>
+</context>
+<context>
+    <name>tradingBittrex</name>
+    <message>
+        <location filename="../tradingdialog_bittrex.cpp" line="+500"/>
+        <location line="+84"/>
+        <source>BUY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-84"/>
+        <location line="+84"/>
+        <source>SELL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-80"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>tradingBittrex_UI</name>
+    <message>
+        <location filename="../forms/tradingdialog_bittrex.ui" line="+6"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+76"/>
+        <location line="+125"/>
+        <location line="+125"/>
+        <location line="+125"/>
+        <location line="+125"/>
+        <location line="+125"/>
+        <source>BALANCE_GROUPBOX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-592"/>
+        <location line="+183"/>
+        <location line="+125"/>
+        <location line="+125"/>
+        <location line="+67"/>
+        <location line="+183"/>
+        <source>TR00012</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-680"/>
+        <source>Last Price (BTC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>LastPrice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <location line="+106"/>
+        <location line="+125"/>
+        <location line="+125"/>
+        <location line="+144"/>
+        <location line="+106"/>
+        <location line="+1048"/>
+        <location line="+98"/>
+        <location line="+2668"/>
+        <location line="+98"/>
+        <source>CAN_BE_ZERO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-4418"/>
+        <source>BidPrice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>Bid Price (BTC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+79"/>
+        <source>AskPrice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>Ask Price (BTC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+79"/>
+        <source>DayHigh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>24 Hour High</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+67"/>
+        <source>24 Hour Low</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>DayLow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+106"/>
+        <source>VolumeBTC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>Volume (BTC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+113"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Buy vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+449"/>
+        <location line="+1025"/>
+        <location line="+502"/>
+        <location line="+1239"/>
+        <location line="+1025"/>
+        <location line="+502"/>
+        <location line="+2248"/>
+        <location line="+556"/>
+        <location line="+556"/>
+        <location line="+1166"/>
+        <location line="+556"/>
+        <location line="+556"/>
+        <source>0.00000000</source>
+        <translation type="unfinished">0.00000000</translation>
+    </message>
+    <message>
+        <location line="-9912"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;BTC Available&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+117"/>
+        <location line="+2766"/>
+        <location line="+2908"/>
+        <location line="+2278"/>
+        <source>TR00031</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-7949"/>
+        <location line="+2766"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Units&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2750"/>
+        <location line="+64"/>
+        <location line="+62"/>
+        <location line="+61"/>
+        <location line="+2579"/>
+        <location line="+64"/>
+        <location line="+62"/>
+        <location line="+61"/>
+        <location line="+2721"/>
+        <location line="+63"/>
+        <location line="+61"/>
+        <location line="+60"/>
+        <location line="+2094"/>
+        <location line="+63"/>
+        <location line="+61"/>
+        <location line="+60"/>
+        <source>:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-8091"/>
+        <location line="+2766"/>
+        <location line="+2907"/>
+        <location line="+2278"/>
+        <source>TR00030</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-7948"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Bid&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+59"/>
+        <location line="+2766"/>
+        <location line="+2906"/>
+        <location line="+2278"/>
+        <source>TR00033</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-7947"/>
+        <location line="+2766"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Zero profit Price&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2705"/>
+        <location line="+2766"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Total w/ 0.25% Fee&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2680"/>
+        <location line="+46"/>
+        <location line="+2720"/>
+        <location line="+46"/>
+        <location line="+3350"/>
+        <location line="+556"/>
+        <location line="+556"/>
+        <source>VTR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-7176"/>
+        <location line="+46"/>
+        <location line="+502"/>
+        <location line="+502"/>
+        <location line="+1716"/>
+        <location line="+46"/>
+        <location line="+502"/>
+        <location line="+502"/>
+        <location line="+4526"/>
+        <location line="+556"/>
+        <location line="+556"/>
+        <source>BTC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-8260"/>
+        <location line="+2766"/>
+        <source>Set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2738"/>
+        <location line="+2766"/>
+        <source> %</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2696"/>
+        <location line="+150"/>
+        <location line="+2616"/>
+        <location line="+150"/>
+        <source>AS_MARKET_SELL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2900"/>
+        <location line="+2766"/>
+        <source>Max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2741"/>
+        <location line="+150"/>
+        <location line="+2616"/>
+        <location line="+150"/>
+        <source>AS_MARKET_BUY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2900"/>
+        <location line="+2766"/>
+        <source>½</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2747"/>
+        <location line="+150"/>
+        <location line="+2616"/>
+        <location line="+150"/>
+        <source>AS_LAST_PRICE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2900"/>
+        <location line="+2766"/>
+        <source>%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2692"/>
+        <location line="+2766"/>
+        <source>Ask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2725"/>
+        <location line="+2766"/>
+        <source>Bid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2731"/>
+        <location line="+2766"/>
+        <source>Last</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2704"/>
+        <location line="+58"/>
+        <source>Buy vTorrent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+153"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sell vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+468"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;VTR Available&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+184"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ask&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1903"/>
+        <location line="+58"/>
+        <source>Sell vTorrent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+69"/>
+        <source>Order Book</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+261"/>
+        <source>Market History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+60"/>
+        <source>Open Orders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+60"/>
+        <source>Your History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+60"/>
+        <source>Balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>Account Balances</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+68"/>
+        <source>&lt;b&gt;vTorrent (VTR)&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+70"/>
+        <location line="+2278"/>
+        <source>Show &amp;QR Code</source>
+        <translation type="unfinished">&amp;QR Kodunu Göster</translation>
+    </message>
+    <message>
+        <location line="-2204"/>
+        <location line="+2278"/>
+        <source>Generate New Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2149"/>
+        <location line="+2278"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Balance&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2215"/>
+        <location line="+2278"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Available&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2217"/>
+        <location line="+2278"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pending&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2218"/>
+        <location line="+2278"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Deposit Address&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-531"/>
+        <source>Account VTR Deposit Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+74"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Bitcoin (BTC)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2204"/>
+        <source>Account BTC Deposit Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+64"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your Exchange API Key&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>This information can be obtained from inside your Bittrex account Settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;API Key&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <location line="+81"/>
+        <source>Paste address from clipboard</source>
+        <translation type="unfinished">Panodan adres yapıştır</translation>
+    </message>
+    <message>
+        <location line="-71"/>
+        <location line="+81"/>
+        <source>Alt+P</source>
+        <translation type="unfinished">Alt+P</translation>
+    </message>
+    <message>
+        <location line="-68"/>
+        <location line="+81"/>
+        <source>X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-54"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Secret Key&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+122"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pushbullet API Key&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+36"/>
+        <source>Enable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Enable Pushbullet to get notifications from the client.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+96"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Personalized Settings&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>Customise your trading experience.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Exchange API Setting&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source> Realtime Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Update Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Trading Bot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source> Enable Advance Functions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Notifications&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source> Enable Notification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source> Price Alarm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source> Successful Trade</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -630,7 +630,7 @@ QTabBar::close-button  {
 
 QTabBar::close-button:hover
 {
-    background: rgba(255, 255, 255, 20);
+    background: rgba(255,255,255, 20);
     border-radius: 3px;
 }
 
@@ -789,12 +789,12 @@ QDockWidget::close-button, QDockWidget::float-button {
 }
 
 QDockWidget::close-button:hover, QDockWidget::float-button:hover {
-    background: rgba(255, 255, 255, 10);
+    background: rgba(255,255,255, 10);
 }
 
 QDockWidget::close-button:pressed, QDockWidget::float-button:pressed {
     padding: 1px -1px -1px 1px;
-    background: rgba(255, 255, 255, 10);
+    background: rgba(255,255,255, 10);
 }
 
 QTreeView, QListView

@@ -1,8 +1,11 @@
 #ifndef TRANSACTIONVIEW_H
 #define TRANSACTIONVIEW_H
 
-#include <QWidget>
+#include <QDialog>
 
+namespace Ui {
+    class TransactionPage;
+}
 class WalletModel;
 class TransactionFilterProxy;
 
@@ -22,8 +25,10 @@ QT_END_NAMESPACE
 class TransactionView : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit TransactionView(QWidget *parent = 0);
+    ~TransactionView();
 
     void setModel(WalletModel *model);
 
@@ -40,22 +45,11 @@ public:
     };
 
 private:
+    Ui::TransactionPage *ui;
     WalletModel *model;
     TransactionFilterProxy *transactionProxyModel;
-    QTableView *transactionView;
-
-    QComboBox *dateWidget;
-    QComboBox *typeWidget;
-    QLineEdit *addressWidget;
-    QLineEdit *amountWidget;
 
     QMenu *contextMenu;
-
-    QFrame *dateRangeWidget;
-    QDateTimeEdit *dateFrom;
-    QDateTimeEdit *dateTo;
-
-    QWidget *createDateRangeWidget();
 
 private slots:
     void contextualMenu(const QPoint &);

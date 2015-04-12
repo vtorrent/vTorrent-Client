@@ -31,9 +31,14 @@ public:
     quint64 getTotalBytesSent() const;
 
     QDateTime getLastBlockDate() const;
+    QDateTime getLastBlockThinDate() const;
 
     //! Return true if client connected to testnet
     bool isTestNet() const;
+    
+    //! mode (thin/full) client is running in
+    int getClientMode() const;
+    
     //! Return true if core is doing initial block download
     bool inInitialBlockDownload() const;
     //! Return conservative estimate of total number of blocks, or 0 if unknown

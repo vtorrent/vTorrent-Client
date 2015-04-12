@@ -39,13 +39,14 @@ int ClientModel::getNumConnections() const
 
 int ClientModel::getNumBlocks() const
 {
-    //LOCK(cs_main);
+    LOCK(cs_main);
     return nBestHeight;
 }
 
 int ClientModel::getNumBlocksAtStartup()
 {
-    if (numBlocksAtStartup == -1) numBlocksAtStartup = getNumBlocks();
+    if (numBlocksAtStartup == -1)
+        numBlocksAtStartup = getNumBlocks();
     return numBlocksAtStartup;
 }
 
@@ -61,27 +62,41 @@ quint64 ClientModel::getTotalBytesSent() const
 
 QDateTime ClientModel::getLastBlockDate() const
 {
-    //LOCK(cs_main);
+    LOCK(cs_main);
     if (pindexBest)
         return QDateTime::fromTime_t(pindexBest->GetBlockTime());
     else
-        return QDateTime::fromTime_t(1393221600); // Genesis block's time
+        return QDateTime::fromTime_t(GENESIS_BLOCK_TIME);
 }
+
+QDateTime ClientModel::getLastBlockThinDate() const
+{
+    LOCK(cs_main);
+    if (pindexBestHeader)
+        return QDateTime::fromTime_t(pindexBestHeader->GetBlockTime());
+    else
+        return QDateTime::fromTime_t(GENESIS_BLOCK_TIME);
+}
+
+
 
 void ClientModel::updateTimer()
 {
     // Get required lock upfront. This avoids the GUI from getting stuck on
     // periodical polls if the core is holding the locks for a longer time -
     // for example, during a wallet rescan.
-    //TRY_LOCK(cs_main, lockMain);
-    //if(!lockMain)
-    //    return;
+    TRY_LOCK(cs_main, lockMain);
+    if(!lockMain)
+        return;
     // Some quantities (such as number of blocks) change so fast that we don't want to be notified for each change.
     // Periodically check and update with a timer.
+    
     int newNumBlocks = getNumBlocks();
     int newNumBlocksOfPeers = getNumBlocksOfPeers();
 
-    if(cachedNumBlocks != newNumBlocks || cachedNumBlocksOfPeers != newNumBlocksOfPeers)
+    if (cachedNumBlocks != newNumBlocks
+        || cachedNumBlocksOfPeers != newNumBlocksOfPeers
+        || nNodeState == NS_GET_FILTERED_BLOCKS)
     {
         cachedNumBlocks = newNumBlocks;
         cachedNumBlocksOfPeers = newNumBlocksOfPeers;
@@ -100,16 +115,16 @@ void ClientModel::updateNumConnections(int numConnections)
 void ClientModel::updateAlert(const QString &hash, int status)
 {
     // Show error message notification for new alert
-    if(status == CT_NEW)
+    if (status == CT_NEW)
     {
         uint256 hash_256;
         hash_256.SetHex(hash.toStdString());
         CAlert alert = CAlert::getAlertByHash(hash_256);
-        if(!alert.IsNull())
+        if (!alert.IsNull())
         {
             emit error(tr("Network Alert"), QString::fromStdString(alert.strStatusBar), false);
-        }
-    }
+        };
+    };
 
     // Emit a numBlocksChanged when the status message changes,
     // so that the view recomputes and updates the status bar.
@@ -119,6 +134,11 @@ void ClientModel::updateAlert(const QString &hash, int status)
 bool ClientModel::isTestNet() const
 {
     return fTestNet;
+}
+
+int ClientModel::getClientMode() const
+{
+    return nNodeMode;
 }
 
 bool ClientModel::inInitialBlockDownload() const
@@ -153,7 +173,7 @@ QString ClientModel::formatBuildDate() const
 
 QString ClientModel::clientName() const
 {
-    return QString::fromStdString("vTorrent");
+    return QString::fromStdString(CLIENT_NAME);
 }
 
 QString ClientModel::formatClientStartupTime() const

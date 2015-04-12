@@ -26,7 +26,9 @@ class AddressBookPage : public QDialog
 public:
     enum Tabs {
         SendingTab = 0,
-        ReceivingTab = 1
+        SendingTabDialog = 1,
+        ReceivingTab = 2,
+        ReceivingTabDialog = 3
     };
 
     enum Mode {
@@ -62,6 +64,7 @@ private slots:
     void on_newAddressButton_clicked();
     /** Copy address of currently selected address entry to clipboard */
     void on_copyToClipboard_clicked();
+    void on_copyToClipboard_pub_clicked();
     void selectionChanged();
     void on_showQRCode_clicked();
     void on_signMessage_clicked();
@@ -71,6 +74,8 @@ private slots:
 
     /** Copy label of currently selected address entry to clipboard */
     void onCopyLabelAction();
+    /** Copy pubkey of currently selected address entry to clipboard */
+    void onCopyPubKeyAction();
     /** Edit currently selected address entry */
     void onEditAction();
 

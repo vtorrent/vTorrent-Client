@@ -48,8 +48,6 @@
         <file alias="staking_on">res/icons/staking_on.png</file>
         <file alias="vtorrent-small">res/icons/vtorrent-small.png</file>
         <file alias="tradeat_bittrex">res/icons/tradeat_bittrex.png</file>
-        <file alias="tradeat_empoex">res/icons/tradeat_empoex.png</file>
-        <file alias="wall">res/icons/wall.png</file>
         <file>res/icons/vTorrent_icon.png</file>
         <file>res/icons/vTorrent-32.png</file>
         <file>res/icons/vTorrent-64.png</file>
@@ -57,23 +55,76 @@
         <file>res/icons/vTorrent.ico</file>
         <file>res/icons/vTorrent.png</file>
         <file>res/icons/xxxxx.png</file>
+        <file alias="messages">res/icons/message.png</file>
+        <file alias="marketCap">res/icons/marketcap_icn.png</file>
+        <file alias="totalSupply">res/icons/totalsupply_icn.png</file>
+        <file alias="tradeValue">res/icons/tradevalue_icn.png</file>
+        <file alias="tradeVolume">res/icons/tradevolume_icn.png</file>
+        <file alias="tradeHigh">res/icons/24hvalueHigh_icn.png</file>
+        <file alias="tradeLow">res/icons/24hvalueLow_icn.png</file>
+        <file alias="marketCap2">res/icons/marketcap2_icn.png</file>
+        <file alias="cancel">res/icons/cancel_bt.png</file>
+        <file alias="trade">res/icons/trade.png</file>
+        <file alias="narration">res/icons/narration.png</file>
+        <file alias="torrent">res/icons/torrent.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/splash.png</file>
-        <file alias="sdc-vertical">res/images/sdc-vertical.png</file>
-        <file alias="sdc-vertical-label1">res/images/sdc-vertical-label1.png</file>
-        <file alias="sdc-vertical-label2">res/images/sdc-vertical-label2.png</file>
-        <file alias="sdc-vertical-label3">res/images/sdc-vertical-label3.png</file>
-        <file alias="sdc-horizontal">res/images/sdc-horizontal.png</file>
+        <file alias="vertical-label1">res/images/vertical-label1.png</file>
+        <file alias="vertical-label2">res/images/vertical-label2.png</file>
+        <file alias="vertical-label3">res/images/vertical-label3.png</file>
+        <file alias="horizontal">res/images/horizontal.png</file>
         <file alias="vtorrentshadow">res/images/vtorrentshadow.png</file>
         <file alias="bittrex_lg">res/images/bittrex_lg.png</file>
-        <file alias="empoex_lg">res/images/empoex_lg.png</file>
+        <file alias="vertical-header">res/images/vertical-header.png</file>
+        <file alias="vertical-header-osx">res/images/vertical-header-osx.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>
     </qresource>
     <qresource prefix="/html">
         <file alias="twitter.html">res/html/twitter.html</file>
+    </qresource>
+    <qresource prefix="/translations">
+        <file alias="ar">locale/bitcoin_ar.qm</file>
+        <file alias="ca_ES">locale/bitcoin_ca_ES.qm</file>
+        <file alias="cs">locale/bitcoin_cs.qm</file>
+        <file alias="da">locale/bitcoin_da.qm</file>
+        <file alias="de">locale/bitcoin_de.qm</file>
+        <file alias="el_GR">locale/bitcoin_el_GR.qm</file>
+        <file alias="en">locale/bitcoin_en.qm</file>
+        <file alias="eo">locale/bitcoin_eo.qm</file>
+        <file alias="es_CL">locale/bitcoin_es_CL.qm</file>
+        <file alias="es_DO">locale/bitcoin_es_DO.qm</file>
+        <file alias="es">locale/bitcoin_es.qm</file>
+        <file alias="fa">locale/bitcoin_fa.qm</file>
+        <file alias="fi">locale/bitcoin_fi.qm</file>
+        <file alias="fr_CA">locale/bitcoin_fr_CA.qm</file>
+        <file alias="fr">locale/bitcoin_fr.qm</file>
+        <file alias="gl">locale/bitcoin_gl.qm</file>
+        <file alias="he">locale/bitcoin_he.qm</file>
+        <file alias="hr">locale/bitcoin_hr.qm</file>
+        <file alias="hu">locale/bitcoin_hu.qm</file>
+        <file alias="it">locale/bitcoin_it.qm</file>
+        <file alias="ja">locale/bitcoin_ja.qm</file>
+        <file alias="ka">locale/bitcoin_ka.qm</file>
+        <file alias="ko_KR">locale/bitcoin_ko_KR.qm</file>
+        <file alias="lt">locale/bitcoin_lt.qm</file>
+        <file alias="nb">locale/bitcoin_nb.qm</file>
+        <file alias="nl">locale/bitcoin_nl.qm</file>
+        <file alias="pam">locale/bitcoin_pam.qm</file>
+        <file alias="pl">locale/bitcoin_pl.qm</file>
+        <file alias="pt_BR">locale/bitcoin_pt_BR.qm</file>
+        <file alias="pt_PT">locale/bitcoin_pt_PT.qm</file>
+        <file alias="ro_RO">locale/bitcoin_ro_RO.qm</file>
+        <file alias="ru">locale/bitcoin_ru.qm</file>
+        <file alias="sk">locale/bitcoin_sk.qm</file>
+        <file alias="sl_SI">locale/bitcoin_sl_SI.qm</file>
+        <file alias="sv">locale/bitcoin_sv.qm</file>
+        <file alias="tr">locale/bitcoin_tr.qm</file>
+        <file alias="uk">locale/bitcoin_uk.qm</file>
+        <file alias="zh_CN">locale/bitcoin_zh_CN.qm</file>
+        <file alias="zh_TW">locale/bitcoin_zh_TW.qm</file>
     </qresource>
 </RCC>

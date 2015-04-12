@@ -16,6 +16,7 @@ static const char* ppszTypeName[] =
     "ERROR",
     "tx",
     "block",
+    "filtered block"
 };
 
 CMessageHeader::CMessageHeader()
@@ -58,8 +59,8 @@ bool CMessageHeader::IsValid() const
             for (; p1 < pchCommand + COMMAND_SIZE; p1++)
                 if (*p1 != 0)
                     return false;
-        }
-        else if (*p1 < ' ' || *p1 > 0x7E)
+        } else
+        if (*p1 < ' ' || *p1 > 0x7E)
             return false;
     }
 

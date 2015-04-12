@@ -4,12 +4,13 @@
 
 #include "stealth.h"
 #include "base58.h"
+#include "state.h"
+
+
 #include <openssl/rand.h>
 #include <openssl/ec.h>
 #include <openssl/ecdsa.h>
 #include <openssl/obj_mac.h>
-
-const uint8_t stealth_version_byte = 0x2c;
 
 
 bool CStealthAddress::SetEncoded(const std::string& encodedAddress)
@@ -103,10 +104,11 @@ void AppendChecksum(data_chunk& data)
 {
     uint32_t checksum = BitcoinChecksum(&data[0], data.size());
     
-    // -- to_little_endian
-    std::vector<uint8_t> tmp(4);
     
+    std::vector<uint8_t> tmp(4);
     //memcpy(&tmp[0], &checksum, 4);
+    
+    // -- to_little_endian
     for (int i = 0; i < 4; ++i)
     {
         tmp[i] = checksum & 0xFF;
@@ -162,7 +164,7 @@ int SecretToPublicKey(const ec_secret& secret, ec_point& out)
     // -- public key = private * G
     int rv = 0;
     
-    EC_GROUP *ecgrp = EC_GROUP_new_by_curve_name(NID_secp256k1);
+    EC_GROUP* ecgrp = EC_GROUP_new_by_curve_name(NID_secp256k1);
     
     if (!ecgrp)
     {
@@ -201,10 +203,11 @@ int SecretToPublicKey(const ec_secret& secret, ec_point& out)
         BN_free(bnOut);
     };
     
-    EC_GROUP_free(ecgrp);
-    BN_free(bnIn);
+    
     EC_POINT_free(pub);
-
+    BN_free(bnIn);
+    EC_GROUP_free(ecgrp);
+    
     return rv;
 };
 
@@ -539,8 +542,10 @@ int StealthSecretSpend(ec_secret& scanSecret, ec_point& ephemPubkey, ec_secret& 
         goto End;
     };
     
-    if (BN_num_bytes(bnSpend) != (int) ec_secret_size
-        || BN_bn2bin(bnSpend, &secretOut.e[0]) != (int) ec_secret_size)
+    int nBytes;
+    memset(&secretOut.e[0], 0, ec_secret_size);
+    if ((nBytes = BN_num_bytes(bnSpend)) > (int)ec_secret_size
+        || BN_bn2bin(bnSpend, &secretOut.e[ec_secret_size-nBytes]) != nBytes)
     {
         printf("StealthSecretSpend(): bnSpend incorrect length.\n");
         rv = 1;
@@ -564,7 +569,6 @@ int StealthSecretSpend(ec_secret& scanSecret, ec_point& ephemPubkey, ec_secret& 
 
 int StealthSharedToSecretSpend(ec_secret& sharedS, ec_secret& spendSecret, ec_secret& secretOut)
 {
-    
     int rv = 0;
     std::vector<uint8_t> vchOutP;
     
@@ -626,8 +630,10 @@ int StealthSharedToSecretSpend(ec_secret& sharedS, ec_secret& spendSecret, ec_se
         goto End;
     };
     
-    if (BN_num_bytes(bnSpend) != (int) ec_secret_size
-        || BN_bn2bin(bnSpend, &secretOut.e[0]) != (int) ec_secret_size)
+    int nBytes;
+    memset(&secretOut.e[0], 0, ec_secret_size);
+    if ((nBytes = BN_num_bytes(bnSpend)) > (int)ec_secret_size
+        || BN_bn2bin(bnSpend, &secretOut.e[ec_secret_size-nBytes]) != nBytes)
     {
         printf("StealthSecretSpend(): bnSpend incorrect length.\n");
         rv = 1;

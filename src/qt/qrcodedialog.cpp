@@ -22,8 +22,8 @@ QRCodeDialog::QRCodeDialog(const QString &addr, const QString &label, bool enabl
     setWindowTitle(QString("%1").arg(address));
 
     ui->chkReqPayment->setVisible(enableReq);
-    ui->lblAmount->setVisible(enableReq);
-    ui->lnReqAmount->setVisible(enableReq);
+    ui->lblAmount->setVisible(false);
+    ui->lnReqAmount->setVisible(false);
 
     ui->lnLabel->setText(label);
 
@@ -99,7 +99,7 @@ QString QRCodeDialog::getURI()
         else
         {
             ui->btnSaveAs->setEnabled(false);
-            ui->lblQRCode->setText(tr("The entered amount is invalid, please check."));
+            ui->lblQRCode->setText(tr("The entered amount is invalid."));
             return QString("");
         }
     }
@@ -154,9 +154,15 @@ void QRCodeDialog::on_btnSaveAs_clicked()
 
 void QRCodeDialog::on_chkReqPayment_toggled(bool fChecked)
 {
-    if (!fChecked)
+    if (!fChecked) {
         // if chkReqPayment is not active, don't display lnReqAmount as invalid
         ui->lnReqAmount->setValid(true);
+        ui->lblAmount->setVisible(false);
+        ui->lnReqAmount->setVisible(false);
+    } else {
+        ui->lblAmount->setVisible(true);
+        ui->lnReqAmount->setVisible(true);
+    }
 
     genCode();
 }
@@ -168,4 +174,9 @@ void QRCodeDialog::updateDisplayUnit()
         // Update lnReqAmount with the current unit
         ui->lnReqAmount->setDisplayUnit(model->getDisplayUnit());
     }
+}
+
+void QRCodeDialog::on_pushButton_clicked()
+{
+    close();
 }
