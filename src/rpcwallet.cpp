@@ -190,30 +190,38 @@ Value getnewpubkey(const Array& params, bool fHelp)
 
 Value getnewaddress(const Array& params, bool fHelp)
 {
-    if (fHelp || params.size() > 1)
+    if (fHelp || params.size() > 2)
         throw runtime_error(
-            "getnewaddress [account]\n"
-            "Returns a new vTorrent address for receiving payments.  "
+            "getnewaddress [account] [normal]\n"
+            "Returns a new vTorrent stealth address for receiving payments.  "
+	    "If normal is specified, a normal address will be provided. "
             "If [account] is specified, it is added to the address book "
             "so payments received with the address will be credited to [account].");
 
     // Parse the account first so we don't generate a key if there's an error
-    string strAccount;
-    if (params.size() > 0)
-        strAccount = AccountFromValue(params[0]);
+    if(params.size() > 1)
+    {
+        string strAccount;
+        if (params.size() > 0)
+            strAccount = AccountFromValue(params[0]);
 
-    if (!pwalletMain->IsLocked())
-        pwalletMain->TopUpKeyPool();
+        if (!pwalletMain->IsLocked())
+            pwalletMain->TopUpKeyPool();
 
-    // Generate a new key that is added to wallet
-    CPubKey newKey;
-    if (!pwalletMain->GetKeyFromPool(newKey, false))
-        throw JSONRPCError(RPC_WALLET_KEYPOOL_RAN_OUT, "Error: Keypool ran out, please call keypoolrefill first");
-    CKeyID keyID = newKey.GetID();
+        // Generate a new key that is added to wallet
+        CPubKey newKey;
+        if (!pwalletMain->GetKeyFromPool(newKey, false))
+            throw JSONRPCError(RPC_WALLET_KEYPOOL_RAN_OUT, "Error: Keypool ran out, please call keypoolrefill first");
+        CKeyID keyID = newKey.GetID();
 
-    pwalletMain->SetAddressBookName(keyID, strAccount);
+        pwalletMain->SetAddressBookName(keyID, strAccount);
 
-    return CBitcoinAddress(keyID).ToString();
+        return CBitcoinAddress(keyID).ToString();
+    }
+    else
+    {
+        return getnewstealthaddress(params, fHelp);
+    }
 }
 
 
@@ -260,14 +268,43 @@ Value getaccountaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "getaccountaddress <account>\n"
-            "Returns the current vTorrent address for receiving payments to this account.");
+            "Returns the current vTorrent stealth address for receiving payments to this account.");
 
     // Parse the account first so we don't generate a key if there's an error
     string strAccount = AccountFromValue(params[0]);
 
     Value ret;
 
-    ret = GetAccountAddress(strAccount).ToString();
+    //ret = GetAccountAddress(strAccount).ToString();
+
+    // Find the stealth address with label matching this account name.  If one doesn't exist, create one.
+    bool bFound = false;
+    std::set<CStealthAddress>::iterator it;
+    for (it = pwalletMain->stealthAddresses.begin(); it != pwalletMain->stealthAddresses.end(); ++it)
+    {
+        if (it->scan_secret.size() < 1)
+            continue; // stealth address is not owned
+        
+        if (it->label == strAccount)
+        {
+            ret = it->Encoded();
+	    bFound = true;
+	    break;
+        };
+    }
+
+    if(!bFound)
+    {
+	// Create a new stealth address for this label
+	CStealthAddress newStealthAddr;
+        std::string sError;
+        if (!pwalletMain->NewStealthAddress(sError, strAccount, newStealthAddr)
+            || !pwalletMain->AddStealthAddress(newStealthAddr))
+        {
+            ret = "Stealth address generation failure. " + sError;
+        }
+        ret = newStealthAddr.Encoded();
+    }
 
     return ret;
 }
@@ -341,6 +378,19 @@ Value getaddressesbyaccount(const Array& params, bool fHelp)
         if (strName == strAccount)
             ret.push_back(address.ToString());
     }
+
+    std::set<CStealthAddress>::iterator it;
+    for (it = pwalletMain->stealthAddresses.begin(); it != pwalletMain->stealthAddresses.end(); ++it)
+    {
+        if (it->scan_secret.size() < 1)
+            continue; // stealth address is not owned
+        
+        if (it->label == strAccount)
+        {
+            ret.push_back(it->Encoded());
+        };
+    }
+
     return ret;
 }
 
@@ -790,47 +840,77 @@ Value sendmany(const Array& params, bool fHelp)
     vector<pair<CScript, int64_t> > vecSend;
 
     int64_t totalAmount = 0;
+    Array retHexes;
+    
+    bool bHasStealth = false;
     BOOST_FOREACH(const Pair& s, sendTo)
     {
-        CBitcoinAddress address(s.name_);
-        if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid vTorrent address: ")+s.name_);
-
-        if (setAddress.count(address))
-            throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+s.name_);
-        setAddress.insert(address);
-
-        CScript scriptPubKey;
-        scriptPubKey.SetDestination(address.Get());
-        int64_t nAmount = AmountFromValue(s.value_);
-
-        totalAmount += nAmount;
-
-        vecSend.push_back(make_pair(scriptPubKey, nAmount));
+	if(IsStealthAddress(s.name_))
+	{
+	    bHasStealth = true;
+	    break;
+	}
     }
 
-    EnsureWalletIsUnlocked();
-
-    // Check funds
-    int64_t nBalance = GetAccountBalance(strAccount, nMinDepth);
-    if (totalAmount > nBalance)
-        throw JSONRPCError(RPC_WALLET_INSUFFICIENT_FUNDS, "Account has insufficient funds");
-
-    // Send
-    CReserveKey keyChange(pwalletMain);
-    int64_t nFeeRequired = 0;
-    int nChangePos;
-    bool fCreated = pwalletMain->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, nChangePos);
-    if (!fCreated)
+    BOOST_FOREACH(const Pair& s, sendTo)
     {
-        if (totalAmount + nFeeRequired > pwalletMain->GetBalance())
-            throw JSONRPCError(RPC_WALLET_INSUFFICIENT_FUNDS, "Insufficient funds");
-        throw JSONRPCError(RPC_WALLET_ERROR, "Transaction creation failed");
-    }
-    if (!pwalletMain->CommitTransaction(wtx, keyChange))
-        throw JSONRPCError(RPC_WALLET_ERROR, "Transaction commit failed");
+	if(IsStealthAddress(s.name_))
+	{
+	    Array sRet;
+	    sRet.push_back(s.name_);
+	    sRet.push_back(s.value_);
+	    retHexes.push_back(sendtostealthaddress(sRet, false));
+	}
+	else if(!bHasStealth)
+	{
+            CBitcoinAddress address(s.name_);
+            if (!address.IsValid())
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid vTorrent address: ")+s.name_);
 
-    return wtx.GetHash().GetHex();
+            if (setAddress.count(address))
+                throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+s.name_);
+            setAddress.insert(address);
+
+            CScript scriptPubKey;
+            scriptPubKey.SetDestination(address.Get());
+            int64_t nAmount = AmountFromValue(s.value_);
+
+            totalAmount += nAmount;
+
+            vecSend.push_back(make_pair(scriptPubKey, nAmount));
+	}
+    }
+
+    if(!bHasStealth)
+    {
+        EnsureWalletIsUnlocked();
+
+        // Check funds
+        int64_t nBalance = GetAccountBalance(strAccount, nMinDepth);
+        if (totalAmount > nBalance)
+            throw JSONRPCError(RPC_WALLET_INSUFFICIENT_FUNDS, "Account has insufficient funds");
+
+        // Send
+        CReserveKey keyChange(pwalletMain);
+        int64_t nFeeRequired = 0;
+        int nChangePos;
+        bool fCreated = pwalletMain->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, nChangePos);
+        if (!fCreated)
+        {
+            if (totalAmount + nFeeRequired > pwalletMain->GetBalance())
+                throw JSONRPCError(RPC_WALLET_INSUFFICIENT_FUNDS, "Insufficient funds");
+            throw JSONRPCError(RPC_WALLET_ERROR, "Transaction creation failed");
+        }
+        if (!pwalletMain->CommitTransaction(wtx, keyChange))
+            throw JSONRPCError(RPC_WALLET_ERROR, "Transaction commit failed");
+
+        //return retHexes;
+        return wtx.GetHash().GetHex();
+    }
+    else
+    {
+        return retHexes;
+    }
 }
 
 Value addmultisigaddress(const Array& params, bool fHelp)
@@ -1085,10 +1165,30 @@ void ListTransactions(const CWalletTx& wtx, const string& strAccount, int nMinDe
     // Sent
     if ((!wtx.IsCoinStake()) && (!listSent.empty() || nFee != 0) && (fAllAccounts || strAccount == strSentAccount))
     {
+	// check if the account is a stealth address
+	string labl;
+	if(IsStealthAddress(strSentAccount))
+	{
+	    std::set<CStealthAddress>::iterator it;
+    	    for (it = pwalletMain->stealthAddresses.begin(); it != pwalletMain->stealthAddresses.end(); ++it)
+    	    {
+		if(it->Encoded() == strSentAccount)
+		{
+		    labl = it->label;
+		    break;
+		}
+	    }
+	}
+	else
+	{
+	    labl = strSentAccount;
+	}
+	
         BOOST_FOREACH(const PAIRTYPE(CTxDestination, int64_t)& s, listSent)
         {
             Object entry;
             entry.push_back(Pair("account", strSentAccount));
+	    	entry.push_back(Pair("label", labl));
             MaybePushAddress(entry, s.first);
             entry.push_back(Pair("category", "send"));
             entry.push_back(Pair("amount", ValueFromAmount(-s.second)));
@@ -1111,8 +1211,28 @@ void ListTransactions(const CWalletTx& wtx, const string& strAccount, int nMinDe
                 account = pwalletMain->mapAddressBook[r.first];
             if (fAllAccounts || (account == strAccount))
             {
+		// check if the account is a stealth address
+		string labl;
+		if(IsStealthAddress(account))
+		{
+		    std::set<CStealthAddress>::iterator it;
+	    	    for (it = pwalletMain->stealthAddresses.begin(); it != pwalletMain->stealthAddresses.end(); ++it)
+	    	    {
+			if(it->Encoded() == account)
+			{
+			    labl = it->label;
+			    break;
+			}
+		    }
+		}
+		else
+		{
+		    labl = account;
+		}
+
                 Object entry;
                 entry.push_back(Pair("account", account));
+				entry.push_back(Pair("label", labl));
                 MaybePushAddress(entry, r.first);
                 if (wtx.IsCoinBase() || wtx.IsCoinStake())
                 {
@@ -1690,29 +1810,107 @@ Value validateaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "validateaddress <vTorrentAddress>\n"
-            "Return information about <vTorrentAddress>.");
-
-    CBitcoinAddress address(params[0].get_str());
-    bool isValid = address.IsValid();
+            "validateaddress <vTorrentaddress>\n"
+            "Return information about <vTorrentaddress>.");
 
     Object ret;
-    ret.push_back(Pair("isvalid", isValid));
-    if (isValid)
+    bool isValid = false;
+    if (params[0].get_str().length() > 75)
     {
-        CTxDestination dest = address.Get();
-        string currentAddress = address.ToString();
-        ret.push_back(Pair("address", currentAddress));
-        bool fMine = IsMine(*pwalletMain, dest);
-        ret.push_back(Pair("ismine", fMine));
-        if (fMine)
+	isValid = IsStealthAddress(params[0].get_str());
+        ret.push_back(Pair("isvalid", isValid));
+        if(isValid)
         {
-            Object detail = boost::apply_visitor(DescribeAddressVisitor(), dest);
-            ret.insert(ret.end(), detail.begin(), detail.end());
-        };
+            bool bFound = false;
+	    std::set<CStealthAddress>::iterator it;
+	    for (it = pwalletMain->stealthAddresses.begin(); it != pwalletMain->stealthAddresses.end(); ++it)
+	    {
+		if (it->scan_secret.size() < 1)
+		    continue; // stealth address is not owned
+		
+		if (it->Encoded() == params[0].get_str())
+		{
+		    bFound = true;
+		    break;
+		};
+	    }
+            if(bFound)
+            {
+                ret.push_back(Pair("ismine", true));
 
-        if (pwalletMain->mapAddressBook.count(dest))
-            ret.push_back(Pair("account", pwalletMain->mapAddressBook[dest]));
+		// Generate a new pub key for the address 
+		std::string sEncoded = params[0].get_str();
+		CStealthAddress sxAddress;
+		sxAddress.SetEncoded(sEncoded);
+		ec_secret ephem_secret;
+	        ec_secret secretShared;
+    	ec_point pkSendTo;
+    	ec_point ephem_pubkey;
+    
+    	if (GenerateRandomSecret(ephem_secret) != 0)
+	    {
+		throw runtime_error("GenerateRandomSecret failed.");
+		return false;
+	    };
+    
+	    if (StealthSecret(ephem_secret, sxAddress.scan_pubkey, sxAddress.spend_pubkey, secretShared, pkSendTo) != 0)
+	    {
+		throw runtime_error("Could not generate receiving public key.");
+		return false;
+	    };
+    
+	    CPubKey cpkTo(pkSendTo);
+	    if (!cpkTo.IsValid())
+	    {
+		throw runtime_error("Invalid public key generated.");
+		return false;
+	    };
+	    
+	    CKeyID ckidTo = cpkTo.GetID();
+	    
+	    CBitcoinAddress addrTo(ckidTo);
+	    
+	    if (SecretToPublicKey(ephem_secret, ephem_pubkey) != 0)
+	    {
+		throw runtime_error("Could not generate ephem public key.");
+		return false;
+	    };
+    
+		    if (fDebug)
+		    {
+			printf("validateaddress generated pubkey %"PRIszu": %s\n", pkSendTo.size(), HexStr(pkSendTo).c_str());
+			printf("hash %s\n", addrTo.ToString().c_str());
+			printf("ephem_pubkey %"PRIszu": %s\n", ephem_pubkey.size(), HexStr(ephem_pubkey).c_str());
+		    };
+
+		ret.push_back(Pair("address", addrTo.ToString()));
+            }
+            else
+	    {
+                ret.push_back(Pair("ismine", false));
+            }
+        }
+    }
+    else
+    {
+        CBitcoinAddress address(params[0].get_str());
+        isValid = address.IsValid();    
+        ret.push_back(Pair("isvalid", isValid));
+    
+        if (isValid)
+        {
+            CTxDestination dest = address.Get();
+            string currentAddress = address.ToString();
+            ret.push_back(Pair("address", currentAddress));
+            bool fMine = IsMine(*pwalletMain, dest);
+            ret.push_back(Pair("ismine", fMine));
+            if (fMine) {
+                Object detail = boost::apply_visitor(DescribeAddressVisitor(), dest);
+                ret.insert(ret.end(), detail.begin(), detail.end());
+            }
+            if (pwalletMain->mapAddressBook.count(dest))
+                ret.push_back(Pair("account", pwalletMain->mapAddressBook[dest]));
+        }
     }
     return ret;
 }

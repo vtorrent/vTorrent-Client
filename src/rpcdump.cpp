@@ -269,6 +269,23 @@ Value dumpprivkey(const Array& params, bool fHelp)
     if (fWalletUnlockStakingOnly)
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Wallet is unlocked for staking only.");
     CKeyID keyID;
+
+    // Stealth Address handling Courtesy of Bittrex richie http://www.bittrex.com
+    std::set<CStealthAddress>::iterator it;
+    for (it = pwalletMain->stealthAddresses.begin(); it != pwalletMain->stealthAddresses.end(); ++it)
+    {
+        if (it->scan_secret.size() < 1)
+            continue; // stealth address is not owned
+
+        if (it->Encoded() == params[0].get_str())
+        {
+                string privKey = HexStr(it->scan_secret.begin(), it->scan_secret.end())+":"+HexStr(it->spend_secret.begin(), it->spend_secret.end());
+                return privKey;
+        };
+    }
+
+    // never gets here if key is found
+
     if (!address.GetKeyID(keyID))
         throw JSONRPCError(RPC_TYPE_ERROR, "Address does not refer to a key");
     CKey vchSecret;

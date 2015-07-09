@@ -88,7 +88,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     QAction *copyAddressAction = new QAction(ui->copyToClipboard->text(), this);
     QAction *copyPubKeyAction = new QAction(tr("Copy &Public &Key"), this);
     QAction *editAction = new QAction(tr("&Edit"), this);
-    #ifndef USE_QRCODE
+    #ifdef USE_QRCODE
         QAction *showQRCodeAction = new QAction(ui->showQRCode->text(), this);
     #endif
     QAction *signMessageAction = new QAction(ui->signMessage->text(), this);
@@ -104,7 +104,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     if(tab == SendingTab || tab == SendingTabDialog)
         contextMenu->addAction(deleteAction);
     contextMenu->addSeparator();
-    #ifndef USE_QRCODE
+    #ifdef USE_QRCODE
         contextMenu->addAction(showQRCodeAction);
     #endif
     if(tab == ReceivingTab)
@@ -118,7 +118,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     connect(copyPubKeyAction, SIGNAL(triggered()), this, SLOT(onCopyPubKeyAction()));
     connect(editAction, SIGNAL(triggered()), this, SLOT(onEditAction()));
     connect(deleteAction, SIGNAL(triggered()), this, SLOT(on_deleteButton_clicked()));
-    #ifndef USE_QRCODE
+    #ifdef USE_QRCODE
         connect(showQRCodeAction, SIGNAL(triggered()), this, SLOT(on_showQRCode_clicked()));
     #endif
     connect(signMessageAction, SIGNAL(triggered()), this, SLOT(on_signMessage_clicked()));
