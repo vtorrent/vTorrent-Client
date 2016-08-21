@@ -24,16 +24,16 @@ extern const std::string CLIENT_DATE;
 //
 // database format versioning
 //
-static const int DATABASE_VERSION = 70510;
+static const int DATABASE_VERSION = 70511;
 
 //
 // network protocol versioning
 //
 
-static const int PROTOCOL_VERSION = 80014;
+static const int PROTOCOL_VERSION = 80016;
 
 // intial proto version, to be increased after version/verack negotiation
-static const int INIT_PROTO_VERSION = 80014;
+static const int INIT_PROTO_VERSION = 80015;
 
 // disconnect from peers older than this proto version
 static const int MIN_PEER_PROTO_VERSION = 80013;
@@ -42,11 +42,14 @@ static const int MIN_PEER_PROTO_VERSION = 80013;
 // if possible, avoid requesting addresses nodes older than this
 static const int CADDR_TIME_VERSION = 31402;
 
+// min THIN block, starting with this version;
+static const int MIN_THIN_VERSION = 80014;
+
 // only request blocks from all versions AFTER this one
 static const int MIN_MBLK_VERSION = 80014;
 
 // BIP 0031, pong message, is enabled for all versions AFTER this one
-static const int BIP0031_VERSION = 60000;
+static const int BIP0031_VERSION = 80014;
 
 // "mempool" command, enhanced "getdata" behavior starts with this version:
 static const int MEMPOOL_GD_VERSION = 60002;

@@ -1,64 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../forms/aboutdialog.ui" line="+26"/>
+        <location filename="../forms/aboutdialog.ui" line="+14"/>
         <source>About vTorrent</source>
-        <translation>关于 vTorrent</translation>
+        <translation>关于暗影币</translation>
     </message>
     <message>
-        <location line="+63"/>
-        <source>&lt;b&gt;vTorrent&lt;/b&gt; core</source>
-        <translation>vTorrent核心进程</translation>
+        <location line="+39"/>
+        <source>&lt;b&gt;vTorrent&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;暗影币客户端&lt;/b&gt; 版本</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014-2015 The BlackCoin developers
-Copyright © 2014-2015 The ShadowCoin developers
+Copyright © 2014 The BlackCoin developers
 Copyright © 2014-2015 The vTorrent developers</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location line="+17"/>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href=&quot;https://www.openssl.org/&quot;&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-测试版软件
-
-经MIT/X11软件授权发布, 具体参见http://www.opensource.org/licenses/mit-license.php.
-
-本产品包括由OpenSSL Project (http://www.openssl.org/)开发的OpenSSL工具包 ，由 Eric Young (eay@cryptsoft.com) 撰写的密码学软件以及由 Thomas Bernard 撰写的UPnP软件.</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;vTorrent&lt;/b&gt; version</source>
-        <translation type="vanished">vTorrent 客户端 版本</translation>
-    </message>
-    <message>
-        <source>Copyright © 2009-2014 The Bitcoin developers
-Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The vTorrent developers
-Copyright © 2014 The vTorrent developers</source>
-        <translation type="vanished">版权所有 © 2009-2014 比特币Bitcoin开发组
+        <translation>版权所有 © 2009-2014 比特币Bitcoin开发组
 版权所有 © 2012-2014 新星币Novacoin开发组
-版权所有 © 2014-2015 ShadowCoin开发组
-版权所有 © 2014-2015 vTorrent开发组</translation>
+版权所有 © 2014 黑币BlackCoin开发组
+版权所有 © 2014-2015 暗影币ShadowCoin开发组</translation>
     </message>
     <message>
+        <location line="+15"/>
         <source>
 This is experimental software.
 
 Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation type="vanished">
+        <translation>
 测试版软件
 
 经MIT/X11软件授权发布, 具体参见http://www.opensource.org/licenses/mit-license.php.
@@ -74,17 +46,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>地址簿</translation>
     </message>
     <message>
-        <location line="+32"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Receive vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>These are your addresses for receiving payments. Give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>Double-click to edit address or label</source>
         <translation>双击编辑地址或标签</translation>
     </message>
@@ -104,11 +66,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>新建地址(&amp;N)</translation>
     </message>
     <message>
+        <location line="-46"/>
         <source>These are your vTorrent addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation type="vanished">这是您用来接收支付的vTorrent地址列表。为不同的支付方建立不同的地址以便于了解支付来源。</translation>
+        <translation>这是您用来接收支付的暗影币地址列表。为不同的支付方建立不同的地址以便于了解支付来源。</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+60"/>
         <source>&amp;Copy Address</source>
         <translation>复制地址(&amp;C)</translation>
     </message>
@@ -120,7 +83,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+11"/>
         <source>Sign a message to prove you own a vTorrent address</source>
-        <translation>对信息进行签名以证明您对该vTorrent地址的所有权</translation>
+        <translation>对信息进行签名以证明您对该暗影币地址的所有权</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -135,7 +98,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-14"/>
         <source>Verify a message to ensure it was signed with a specified vTorrent address</source>
-        <translation>验证信息以保证其经过指定 vTorrent 地址的签名</translation>
+        <translation>验证信息以保证其经过指定暗影币地址的签名</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -148,7 +111,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>删除(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+73"/>
+        <location filename="../addressbookpage.cpp" line="+65"/>
         <source>Copy &amp;Label</source>
         <translation>复制标签(&amp;L)</translation>
     </message>
@@ -158,7 +121,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>编辑(&amp;E)</translation>
     </message>
     <message>
-        <location line="+308"/>
+        <location line="+250"/>
         <source>Export Address Book Data</source>
         <translation>导出地址簿数据</translation>
     </message>
@@ -181,7 +144,7 @@ This product includes software developed by the OpenSSL Project for use in the O
 <context>
     <name>AddressTableModel</name>
     <message>
-        <location filename="../addresstablemodel.cpp" line="+156"/>
+        <location filename="../addresstablemodel.cpp" line="+144"/>
         <source>Label</source>
         <translation>标签</translation>
     </message>
@@ -204,7 +167,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>密码对话框</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+21"/>
         <source>Enter passphrase</source>
         <translation>输入密码</translation>
     </message>
@@ -219,7 +182,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>重复新密码</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+33"/>
         <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
         <translation>在系统允许的情况下用于防止sendmoney欺诈，并未提供真正的安全防护措施。</translation>
     </message>
@@ -229,58 +192,34 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>仅用于权益增值</translation>
     </message>
     <message>
+        <location filename="../askpassphrasedialog.cpp" line="+35"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation type="vanished">输入钱包的新密码。&lt;br/&gt;使用的密码请至少包含&lt;b&gt;10个以上随机字符&lt;/&gt;，或者是&lt;b&gt;8个以上的单词&lt;/b&gt;。</translation>
-    </message>
-    <message>
-        <source>Encrypt wallet</source>
-        <translation type="vanished">加密钱包</translation>
-    </message>
-    <message>
-        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation type="vanished">此操作需要您首先使用密码解锁该钱包。</translation>
-    </message>
-    <message>
-        <source>Unlock wallet</source>
-        <translation type="vanished">解锁钱包</translation>
-    </message>
-    <message>
-        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation type="vanished">该操作需要您首先使用密码解密钱包。</translation>
-    </message>
-    <message>
-        <source>Decrypt wallet</source>
-        <translation type="vanished">解密钱包</translation>
-    </message>
-    <message>
-        <location filename="../askpassphrasedialog.cpp" line="+37"/>
-        <source>Enter the new passphrase to the client.&lt;br/&gt;&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>输入钱包的新密码。&lt;br/&gt;使用的密码请至少包含&lt;b&gt;10个以上随机字符&lt;/&gt;，或者是&lt;b&gt;8个以上的单词&lt;/b&gt;。</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Encrypt client</source>
-        <translation type="unfinished"></translation>
+        <source>Encrypt wallet</source>
+        <translation>加密钱包</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>This operation needs your client passphrase to unlock the client.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation>此操作需要您首先使用密码解锁该钱包。</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Unlock client</source>
-        <translation type="unfinished"></translation>
+        <source>Unlock wallet</source>
+        <translation>解锁钱包</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>This operation needs your client passphrase to decrypt the client.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>该操作需要您首先使用密码解密钱包。</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Decrypt client</source>
-        <translation type="unfinished"></translation>
+        <source>Decrypt wallet</source>
+        <translation>解密钱包</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -289,192 +228,147 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+1"/>
-        <source>Enter the old and new passphrase to the client.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>Enter the old and new passphrase to the wallet.</source>
+        <translation>请输入该钱包的旧密码与新密码。</translation>
     </message>
     <message>
-        <location line="+45"/>
-        <source>Confirm client encryption</source>
-        <translation type="unfinished"></translation>
+        <location line="+46"/>
+        <source>Confirm wallet encryption</source>
+        <translation>确认加密钱包</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your client and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR SHARES&lt;/b&gt;!</source>
-        <translation type="unfinished"></translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
+        <translation>警告：如果您丢失了加密该钱包的密码，其中所有的暗影币将会丢失！</translation>
     </message>
     <message>
         <location line="+0"/>
-        <source>Are you sure you wish to encrypt your client?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <location line="+60"/>
-        <source>Client encrypted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-58"/>
-        <source>vTorrent will close now to finish the encryption process. Remember that encrypting your client cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>IMPORTANT: Any previous backups you have made of your client file should be replaced with the newly generated, encrypted client file. For security reasons, previous backups of the unencrypted client file will become useless as soon as you start using the new, encrypted client.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <location line="+7"/>
-        <location line="+44"/>
-        <location line="+6"/>
-        <source>Client encryption failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-56"/>
-        <source>Client encryption failed due to an internal error. Your client was not encrypted.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
-        <source>Client unlock failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <location line="+12"/>
-        <location line="+19"/>
-        <source>The passphrase entered for the client decryption was incorrect.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-20"/>
-        <source>Client decryption failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Client passphrase was successfully changed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter the old and new passphrase to the wallet.</source>
-        <translation type="vanished">请输入该钱包的旧密码与新密码。</translation>
-    </message>
-    <message>
-        <source>Confirm wallet encryption</source>
-        <translation type="vanished">确认加密钱包</translation>
-    </message>
-    <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
-        <translation type="vanished">警告：如果您丢失了加密该钱包的密码，其中所有的vTorrent将会丢失！</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation type="vanished">您确定需要为钱包加密吗？</translation>
+        <translation>您确定需要为钱包加密吗？</translation>
     </message>
     <message>
+        <location line="+15"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation type="vanished">重要提示：您以前备份的钱包文件应该替换成最新生成的加密钱包文件（重新备份）。从安全性上考虑，您以前备份的未加密的钱包文件，在您使用新的加密钱包后将无效，请重新备份。</translation>
+        <translation>重要提示：您以前备份的钱包文件应该替换成最新生成的加密钱包文件（重新备份）。从安全性上考虑，您以前备份的未加密的钱包文件，在您使用新的加密钱包后将无效，请重新备份。</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+103"/>
         <location line="+24"/>
         <source>Warning: The Caps Lock key is on!</source>
         <translation>警告：大写锁定键处于打开状态！</translation>
     </message>
     <message>
+        <location line="-133"/>
+        <location line="+60"/>
         <source>Wallet encrypted</source>
-        <translation type="vanished">钱包已加密</translation>
+        <translation>钱包已加密</translation>
     </message>
     <message>
+        <location line="-58"/>
         <source>vTorrent will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation type="vanished">vTorrent客户端即将关闭以完成加密过程。请记住，加密钱包并不能完全防止您的电子货币被入侵您计算机的木马软件盗窃。</translation>
+        <translation>暗影币客户端即将关闭以完成加密过程。请记住，加密钱包并不能完全防止您的电子货币被入侵您计算机的木马软件盗窃。</translation>
     </message>
     <message>
+        <location line="+13"/>
+        <location line="+7"/>
+        <location line="+44"/>
+        <location line="+6"/>
         <source>Wallet encryption failed</source>
-        <translation type="vanished">钱包加密失败</translation>
+        <translation>钱包加密失败</translation>
     </message>
     <message>
+        <location line="-56"/>
         <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
-        <translation type="vanished">由于一个本地错误，加密钱包的操作已经失败。您的钱包没能被加密。</translation>
+        <translation>由于一个本地错误，加密钱包的操作已经失败。您的钱包没能被加密。</translation>
     </message>
     <message>
-        <location line="-110"/>
+        <location line="+7"/>
         <location line="+50"/>
         <source>The supplied passphrases do not match.</source>
         <translation>密码不匹配。</translation>
     </message>
     <message>
+        <location line="-38"/>
         <source>Wallet unlock failed</source>
-        <translation type="vanished">钱包解锁失败</translation>
+        <translation>钱包解锁失败</translation>
     </message>
     <message>
+        <location line="+1"/>
+        <location line="+12"/>
+        <location line="+19"/>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation type="vanished">用于解密钱包的密码不正确。</translation>
+        <translation>用于解密钱包的密码不正确。</translation>
     </message>
     <message>
+        <location line="-20"/>
         <source>Wallet decryption failed</source>
-        <translation type="vanished">钱包解密失败。</translation>
+        <translation>钱包解密失败。</translation>
     </message>
     <message>
+        <location line="+14"/>
         <source>Wallet passphrase was successfully changed.</source>
-        <translation type="vanished">修改钱包密码成功。</translation>
+        <translation>修改钱包密码成功。</translation>
     </message>
 </context>
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+412"/>
+        <location filename="../bitcoingui.cpp" line="+280"/>
         <source>Sign &amp;message...</source>
         <translation>消息签名(&amp;M)...</translation>
     </message>
     <message>
-        <location line="+321"/>
+        <location line="+242"/>
         <source>Synchronizing with network...</source>
         <translation>正在与网络同步...</translation>
     </message>
     <message>
+        <location line="-308"/>
         <source>&amp;Overview</source>
-        <translation type="vanished">概况(&amp;O)</translation>
+        <translation>概况(&amp;O)</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>Show general overview of wallet</source>
-        <translation type="vanished">显示钱包概况</translation>
+        <translation>显示钱包概况</translation>
     </message>
     <message>
+        <location line="+17"/>
         <source>&amp;Transactions</source>
-        <translation type="vanished">交易记录(&amp;T)</translation>
+        <translation>交易记录(&amp;T)</translation>
     </message>
     <message>
-        <location line="-419"/>
+        <location line="+1"/>
         <source>Browse transaction history</source>
         <translation>查看交易历史</translation>
     </message>
     <message>
+        <location line="+5"/>
         <source>&amp;Address Book</source>
-        <translation type="vanished">地址簿(&amp;A)</translation>
+        <translation>地址簿(&amp;A)</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+1"/>
         <source>Edit the list of stored addresses and labels</source>
         <translation>管理已储存的地址和标签</translation>
     </message>
     <message>
+        <location line="-13"/>
         <source>&amp;Receive coins</source>
-        <translation type="vanished">接收vTorrent(&amp;R)</translation>
+        <translation>接收暗影币(&amp;R)</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>Show the list of addresses for receiving payments</source>
-        <translation type="vanished">显示用于接收支付的地址列表</translation>
+        <translation>显示用于接收支付的地址列表</translation>
     </message>
     <message>
+        <location line="-7"/>
         <source>&amp;Send coins</source>
-        <translation type="vanished">发送vTorrent(&amp;S)</translation>
+        <translation>发送暗影币(&amp;S)</translation>
     </message>
     <message>
-        <location line="+67"/>
+        <location line="+35"/>
         <source>E&amp;xit</source>
         <translation>退出(&amp;X)</translation>
     </message>
@@ -486,7 +380,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+4"/>
         <source>Show information about vTorrent</source>
-        <translation>显示关于vTorrent的信息</translation>
+        <translation>显示关于暗影币的信息</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -504,41 +398,42 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>选项(&amp;O)...</translation>
     </message>
     <message>
+        <location line="+4"/>
         <source>&amp;Encrypt Wallet...</source>
-        <translation type="vanished">加密钱包(&amp;E)...</translation>
+        <translation>加密钱包(&amp;E)...</translation>
     </message>
     <message>
+        <location line="+3"/>
         <source>&amp;Backup Wallet...</source>
-        <translation type="vanished">备份钱包(&amp;B)...</translation>
+        <translation>备份钱包(&amp;B)...</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+2"/>
         <source>&amp;Change Passphrase...</source>
         <translation>更改密码(&amp;C)...</translation>
     </message>
     <message numerus="yes">
-        <location line="+329"/>
+        <location line="+250"/>
         <source>~%n block(s) remaining</source>
-        <translation>
-            <numerusform>~%n 个区块未完成</numerusform>
-        </translation>
+        <translation><numerusform>~%n 个区块未完成</numerusform></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+6"/>
         <source>Downloaded %1 of %2 blocks of transaction history (%3% done).</source>
         <translation>交易记录已下载%3% (%1 / %2 个区块)</translation>
     </message>
     <message>
-        <location line="-327"/>
+        <location line="-247"/>
         <source>&amp;Export...</source>
         <translation>导出(&amp;E)</translation>
     </message>
     <message>
+        <location line="-62"/>
         <source>Send coins to a vTorrent address</source>
-        <translation type="vanished">向指定的地址发送vTorrent</translation>
+        <translation>向指定的地址发送暗影币</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="+45"/>
         <source>Modify configuration options for vTorrent</source>
         <translation>更改设置选项</translation>
     </message>
@@ -548,19 +443,22 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>导出当前标签页的数据</translation>
     </message>
     <message>
+        <location line="-14"/>
         <source>Encrypt or decrypt wallet</source>
-        <translation type="vanished">加密/解密钱包</translation>
+        <translation>加密/解密钱包</translation>
     </message>
     <message>
+        <location line="+3"/>
         <source>Backup wallet to another location</source>
-        <translation type="vanished">备份钱包到其他文件夹</translation>
+        <translation>备份钱包到其他文件夹</translation>
     </message>
     <message>
+        <location line="+2"/>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation type="vanished">更改钱包加密口令</translation>
+        <translation>更改钱包加密口令</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+10"/>
         <source>&amp;Debug window</source>
         <translation>调试窗口(&amp;D)</translation>
     </message>
@@ -575,18 +473,19 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>验证消息(&amp;V)...</translation>
     </message>
     <message>
-        <location line="-303"/>
+        <location line="-200"/>
         <source>vTorrent</source>
-        <translation>vTorrent</translation>
+        <translation>暗影币</translation>
     </message>
     <message>
+        <location line="+0"/>
         <source>Wallet</source>
-        <translation type="vanished">钱包</translation>
+        <translation>钱包</translation>
     </message>
     <message>
-        <location line="+281"/>
+        <location line="+178"/>
         <source>&amp;About vTorrent</source>
-        <translation>关于vTorrent(&amp;A)</translation>
+        <translation>关于暗影币(&amp;A)</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -594,19 +493,22 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>显示 / 隐藏(&amp;S)</translation>
     </message>
     <message>
+        <location line="+9"/>
         <source>Unlock wallet</source>
-        <translation type="vanished">解锁钱包</translation>
+        <translation>解锁钱包</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>&amp;Lock Wallet</source>
-        <translation type="vanished">锁定钱包(&amp;L)</translation>
+        <translation>锁定钱包(&amp;L)</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>Lock wallet</source>
-        <translation type="vanished">锁定钱包</translation>
+        <translation>锁定钱包</translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="+34"/>
         <source>&amp;File</source>
         <translation>文件(&amp;F)</translation>
     </message>
@@ -621,261 +523,86 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>帮助(&amp;H)</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+9"/>
         <source>Tabs toolbar</source>
         <translation>分页工具栏</translation>
     </message>
     <message>
+        <location line="+8"/>
         <source>Actions toolbar</source>
-        <translation type="vanished">工具栏</translation>
+        <translation>工具栏</translation>
     </message>
     <message>
-        <location line="+75"/>
+        <location line="+13"/>
         <location line="+9"/>
         <source>[testnet]</source>
         <translation>[测试网络]</translation>
     </message>
     <message>
         <location line="+0"/>
-        <location line="+75"/>
+        <location line="+60"/>
         <source>vTorrent client</source>
-        <translation>vTorrent客户端</translation>
+        <translation>暗影币客户端</translation>
     </message>
     <message numerus="yes">
         <location line="+70"/>
         <source>%n active connection(s) to vTorrent network</source>
-        <translation>
-            <numerusform>与vTorrent网络建立了 %n 个连接</numerusform>
-        </translation>
+        <translation><numerusform>与暗影币网络建立了 %n 个连接</numerusform></translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="+40"/>
         <source>Downloaded %1 blocks of transaction history.</source>
         <translation>已下载 %1 个区块的交易记录</translation>
     </message>
     <message>
-        <location line="+326"/>
-        <source>Client is &lt;b&gt;not encrypted&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>Client is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>Client is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>Backup Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Client Data (*.dat)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>There was an error trying to save the client data to the new location.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+107"/>
+        <location line="+413"/>
         <source>Staking.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
         <translation>权益增值中 &lt;br&gt;您的权重为 %1 &lt;br&gt;网络总权重为 %2&lt;br&gt;预计将在 %3 之后获得收益</translation>
     </message>
     <message>
+        <location line="+6"/>
         <source>Not staking because wallet is locked</source>
-        <translation type="vanished">未进行权益增值，因为钱包已锁定</translation>
+        <translation>未进行权益增值，因为钱包已锁定</translation>
     </message>
     <message>
+        <location line="+2"/>
         <source>Not staking because wallet is offline</source>
-        <translation type="vanished">未进行权益增值，因为钱包处于离线状态</translation>
+        <translation>未进行权益增值，因为钱包处于离线状态</translation>
     </message>
     <message>
+        <location line="+2"/>
         <source>Not staking because wallet is syncing</source>
-        <translation type="vanished">未进行权益增值，因为钱包正在同步</translation>
+        <translation>未进行权益增值，因为钱包正在同步</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+2"/>
         <source>Not staking because you don&apos;t have mature coins</source>
-        <translation>未进行权益增值，因为钱包中没有成熟的vTorrent</translation>
+        <translation>未进行权益增值，因为钱包中没有成熟的暗影币</translation>
     </message>
     <message numerus="yes">
-        <location line="-474"/>
+        <location line="-403"/>
         <source>%n second(s) ago</source>
-        <translation>
-            <numerusform>%n 秒前</numerusform>
-        </translation>
+        <translation><numerusform>%n 秒前</numerusform></translation>
     </message>
     <message>
+        <location line="-284"/>
         <source>&amp;Unlock Wallet...</source>
-        <translation type="vanished">解锁钱包(&amp;U)</translation>
-    </message>
-    <message>
-        <location line="-663"/>
-        <source>Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+185"/>
-        <source>&amp;DASHBOARD</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Show general overview of client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;SEND</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Send shares to a vTorrent address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;RECEIVE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Show the list of addresses for receiving shares</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;HISTORY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;ADDRESSES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;MESSAGES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>View and Send Encrypted messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;BLOCK EXPLORER</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Explore the BlockChain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;Bittrex VTR-BTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Trades VTR-BTC at Bittrex</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;EmpoEX VTR-BTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Trades VTR-BTC at EmpoEX</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;TORRENT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Torrent Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+48"/>
-        <source>&amp;Encrypt Client...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Encrypt or decrypt client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>&amp;Backup Client...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Backup client private key to another location</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Change the passphrase used for client encryption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>&amp;Unlock Client...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Unlock client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>&amp;Lock Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Lock client</source>
-        <translation type="unfinished"></translation>
+        <translation>解锁钱包(&amp;U)</translation>
     </message>
     <message numerus="yes">
-        <location line="+366"/>
+        <location line="+288"/>
         <source>%n minute(s) ago</source>
-        <translation>
-            <numerusform>%n 分钟前</numerusform>
-        </translation>
+        <translation><numerusform>%n 分钟前</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n hour(s) ago</source>
-        <translation>
-            <numerusform>%n 小时前</numerusform>
-        </translation>
+        <translation><numerusform>%n 小时前</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n day(s) ago</source>
-        <translation>
-            <numerusform>%n 天前</numerusform>
-        </translation>
+        <translation><numerusform>%n 天前</numerusform></translation>
     </message>
     <message>
         <location line="+6"/>
@@ -888,12 +615,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>更新中...</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
         <source>Last received block was generated %1.</source>
         <translation>最近生成的区块接收于%1</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+59"/>
         <source>This transaction is over the size limit.  You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network.  Do you want to pay the fee?</source>
         <translation>该笔交易数据量太大，需支付%1手续费给执行该笔交易的网络结点。您愿意支付吗？</translation>
     </message>
@@ -926,21 +653,7 @@ Address: %4
 </translation>
     </message>
     <message>
-        <location line="+28"/>
-        <source>Incoming Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Date: %1
-From Address: %2
-To Address: %3
-Message: %4
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+119"/>
+        <location line="+100"/>
         <location line="+15"/>
         <source>URI handling</source>
         <translation>URI处理</translation>
@@ -949,208 +662,73 @@ Message: %4
         <location line="-15"/>
         <location line="+15"/>
         <source>URI can not be parsed! This can be caused by an invalid vTorrent address or malformed URI parameters.</source>
-        <translation>无法解析URI：无效的vTorrent地址或错误的URI参数。</translation>
+        <translation>无法解析URI：无效的暗影币地址或错误的URI参数。</translation>
     </message>
     <message>
+        <location line="+18"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation type="vanished">钱包已被&lt;b&gt;加密&lt;/b&gt;，当前为&lt;b&gt;解锁&lt;/b&gt;状态</translation>
+        <translation>钱包已被&lt;b&gt;加密&lt;/b&gt;，当前为&lt;b&gt;解锁&lt;/b&gt;状态</translation>
     </message>
     <message>
+        <location line="+10"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation type="vanished">钱包已被&lt;b&gt;加密&lt;/b&gt;，当前为&lt;b&gt;锁定&lt;/b&gt;状态</translation>
+        <translation>钱包已被&lt;b&gt;加密&lt;/b&gt;，当前为&lt;b&gt;锁定&lt;/b&gt;状态</translation>
     </message>
     <message>
+        <location line="+25"/>
         <source>Backup Wallet</source>
-        <translation type="vanished">备份钱包</translation>
+        <translation>备份钱包</translation>
     </message>
     <message>
+        <location line="+0"/>
         <source>Wallet Data (*.dat)</source>
-        <translation type="vanished">钱包数据文件(*.dat)</translation>
+        <translation>钱包数据文件(*.dat)</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+3"/>
         <source>Backup Failed</source>
         <translation>备份失败</translation>
     </message>
     <message>
+        <location line="+0"/>
         <source>There was an error trying to save the wallet data to the new location.</source>
-        <translation type="vanished">试图将钱包地址保存到新位置时出现错误</translation>
+        <translation>试图将钱包地址保存到新位置时出现错误</translation>
     </message>
     <message numerus="yes">
-        <location line="+91"/>
+        <location line="+76"/>
         <source>%n second(s)</source>
-        <translation>
-            <numerusform>%n秒</numerusform>
-        </translation>
+        <translation><numerusform>%n秒</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n minute(s)</source>
-        <translation>
-            <numerusform>%n 分钟</numerusform>
-        </translation>
+        <translation><numerusform>%n 分钟</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n hour(s)</source>
-        <translation>
-            <numerusform>%n 小时</numerusform>
-        </translation>
+        <translation><numerusform>%n 小时</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n day(s)</source>
-        <translation>
-            <numerusform>%n 天</numerusform>
-        </translation>
+        <translation><numerusform>%n 天</numerusform></translation>
     </message>
     <message>
-        <location line="+10"/>
-        <source>Not staking because client is locked</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because client is offline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because client is syncing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+18"/>
         <source>Not staking</source>
         <translation>未进行权益增值</translation>
     </message>
     <message>
-        <location filename="../bitcoin.cpp" line="+114"/>
+        <location filename="../bitcoin.cpp" line="+109"/>
         <source>A fatal error occurred. vTorrent can no longer continue safely and will quit.</source>
-        <translation>发生严重错误，vTorrent客户端即将关闭。</translation>
-    </message>
-</context>
-<context>
-    <name>BlockBrowser</name>
-    <message>
-        <location filename="../forms/blockbrowser.ui" line="+23"/>
-        <source>Form</source>
-        <translation type="unfinished">表单</translation>
-    </message>
-    <message>
-        <location line="+57"/>
-        <source>vTorrent - Block Explorer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+79"/>
-        <source>Jump to Block</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Block Height:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <location line="+63"/>
-        <location line="+14"/>
-        <location line="+14"/>
-        <source>0</source>
-        <translation type="unfinished">0</translation>
-    </message>
-    <message>
-        <location line="-84"/>
-        <source>Block Hash:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <location line="+20"/>
-        <source>0x0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-13"/>
-        <source>Block Merkle:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Block nNonce:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Block nBits:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Block Timestamp:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Block Difficulty:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>0.00</source>
-        <translation type="unfinished">0.00</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Block Hashrate:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>0000 KH/s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+56"/>
-        <source>Decode Transaction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Transaction ID:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>000</source>
-        <translation type="unfinished">000</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Value out:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Fees:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Outputs:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Inputs:</source>
-        <translation type="unfinished"></translation>
+        <translation>发生严重错误，暗影币客户端即将关闭。</translation>
     </message>
 </context>
 <context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+110"/>
+        <location filename="../clientmodel.cpp" line="+90"/>
         <source>Network Alert</source>
         <translation>网络警报</translation>
     </message>
@@ -1158,37 +736,37 @@ Message: %4
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+20"/>
+        <location filename="../forms/coincontroldialog.ui" line="+14"/>
         <source>Coin Control</source>
-        <translation>vTorrent控制</translation>
+        <translation>暗影币控制</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+31"/>
         <source>Quantity:</source>
         <translation>总量：</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+32"/>
         <source>Bytes:</source>
         <translation>字节：</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+48"/>
         <source>Amount:</source>
         <translation>金额：</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+32"/>
         <source>Priority:</source>
         <translation>优先级：</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+48"/>
         <source>Fee:</source>
         <translation>费用：</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Low Output:</source>
         <translation>低输出</translation>
     </message>
@@ -1198,17 +776,17 @@ Message: %4
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+50"/>
+        <location filename="../forms/coincontroldialog.ui" line="+51"/>
         <source>After Fee:</source>
         <translation>加上交易费用后:</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Change:</source>
         <translation>变更 : </translation>
     </message>
     <message>
-        <location line="+68"/>
+        <location line="+69"/>
         <source>(un)select all</source>
         <translation>(不)全选</translation>
     </message>
@@ -1419,7 +997,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>EditAddressDialog</name>
     <message>
-        <location filename="../forms/editaddressdialog.ui" line="+26"/>
+        <location filename="../forms/editaddressdialog.ui" line="+14"/>
         <source>Edit Address</source>
         <translation>编辑地址</translation>
     </message>
@@ -1429,7 +1007,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>标签(&amp;L)</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+10"/>
         <source>The label associated with this address book entry</source>
         <translation>地址簿内该项目对应的标签</translation>
     </message>
@@ -1439,14 +1017,9 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>地址(&amp;A)</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+10"/>
         <source>The address associated with this address book entry. This can only be modified for sending addresses.</source>
         <translation>地址簿内该项目对应的地址。只有“收款人地址”分类下的地址可以修改。</translation>
-    </message>
-    <message>
-        <location line="+26"/>
-        <source>&amp;Stealth Address</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editaddressdialog.cpp" line="+20"/>
@@ -1454,29 +1027,29 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>新建接收地址</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+4"/>
         <source>New sending address</source>
         <translation>新建发送地址</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+3"/>
         <source>Edit receiving address</source>
         <translation>编辑接收地址</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+4"/>
         <source>Edit sending address</source>
         <translation>编辑发送地址</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+76"/>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
         <translation>输入的地址“%1”已经存在于地址簿中。</translation>
     </message>
     <message>
         <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid vTorrent address.</source>
-        <translation>“%1” 不是有效的vTorrent地址。</translation>
+        <translation>“%1” 不是有效的暗影币地址。</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1492,10 +1065,10 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+424"/>
+        <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
-        <source>vTorrent-Client</source>
-        <translation>vTorrent客户端vTorrent-Qt</translation>
+        <source>vTorrent-Qt</source>
+        <translation>暗影币客户端ShadowCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1534,360 +1107,19 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
-    <name>MRichTextEdit</name>
-    <message>
-        <location filename="../plugins/mrichtexteditor/mrichtextedit.ui" line="+56"/>
-        <source>Paragraph formatting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+23"/>
-        <source>Undo (CTRL+Z)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Undo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <location line="+3"/>
-        <source>Redo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Cut (CTRL+X)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Cut</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Copy (CTRL+C)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Copy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Paste (CTRL+V)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Paste</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+28"/>
-        <source>Link (CTRL+L)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+34"/>
-        <source>Bold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <source>Italic (CTRL+I)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Italic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <source>Underline (CTRL+U)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Underline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Strike Out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Bullet list (CTRL+-)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Bullet list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
-        <source>Ordered list (CTRL+=)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Ordered list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
-        <source>Decrease indentation (CTRL+,)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Decrease indentation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Increase indentation (CTRL+.)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Increase indentation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+40"/>
-        <source>Text background color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>Font size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/mrichtexteditor/mrichtextedit.cpp" line="+59"/>
-        <source>Standard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Monospace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+143"/>
-        <source>Create a link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Link URL:</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MessageModel</name>
-    <message>
-        <location filename="../messagemodel.cpp" line="+310"/>
-        <source>Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Sent Date Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Received Date Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Label</source>
-        <translation type="unfinished">标签</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>To Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>From Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Message</source>
-        <translation type="unfinished">消息</translation>
-    </message>
-    <message>
-        <location line="+82"/>
-        <source>Send Secure Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Send failed: %1.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+67"/>
-        <source>(no label)</source>
-        <translation type="unfinished">(没有标签)</translation>
-    </message>
-</context>
-<context>
-    <name>MessagePage</name>
-    <message>
-        <location filename="../forms/messagepage.ui" line="+14"/>
-        <source>Address Book</source>
-        <translation type="unfinished">地址簿</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>These are your sent and received encrypted messages. Click on an item to read it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>Click on a message to view it</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>&amp;Back</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Contact:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>&amp;Conversation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Sign a message to prove you own a vTorrent address</source>
-        <translation type="unfinished">对信息进行签名以证明您对该vTorrent地址的所有权</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Send</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <location line="+14"/>
-        <source>Copy the currently selected address to the system clipboard</source>
-        <translation type="unfinished">复制当前选中的地址到系统剪贴板</translation>
-    </message>
-    <message>
-        <location line="-11"/>
-        <source>&amp;Copy From Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Copy To &amp;Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Delete the currently selected address from the list</source>
-        <translation type="unfinished">从列表中删除选中的地址</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Delete</source>
-        <translation type="unfinished">删除(&amp;D)</translation>
-    </message>
-    <message>
-        <location filename="../messagepage.cpp" line="+182"/>
-        <source>Send Secure Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Send failed: %1.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+213"/>
-        <source>Export Messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Comma separated file (*.csv)</source>
-        <translation type="unfinished">逗号分隔文件 (*.csv)</translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Error exporting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Could not write to file %1.</source>
-        <translation type="unfinished">无法写入文件 %1 。</translation>
-    </message>
-</context>
-<context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+26"/>
+        <location filename="../forms/optionsdialog.ui" line="+14"/>
         <source>Options</source>
         <translation>选项</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+16"/>
         <source>&amp;Main</source>
         <translation>主要(&amp;M)</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+6"/>
         <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.01 recommended.</source>
         <translation>支付可选的交易手续费以加速交易(每kB)。大多数交易的数据量为1kB。推荐额0.01。</translation>
     </message>
@@ -1909,12 +1141,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+31"/>
         <source>Automatically start vTorrent after logging in to the system.</source>
-        <translation>开机自动启动vTorrent客户端</translation>
+        <translation>开机自动启动暗影币客户端</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Start vTorrent on system login</source>
-        <translation>开机时自动启动vTorrent客户端(&amp;S)</translation>
+        <translation>开机时自动启动暗影币客户端(&amp;S)</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1927,14 +1159,14 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>关机时断开区块和地址数据库连接(&amp;D)</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>&amp;Network</source>
         <translation>网络(&amp;N)</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+6"/>
         <source>Automatically open the vTorrent client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>路由器自动打开vTorrent客户端端口。该功能仅在路由器开启UPnP支持时有效。</translation>
+        <translation>路由器自动打开暗影币客户端端口。该功能仅在路由器开启UPnP支持时有效。</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1944,7 +1176,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+7"/>
         <source>Connect to the vTorrent network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>经SOCKS代理连接到vTorrent网络(例如使用Tor)</translation>
+        <translation>经SOCKS代理连接到暗影币网络(例如使用Tor)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1982,12 +1214,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Socks 代理版本（例如 5）</translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+36"/>
         <source>&amp;Window</source>
         <translation>窗口(&amp;W)</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+6"/>
         <source>Show only a tray icon after minimizing the window.</source>
         <translation>最小化窗口后仅显示托盘图标</translation>
     </message>
@@ -2007,39 +1239,39 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>单击关闭按钮最小化(&amp;I)</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>&amp;Display</source>
         <translation>显示(&amp;D)</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+8"/>
         <source>User Interface &amp;language:</source>
         <translation>用户界面语言(&amp;L)：</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>The user interface language can be set here. This setting will take effect after restarting vTorrent.</source>
-        <translation>在此设置用户界面语言。重启vTorrent客户端后设置生效。</translation>
+        <translation>在此设置用户界面语言。重启暗影币客户端后设置生效。</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>&amp;Unit to show amounts in:</source>
-        <translation>vTorrent金额单位(&amp;U)：</translation>
+        <translation>暗影币金额单位(&amp;U)：</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>选择vTorrent单位。</translation>
+        <translation>选择暗影币单位。</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+9"/>
         <source>Whether to show vTorrent addresses in the transaction list or not.</source>
-        <translation>是否在交易列表中显示vTorrent地址</translation>
+        <translation>是否在交易列表中显示暗影币地址</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Display addresses in transaction list (stealth address is too long)</source>
-        <translation>在交易清单中显示vTorrent地址(&amp;D)</translation>
+        <source>&amp;Display addresses in transaction list</source>
+        <translation>在交易清单中显示暗影币地址(&amp;D)</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -2049,10 +1281,10 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+3"/>
         <source>Display coin &amp;control features (experts only!)</source>
-        <translation>显示vTorrent控制选项(仅用于专家用户)</translation>
+        <translation>显示暗影币控制选项(仅用于专家用户)</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+71"/>
         <source>&amp;OK</source>
         <translation>确定(&amp;O)</translation>
     </message>
@@ -2092,85 +1324,79 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>OverviewPage</name>
     <message>
+        <location filename="../forms/overviewpage.ui" line="+14"/>
         <source>Form</source>
-        <translation type="vanished">表单</translation>
+        <translation>表单</translation>
     </message>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+65"/>
+        <location line="+33"/>
+        <location line="+231"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the vTorrent network after a connection is established, but this process has not completed yet.</source>
         <translation>所显示的信息尚未更新，建立连接后钱包客户端会自动和网络进行同步，但目前该过程尚未完成。</translation>
     </message>
     <message>
-        <location line="+77"/>
-        <source>&lt;b&gt;Current Balance&lt;/b&gt;</source>
-        <translation>当前余额</translation>
-    </message>
-    <message>
-        <location line="+132"/>
+        <location line="-160"/>
         <source>Stake:</source>
         <translation>用于权益累积：</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+29"/>
         <source>Unconfirmed:</source>
         <translation>未确认：</translation>
     </message>
     <message>
+        <location line="-107"/>
         <source>Wallet</source>
-        <translation type="vanished">钱包</translation>
+        <translation>钱包</translation>
     </message>
     <message>
-        <location line="-122"/>
+        <location line="+49"/>
         <source>Spendable:</source>
         <translation>可用金额：</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+16"/>
         <source>Your current spendable balance</source>
         <translation>您当前可使用的余额</translation>
     </message>
     <message>
-        <location line="+153"/>
+        <location line="+71"/>
         <source>Immature:</source>
         <translation>未成熟的：</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+13"/>
         <source>Mined balance that has not yet matured</source>
         <translation>尚未成熟的挖矿收入余额</translation>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+20"/>
         <source>Total:</source>
         <translation>总额：</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+16"/>
         <source>Your current total balance</source>
         <translation>您当前的总余额</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+46"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
         <translation>&lt;b&gt;最近交易记录&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-160"/>
+        <location line="-108"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
         <translation>尚未确认的交易总额（不计入目前钱包余额）</translation>
     </message>
     <message>
-        <location line="-315"/>
-        <source>Wallet Summary</source>
-        <translation>钱包汇总</translation>
-    </message>
-    <message>
-        <location line="+254"/>
+        <location line="-29"/>
         <source>Total of coins that was staked, and do not yet count toward the current balance</source>
         <translation>正在进行权益累积的货币总额（不计入目前钱包余额）</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+114"/>
+        <location filename="../overviewpage.cpp" line="+113"/>
+        <location line="+1"/>
         <source>out of sync</source>
         <translation>数据未同步</translation>
     </message>
@@ -2178,32 +1404,32 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>QRCodeDialog</name>
     <message>
-        <location filename="../forms/qrcodedialog.ui" line="+20"/>
+        <location filename="../forms/qrcodedialog.ui" line="+14"/>
         <source>QR Code Dialog</source>
         <translation>QR二维码对话框</translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+59"/>
         <source>Request Payment</source>
         <translation>请求支付</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+56"/>
         <source>Amount:</source>
         <translation>金额：</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="-44"/>
         <source>Label:</source>
         <translation>标签：</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+19"/>
         <source>Message:</source>
         <translation>信息：</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+71"/>
         <source>&amp;Save As...</source>
         <translation>另存为(&amp;S)...</translation>
     </message>
@@ -2214,7 +1440,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+40"/>
-        <source>The entered amount is invalid.</source>
+        <source>The entered amount is invalid, please check.</source>
         <translation>输入的金额无效，请检查。</translation>
     </message>
     <message>
@@ -2236,175 +1462,138 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+148"/>
+        <location filename="../forms/rpcconsole.ui" line="+46"/>
         <source>Client name</source>
         <translation>客户端名称</translation>
     </message>
     <message>
-        <location line="+22"/>
-        <location line="+65"/>
-        <location line="+68"/>
-        <location line="+65"/>
-        <location line="+117"/>
-        <location line="+65"/>
-        <location line="+65"/>
-        <location line="+111"/>
-        <location filename="../rpcconsole.cpp" line="+356"/>
+        <location line="+10"/>
+        <location line="+23"/>
+        <location line="+26"/>
+        <location line="+23"/>
+        <location line="+23"/>
+        <location line="+36"/>
+        <location line="+53"/>
+        <location line="+23"/>
+        <location line="+23"/>
+        <location filename="../rpcconsole.cpp" line="+348"/>
         <source>N/A</source>
         <translation>不可用</translation>
     </message>
     <message>
-        <location line="-513"/>
+        <location line="-217"/>
         <source>Client version</source>
         <translation>客户端版本</translation>
     </message>
     <message>
-        <location line="-150"/>
+        <location line="-45"/>
         <source>&amp;Information</source>
         <translation>信息(&amp;I)</translation>
     </message>
     <message>
-        <location line="+51"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;vTorrent Core&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+164"/>
+        <location line="+68"/>
         <source>Using OpenSSL version</source>
         <translation>使用 OpenSSL 版本</translation>
     </message>
     <message>
-        <location line="+68"/>
+        <location line="+49"/>
         <source>Startup time</source>
         <translation>启动时间</translation>
     </message>
     <message>
+        <location line="+29"/>
         <source>Network</source>
-        <translation type="vanished">网络</translation>
+        <translation>网络</translation>
     </message>
     <message>
-        <location line="+358"/>
+        <location line="+7"/>
         <source>Number of connections</source>
         <translation>连接数</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+23"/>
         <source>On testnet</source>
         <translation>测试网</translation>
     </message>
     <message>
+        <location line="+23"/>
         <source>Block chain</source>
-        <translation type="vanished">数据链</translation>
+        <translation>数据链</translation>
     </message>
     <message>
-        <location line="-300"/>
+        <location line="+7"/>
         <source>Current number of blocks</source>
         <translation>当前数据块数量</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+23"/>
         <source>Estimated total blocks</source>
         <translation>预计数据块数量</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+23"/>
         <source>Last block time</source>
         <translation>上一数据块时间</translation>
     </message>
     <message>
+        <location line="+52"/>
         <source>&amp;Open</source>
-        <translation type="vanished">打开(&amp;O)</translation>
+        <translation>打开(&amp;O)</translation>
     </message>
     <message>
-        <location line="+261"/>
+        <location line="+16"/>
         <source>Command-line options</source>
         <translation>命令行选项</translation>
     </message>
     <message>
-        <source>Show the vTorrent-Client help message to get a list with possible vTorrent command-line options.</source>
-        <translation type="vanished">显示关于命令行选项的帮助信息。</translation>
+        <location line="+7"/>
+        <source>Show the vTorrent-Qt help message to get a list with possible vTorrent command-line options.</source>
+        <translation>显示关于命令行选项的帮助信息。</translation>
     </message>
     <message>
+        <location line="+3"/>
         <source>&amp;Show</source>
-        <translation type="vanished">显示(&amp;S)</translation>
+        <translation>显示(&amp;S)</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+24"/>
         <source>&amp;Console</source>
         <translation>控制台(&amp;C)</translation>
     </message>
     <message>
+        <location line="-260"/>
         <source>Build date</source>
-        <translation type="vanished">创建时间</translation>
+        <translation>创建时间</translation>
     </message>
     <message>
-        <location line="-868"/>
+        <location line="-104"/>
         <source>vTorrent - Debug window</source>
-        <translation>vTorrent客户端-调试窗口</translation>
+        <translation>暗影币客户端-调试窗口</translation>
     </message>
     <message>
+        <location line="+25"/>
         <source>vTorrent Core</source>
-        <translation type="vanished">vTorrent核心进程</translation>
+        <translation>暗影币核心进程</translation>
     </message>
     <message>
-        <location line="+841"/>
+        <location line="+279"/>
         <source>Debug log file</source>
         <translation>调试日志文件</translation>
     </message>
     <message>
-        <location line="-3"/>
+        <location line="+7"/>
         <source>Open the vTorrent debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>打开调试日志文件，对于较大的文件，这可能持续几秒钟。</translation>
     </message>
     <message>
-        <location line="-441"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Block chain&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+247"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Network&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+175"/>
-        <source>Show the vTorrent-Qt help message to get a list with possible XCash command-line options.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+107"/>
+        <location line="+102"/>
         <source>Clear console</source>
         <translation>清空控制台</translation>
     </message>
     <message>
-        <location line="+23"/>
-        <source>&amp;Network Traffic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+52"/>
-        <source>&amp;Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>Totals</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+65"/>
-        <source>In:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+80"/>
-        <source>Out:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
         <source>Welcome to the vTorrent RPC console.</source>
-        <translation>欢迎使用vTorrentRPC控制台。</translation>
+        <translation>欢迎使用暗影币RPC控制台。</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2415,41 +1604,6 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+1"/>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
         <translation>使用 &lt;b&gt;help&lt;/b&gt; 命令显示帮助信息。</translation>
-    </message>
-    <message>
-        <location line="+126"/>
-        <source>%1 B</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 KB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 MB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 GB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>%1 m</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>%1 h</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 h %2 m</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2463,17 +1617,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+6"/>
         <location line="+5"/>
         <location line="+5"/>
-        <location line="+5"/>
         <source>Send Coins</source>
         <translation>发送货币</translation>
     </message>
     <message>
-        <location line="+32"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Send vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+72"/>
+        <location line="+76"/>
         <source>Coin Control Features</source>
         <translation>交易源地址控制功能</translation>
     </message>
@@ -2493,41 +1641,41 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>存款不足！</translation>
     </message>
     <message>
-        <location line="+86"/>
+        <location line="+77"/>
         <source>Quantity:</source>
         <translation>总量：</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <location line="+34"/>
+        <location line="+22"/>
+        <location line="+35"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location line="-18"/>
+        <location line="-19"/>
         <source>Bytes:</source>
         <translation>字节：</translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+51"/>
         <source>Amount:</source>
         <translation>金额：</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <location line="+84"/>
-        <location line="+84"/>
-        <location line="+31"/>
+        <location line="+22"/>
+        <location line="+86"/>
+        <location line="+86"/>
+        <location line="+32"/>
         <source>0.00 VTR</source>
         <translation>123.456 VTR {0.00 ?}</translation>
     </message>
     <message>
-        <location line="-186"/>
+        <location line="-191"/>
         <source>Priority:</source>
         <translation>优先级：</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+19"/>
         <source>medium</source>
         <translation>中等</translation>
     </message>
@@ -2537,12 +1685,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>费用：</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Low Output:</source>
         <translation>低输出</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+19"/>
         <source>no</source>
         <translation>no</translation>
     </message>
@@ -2552,17 +1700,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>加上交易费用后:</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Change</source>
         <translation>零钱</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+50"/>
         <source>custom change address</source>
         <translation>自定义零钱地址</translation>
     </message>
     <message>
-        <location line="+121"/>
+        <location line="+106"/>
         <source>Send to multiple recipients at once</source>
         <translation>一次发送给多个接收者</translation>
     </message>
@@ -2572,7 +1720,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>添加收款人(&amp;R)</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+20"/>
         <source>Remove all transaction fields</source>
         <translation>删除所有交易区域</translation>
     </message>
@@ -2582,13 +1730,9 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>清除所有(&amp;A)</translation>
     </message>
     <message>
-        <location line="+30"/>
-        <source>Spendable:</source>
-        <translation type="unfinished">可用金额：</translation>
-    </message>
-    <message>
+        <location line="+28"/>
         <source>Balance:</source>
-        <translation type="vanished">余额：</translation>
+        <translation>余额：</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -2606,13 +1750,9 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>发送(&amp;E)</translation>
     </message>
     <message>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">输入vTorrent地址(例如：XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location filename="../sendcoinsdialog.cpp" line="-178"/>
-        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../sendcoinsdialog.cpp" line="-173"/>
+        <source>Enter a vTorrent address (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>输入暗影币地址(例如：XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -2710,18 +1850,9 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>错误：交易被拒绝。可能由于钱包中部分金额已被使用，例如您使用了钱包数据的副本，在副本中某些金额已被使用，但在此处尚未被标记为已使用。</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Error: Narration is too long.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+251"/>
-        <source>WARNING: Invalid address, stealth address is not supported</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>WARNING: Invalid vTorrent address</source>
-        <translation type="vanished">警告：无效的vTorrent地址</translation>
+        <translation>警告：无效的暗影币地址</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -2742,48 +1873,33 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>表单</translation>
     </message>
     <message>
-        <location line="+60"/>
-        <source>The address to send the payment to  (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+182"/>
-        <source>N&amp;arration:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <location filename="../sendcoinsentry.cpp" line="+25"/>
-        <source>Enter a short note to send with payment (max 24 characters)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+42"/>
+        <location line="+15"/>
         <source>A&amp;mount:</source>
         <translation>金额(&amp;M)</translation>
     </message>
     <message>
-        <location line="-271"/>
+        <location line="+13"/>
         <source>Pay &amp;To:</source>
         <translation>付给(&amp;T)：</translation>
     </message>
     <message>
-        <location line="+169"/>
-        <location filename="../sendcoinsentry.cpp" line="-2"/>
+        <location line="+24"/>
+        <location filename="../sendcoinsentry.cpp" line="+25"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>为这个地址输入一个标签，以便将它添加到您的地址簿</translation>
     </message>
     <message>
-        <location line="-25"/>
+        <location line="+9"/>
         <source>&amp;Label:</source>
         <translation>标签(&amp;L)：</translation>
     </message>
     <message>
-        <source>The address to send the payment to  (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">收款人地址(例：XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <location line="+18"/>
+        <source>The address to send the payment to  (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>收款人地址(例：XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
-        <location line="-100"/>
+        <location line="+10"/>
         <source>Choose address from address book</source>
         <translation>从地址簿选择地址</translation>
     </message>
@@ -2793,7 +1909,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+7"/>
         <source>Paste address from clipboard</source>
         <translation>从剪贴板粘贴地址</translation>
     </message>
@@ -2803,297 +1919,75 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Alt+P</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+7"/>
         <source>Remove this recipient</source>
         <translation>删除收款人</translation>
     </message>
     <message>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">输入一个vTorrent地址 (例：XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SendMessagesDialog</name>
-    <message>
-        <location filename="../forms/sendmessagesdialog.ui" line="+14"/>
-        <source>Send Messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+30"/>
-        <source>Address &amp;From:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Choose address from address book</source>
-        <translation type="unfinished">从地址簿选择地址</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+A</source>
-        <translation type="unfinished">Alt+A</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Paste address from clipboard</source>
-        <translation type="unfinished">从剪贴板粘贴地址</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+P</source>
-        <translation type="unfinished">Alt+P</translation>
-    </message>
-    <message>
-        <location line="+65"/>
-        <source>Send to multiple recipients at once</source>
-        <translation type="unfinished">一次发送给多个接收者</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Add &amp;Recipient</source>
-        <translation type="unfinished">添加收款人(&amp;R)</translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Remove all transaction fields</source>
-        <translation type="unfinished">删除所有交易区域</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Clear &amp;All</source>
-        <translation type="unfinished">清除所有(&amp;A)</translation>
-    </message>
-    <message>
-        <location line="+36"/>
-        <source>Confirm the send action</source>
-        <translation type="unfinished">确认并发送货币</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>S&amp;end</source>
-        <translation type="unfinished">发送(&amp;E)</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sendmessagesdialog.cpp" line="+37"/>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+121"/>
-        <source>&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</source>
-        <translation type="unfinished">&lt;b&gt;%1&lt;/b&gt; 至 %2 (%3)</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Confirm send messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Are you sure you want to send %1?</source>
-        <translation type="unfinished">确认要发送 %1 ?</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source> and </source>
-        <translation type="unfinished">和</translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <location line="+5"/>
-        <location line="+5"/>
-        <location line="+5"/>
-        <location line="+5"/>
-        <source>Send Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-19"/>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation type="unfinished">收款人地址不合法，请检查。</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>The message can&apos;t be empty.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation type="unfinished">发现重复的地址, 每次只能对同一地址发送一次。</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Error: Message creation failed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Error: The message was rejected.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SendMessagesEntry</name>
-    <message>
-        <location filename="../forms/sendmessagesentry.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">表单</translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>The address to send the payment to  (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Choose address from address book</source>
-        <translation type="unfinished">从地址簿选择地址</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+A</source>
-        <translation type="unfinished">Alt+A</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Paste address from clipboard</source>
-        <translation type="unfinished">从剪贴板粘贴地址</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+P</source>
-        <translation type="unfinished">Alt+P</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Remove this recipient</source>
-        <translation type="unfinished">删除收款人</translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>&amp;Message:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>Send &amp;To:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <location filename="../sendmessagesentry.cpp" line="+27"/>
-        <source>Enter a label for this address to add it to your address book</source>
-        <translation type="unfinished">为这个地址输入一个标签，以便将它添加到您的地址簿</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>&amp;Label:</source>
-        <translation type="unfinished">标签(&amp;L)：</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>&amp;Public Key:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sendmessagesentry.cpp" line="+1"/>
-        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Enter the public key for the address above, it is not in the blockchain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>You cannot send a blank message!</source>
-        <translation type="unfinished"></translation>
+        <source>Enter a vTorrent address (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>输入一个暗影币地址 (例：XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
 </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <location filename="../forms/signverifymessagedialog.ui" line="+20"/>
+        <location filename="../forms/signverifymessagedialog.ui" line="+14"/>
         <source>Signatures - Sign / Verify a Message</source>
         <translation>签名 - 为消息签名/验证签名消息</translation>
     </message>
     <message>
-        <location line="+31"/>
-        <location line="+195"/>
+        <location line="+13"/>
+        <location line="+124"/>
         <source>&amp;Sign Message</source>
         <translation>签名消息(&amp;S)</translation>
     </message>
     <message>
+        <location line="-118"/>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation type="vanished">您可以用你的地址对消息进行签名，以证明您是该地址的所有人。注意不要对模棱两可的消息签名，以免遭受钓鱼式攻击。请确保消息内容准确的表达了您的真实意愿。</translation>
+        <translation>您可以用你的地址对消息进行签名，以证明您是该地址的所有人。注意不要对模棱两可的消息签名，以免遭受钓鱼式攻击。请确保消息内容准确的表达了您的真实意愿。</translation>
     </message>
     <message>
-        <source>The address to sign the message with (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">用来签名该消息的地址(例： XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location line="-183"/>
-        <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague. Only sign fully-detailed statements you agree to. Only normal addresses is supported.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+43"/>
-        <source>The address to sign the message with (e.g. SDywGBZBowrSSUwwNUo1DFSDTibzKid93H)</source>
-        <translation type="unfinished"></translation>
+        <location line="+18"/>
+        <source>The address to sign the message with (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>用来签名该消息的地址(例： XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location line="+275"/>
+        <location line="+203"/>
         <source>Choose an address from the address book</source>
         <translation>从地址簿里选择一个地址</translation>
     </message>
     <message>
-        <location line="-265"/>
-        <location line="+275"/>
+        <location line="-193"/>
+        <location line="+203"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location line="-265"/>
-        <location line="+275"/>
-        <location line="+63"/>
+        <location line="-193"/>
         <source>Paste address from clipboard</source>
         <translation>从剪贴板粘贴地址</translation>
     </message>
     <message>
-        <location line="-328"/>
-        <location line="+275"/>
-        <location line="+63"/>
+        <location line="+10"/>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
     </message>
     <message>
-        <location line="-325"/>
+        <location line="+12"/>
         <source>Enter the message you want to sign here</source>
         <translation>请输入您要发送的签名消息</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+24"/>
         <source>Copy the current signature to the system clipboard</source>
         <translation>复制当前签名至剪切板</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+21"/>
         <source>Sign the message to prove you own this vTorrent address</source>
-        <translation>对该消息进行签名以证明您对该vTorrent地址的所有权</translation>
+        <translation>对该消息进行签名以证明您对该暗影币地址的所有权</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -3102,38 +1996,30 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <location line="+269"/>
+        <location line="+146"/>
         <source>Clear &amp;All</source>
         <translation>清除所有(&amp;A)</translation>
     </message>
     <message>
-        <location line="-203"/>
-        <location line="+186"/>
+        <location line="-87"/>
+        <location line="+70"/>
         <source>&amp;Verify Message</source>
         <translation>验证消息(&amp;V)</translation>
     </message>
     <message>
-        <location line="-174"/>
-        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Only normal addresses is supported.</source>
-        <translation type="unfinished"></translation>
+        <location line="-64"/>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
+        <translation>在下面输入签名地址，消息（请确保换行符、空格符、制表符等等一个不漏）和签名以验证消息。请确保签名信息准确，提防中间人攻击。</translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>The address the message was signed with (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>用来签名该消息的暗影币地址(例： XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>The address the message was signed with (e.g. SDywGBZBowrSSUwwNUo1DFSDTibzKid93H)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
-        <translation type="vanished">在下面输入签名地址，消息（请确保换行符、空格符、制表符等等一个不漏）和签名以验证消息。请确保签名信息准确，提防中间人攻击。</translation>
-    </message>
-    <message>
-        <source>The address the message was signed with (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">用来签名该消息的vTorrent地址(例： XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location line="+131"/>
         <source>Verify the message to ensure it was signed with the specified vTorrent address</source>
-        <translation>确认该消息以保证它经由指定的vTorrent地址签名</translation>
+        <translation>确认该消息以保证它经由指定的暗影币地址签名</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -3141,54 +2027,34 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>清空所有验证消息栏</translation>
     </message>
     <message>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">输入vTorrent地址(例： XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <location filename="../signverifymessagedialog.cpp" line="+27"/>
+        <location line="+3"/>
+        <source>Enter a vTorrent address (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>输入暗影币地址(例： XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+28"/>
+        <location line="-2"/>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
         <translation>单击“签名消息“产生签名。</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Enter vTorrent signature</source>
-        <translation>输入vTorrent签名</translation>
+        <translation>输入暗影币签名</translation>
     </message>
     <message>
-        <source>The entered address is invalid. Stealth address is not supported.</source>
-        <translation type="vanished">输入的地址非法。</translation>
-    </message>
-    <message>
-        <source>Please check the address and try again.</source>
-        <translation type="vanished">请检查地址后重试。</translation>
-    </message>
-    <message>
-        <location line="-4"/>
-        <location line="+3"/>
-        <source>Enter an vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+83"/>
+        <location line="+82"/>
         <location line="+81"/>
         <source>The entered address is invalid.</source>
-        <translation type="unfinished"></translation>
+        <translation>输入的地址非法。</translation>
     </message>
     <message>
         <location line="-81"/>
         <location line="+8"/>
         <location line="+73"/>
         <location line="+8"/>
-        <source>Stealth address is not yet supported.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-89"/>
-        <location line="+8"/>
-        <location line="+73"/>
-        <location line="+8"/>
-        <source>Please check the address and retry.</source>
-        <translation type="unfinished"></translation>
+        <source>Please check the address and try again.</source>
+        <translation>请检查地址后重试。</translation>
     </message>
     <message>
         <location line="-81"/>
@@ -3244,26 +2110,16 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
-    <name>TrafficGraphWidget</name>
-    <message>
-        <location filename="../trafficgraphwidget.cpp" line="+79"/>
-        <source>KB/s</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>TransactionDesc</name>
     <message>
-        <location filename="../transactiondesc.cpp" line="+20"/>
+        <location filename="../transactiondesc.cpp" line="+19"/>
         <source>Open until %1</source>
         <translation>至 %1 个数据块时开启</translation>
     </message>
     <message numerus="yes">
         <location line="-2"/>
         <source>Open for %n block(s)</source>
-        <translation>
-            <numerusform>为 %n 个数据块开启</numerusform>
-        </translation>
+        <translation><numerusform>为 %n 个数据块开启</numerusform></translation>
     </message>
     <message>
         <location line="+8"/>
@@ -3286,16 +2142,14 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>%1 已确认</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+18"/>
         <source>Status</source>
         <translation>状态</translation>
     </message>
     <message numerus="yes">
         <location line="+7"/>
         <source>, broadcast through %n node(s)</source>
-        <translation>
-            <numerusform>通过 %n 个节点广播</numerusform>
-        </translation>
+        <translation><numerusform>通过 %n 个节点广播</numerusform></translation>
     </message>
     <message>
         <location line="+4"/>
@@ -3341,16 +2195,14 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+12"/>
         <location line="+45"/>
         <location line="+17"/>
-        <location line="+38"/>
+        <location line="+30"/>
         <source>Credit</source>
         <translation>收入</translation>
     </message>
     <message numerus="yes">
-        <location line="-110"/>
+        <location line="-102"/>
         <source>matures in %n more block(s)</source>
-        <translation>
-            <numerusform>将在 %n 个数据块后成熟</numerusform>
-        </translation>
+        <translation><numerusform>将在 %n 个数据块后成熟</numerusform></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3361,12 +2213,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+44"/>
         <location line="+8"/>
         <location line="+15"/>
-        <location line="+38"/>
+        <location line="+30"/>
         <source>Debit</source>
         <translation>支出</translation>
     </message>
     <message>
-        <location line="-47"/>
+        <location line="-39"/>
         <source>Transaction fee</source>
         <translation>交易费</translation>
     </message>
@@ -3386,13 +2238,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>备注</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+2"/>
         <source>Transaction ID</source>
         <translation>交易ID</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Generated coins must mature 50 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <source>Generated coins must mature 510 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
         <translation>通过权益累积获得的金额需要在510个块确认后方可使用。此数据块生成时，将被广播到网络并加入区块链。如果未能成功加入区块链，其状态会显示为“未接受”，该部分金额也不可被使用。如果其他节点在您生成区块后的几秒钟内也生成了区块，这种情况会偶尔发生。</translation>
     </message>
     <message>
@@ -3411,7 +2263,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>输入</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+23"/>
         <source>Amount</source>
         <translation>金额</translation>
     </message>
@@ -3426,7 +2278,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>错误</translation>
     </message>
     <message>
-        <location line="-217"/>
+        <location line="-211"/>
         <source>, has not been successfully broadcast yet</source>
         <translation>，未被成功广播</translation>
     </message>
@@ -3439,7 +2291,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TransactionDescDialog</name>
     <message>
-        <location filename="../forms/transactiondescdialog.ui" line="+20"/>
+        <location filename="../forms/transactiondescdialog.ui" line="+14"/>
         <source>Transaction details</source>
         <translation>交易细节</translation>
     </message>
@@ -3450,37 +2302,9 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
-    <name>TransactionPage</name>
-    <message>
-        <location filename="../forms/transactionpage.ui" line="+6"/>
-        <source>Address Book</source>
-        <translation type="unfinished">地址簿</translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wallet Transactions&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+121"/>
-        <source>Specify Range:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>to</source>
-        <translation type="unfinished">到</translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>Double-click to edit address or label</source>
-        <translation type="unfinished">双击编辑地址或标签</translation>
-    </message>
-</context>
-<context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+231"/>
+        <location filename="../transactiontablemodel.cpp" line="+226"/>
         <source>Date</source>
         <translation>日期</translation>
     </message>
@@ -3500,7 +2324,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>数量</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+60"/>
         <source>Open until %1</source>
         <translation>至 %1 个数据块时开启</translation>
     </message>
@@ -3512,17 +2336,10 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message numerus="yes">
         <location line="-15"/>
         <source>Open for %n more block(s)</source>
-        <translation>
-            <numerusform>为 %n 个更多的区块开启</numerusform>
-        </translation>
+        <translation><numerusform>为 %n 个更多的区块开启</numerusform></translation>
     </message>
     <message>
-        <location line="-49"/>
-        <source>Narration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+55"/>
+        <location line="+6"/>
         <source>Offline</source>
         <translation>掉线</translation>
     </message>
@@ -3587,7 +2404,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>（不可用）</translation>
     </message>
     <message>
-        <location line="+198"/>
+        <location line="+190"/>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
         <translation>交易状态。 鼠标移到此区域可显示确认项数量。</translation>
     </message>
@@ -3615,13 +2432,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TransactionView</name>
     <message>
-        <location filename="../transactionview.cpp" line="+41"/>
-        <location line="+8"/>
+        <location filename="../transactionview.cpp" line="+55"/>
+        <location line="+16"/>
         <source>All</source>
         <translation>全部</translation>
     </message>
     <message>
-        <location line="-7"/>
+        <location line="-15"/>
         <source>Today</source>
         <translation>今天</translation>
     </message>
@@ -3651,7 +2468,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>范围...</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+11"/>
         <source>Received with</source>
         <translation>接收于</translation>
     </message>
@@ -3676,17 +2493,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>其他</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>Enter address or label to search</source>
         <translation>输入地址或标签进行搜索</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Min amount</source>
         <translation>最小金额</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+34"/>
         <source>Copy address</source>
         <translation>复制地址</translation>
     </message>
@@ -3716,7 +2533,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>显示交易详情</translation>
     </message>
     <message>
-        <location line="+149"/>
+        <location line="+144"/>
         <source>Export Transaction Data</source>
         <translation>输出交易数据</translation>
     </message>
@@ -3771,18 +2588,20 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>无法写入文件 %1 。</translation>
     </message>
     <message>
+        <location line="+100"/>
         <source>Range:</source>
-        <translation type="vanished">范围：</translation>
+        <translation>范围：</translation>
     </message>
     <message>
+        <location line="+8"/>
         <source>to</source>
-        <translation type="vanished">到</translation>
+        <translation>到</translation>
     </message>
 </context>
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+370"/>
+        <location filename="../walletmodel.cpp" line="+206"/>
         <source>Sending...</source>
         <translation>正在发送</translation>
     </message>
@@ -3792,7 +2611,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../bitcoinstrings.cpp" line="+33"/>
         <source>vTorrent version</source>
-        <translation>vTorrent客户端 版本</translation>
+        <translation>暗影币客户端 版本</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3801,8 +2620,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or vTorrentd</source>
-        <translation>向-server服务器或vTorrentd发送命令</translation>
+        <source>Send command to -server or vtorrentd</source>
+        <translation>向-server服务器或vtorrentd发送命令</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3824,13 +2643,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: vTorrent.conf)</source>
-        <translation>指定配置文件(默认: vTorrent.conf)</translation>
+        <source>Specify configuration file (default: vtorrent.conf)</source>
+        <translation>指定配置文件(默认: vtorrent.conf)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: vTorrentd.pid)</source>
-        <translation>指定pid文件(默认: vTorrentd.pid)</translation>
+        <source>Specify pid file (default: vtorrentd.pid)</source>
+        <translation>指定pid文件(默认: vtorrentd.pid)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3881,7 +2700,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+2"/>
         <source>Stake your coins to support network and gain reward (default: 1)</source>
-        <translation>进行权益累积以支持vTorrent网络并获得报酬(默认: 1)</translation>
+        <translation>进行权益累积以支持暗影币网络并获得报酬(默认: 1)</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -3916,7 +2735,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-87"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 22523 or testnet: 22521)</source>
-        <translation>监听 &lt;port&gt; 端口的JSON-RPC连接 (默认: 22523 测试网: 22521)</translation>
+        <translation>监听 &lt;port&gt; 端口的JSON-RPC连接 (默认: 22521 测试网: 22521)</translation>
     </message>
     <message>
         <location line="-11"/>
@@ -3985,7 +2804,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+61"/>
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong vTorrent will not work properly.</source>
-        <translation>警告：请确认您计算机的本地时间。如果时钟错误，vTorrent客户端将不能正常工作。</translation>
+        <translation>警告：请确认您计算机的本地时间。如果时钟错误，暗影币客户端将不能正常工作。</translation>
     </message>
     <message>
         <location line="-31"/>
@@ -4174,7 +2993,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=vTorrentrpc
+rpcuser=vtorrentrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -4185,7 +3004,7 @@ for example: alertnotify=echo %%s | mail -s &quot;vTorrent Alert&quot; admin@foo
         <translation>%s, 必须在配置文件里设置rpc密码:
  %s
 建议使用如下的随机密码:
-rpcuser=vTorrentrpc
+rpcuser=vtorrentrpc
 rpcpassword=%s
 (不需要记住该密码)
 用户名和密码不能重复。
@@ -4321,12 +3140,12 @@ alertnotify=echo %%s | mail -s &quot;vTorrent Alert&quot; admin@foo.com
     <message>
         <location line="+1"/>
         <source>Cannot obtain a lock on data directory %s.  vTorrent is probably already running.</source>
-        <translation>无法从数据目录 %s 获得锁定.  vTorrent客户端可能已在运行中.</translation>
+        <translation>无法从数据目录 %s 获得锁定.  暗影币客户端可能已在运行中.</translation>
     </message>
     <message>
         <location line="-98"/>
         <source>vTorrent</source>
-        <translation>vTorrent</translation>
+        <translation>暗影币</translation>
     </message>
     <message>
         <location line="+140"/>
@@ -4436,7 +3255,7 @@ alertnotify=echo %%s | mail -s &quot;vTorrent Alert&quot; admin@foo.com
     <message>
         <location line="+122"/>
         <source>Unable to bind to %s on this computer. vTorrent is probably already running.</source>
-        <translation>无法绑定到该计算机上的 %s. vTorrent客户端可能已在运行中。</translation>
+        <translation>无法绑定到该计算机上的 %s. 暗影币客户端可能已在运行中。</translation>
     </message>
     <message>
         <location line="-97"/>
@@ -4496,555 +3315,6 @@ If the file does not exist, create it with owner-readable-only file permissions.
         <translation>您必须在配置文件中加入选项 rpcpassword :
  %s
 如果配置文件不存在，请新建，并将文件权限设置为仅允许文件所有者读取.</translation>
-    </message>
-</context>
-<context>
-    <name>tradingBittrex</name>
-    <message>
-        <location filename="../tradingdialog_bittrex.cpp" line="+500"/>
-        <location line="+84"/>
-        <source>BUY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-84"/>
-        <location line="+84"/>
-        <source>SELL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-80"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>tradingBittrex_UI</name>
-    <message>
-        <location filename="../forms/tradingdialog_bittrex.ui" line="+6"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+76"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <source>BALANCE_GROUPBOX</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-592"/>
-        <location line="+183"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+67"/>
-        <location line="+183"/>
-        <source>TR00012</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-680"/>
-        <source>Last Price (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <source>LastPrice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <location line="+106"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+144"/>
-        <location line="+106"/>
-        <location line="+1048"/>
-        <location line="+98"/>
-        <location line="+2668"/>
-        <location line="+98"/>
-        <source>CAN_BE_ZERO</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-4418"/>
-        <source>BidPrice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Bid Price (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+79"/>
-        <source>AskPrice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Ask Price (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+79"/>
-        <source>DayHigh</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>24 Hour High</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+67"/>
-        <source>24 Hour Low</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <source>DayLow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+106"/>
-        <source>VolumeBTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Volume (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <source>Summary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+113"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Buy vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+449"/>
-        <location line="+1025"/>
-        <location line="+502"/>
-        <location line="+1239"/>
-        <location line="+1025"/>
-        <location line="+502"/>
-        <location line="+2248"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <location line="+1166"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <source>0.00000000</source>
-        <translation type="unfinished">0.00000000</translation>
-    </message>
-    <message>
-        <location line="-9912"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;BTC Available&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+117"/>
-        <location line="+2766"/>
-        <location line="+2908"/>
-        <location line="+2278"/>
-        <source>TR00031</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7949"/>
-        <location line="+2766"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Units&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2750"/>
-        <location line="+64"/>
-        <location line="+62"/>
-        <location line="+61"/>
-        <location line="+2579"/>
-        <location line="+64"/>
-        <location line="+62"/>
-        <location line="+61"/>
-        <location line="+2721"/>
-        <location line="+63"/>
-        <location line="+61"/>
-        <location line="+60"/>
-        <location line="+2094"/>
-        <location line="+63"/>
-        <location line="+61"/>
-        <location line="+60"/>
-        <source>:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-8091"/>
-        <location line="+2766"/>
-        <location line="+2907"/>
-        <location line="+2278"/>
-        <source>TR00030</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7948"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Bid&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+59"/>
-        <location line="+2766"/>
-        <location line="+2906"/>
-        <location line="+2278"/>
-        <source>TR00033</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7947"/>
-        <location line="+2766"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Zero profit Price&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2705"/>
-        <location line="+2766"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Total w/ 0.25% Fee&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2680"/>
-        <location line="+46"/>
-        <location line="+2720"/>
-        <location line="+46"/>
-        <location line="+3350"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <source>VTR</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7176"/>
-        <location line="+46"/>
-        <location line="+502"/>
-        <location line="+502"/>
-        <location line="+1716"/>
-        <location line="+46"/>
-        <location line="+502"/>
-        <location line="+502"/>
-        <location line="+4526"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <source>BTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-8260"/>
-        <location line="+2766"/>
-        <source>Set</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2738"/>
-        <location line="+2766"/>
-        <source> %</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2696"/>
-        <location line="+150"/>
-        <location line="+2616"/>
-        <location line="+150"/>
-        <source>AS_MARKET_SELL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2900"/>
-        <location line="+2766"/>
-        <source>Max</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2741"/>
-        <location line="+150"/>
-        <location line="+2616"/>
-        <location line="+150"/>
-        <source>AS_MARKET_BUY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2900"/>
-        <location line="+2766"/>
-        <source>½</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2747"/>
-        <location line="+150"/>
-        <location line="+2616"/>
-        <location line="+150"/>
-        <source>AS_LAST_PRICE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2900"/>
-        <location line="+2766"/>
-        <source>%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2692"/>
-        <location line="+2766"/>
-        <source>Ask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2725"/>
-        <location line="+2766"/>
-        <source>Bid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2731"/>
-        <location line="+2766"/>
-        <source>Last</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2704"/>
-        <location line="+58"/>
-        <source>Buy vTorrent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+153"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sell vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+468"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;VTR Available&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+184"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ask&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1903"/>
-        <location line="+58"/>
-        <source>Sell vTorrent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+69"/>
-        <source>Order Book</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+261"/>
-        <source>Market History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+60"/>
-        <source>Open Orders</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+60"/>
-        <source>Your History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+60"/>
-        <source>Balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>Account Balances</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+68"/>
-        <source>&lt;b&gt;vTorrent (VTR)&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+70"/>
-        <location line="+2278"/>
-        <source>Show &amp;QR Code</source>
-        <translation type="unfinished">显示二维码(&amp;Q)</translation>
-    </message>
-    <message>
-        <location line="-2204"/>
-        <location line="+2278"/>
-        <source>Generate New Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2149"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Balance&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2215"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Available&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2217"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pending&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2218"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Deposit Address&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-531"/>
-        <source>Account VTR Deposit Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+74"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Bitcoin (BTC)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2204"/>
-        <source>Account BTC Deposit Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+38"/>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+64"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your Exchange API Key&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>Login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>This information can be obtained from inside your Bittrex account Settings.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+41"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;API Key&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <location line="+81"/>
-        <source>Paste address from clipboard</source>
-        <translation type="unfinished">从剪贴板粘贴地址</translation>
-    </message>
-    <message>
-        <location line="-71"/>
-        <location line="+81"/>
-        <source>Alt+P</source>
-        <translation type="unfinished">Alt+P</translation>
-    </message>
-    <message>
-        <location line="-68"/>
-        <location line="+81"/>
-        <source>X</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-54"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Secret Key&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+122"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pushbullet API Key&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+36"/>
-        <source>Enable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>Enable Pushbullet to get notifications from the client.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+96"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Personalized Settings&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Customise your trading experience.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Exchange API Setting&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source> Realtime Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+38"/>
-        <source>Update Now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Trading Bot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Enable Advance Functions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Notifications&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Enable Notification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Price Alarm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Successful Trade</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

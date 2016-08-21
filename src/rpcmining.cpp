@@ -3,16 +3,40 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include "rpcserver.h"
 #include "main.h"
 #include "db.h"
 #include "txdb.h"
 #include "init.h"
 #include "miner.h"
-#include "bitcoinrpc.h"
+#include "kernel.h"
 
+#include <boost/assign/list_of.hpp>
 
 using namespace json_spirit;
 using namespace std;
+using namespace boost::assign;
+
+// Key used by getwork/getblocktemplate miners.
+// Allocated in InitRPCMining, free'd in ShutdownRPCMining
+static CReserveKey* pMiningKey = NULL;
+
+void InitRPCMining()
+{
+    if (!pwalletMain)
+        return;
+
+    // getwork/getblocktemplate mining rewards paid here:
+    pMiningKey = new CReserveKey(pwalletMain);
+}
+
+void ShutdownRPCMining()
+{
+    if (!pMiningKey)
+        return;
+
+    delete pMiningKey; pMiningKey = NULL;
+}
 
 Value getsubsidy(const Array& params, bool fHelp)
 {
@@ -20,14 +44,42 @@ Value getsubsidy(const Array& params, bool fHelp)
         throw runtime_error(
             "getsubsidy [nTarget]\n"
             "Returns proof-of-work subsidy value for the specified value of target.");
-    
-    int nShowHeight;
-    if (params.size() > 0)
-        nShowHeight = atoi(params[0].get_str());
-    else
-        nShowHeight = nBestHeight+1; // block currently being solved
-    
-    return (uint64_t)GetProofOfWorkReward(nShowHeight, 0);
+
+   int nShowHeight;
+   if (params.size() > 0)
+       nShowHeight = atoi(params[0].get_str());
+   else
+       nShowHeight = nBestHeight+1; // block currently being solved
+
+   return (uint64_t)Params().GetProofOfWorkReward(nShowHeight, 0);
+
+}
+
+Value getstakesubsidy(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "getstakesubsidy <hex string>\n"
+            "Returns proof-of-stake subsidy value for the specified coinstake.");
+
+    RPCTypeCheck(params, list_of(str_type));
+
+    vector<unsigned char> txData(ParseHex(params[0].get_str()));
+    CDataStream ssData(txData, SER_NETWORK, PROTOCOL_VERSION);
+    CTransaction tx;
+    try {
+        ssData >> tx;
+    }
+    catch (std::exception &e) {
+        throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "TX decode failed");
+    }
+
+    uint64_t nCoinAge;
+    CTxDB txdb("r");
+    if (!tx.GetCoinAge(txdb, pindexBest, nCoinAge))
+        throw JSONRPCError(RPC_MISC_ERROR, "GetCoinAge failed");
+
+    return (uint64_t)Params().GetProofOfStakeReward(pindexBest, nCoinAge, 0);
 }
 
 Value getmininginfo(const Array& params, bool fHelp)
@@ -38,7 +90,11 @@ Value getmininginfo(const Array& params, bool fHelp)
             "Returns an object containing mining-related information.");
 
     uint64_t nMinWeight = 0, nMaxWeight = 0, nWeight = 0;
-    pwalletMain->GetStakeWeight(*pwalletMain, nMinWeight, nMaxWeight, nWeight);
+
+    if (Params().IsProtocolV1(nBestHeight))
+        pwalletMain->GetStakeWeightV1(nBestHeight, *pwalletMain, nMinWeight, nMaxWeight, nWeight);
+    else
+        nWeight = pwalletMain->GetStakeWeight();
 
     Object obj, diff, weight;
     obj.push_back(Pair("blocks",                (int)nBestHeight));
@@ -58,14 +114,13 @@ Value getmininginfo(const Array& params, bool fHelp)
     diff.push_back(Pair("search-interval",      (int)nLastCoinStakeSearchInterval));
     obj.push_back(Pair("difficulty",            diff));
 
-    obj.push_back(Pair("blockvalue",            (uint64_t)GetProofOfWorkReward(nBestHeight+1, 0)));
+    obj.push_back(Pair("blockvalue",            (uint64_t)Params().GetProofOfWorkReward(nBestHeight+1, 0)));
     obj.push_back(Pair("netmhashps",            GetPoWMHashPS()));
     obj.push_back(Pair("netstakeweight",        GetPoSKernelPS()));
     obj.push_back(Pair("errors",                GetWarnings("statusbar")));
     obj.push_back(Pair("pooledtx",              (uint64_t)mempool.size()));
-
-    weight.push_back(Pair("minimum",            (uint64_t)nMinWeight));
-    weight.push_back(Pair("maximum",            (uint64_t)nMaxWeight));
+    weight.push_back(Pair("minimum",            (uint64_t)nWeight));
+    weight.push_back(Pair("maximum",            (uint64_t)0));
     weight.push_back(Pair("combined",           (uint64_t)nWeight));
     obj.push_back(Pair("stakeweight",           weight));
 
@@ -82,11 +137,15 @@ Value getstakinginfo(const Array& params, bool fHelp)
             "Returns an object containing staking-related information.");
 
     uint64_t nMinWeight = 0, nMaxWeight = 0, nWeight = 0;
-    pwalletMain->GetStakeWeight(*pwalletMain, nMinWeight, nMaxWeight, nWeight);
+
+    if (Params().IsProtocolV1(nBestHeight))
+        pwalletMain->GetStakeWeightV1(nBestHeight, *pwalletMain, nMinWeight, nMaxWeight, nWeight);
+    else
+        nWeight = pwalletMain->GetStakeWeight();
 
     uint64_t nNetworkWeight = GetPoSKernelPS();
     bool staking = nLastCoinStakeSearchInterval && nWeight;
-    int nExpectedTime = staking ? (nTargetSpacing * nNetworkWeight / nWeight) : -1;
+    uint64_t nExpectedTime = staking ? (GetTargetSpacing(nBestHeight) * nNetworkWeight / nWeight) : 0;
 
     Object obj;
 
@@ -109,6 +168,92 @@ Value getstakinginfo(const Array& params, bool fHelp)
     return obj;
 }
 
+Value checkkernel(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() < 1 || params.size() > 2)
+        throw runtime_error(
+            "checkkernel [{\"txid\":txid,\"vout\":n},...] [createblocktemplate=false]\n"
+            "Check if one of given inputs is a kernel input at the moment.\n"
+        );
+
+    RPCTypeCheck(params, list_of(array_type)(bool_type));
+
+    Array inputs = params[0].get_array();
+    bool fCreateBlockTemplate = params.size() > 1 ? params[1].get_bool() : false;
+
+    if (vNodes.empty())
+        throw JSONRPCError(-9, "ShadowCoin is not connected!");
+
+    if (IsInitialBlockDownload())
+        throw JSONRPCError(-10, "ShadowCoin is downloading blocks...");
+
+    COutPoint kernel;
+    CBlockIndex* pindexPrev = pindexBest;
+    unsigned int nBits = GetNextTargetRequired(pindexPrev, true);
+    int64_t nTime = GetAdjustedTime();
+    nTime &= ~STAKE_TIMESTAMP_MASK;
+
+    BOOST_FOREACH(Value& input, inputs)
+    {
+        const Object& o = input.get_obj();
+
+        const Value& txid_v = find_value(o, "txid");
+        if (txid_v.type() != str_type)
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, missing txid key");
+        string txid = txid_v.get_str();
+        if (!IsHex(txid))
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, expected hex txid");
+
+        const Value& vout_v = find_value(o, "vout");
+        if (vout_v.type() != int_type)
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, missing vout key");
+        int nOutput = vout_v.get_int();
+        if (nOutput < 0)
+            throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, vout must be positive");
+
+        COutPoint cInput(uint256(txid), nOutput);
+        if (CheckKernel(pindexPrev, nBits, nTime, cInput))
+        {
+            kernel = cInput;
+            break;
+        }
+    }
+
+    Object result;
+    result.push_back(Pair("found", !kernel.IsNull()));
+
+    if (kernel.IsNull())
+        return result;
+
+    Object oKernel;
+    oKernel.push_back(Pair("txid", kernel.hash.GetHex()));
+    oKernel.push_back(Pair("vout", (int64_t)kernel.n));
+    oKernel.push_back(Pair("time", nTime));
+    result.push_back(Pair("kernel", oKernel));
+
+    if (!fCreateBlockTemplate)
+        return result;
+
+    int64_t nFees;
+    auto_ptr<CBlock> pblock(CreateNewBlock(pwalletMain, true, &nFees));
+
+    pblock->nTime = pblock->vtx[0].nTime = nTime;
+
+    CDataStream ss(SER_DISK, PROTOCOL_VERSION);
+    ss << *pblock;
+
+    result.push_back(Pair("blocktemplate", HexStr(ss.begin(), ss.end())));
+    result.push_back(Pair("blocktemplatefees", nFees));
+
+    CPubKey pubkey;
+    if (!pMiningKey->GetReservedKey(pubkey))
+        throw JSONRPCError(RPC_MISC_ERROR, "GetReservedKey failed");
+
+    result.push_back(Pair("blocktemplatesignkey", HexStr(pubkey)));
+
+    return result;
+}
+
 Value getworkex(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
@@ -123,13 +268,12 @@ Value getworkex(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(-10, "vTorrent is downloading blocks...");
 
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if (pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;
     static vector<CBlock*> vNewBlock;
-    static CReserveKey reservekey(pwalletMain);
 
     if (params.size() == 0)
     {
@@ -139,7 +283,7 @@ Value getworkex(const Array& params, bool fHelp)
         static int64_t nStart;
         static CBlock* pblock;
         if (pindexPrev != pindexBest ||
-            (nTransactionsUpdated != nTransactionsUpdatedLast && GetTime() - nStart > 60))
+            (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60))
         {
             if (pindexPrev != pindexBest)
             {
@@ -149,7 +293,7 @@ Value getworkex(const Array& params, bool fHelp)
                     delete pblock;
                 vNewBlock.clear();
             };
-            nTransactionsUpdatedLast = nTransactionsUpdated;
+            nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
             pindexPrev = pindexBest;
             nStart = GetTime();
 
@@ -192,16 +336,16 @@ Value getworkex(const Array& params, bool fHelp)
 
         Array merkle_arr;
 
-        BOOST_FOREACH(uint256 merkleh, merkle)
-        {
+        BOOST_FOREACH(uint256 merkleh, merkle) {
             merkle_arr.push_back(HexStr(BEGIN(merkleh), END(merkleh)));
-        };
+        }
 
         result.push_back(Pair("merkle", merkle_arr));
 
 
         return result;
-    } else
+    }
+    else
     {
         // Parse parameters
         vector<unsigned char> vchData = ParseHex(params[0].get_str());
@@ -234,8 +378,8 @@ Value getworkex(const Array& params, bool fHelp)
 
         pblock->hashMerkleRoot = pblock->BuildMerkleTree();
 
-        return CheckWork(pblock, *pwalletMain, reservekey);
-    };
+        return CheckWork(pblock, *pwalletMain, *pMiningKey);
+    }
 }
 
 
@@ -260,7 +404,7 @@ Value getwork(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "vTorrent is downloading blocks...");
 
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if (pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -275,8 +419,8 @@ Value getwork(const Array& params, bool fHelp)
         static CBlockIndex* pindexPrev;
         static int64_t nStart;
         static CBlock* pblock;
-        if (pindexPrev != pindexBest
-            || (nTransactionsUpdated != nTransactionsUpdatedLast && GetTime() - nStart > 60))
+        if (pindexPrev != pindexBest ||
+            (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60))
         {
             if (pindexPrev != pindexBest)
             {
@@ -285,13 +429,13 @@ Value getwork(const Array& params, bool fHelp)
                 BOOST_FOREACH(CBlock* pblock, vNewBlock)
                     delete pblock;
                 vNewBlock.clear();
-            };
+            }
 
             // Clear pindexPrev so future getworks make a new block, despite any failures from here on
             pindexPrev = NULL;
 
             // Store the pindexBest used before CreateNewBlock, to avoid races
-            nTransactionsUpdatedLast = nTransactionsUpdated;
+            nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
             CBlockIndex* pindexPrevNew = pindexBest;
             nStart = GetTime();
 
@@ -330,7 +474,8 @@ Value getwork(const Array& params, bool fHelp)
         result.push_back(Pair("hash1",    HexStr(BEGIN(phash1), END(phash1)))); // deprecated
         result.push_back(Pair("target",   HexStr(BEGIN(hashTarget), END(hashTarget))));
         return result;
-    } else
+    }
+    else
     {
         // Parse parameters
         vector<unsigned char> vchData = ParseHex(params[0].get_str());
@@ -385,17 +530,14 @@ Value getblocktemplate(const Array& params, bool fHelp)
         const Object& oparam = params[0].get_obj();
         const Value& modeval = find_value(oparam, "mode");
         if (modeval.type() == str_type)
-        {
             strMode = modeval.get_str();
-        } else
-        if (modeval.type() == null_type)
+        else if (modeval.type() == null_type)
         {
             /* Do nothing */
-        } else
-        {
+        }
+        else
             throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
-        };
-    };
+    }
 
     if (strMode != "template")
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
@@ -406,7 +548,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "vTorrent is downloading blocks...");
 
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if (pindexBest->nHeight >= Params().LastPOWBlock())
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     static CReserveKey reservekey(pwalletMain);
@@ -416,14 +558,14 @@ Value getblocktemplate(const Array& params, bool fHelp)
     static CBlockIndex* pindexPrev;
     static int64_t nStart;
     static CBlock* pblock;
-    if (pindexPrev != pindexBest
-        || (nTransactionsUpdated != nTransactionsUpdatedLast && GetTime() - nStart > 5))
+    if (pindexPrev != pindexBest ||
+        (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 5))
     {
         // Clear pindexPrev so future calls make a new block, despite any failures from here on
         pindexPrev = NULL;
 
         // Store the pindexBest used before CreateNewBlock, to avoid races
-        nTransactionsUpdatedLast = nTransactionsUpdated;
+        nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
         CBlockIndex* pindexPrevNew = pindexBest;
         nStart = GetTime();
 
@@ -432,8 +574,8 @@ Value getblocktemplate(const Array& params, bool fHelp)
         {
             delete pblock;
             pblock = NULL;
-        };
-        
+        }
+
         pblock = CreateNewBlock(pwalletMain);
         if (!pblock)
             throw JSONRPCError(RPC_OUT_OF_MEMORY, "Out of memory");
@@ -537,9 +679,42 @@ Value submitblock(const Array& params, bool fHelp)
     CBlock block;
     try {
         ssBlock >> block;
-    } catch (std::exception &e)
-    {
+    }
+    catch (std::exception &e) {
         throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "Block decode failed");
+    }
+
+    if (params.size() > 1)
+    {
+        const Object& oparam = params[1].get_obj();
+
+        const Value& coinstake_v = find_value(oparam, "coinstake");
+        if (coinstake_v.type() == str_type)
+        {
+            vector<unsigned char> txData(ParseHex(coinstake_v.get_str()));
+            CDataStream ssTx(txData, SER_NETWORK, PROTOCOL_VERSION);
+            CTransaction txCoinStake;
+            try {
+                ssTx >> txCoinStake;
+            }
+            catch (std::exception &e) {
+                throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "Coinstake decode failed");
+            }
+
+            block.vtx.insert(block.vtx.begin() + 1, txCoinStake);
+            block.hashMerkleRoot = block.BuildMerkleTree();
+
+            CPubKey pubkey;
+            if (!pMiningKey->GetReservedKey(pubkey))
+                throw JSONRPCError(RPC_MISC_ERROR, "GetReservedKey failed");
+
+            CKey key;
+            if (!pwalletMain->GetKey(pubkey.GetID(), key))
+                throw JSONRPCError(RPC_MISC_ERROR, "GetKey failed");
+
+            if (!key.Sign(block.GetHash(), block.vchBlockSig))
+                throw JSONRPCError(RPC_MISC_ERROR, "Sign failed");
+        }
     }
     uint256 hashblock = block.GetHash();
     bool fAccepted = ProcessBlock(NULL, &block, hashblock);

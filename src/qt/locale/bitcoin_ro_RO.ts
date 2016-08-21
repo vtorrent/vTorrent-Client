@@ -1,59 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ro_RO">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ro_RO" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../forms/aboutdialog.ui" line="+26"/>
+        <location filename="../forms/aboutdialog.ui" line="+14"/>
         <source>About vTorrent</source>
         <translation>Despre vTorrent</translation>
     </message>
     <message>
-        <location line="+63"/>
-        <source>&lt;b&gt;vTorrent&lt;/b&gt; core</source>
-        <translation type="unfinished"></translation>
+        <location line="+39"/>
+        <source>&lt;b&gt;vTorrent&lt;/b&gt; version</source>
+        <translation>Versiune &lt;b&gt;vTorrent&lt;/b&gt;</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014-2015 The BlackCoin developers
-Copyright © 2014-2015 The ShadowCoin developers
+Copyright © 2014 The BlackCoin developers
 Copyright © 2014-2015 The vTorrent developers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href=&quot;https://www.openssl.org/&quot;&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;vTorrent&lt;/b&gt; version</source>
-        <translation type="vanished">Versiune &lt;b&gt;vTorrent&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Copyright © 2009-2014 The Bitcoin developers
+        <translation>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The vTorrent developers
-Copyright © 2014 The vTorrent developers</source>
-        <translation type="vanished">Copyright © 2009-2014 The Bitcoin developers
-Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The vTorrent developers
-Copyright © 2014 The vTorrent developers</translation>
+Copyright © 2014 The BlackCoin developers
+Copyright © 2014-2015 The vTorrent developers</translation>
     </message>
     <message>
+        <location line="+15"/>
         <source>
 This is experimental software.
 
 Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation type="vanished">
+        <translation>
 Acesta este un software experimental.
 
 Distribuit sub licența MIT/X11, vezi fișierul însoțitor COPYING sau http://www.opensource.org/licenses/mit-license.php.
@@ -69,17 +46,7 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>Agendă</translation>
     </message>
     <message>
-        <location line="+32"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Receive vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>These are your addresses for receiving payments. Give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>Double-click to edit address or label</source>
         <translation>Dublu-click pentru a edita adresa sau eticheta</translation>
     </message>
@@ -99,11 +66,12 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>Adresă nouă</translation>
     </message>
     <message>
+        <location line="-46"/>
         <source>These are your vTorrent addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation type="vanished">Acestea sunt adresele vTorrent pentru a primi plăți. Poate doriți sa dați o adresa noua fiecarui expeditor pentru a putea ține evidența la cine efectuează plăti.</translation>
+        <translation>Acestea sunt adresele vTorrent pentru a primi plăți. Poate doriți sa dați o adresa noua fiecarui expeditor pentru a putea ține evidența la cine efectuează plăti.</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+60"/>
         <source>&amp;Copy Address</source>
         <translation>&amp;Copiază adresa</translation>
     </message>
@@ -143,7 +111,7 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>Ște&amp;rge</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+73"/>
+        <location filename="../addressbookpage.cpp" line="+65"/>
         <source>Copy &amp;Label</source>
         <translation>Copiază &amp;eticheta</translation>
     </message>
@@ -153,7 +121,7 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>&amp;Editează</translation>
     </message>
     <message>
-        <location line="+308"/>
+        <location line="+250"/>
         <source>Export Address Book Data</source>
         <translation>Exportă datele din Agendă</translation>
     </message>
@@ -176,7 +144,7 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
 <context>
     <name>AddressTableModel</name>
     <message>
-        <location filename="../addresstablemodel.cpp" line="+156"/>
+        <location filename="../addresstablemodel.cpp" line="+144"/>
         <source>Label</source>
         <translation>Etichetă</translation>
     </message>
@@ -199,7 +167,7 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>Dialogul pentru fraza de acces</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+21"/>
         <source>Enter passphrase</source>
         <translation>Introdu fraza de acces</translation>
     </message>
@@ -214,7 +182,7 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>Repetă noua frază de acces</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+33"/>
         <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
         <translation>Servește pentru a dezactiva sendmoneyl atunci când sistemul de operare este compromis. Nu oferă nicio garanție reală.</translation>
     </message>
@@ -224,58 +192,34 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>Doar pentru staking</translation>
     </message>
     <message>
+        <location filename="../askpassphrasedialog.cpp" line="+35"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation type="vanished">Introdu noua parolă a portofelului electronic.&lt;br/&gt;Te rog folosește &lt;b&gt;minim 10 caractere aleatoare&lt;/b&gt;, sau &lt;b&gt;minim 8 cuvinte&lt;/b&gt;.</translation>
-    </message>
-    <message>
-        <source>Encrypt wallet</source>
-        <translation type="vanished">Criptează portofelul</translation>
-    </message>
-    <message>
-        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation type="vanished">Această acțiune necesită fraza ta de acces pentru deblocarea portofelului.</translation>
-    </message>
-    <message>
-        <source>Unlock wallet</source>
-        <translation type="vanished">Deblochează portofelul</translation>
-    </message>
-    <message>
-        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation type="vanished">Această acțiune necesită fraza ta de acces pentru decriptarea portofelului.</translation>
-    </message>
-    <message>
-        <source>Decrypt wallet</source>
-        <translation type="vanished">Decriptează portofelul.</translation>
-    </message>
-    <message>
-        <location filename="../askpassphrasedialog.cpp" line="+37"/>
-        <source>Enter the new passphrase to the client.&lt;br/&gt;&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Introdu noua parolă a portofelului electronic.&lt;br/&gt;Te rog folosește &lt;b&gt;minim 10 caractere aleatoare&lt;/b&gt;, sau &lt;b&gt;minim 8 cuvinte&lt;/b&gt;.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Encrypt client</source>
-        <translation type="unfinished"></translation>
+        <source>Encrypt wallet</source>
+        <translation>Criptează portofelul</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>This operation needs your client passphrase to unlock the client.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation>Această acțiune necesită fraza ta de acces pentru deblocarea portofelului.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Unlock client</source>
-        <translation type="unfinished"></translation>
+        <source>Unlock wallet</source>
+        <translation>Deblochează portofelul</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>This operation needs your client passphrase to decrypt the client.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>Această acțiune necesită fraza ta de acces pentru decriptarea portofelului.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Decrypt client</source>
-        <translation type="unfinished"></translation>
+        <source>Decrypt wallet</source>
+        <translation>Decriptează portofelul.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -284,192 +228,147 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="+1"/>
-        <source>Enter the old and new passphrase to the client.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>Enter the old and new passphrase to the wallet.</source>
+        <translation>Introdu vechea și noua parolă pentru portofel.</translation>
     </message>
     <message>
-        <location line="+45"/>
-        <source>Confirm client encryption</source>
-        <translation type="unfinished"></translation>
+        <location line="+46"/>
+        <source>Confirm wallet encryption</source>
+        <translation>Confirmă criptarea portofelului</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your client and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR SHARES&lt;/b&gt;!</source>
-        <translation type="unfinished"></translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
+        <translation>Atentie: Daca encriptezi portofelul si iti uiti parola, &lt;b&gt;VEI PIERDE TOATA MONEDELE&lt;/b&gt;!</translation>
     </message>
     <message>
         <location line="+0"/>
-        <source>Are you sure you wish to encrypt your client?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <location line="+60"/>
-        <source>Client encrypted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-58"/>
-        <source>vTorrent will close now to finish the encryption process. Remember that encrypting your client cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>IMPORTANT: Any previous backups you have made of your client file should be replaced with the newly generated, encrypted client file. For security reasons, previous backups of the unencrypted client file will become useless as soon as you start using the new, encrypted client.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <location line="+7"/>
-        <location line="+44"/>
-        <location line="+6"/>
-        <source>Client encryption failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-56"/>
-        <source>Client encryption failed due to an internal error. Your client was not encrypted.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
-        <source>Client unlock failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <location line="+12"/>
-        <location line="+19"/>
-        <source>The passphrase entered for the client decryption was incorrect.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-20"/>
-        <source>Client decryption failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Client passphrase was successfully changed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter the old and new passphrase to the wallet.</source>
-        <translation type="vanished">Introdu vechea și noua parolă pentru portofel.</translation>
-    </message>
-    <message>
-        <source>Confirm wallet encryption</source>
-        <translation type="vanished">Confirmă criptarea portofelului</translation>
-    </message>
-    <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
-        <translation type="vanished">Atentie: Daca encriptezi portofelul si iti uiti parola, &lt;b&gt;VEI PIERDE TOATA MONEDELE&lt;/b&gt;!</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation type="vanished">Sunteţi sigur că doriţi să criptaţi portofelul electronic?</translation>
+        <translation>Sunteţi sigur că doriţi să criptaţi portofelul electronic?</translation>
     </message>
     <message>
+        <location line="+15"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation type="vanished">IMPORTANT: Orice copie de siguranta facuta in prealabil portofelului dumneavoastra ar trebui inlocuita cu cea generata cel mai recent fisier criptat al portofelului. Pentru siguranta, copiile de siguranta vechi ale portofelului ne-criptat vor deveni inutile de indata ce veti incepe folosirea noului fisier criptat al portofelului.</translation>
+        <translation>IMPORTANT: Orice copie de siguranta facuta in prealabil portofelului dumneavoastra ar trebui inlocuita cu cea generata cel mai recent fisier criptat al portofelului. Pentru siguranta, copiile de siguranta vechi ale portofelului ne-criptat vor deveni inutile de indata ce veti incepe folosirea noului fisier criptat al portofelului.</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+103"/>
         <location line="+24"/>
         <source>Warning: The Caps Lock key is on!</source>
         <translation>Atentie! Caps Lock este pornit</translation>
     </message>
     <message>
+        <location line="-133"/>
+        <location line="+60"/>
         <source>Wallet encrypted</source>
-        <translation type="vanished">Portofel criptat</translation>
+        <translation>Portofel criptat</translation>
     </message>
     <message>
+        <location line="-58"/>
         <source>vTorrent will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation type="vanished">vTorrent se va inchide pentru a termina procesul de encriptie. Amintiți-vă, criptarea portofelul dumneavoastră nu poate proteja pe deplin monedele dvs. de a fi furate de  infectarea cu malware a computerului.</translation>
+        <translation>vTorrent se va inchide pentru a termina procesul de encriptie. Amintiți-vă, criptarea portofelul dumneavoastră nu poate proteja pe deplin monedele dvs. de a fi furate de  infectarea cu malware a computerului.</translation>
     </message>
     <message>
+        <location line="+13"/>
+        <location line="+7"/>
+        <location line="+44"/>
+        <location line="+6"/>
         <source>Wallet encryption failed</source>
-        <translation type="vanished">Criptarea portofelului a eșuat</translation>
+        <translation>Criptarea portofelului a eșuat</translation>
     </message>
     <message>
+        <location line="-56"/>
         <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
-        <translation type="vanished">Criptarea portofelului a eșuat din cauza unei erori interne. Portofelul tău nu a fost criptat.</translation>
+        <translation>Criptarea portofelului a eșuat din cauza unei erori interne. Portofelul tău nu a fost criptat.</translation>
     </message>
     <message>
-        <location line="-110"/>
+        <location line="+7"/>
         <location line="+50"/>
         <source>The supplied passphrases do not match.</source>
         <translation>Frazele de acces introduse nu se potrivesc.</translation>
     </message>
     <message>
+        <location line="-38"/>
         <source>Wallet unlock failed</source>
-        <translation type="vanished">Deblocarea portofelului a eșuat</translation>
+        <translation>Deblocarea portofelului a eșuat</translation>
     </message>
     <message>
+        <location line="+1"/>
+        <location line="+12"/>
+        <location line="+19"/>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation type="vanished">Fraza de acces introdusă pentru decriptarea portofelului a fost incorectă.</translation>
+        <translation>Fraza de acces introdusă pentru decriptarea portofelului a fost incorectă.</translation>
     </message>
     <message>
+        <location line="-20"/>
         <source>Wallet decryption failed</source>
-        <translation type="vanished">Decriptarea portofelului a eșuat</translation>
+        <translation>Decriptarea portofelului a eșuat</translation>
     </message>
     <message>
+        <location line="+14"/>
         <source>Wallet passphrase was successfully changed.</source>
-        <translation type="vanished">Parola portofelului electronic a fost schimbată.</translation>
+        <translation>Parola portofelului electronic a fost schimbată.</translation>
     </message>
 </context>
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+412"/>
+        <location filename="../bitcoingui.cpp" line="+280"/>
         <source>Sign &amp;message...</source>
         <translation>Semnează &amp;mesaj...</translation>
     </message>
     <message>
-        <location line="+321"/>
+        <location line="+242"/>
         <source>Synchronizing with network...</source>
         <translation>Se sincronizează cu rețeaua...</translation>
     </message>
     <message>
+        <location line="-308"/>
         <source>&amp;Overview</source>
-        <translation type="vanished">&amp;Imagine de ansamblu</translation>
+        <translation>&amp;Imagine de ansamblu</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>Show general overview of wallet</source>
-        <translation type="vanished">Arată o stare generală de ansamblu a portofelului</translation>
+        <translation>Arată o stare generală de ansamblu a portofelului</translation>
     </message>
     <message>
+        <location line="+17"/>
         <source>&amp;Transactions</source>
-        <translation type="vanished">&amp;Tranzacții</translation>
+        <translation>&amp;Tranzacții</translation>
     </message>
     <message>
-        <location line="-419"/>
+        <location line="+1"/>
         <source>Browse transaction history</source>
         <translation>Răsfoiește istoricul tranzacțiilor</translation>
     </message>
     <message>
+        <location line="+5"/>
         <source>&amp;Address Book</source>
-        <translation type="vanished">Agendă</translation>
+        <translation>Agendă</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+1"/>
         <source>Edit the list of stored addresses and labels</source>
         <translation>Editează lista de adrese si etichete stocate</translation>
     </message>
     <message>
+        <location line="-13"/>
         <source>&amp;Receive coins</source>
-        <translation type="vanished">Primește monede</translation>
+        <translation>Primește monede</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>Show the list of addresses for receiving payments</source>
-        <translation type="vanished">Arată lista de adrese pentru primire plăți</translation>
+        <translation>Arată lista de adrese pentru primire plăți</translation>
     </message>
     <message>
+        <location line="-7"/>
         <source>&amp;Send coins</source>
-        <translation type="vanished">&amp;Trimite monede</translation>
+        <translation>&amp;Trimite monede</translation>
     </message>
     <message>
-        <location line="+67"/>
+        <location line="+35"/>
         <source>E&amp;xit</source>
         <translation>&amp;Ieșire</translation>
     </message>
@@ -499,43 +398,42 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>&amp;Setări...</translation>
     </message>
     <message>
+        <location line="+4"/>
         <source>&amp;Encrypt Wallet...</source>
-        <translation type="vanished">Criptează portofelul electronic...</translation>
+        <translation>Criptează portofelul electronic...</translation>
     </message>
     <message>
+        <location line="+3"/>
         <source>&amp;Backup Wallet...</source>
-        <translation type="vanished">&amp;Fă o copie de siguranță a  portofelului...</translation>
+        <translation>&amp;Fă o copie de siguranță a  portofelului...</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+2"/>
         <source>&amp;Change Passphrase...</source>
         <translation>S&amp;chimbă parola...</translation>
     </message>
     <message numerus="yes">
-        <location line="+329"/>
+        <location line="+250"/>
         <source>~%n block(s) remaining</source>
-        <translation>
-            <numerusform>~%n bloc rămas</numerusform>
-            <numerusform>~%n blocuri rămase</numerusform>
-            <numerusform>~%n blocuri rămase</numerusform>
-        </translation>
+        <translation><numerusform>~%n bloc rămas</numerusform><numerusform>~%n blocuri rămase</numerusform><numerusform>~%n blocuri rămase</numerusform></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+6"/>
         <source>Downloaded %1 of %2 blocks of transaction history (%3% done).</source>
         <translation>Descărcat %1 din %2  blocuri din istoricul tranzacțiilor(%3% terminat).</translation>
     </message>
     <message>
-        <location line="-327"/>
+        <location line="-247"/>
         <source>&amp;Export...</source>
         <translation>&amp;Exportă</translation>
     </message>
     <message>
+        <location line="-62"/>
         <source>Send coins to a vTorrent address</source>
-        <translation type="vanished">Trimite monede către o adresă vTorrent</translation>
+        <translation>Trimite monede către o adresă vTorrent</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="+45"/>
         <source>Modify configuration options for vTorrent</source>
         <translation>Modifică opțiuni de configurare pentru vTorrent</translation>
     </message>
@@ -545,19 +443,22 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>Exportă datele din tab-ul curent într-un fișier</translation>
     </message>
     <message>
+        <location line="-14"/>
         <source>Encrypt or decrypt wallet</source>
-        <translation type="vanished">Criptează sau decriptează portofelul</translation>
+        <translation>Criptează sau decriptează portofelul</translation>
     </message>
     <message>
+        <location line="+3"/>
         <source>Backup wallet to another location</source>
-        <translation type="vanished">Creează o copie de rezervă a portofelului într-o locație diferită</translation>
+        <translation>Creează o copie de rezervă a portofelului într-o locație diferită</translation>
     </message>
     <message>
+        <location line="+2"/>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation type="vanished">Schimbă fraza de acces folosită pentru criptarea portofelului</translation>
+        <translation>Schimbă fraza de acces folosită pentru criptarea portofelului</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+10"/>
         <source>&amp;Debug window</source>
         <translation>Fereastră &amp;debug</translation>
     </message>
@@ -572,16 +473,17 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>&amp;Verifică mesajul...</translation>
     </message>
     <message>
-        <location line="-303"/>
+        <location line="-200"/>
         <source>vTorrent</source>
         <translation>vTorrent</translation>
     </message>
     <message>
+        <location line="+0"/>
         <source>Wallet</source>
-        <translation type="vanished">Portofelul</translation>
+        <translation>Portofelul</translation>
     </message>
     <message>
-        <location line="+281"/>
+        <location line="+178"/>
         <source>&amp;About vTorrent</source>
         <translation>Despre vTorrent</translation>
     </message>
@@ -591,19 +493,22 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>Arata/Ascunde</translation>
     </message>
     <message>
+        <location line="+9"/>
         <source>Unlock wallet</source>
-        <translation type="vanished">Deblochează portofelul</translation>
+        <translation>Deblochează portofelul</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>&amp;Lock Wallet</source>
-        <translation type="vanished">Blochează portofelul</translation>
+        <translation>Blochează portofelul</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>Lock wallet</source>
-        <translation type="vanished">Blochează portofelul</translation>
+        <translation>Blochează portofelul</translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="+34"/>
         <source>&amp;File</source>
         <translation>&amp;Fișier</translation>
     </message>
@@ -618,271 +523,86 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>A&amp;jutor</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+9"/>
         <source>Tabs toolbar</source>
         <translation>Bara de file</translation>
     </message>
     <message>
+        <location line="+8"/>
         <source>Actions toolbar</source>
-        <translation type="vanished">Bara de instrumente Actiuni</translation>
+        <translation>Bara de instrumente Actiuni</translation>
     </message>
     <message>
-        <location line="+75"/>
+        <location line="+13"/>
         <location line="+9"/>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
     </message>
     <message>
         <location line="+0"/>
-        <location line="+75"/>
+        <location line="+60"/>
         <source>vTorrent client</source>
         <translation>Clientul vTorrent</translation>
     </message>
     <message numerus="yes">
         <location line="+70"/>
         <source>%n active connection(s) to vTorrent network</source>
-        <translation>
-            <numerusform>%n conexiune activă la reteaua vTorrent</numerusform>
-            <numerusform>%n conexiuni active la reteaua vTorrent</numerusform>
-            <numerusform>%n conexiuni active la reteaua vTorrent</numerusform>
-        </translation>
+        <translation><numerusform>%n conexiune activă la reteaua vTorrent</numerusform><numerusform>%n conexiuni active la reteaua vTorrent</numerusform><numerusform>%n conexiuni active la reteaua vTorrent</numerusform></translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="+40"/>
         <source>Downloaded %1 blocks of transaction history.</source>
         <translation>Descărcat %1 blocuri din istoricul tranzacțiilor.</translation>
     </message>
     <message>
-        <location line="+326"/>
-        <source>Client is &lt;b&gt;not encrypted&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>Client is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>Client is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>Backup Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Client Data (*.dat)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>There was an error trying to save the client data to the new location.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+107"/>
+        <location line="+413"/>
         <source>Staking.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
         <translation>Staking. &lt;br&gt;Greutatea este %1&lt;br&gt;Greutatea retelei este %2&lt;br&gt;Timp estimat pentru a castiga recompensa este %3</translation>
     </message>
     <message>
+        <location line="+6"/>
         <source>Not staking because wallet is locked</source>
-        <translation type="vanished">Nu este in modul stake deoarece portofelul este blocat</translation>
+        <translation>Nu este in modul stake deoarece portofelul este blocat</translation>
     </message>
     <message>
+        <location line="+2"/>
         <source>Not staking because wallet is offline</source>
-        <translation type="vanished">Nu este in modul stake deoarece portofelul este offline</translation>
+        <translation>Nu este in modul stake deoarece portofelul este offline</translation>
     </message>
     <message>
+        <location line="+2"/>
         <source>Not staking because wallet is syncing</source>
-        <translation type="vanished">Nu este in modul stake deoarece portofelul se sincronizeaza</translation>
+        <translation>Nu este in modul stake deoarece portofelul se sincronizeaza</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+2"/>
         <source>Not staking because you don&apos;t have mature coins</source>
         <translation>Nu este in modul stake deoarece nu sunt destule monede maturate</translation>
     </message>
     <message numerus="yes">
-        <location line="-474"/>
+        <location line="-403"/>
         <source>%n second(s) ago</source>
-        <translation>
-            <numerusform>%n secundă în urmă</numerusform>
-            <numerusform>%n secunde în urmă</numerusform>
-            <numerusform>%n secunde în urmă</numerusform>
-        </translation>
+        <translation><numerusform>%n secundă în urmă</numerusform><numerusform>%n secunde în urmă</numerusform><numerusform>%n secunde în urmă</numerusform></translation>
     </message>
     <message>
+        <location line="-284"/>
         <source>&amp;Unlock Wallet...</source>
-        <translation type="vanished">&amp;Deblochează portofelul</translation>
-    </message>
-    <message>
-        <location line="-663"/>
-        <source>Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+185"/>
-        <source>&amp;DASHBOARD</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Show general overview of client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;SEND</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Send shares to a vTorrent address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;RECEIVE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Show the list of addresses for receiving shares</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;HISTORY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;ADDRESSES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;MESSAGES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>View and Send Encrypted messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;BLOCK EXPLORER</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Explore the BlockChain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;Bittrex VTR-BTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Trades VTR-BTC at Bittrex</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;EmpoEX VTR-BTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Trades VTR-BTC at EmpoEX</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;TORRENT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Torrent Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+48"/>
-        <source>&amp;Encrypt Client...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Encrypt or decrypt client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>&amp;Backup Client...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Backup client private key to another location</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Change the passphrase used for client encryption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>&amp;Unlock Client...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Unlock client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>&amp;Lock Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Lock client</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Deblochează portofelul</translation>
     </message>
     <message numerus="yes">
-        <location line="+366"/>
+        <location line="+288"/>
         <source>%n minute(s) ago</source>
-        <translation>
-            <numerusform>%n minut în urmă</numerusform>
-            <numerusform>%n minute în urmă</numerusform>
-            <numerusform>%n minute în urmă</numerusform>
-        </translation>
+        <translation><numerusform>%n minut în urmă</numerusform><numerusform>%n minute în urmă</numerusform><numerusform>%n minute în urmă</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n hour(s) ago</source>
-        <translation>
-            <numerusform>%n oră în urmă</numerusform>
-            <numerusform>%n ore în urmă</numerusform>
-            <numerusform>%n ore în urmă</numerusform>
-        </translation>
+        <translation><numerusform>%n oră în urmă</numerusform><numerusform>%n ore în urmă</numerusform><numerusform>%n ore în urmă</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n day(s) ago</source>
-        <translation>
-            <numerusform>%n zi în urmă</numerusform>
-            <numerusform>%n zile în urmă</numerusform>
-            <numerusform>%n zile în urmă</numerusform>
-        </translation>
+        <translation><numerusform>%n zi în urmă</numerusform><numerusform>%n zile în urmă</numerusform><numerusform>%n zile în urmă</numerusform></translation>
     </message>
     <message>
         <location line="+6"/>
@@ -895,12 +615,12 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>Se actualizează...</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
         <source>Last received block was generated %1.</source>
         <translation>Ultimul bloc primit a fost generat %1.</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+59"/>
         <source>This transaction is over the size limit.  You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network.  Do you want to pay the fee?</source>
         <translation>Această tranzactie este peste limita admisa. Puteți sa trimiteți pentru o taxa de 1%, care este pentru nodurile care proceseaza tranzactia si ajuta la sprijinirea retelei. Vrei să plătești taxa?</translation>
     </message>
@@ -933,21 +653,7 @@ Adresa: %4
 </translation>
     </message>
     <message>
-        <location line="+28"/>
-        <source>Incoming Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Date: %1
-From Address: %2
-To Address: %3
-Message: %4
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+119"/>
+        <location line="+100"/>
         <location line="+15"/>
         <source>URI handling</source>
         <translation>Manipulare URI</translation>
@@ -959,213 +665,70 @@ Message: %4
         <translation>URI nu poate fi parsatt! Cauza poate fi o adresa vTorrent invalidă sau parametrii URI malformați.</translation>
     </message>
     <message>
+        <location line="+18"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation type="vanished">Portofelul este &lt;b&gt;criptat&lt;/b&gt; iar în momentul de față este &lt;b&gt;deblocat&lt;/b&gt;</translation>
+        <translation>Portofelul este &lt;b&gt;criptat&lt;/b&gt; iar în momentul de față este &lt;b&gt;deblocat&lt;/b&gt;</translation>
     </message>
     <message>
+        <location line="+10"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation type="vanished">Portofelul este &lt;b&gt;criptat&lt;/b&gt; iar în momentul de față este &lt;b&gt;blocat&lt;/b&gt;</translation>
+        <translation>Portofelul este &lt;b&gt;criptat&lt;/b&gt; iar în momentul de față este &lt;b&gt;blocat&lt;/b&gt;</translation>
     </message>
     <message>
+        <location line="+25"/>
         <source>Backup Wallet</source>
-        <translation type="vanished">Fă o copie de siguranță a portofelului</translation>
+        <translation>Fă o copie de siguranță a portofelului</translation>
     </message>
     <message>
+        <location line="+0"/>
         <source>Wallet Data (*.dat)</source>
-        <translation type="vanished">Date portofel(*.dat)</translation>
+        <translation>Date portofel(*.dat)</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+3"/>
         <source>Backup Failed</source>
         <translation>Copia de rezerva a esuat</translation>
     </message>
     <message>
+        <location line="+0"/>
         <source>There was an error trying to save the wallet data to the new location.</source>
-        <translation type="vanished">Eroare la încercarea de a salva datele portofelului în noua locaţie.</translation>
+        <translation>Eroare la încercarea de a salva datele portofelului în noua locaţie.</translation>
     </message>
     <message numerus="yes">
-        <location line="+91"/>
+        <location line="+76"/>
         <source>%n second(s)</source>
-        <translation>
-            <numerusform>%n secundă</numerusform>
-            <numerusform>%n secunde</numerusform>
-            <numerusform>%n secunde</numerusform>
-        </translation>
+        <translation><numerusform>%n secundă</numerusform><numerusform>%n secunde</numerusform><numerusform>%n secunde</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n minute(s)</source>
-        <translation>
-            <numerusform>%n minut</numerusform>
-            <numerusform>%n minute</numerusform>
-            <numerusform>%n minute</numerusform>
-        </translation>
+        <translation><numerusform>%n minut</numerusform><numerusform>%n minute</numerusform><numerusform>%n minute</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n hour(s)</source>
-        <translation>
-            <numerusform>%n oră</numerusform>
-            <numerusform>%n ore</numerusform>
-            <numerusform>%n ore</numerusform>
-        </translation>
+        <translation><numerusform>%n oră</numerusform><numerusform>%n ore</numerusform><numerusform>%n ore</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n day(s)</source>
-        <translation>
-            <numerusform>%n zi</numerusform>
-            <numerusform>%n zile</numerusform>
-            <numerusform>%n zile</numerusform>
-        </translation>
+        <translation><numerusform>%n zi</numerusform><numerusform>%n zile</numerusform><numerusform>%n zile</numerusform></translation>
     </message>
     <message>
-        <location line="+10"/>
-        <source>Not staking because client is locked</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because client is offline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because client is syncing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+18"/>
         <source>Not staking</source>
         <translation>Not staking</translation>
     </message>
     <message>
-        <location filename="../bitcoin.cpp" line="+114"/>
+        <location filename="../bitcoin.cpp" line="+109"/>
         <source>A fatal error occurred. vTorrent can no longer continue safely and will quit.</source>
         <translation>A apărut o eroare fatală. vTorrent nu mai poate continua în condiții de siguranță și va iesi.</translation>
     </message>
 </context>
 <context>
-    <name>BlockBrowser</name>
-    <message>
-        <location filename="../forms/blockbrowser.ui" line="+23"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+57"/>
-        <source>vTorrent - Block Explorer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+79"/>
-        <source>Jump to Block</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Block Height:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <location line="+63"/>
-        <location line="+14"/>
-        <location line="+14"/>
-        <source>0</source>
-        <translation type="unfinished">0</translation>
-    </message>
-    <message>
-        <location line="-84"/>
-        <source>Block Hash:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <location line="+20"/>
-        <source>0x0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-13"/>
-        <source>Block Merkle:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Block nNonce:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Block nBits:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Block Timestamp:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Block Difficulty:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>0.00</source>
-        <translation type="unfinished">0.00</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Block Hashrate:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>0000 KH/s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+56"/>
-        <source>Decode Transaction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Transaction ID:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>000</source>
-        <translation type="unfinished">000</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Value out:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Fees:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Outputs:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Inputs:</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+110"/>
+        <location filename="../clientmodel.cpp" line="+90"/>
         <source>Network Alert</source>
         <translation>Alertă rețea</translation>
     </message>
@@ -1173,37 +736,37 @@ Message: %4
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+20"/>
+        <location filename="../forms/coincontroldialog.ui" line="+14"/>
         <source>Coin Control</source>
         <translation>Controlează moneda</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+31"/>
         <source>Quantity:</source>
         <translation>Cantitate:</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+32"/>
         <source>Bytes:</source>
         <translation>Octeţi:</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+48"/>
         <source>Amount:</source>
         <translation>Sumă:</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+32"/>
         <source>Priority:</source>
         <translation>Prioritate:</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+48"/>
         <source>Fee:</source>
         <translation>Taxa:</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Low Output:</source>
         <translation>Ieşire minimă: </translation>
     </message>
@@ -1213,17 +776,17 @@ Message: %4
         <translation>nu</translation>
     </message>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+50"/>
+        <location filename="../forms/coincontroldialog.ui" line="+51"/>
         <source>After Fee:</source>
         <translation>După taxe:</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Change:</source>
         <translation>Schimb:</translation>
     </message>
     <message>
-        <location line="+68"/>
+        <location line="+69"/>
         <source>(un)select all</source>
         <translation>(de)selectaţi tot</translation>
     </message>
@@ -1441,7 +1004,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>EditAddressDialog</name>
     <message>
-        <location filename="../forms/editaddressdialog.ui" line="+26"/>
+        <location filename="../forms/editaddressdialog.ui" line="+14"/>
         <source>Edit Address</source>
         <translation>Editează adresa</translation>
     </message>
@@ -1451,7 +1014,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>&amp;Etichetă</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+10"/>
         <source>The label associated with this address book entry</source>
         <translation>Eticheta asociată cu această intrare în agendă</translation>
     </message>
@@ -1461,14 +1024,9 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>&amp;Adresă</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+10"/>
         <source>The address associated with this address book entry. This can only be modified for sending addresses.</source>
         <translation>Adresa asociată cu această intrare în agendă. Acest lucru poate fi modificat numai pentru adresele de trimitere.</translation>
-    </message>
-    <message>
-        <location line="+26"/>
-        <source>&amp;Stealth Address</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editaddressdialog.cpp" line="+20"/>
@@ -1476,22 +1034,22 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Noua adresă de primire</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+4"/>
         <source>New sending address</source>
         <translation>Noua adresă de trimitere</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+3"/>
         <source>Edit receiving address</source>
         <translation>Editează adresa de primire</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+4"/>
         <source>Edit sending address</source>
         <translation>Editează adresa de trimitere</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+76"/>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
         <translation>Adresa introdusă &quot;%1&quot; se află deja în lista de adrese.</translation>
     </message>
@@ -1514,10 +1072,10 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+424"/>
+        <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
-        <source>vTorrent-Client</source>
-        <translation>vTorrent-Client</translation>
+        <source>vTorrent-Qt</source>
+        <translation>vTorrent-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1556,360 +1114,19 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
 </context>
 <context>
-    <name>MRichTextEdit</name>
-    <message>
-        <location filename="../plugins/mrichtexteditor/mrichtextedit.ui" line="+56"/>
-        <source>Paragraph formatting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+23"/>
-        <source>Undo (CTRL+Z)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Undo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <location line="+3"/>
-        <source>Redo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Cut (CTRL+X)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Cut</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Copy (CTRL+C)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Copy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Paste (CTRL+V)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Paste</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+28"/>
-        <source>Link (CTRL+L)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+34"/>
-        <source>Bold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <source>Italic (CTRL+I)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Italic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <source>Underline (CTRL+U)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Underline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Strike Out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Bullet list (CTRL+-)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Bullet list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
-        <source>Ordered list (CTRL+=)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Ordered list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
-        <source>Decrease indentation (CTRL+,)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Decrease indentation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Increase indentation (CTRL+.)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Increase indentation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+40"/>
-        <source>Text background color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>Font size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/mrichtexteditor/mrichtextedit.cpp" line="+59"/>
-        <source>Standard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Monospace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+143"/>
-        <source>Create a link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Link URL:</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MessageModel</name>
-    <message>
-        <location filename="../messagemodel.cpp" line="+310"/>
-        <source>Type</source>
-        <translation type="unfinished">Tipul</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Sent Date Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Received Date Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Label</source>
-        <translation type="unfinished">Etichetă</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>To Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>From Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Message</source>
-        <translation type="unfinished">Mesaj</translation>
-    </message>
-    <message>
-        <location line="+82"/>
-        <source>Send Secure Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Send failed: %1.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+67"/>
-        <source>(no label)</source>
-        <translation type="unfinished">(fără etichetă)</translation>
-    </message>
-</context>
-<context>
-    <name>MessagePage</name>
-    <message>
-        <location filename="../forms/messagepage.ui" line="+14"/>
-        <source>Address Book</source>
-        <translation type="unfinished">Agendă</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>These are your sent and received encrypted messages. Click on an item to read it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>Click on a message to view it</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>&amp;Back</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Contact:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>&amp;Conversation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Sign a message to prove you own a vTorrent address</source>
-        <translation type="unfinished">Semnează un mesaj pentru a dovedi că dețineti o adresă vTorrent</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Send</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <location line="+14"/>
-        <source>Copy the currently selected address to the system clipboard</source>
-        <translation type="unfinished">Copiază adresa selectată în clipboard</translation>
-    </message>
-    <message>
-        <location line="-11"/>
-        <source>&amp;Copy From Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Copy To &amp;Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Delete the currently selected address from the list</source>
-        <translation type="unfinished">Sterge adresele curent selectate din lista</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Delete</source>
-        <translation type="unfinished">Ște&amp;rge</translation>
-    </message>
-    <message>
-        <location filename="../messagepage.cpp" line="+182"/>
-        <source>Send Secure Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Send failed: %1.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+213"/>
-        <source>Export Messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Comma separated file (*.csv)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Error exporting</source>
-        <translation type="unfinished">Eroare la exportare</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Could not write to file %1.</source>
-        <translation type="unfinished">Nu s-a putut scrie în fișier %1.</translation>
-    </message>
-</context>
-<context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+26"/>
+        <location filename="../forms/optionsdialog.ui" line="+14"/>
         <source>Options</source>
         <translation>Setări</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+16"/>
         <source>&amp;Main</source>
         <translation>&amp;Principal</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+6"/>
         <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.01 recommended.</source>
         <translation>Comision de tranzacție opțional pe kB, care vă ajută ca tranzacțiile sa fie procesate rapid. Majoritatea tranzactiilor sunt de 1 kB. Comision de 0.01 recomandat</translation>
     </message>
@@ -1949,12 +1166,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>&amp;Detasaza baza de date la inchidere</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>&amp;Network</source>
         <translation>&amp;Retea</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+6"/>
         <source>Automatically open the vTorrent client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Deschide automat portul pentru cientul vTorrent pe router. Aces lucru este posibil doara daca routerul suporta UPnP si este activat</translation>
     </message>
@@ -2004,12 +1221,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Versiunea SOCKS a proxiului (ex. 5)</translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+36"/>
         <source>&amp;Window</source>
         <translation>&amp;Fereastra</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+6"/>
         <source>Show only a tray icon after minimizing the window.</source>
         <translation>Afişează doar un icon in tray la ascunderea ferestrei</translation>
     </message>
@@ -2029,12 +1246,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>&amp;i Ascunde fereastra în locul închiderii programului</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>&amp;Display</source>
         <translation>&amp;Afişare</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+8"/>
         <source>User Interface &amp;language:</source>
         <translation>Interfata &amp; limba userului</translation>
     </message>
@@ -2054,13 +1271,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Alege subdiviziunea folosită la afişarea interfeţei şi la trimiterea de bitcoin.</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+9"/>
         <source>Whether to show vTorrent addresses in the transaction list or not.</source>
         <translation>Dacă să arate adrese vTorrent din lista de tranzacție sau nu.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Display addresses in transaction list (stealth address is too long)</source>
+        <source>&amp;Display addresses in transaction list</source>
         <translation>&amp;Afişează adresele în lista de tranzacţii</translation>
     </message>
     <message>
@@ -2074,7 +1291,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Afiseaza &amp;caracteristiclei de control ale monedei(numai experti!)</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+71"/>
         <source>&amp;OK</source>
         <translation>&amp; OK</translation>
     </message>
@@ -2114,85 +1331,79 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>OverviewPage</name>
     <message>
+        <location filename="../forms/overviewpage.ui" line="+14"/>
         <source>Form</source>
-        <translation type="vanished">Form</translation>
+        <translation>Form</translation>
     </message>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+65"/>
+        <location line="+33"/>
+        <location line="+231"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the vTorrent network after a connection is established, but this process has not completed yet.</source>
         <translation>Informatia afisata poate fi depasita.  Portofel se sincronizează automat cu rețeaua vTorrent după ce se stabilește o conexiune, dar acest proces nu s-a finalizat încă.</translation>
     </message>
     <message>
-        <location line="+77"/>
-        <source>&lt;b&gt;Current Balance&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+132"/>
+        <location line="-160"/>
         <source>Stake:</source>
         <translation>Stake:</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+29"/>
         <source>Unconfirmed:</source>
         <translation>Neconfirmat:</translation>
     </message>
     <message>
+        <location line="-107"/>
         <source>Wallet</source>
-        <translation type="vanished">Portofel</translation>
+        <translation>Portofel</translation>
     </message>
     <message>
-        <location line="-122"/>
+        <location line="+49"/>
         <source>Spendable:</source>
         <translation>Cheltuibil:</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+16"/>
         <source>Your current spendable balance</source>
         <translation>Balanța ta curentă de cheltuieli</translation>
     </message>
     <message>
-        <location line="+153"/>
+        <location line="+71"/>
         <source>Immature:</source>
         <translation>Nematurizat:</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+13"/>
         <source>Mined balance that has not yet matured</source>
         <translation>Balanta minata care nu s-a maturizat inca</translation>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+20"/>
         <source>Total:</source>
         <translation>Total:</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+16"/>
         <source>Your current total balance</source>
         <translation>Balanța totală curentă</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+46"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tranzacții recente&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-160"/>
+        <location line="-108"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
         <translation>Total al tranzacțiilor care nu au fost confirmate  încă și nu contează față de balanța curentă</translation>
     </message>
     <message>
-        <location line="-315"/>
-        <source>Wallet Summary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+254"/>
+        <location line="-29"/>
         <source>Total of coins that was staked, and do not yet count toward the current balance</source>
         <translation>Totalul de monede care au fost in stake si nu sunt numarate in balanta curenta</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+114"/>
+        <location filename="../overviewpage.cpp" line="+113"/>
+        <location line="+1"/>
         <source>out of sync</source>
         <translation>Nu este sincronizat</translation>
     </message>
@@ -2200,32 +1411,32 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>QRCodeDialog</name>
     <message>
-        <location filename="../forms/qrcodedialog.ui" line="+20"/>
+        <location filename="../forms/qrcodedialog.ui" line="+14"/>
         <source>QR Code Dialog</source>
         <translation>Dialog cod QR</translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+59"/>
         <source>Request Payment</source>
         <translation>Cerere de plată</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+56"/>
         <source>Amount:</source>
         <translation>Cantitate:</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="-44"/>
         <source>Label:</source>
         <translation>Etichetă</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+19"/>
         <source>Message:</source>
         <translation>Mesaj:</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+71"/>
         <source>&amp;Save As...</source>
         <translation>&amp;Salvează ca...</translation>
     </message>
@@ -2236,7 +1447,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>The entered amount is invalid.</source>
+        <source>The entered amount is invalid, please check.</source>
         <translation>Suma introdusă nu este validă, vă rugăm să verificați.</translation>
     </message>
     <message>
@@ -2258,170 +1469,133 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+148"/>
+        <location filename="../forms/rpcconsole.ui" line="+46"/>
         <source>Client name</source>
         <translation>Nume client</translation>
     </message>
     <message>
-        <location line="+22"/>
-        <location line="+65"/>
-        <location line="+68"/>
-        <location line="+65"/>
-        <location line="+117"/>
-        <location line="+65"/>
-        <location line="+65"/>
-        <location line="+111"/>
-        <location filename="../rpcconsole.cpp" line="+356"/>
+        <location line="+10"/>
+        <location line="+23"/>
+        <location line="+26"/>
+        <location line="+23"/>
+        <location line="+23"/>
+        <location line="+36"/>
+        <location line="+53"/>
+        <location line="+23"/>
+        <location line="+23"/>
+        <location filename="../rpcconsole.cpp" line="+348"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location line="-513"/>
+        <location line="-217"/>
         <source>Client version</source>
         <translation>Versiune client</translation>
     </message>
     <message>
-        <location line="-150"/>
+        <location line="-45"/>
         <source>&amp;Information</source>
         <translation>&amp;Informație</translation>
     </message>
     <message>
-        <location line="+51"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;vTorrent Core&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+164"/>
+        <location line="+68"/>
         <source>Using OpenSSL version</source>
         <translation>Foloseste versiunea OpenSSL</translation>
     </message>
     <message>
-        <location line="+68"/>
+        <location line="+49"/>
         <source>Startup time</source>
         <translation>Durata pornirii</translation>
     </message>
     <message>
+        <location line="+29"/>
         <source>Network</source>
-        <translation type="vanished">Rețea</translation>
+        <translation>Rețea</translation>
     </message>
     <message>
-        <location line="+358"/>
+        <location line="+7"/>
         <source>Number of connections</source>
         <translation>Numărul de conexiuni</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+23"/>
         <source>On testnet</source>
         <translation>Pe testnet</translation>
     </message>
     <message>
+        <location line="+23"/>
         <source>Block chain</source>
-        <translation type="vanished">Lanț de blocuri</translation>
+        <translation>Lanț de blocuri</translation>
     </message>
     <message>
-        <location line="-300"/>
+        <location line="+7"/>
         <source>Current number of blocks</source>
         <translation>Numărul curent de blocuri</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+23"/>
         <source>Estimated total blocks</source>
         <translation>Blocurile totale estimate</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+23"/>
         <source>Last block time</source>
         <translation>Data ultimului bloc</translation>
     </message>
     <message>
+        <location line="+52"/>
         <source>&amp;Open</source>
-        <translation type="vanished">&amp;Deschide</translation>
+        <translation>&amp;Deschide</translation>
     </message>
     <message>
-        <location line="+261"/>
+        <location line="+16"/>
         <source>Command-line options</source>
         <translation>Optiuni linii de comandă</translation>
     </message>
     <message>
-        <source>Show the vTorrent-Client help message to get a list with possible vTorrent command-line options.</source>
-        <translation type="vanished">Afișa mesajul de ajutor vTorrent-Client pentru a obține o listă cu posibile opțiuni de linie de comandă vTorrent.</translation>
+        <location line="+7"/>
+        <source>Show the vTorrent-Qt help message to get a list with possible vTorrent command-line options.</source>
+        <translation>Afișa mesajul de ajutor vTorrent-Qt pentru a obține o listă cu posibile opțiuni de linie de comandă vTorrent.</translation>
     </message>
     <message>
+        <location line="+3"/>
         <source>&amp;Show</source>
-        <translation type="vanished">&amp;Arată</translation>
+        <translation>&amp;Arată</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+24"/>
         <source>&amp;Console</source>
         <translation>&amp;Consolă</translation>
     </message>
     <message>
+        <location line="-260"/>
         <source>Build date</source>
-        <translation type="vanished">Construit la data</translation>
+        <translation>Construit la data</translation>
     </message>
     <message>
-        <location line="-868"/>
+        <location line="-104"/>
         <source>vTorrent - Debug window</source>
         <translation>vTorrent - fereastră depanare</translation>
     </message>
     <message>
+        <location line="+25"/>
         <source>vTorrent Core</source>
-        <translation type="vanished">vTorrent Core</translation>
+        <translation>vTorrent Core</translation>
     </message>
     <message>
-        <location line="+841"/>
+        <location line="+279"/>
         <source>Debug log file</source>
         <translation>Loguri debug</translation>
     </message>
     <message>
-        <location line="-3"/>
+        <location line="+7"/>
         <source>Open the vTorrent debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Deschideti fisierul de depanare vTorrent din folderul curent. Acest lucru poate dura cateva secunde pentru fisiere de log mari.</translation>
     </message>
     <message>
-        <location line="-441"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Block chain&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+247"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Network&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+175"/>
-        <source>Show the vTorrent-Qt help message to get a list with possible XCash command-line options.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+107"/>
+        <location line="+102"/>
         <source>Clear console</source>
         <translation>Curăță consola</translation>
-    </message>
-    <message>
-        <location line="+23"/>
-        <source>&amp;Network Traffic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+52"/>
-        <source>&amp;Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>Totals</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+65"/>
-        <source>In:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+80"/>
-        <source>Out:</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
@@ -2438,41 +1612,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
         <translation>Scrie &lt;b&gt;help&lt;/b&gt; pentru a vedea comenzile disponibile</translation>
     </message>
-    <message>
-        <location line="+126"/>
-        <source>%1 B</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 KB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 MB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 GB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>%1 m</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>%1 h</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 h %2 m</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SendCoinsDialog</name>
@@ -2485,17 +1624,11 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <location line="+6"/>
         <location line="+5"/>
         <location line="+5"/>
-        <location line="+5"/>
         <source>Send Coins</source>
         <translation>Trimite monede</translation>
     </message>
     <message>
-        <location line="+32"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Send vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+72"/>
+        <location line="+76"/>
         <source>Coin Control Features</source>
         <translation>Caracteristici control ale monedei</translation>
     </message>
@@ -2515,41 +1648,41 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Fonduri insuficiente!</translation>
     </message>
     <message>
-        <location line="+86"/>
+        <location line="+77"/>
         <source>Quantity:</source>
         <translation>Cantitate:</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <location line="+34"/>
+        <location line="+22"/>
+        <location line="+35"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location line="-18"/>
+        <location line="-19"/>
         <source>Bytes:</source>
         <translation>Octeţi:</translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+51"/>
         <source>Amount:</source>
         <translation>Sumă:</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <location line="+84"/>
-        <location line="+84"/>
-        <location line="+31"/>
+        <location line="+22"/>
+        <location line="+86"/>
+        <location line="+86"/>
+        <location line="+32"/>
         <source>0.00 VTR</source>
         <translation>123.456 VTR {0.00 ?}</translation>
     </message>
     <message>
-        <location line="-186"/>
+        <location line="-191"/>
         <source>Priority:</source>
         <translation>Prioritate:</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+19"/>
         <source>medium</source>
         <translation>mediu</translation>
     </message>
@@ -2559,12 +1692,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Taxa:</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Low Output:</source>
         <translation>Ieşire minimă: </translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+19"/>
         <source>no</source>
         <translation>nu</translation>
     </message>
@@ -2574,17 +1707,17 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>După taxe:</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Change</source>
         <translation>Schimbă:</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+50"/>
         <source>custom change address</source>
         <translation>personalizează schimbarea adresei</translation>
     </message>
     <message>
-        <location line="+121"/>
+        <location line="+106"/>
         <source>Send to multiple recipients at once</source>
         <translation>Trimite simultan către mai mulți destinatari</translation>
     </message>
@@ -2594,7 +1727,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>&amp;Adaugă destinatar</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+20"/>
         <source>Remove all transaction fields</source>
         <translation>Scoateți toate câmpuirile de tranzacții</translation>
     </message>
@@ -2604,13 +1737,9 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Șterge &amp;tot</translation>
     </message>
     <message>
-        <location line="+30"/>
-        <source>Spendable:</source>
-        <translation type="unfinished">Cheltuibil:</translation>
-    </message>
-    <message>
+        <location line="+28"/>
         <source>Balance:</source>
-        <translation type="vanished">Balanță:</translation>
+        <translation>Balanță:</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -2628,13 +1757,9 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>&amp;S Trimite</translation>
     </message>
     <message>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">Introduceți o adresă vTorrent(ex:XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location filename="../sendcoinsdialog.cpp" line="-178"/>
-        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../sendcoinsdialog.cpp" line="-173"/>
+        <source>Enter a vTorrent address (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>Introduceți o adresă vTorrent(ex:XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -2732,18 +1857,9 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Eroare: tranzacția a fost respinsă. Acest lucru s-ar putea întâmpla în cazul în care unele dintre monedele din portofel au fost deja cheltuite, cum si cum ați utilizat o copie a wallet.dat și monedele au fost cheltuite în copie dar nu au fost marcate ca și cheltuite aici.</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Error: Narration is too long.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+251"/>
-        <source>WARNING: Invalid address, stealth address is not supported</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>WARNING: Invalid vTorrent address</source>
-        <translation type="vanished">Atenție: Adresă vTorrent invalidă</translation>
+        <translation>Atenție: Adresă vTorrent invalidă</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -2764,48 +1880,33 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Formular</translation>
     </message>
     <message>
-        <location line="+60"/>
-        <source>The address to send the payment to  (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+182"/>
-        <source>N&amp;arration:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <location filename="../sendcoinsentry.cpp" line="+25"/>
-        <source>Enter a short note to send with payment (max 24 characters)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+42"/>
+        <location line="+15"/>
         <source>A&amp;mount:</source>
         <translation>Su&amp;mă:</translation>
     </message>
     <message>
-        <location line="-271"/>
+        <location line="+13"/>
         <source>Pay &amp;To:</source>
         <translation>Plătește că&amp;tre:</translation>
     </message>
     <message>
-        <location line="+169"/>
-        <location filename="../sendcoinsentry.cpp" line="-2"/>
+        <location line="+24"/>
+        <location filename="../sendcoinsentry.cpp" line="+25"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Introdu o etichetă pentru această adresă pentru a fi adăugată în lista ta de adrese</translation>
     </message>
     <message>
-        <location line="-25"/>
+        <location line="+9"/>
         <source>&amp;Label:</source>
         <translation>&amp;Etichetă:</translation>
     </message>
     <message>
-        <source>The address to send the payment to  (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">Adresa catre care trimiteti plata(ex. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <location line="+18"/>
+        <source>The address to send the payment to  (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>Adresa catre care trimiteti plata(ex. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
-        <location line="-100"/>
+        <location line="+10"/>
         <source>Choose address from address book</source>
         <translation>Alegeti adresa din agenda</translation>
     </message>
@@ -2815,7 +1916,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+7"/>
         <source>Paste address from clipboard</source>
         <translation>Lipește adresa din clipboard</translation>
     </message>
@@ -2825,295 +1926,73 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Alt+P</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+7"/>
         <source>Remove this recipient</source>
         <translation>Scoateti acest destinatar</translation>
     </message>
     <message>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">Introduceți o adresă vTorrent(ex:XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SendMessagesDialog</name>
-    <message>
-        <location filename="../forms/sendmessagesdialog.ui" line="+14"/>
-        <source>Send Messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+30"/>
-        <source>Address &amp;From:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Choose address from address book</source>
-        <translation type="unfinished">Alegeti adresa din agenda</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+A</source>
-        <translation type="unfinished">Alt+A</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Paste address from clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+P</source>
-        <translation type="unfinished">Alt+P</translation>
-    </message>
-    <message>
-        <location line="+65"/>
-        <source>Send to multiple recipients at once</source>
-        <translation type="unfinished">Trimite simultan către mai mulți destinatari</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Add &amp;Recipient</source>
-        <translation type="unfinished">&amp;Adaugă destinatar</translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Remove all transaction fields</source>
-        <translation type="unfinished">Scoateți toate câmpuirile de tranzacții</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Clear &amp;All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+36"/>
-        <source>Confirm the send action</source>
-        <translation type="unfinished">Confirmă operațiunea de trimitere</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>S&amp;end</source>
-        <translation type="unfinished">&amp;S Trimite</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sendmessagesdialog.cpp" line="+37"/>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="unfinished">Introduceți o adresă vTorrent(ex:XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location line="+121"/>
-        <source>&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</source>
-        <translation type="unfinished">&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Confirm send messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Are you sure you want to send %1?</source>
-        <translation type="unfinished">Sunteți sigur că doriți să trimiteți %1?</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source> and </source>
-        <translation type="unfinished">și</translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <location line="+5"/>
-        <location line="+5"/>
-        <location line="+5"/>
-        <location line="+5"/>
-        <source>Send Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-19"/>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation type="unfinished">Adresa destinatarului nu este validă, vă rugăm să o verificaţi.</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>The message can&apos;t be empty.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation type="unfinished">S-a descoperit o adresă care figurează de două ori. Expedierea se poate realiza către fiecare adresă doar o singură dată pe operațiune.</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Error: Message creation failed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Error: The message was rejected.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SendMessagesEntry</name>
-    <message>
-        <location filename="../forms/sendmessagesentry.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>The address to send the payment to  (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Choose address from address book</source>
-        <translation type="unfinished">Alegeti adresa din agenda</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+A</source>
-        <translation type="unfinished">Alt+A</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Paste address from clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+P</source>
-        <translation type="unfinished">Alt+P</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Remove this recipient</source>
-        <translation type="unfinished">Scoateti acest destinatar</translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>&amp;Message:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>Send &amp;To:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <location filename="../sendmessagesentry.cpp" line="+27"/>
-        <source>Enter a label for this address to add it to your address book</source>
-        <translation type="unfinished">Introdu o etichetă pentru această adresă pentru a fi adăugată în lista ta de adrese</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>&amp;Label:</source>
-        <translation type="unfinished">&amp;Etichetă:</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>&amp;Public Key:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sendmessagesentry.cpp" line="+1"/>
-        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Enter the public key for the address above, it is not in the blockchain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>You cannot send a blank message!</source>
-        <translation type="unfinished"></translation>
+        <source>Enter a vTorrent address (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>Introduceți o adresă vTorrent(ex:XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
 </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <location filename="../forms/signverifymessagedialog.ui" line="+20"/>
+        <location filename="../forms/signverifymessagedialog.ui" line="+14"/>
         <source>Signatures - Sign / Verify a Message</source>
         <translation>Semnatura- Semneaza/verifica un mesaj</translation>
     </message>
     <message>
-        <location line="+31"/>
-        <location line="+195"/>
+        <location line="+13"/>
+        <location line="+124"/>
         <source>&amp;Sign Message</source>
         <translation>Semneaza Mesajul</translation>
     </message>
     <message>
+        <location line="-118"/>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation type="vanished">Puteti semna mesaje cu adresa dumneavoastra pentru a demostra ca sunteti proprietarul lor. Aveti grija sa nu semnati nimic vag, deoarece atacurile de tip phishing va pot pacali sa le transferati identitatea. Semnati numai declaratiile detaliate cu care sunteti deacord.</translation>
+        <translation>Puteti semna mesaje cu adresa dumneavoastra pentru a demostra ca sunteti proprietarul lor. Aveti grija sa nu semnati nimic vag, deoarece atacurile de tip phishing va pot pacali sa le transferati identitatea. Semnati numai declaratiile detaliate cu care sunteti deacord.</translation>
     </message>
     <message>
-        <source>The address to sign the message with (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">Adresa cu care semnati mesajul(ex. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location line="-183"/>
-        <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague. Only sign fully-detailed statements you agree to. Only normal addresses is supported.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+43"/>
-        <source>The address to sign the message with (e.g. SDywGBZBowrSSUwwNUo1DFSDTibzKid93H)</source>
-        <translation type="unfinished"></translation>
+        <location line="+18"/>
+        <source>The address to sign the message with (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>Adresa cu care semnati mesajul(ex. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location line="+275"/>
+        <location line="+203"/>
         <source>Choose an address from the address book</source>
         <translation>Alegeti o adresa din agenda</translation>
     </message>
     <message>
-        <location line="-265"/>
-        <location line="+275"/>
+        <location line="-193"/>
+        <location line="+203"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location line="-265"/>
-        <location line="+275"/>
-        <location line="+63"/>
+        <location line="-193"/>
         <source>Paste address from clipboard</source>
         <translation>Lipiţi adresa copiată in clipboard.</translation>
     </message>
     <message>
-        <location line="-328"/>
-        <location line="+275"/>
-        <location line="+63"/>
+        <location line="+10"/>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
     </message>
     <message>
-        <location line="-325"/>
+        <location line="+12"/>
         <source>Enter the message you want to sign here</source>
         <translation>Introduce mesajul pe care vrei sa il semnezi, aici.</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+24"/>
         <source>Copy the current signature to the system clipboard</source>
         <translation>Copiaza semnatura curenta in clipboard-ul sistemului</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+21"/>
         <source>Sign the message to prove you own this vTorrent address</source>
         <translation>Semnează un mesaj pentru a dovedi că dețineti o adresă vTorrent</translation>
     </message>
@@ -3124,36 +2003,28 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+3"/>
-        <location line="+269"/>
+        <location line="+146"/>
         <source>Clear &amp;All</source>
         <translation>Şterge &amp;tot</translation>
     </message>
     <message>
-        <location line="-203"/>
-        <location line="+186"/>
+        <location line="-87"/>
+        <location line="+70"/>
         <source>&amp;Verify Message</source>
         <translation>Verifica mesajul</translation>
     </message>
     <message>
-        <location line="-174"/>
-        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Only normal addresses is supported.</source>
-        <translation type="unfinished"></translation>
+        <location line="-64"/>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
+        <translation>Introduceti adresa de semnatura, mesajul (asigurati-va ca ati copiat spatiile, taburile etc. exact) si semnatura dedesubt pentru a verifica mesajul. Aveti grija sa nu cititi mai mult in semnatura decat mesajul in sine, pentru a evita sa fiti pacaliti de un atac de tip man-in-the-middle.</translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>The address the message was signed with (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>Adresa cu care a fost semnat mesajul(ex. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>The address the message was signed with (e.g. SDywGBZBowrSSUwwNUo1DFSDTibzKid93H)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
-        <translation type="vanished">Introduceti adresa de semnatura, mesajul (asigurati-va ca ati copiat spatiile, taburile etc. exact) si semnatura dedesubt pentru a verifica mesajul. Aveti grija sa nu cititi mai mult in semnatura decat mesajul in sine, pentru a evita sa fiti pacaliti de un atac de tip man-in-the-middle.</translation>
-    </message>
-    <message>
-        <source>The address the message was signed with (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">Adresa cu care a fost semnat mesajul(ex. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location line="+131"/>
         <source>Verify the message to ensure it was signed with the specified vTorrent address</source>
         <translation>Verifică un mesaj pentru a vă asigura că a fost semnat cu o anumită adresă vTorrent</translation>
     </message>
@@ -3163,11 +2034,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Reseteaza toate spatiile mesajelor semnate.</translation>
     </message>
     <message>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">Introduceți o adresă vTorrent(ex:XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <location filename="../signverifymessagedialog.cpp" line="+27"/>
+        <location line="+3"/>
+        <source>Enter a vTorrent address (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>Introduceți o adresă vTorrent(ex:XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+28"/>
+        <location line="-2"/>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
         <translation>Click &quot;Semneaza msajul&quot; pentru a genera semnatura</translation>
     </message>
@@ -3177,40 +2050,18 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Introduceti semnatura vTorrent</translation>
     </message>
     <message>
-        <source>The entered address is invalid. Stealth address is not supported.</source>
-        <translation type="vanished">Adresa introdusa nu este valida</translation>
-    </message>
-    <message>
-        <source>Please check the address and try again.</source>
-        <translation type="vanished">Te rugam verifica adresa si introduce-o din nou</translation>
-    </message>
-    <message>
-        <location line="-4"/>
-        <location line="+3"/>
-        <source>Enter an vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+83"/>
+        <location line="+82"/>
         <location line="+81"/>
         <source>The entered address is invalid.</source>
-        <translation type="unfinished"></translation>
+        <translation>Adresa introdusa nu este valida</translation>
     </message>
     <message>
         <location line="-81"/>
         <location line="+8"/>
         <location line="+73"/>
         <location line="+8"/>
-        <source>Stealth address is not yet supported.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-89"/>
-        <location line="+8"/>
-        <location line="+73"/>
-        <location line="+8"/>
-        <source>Please check the address and retry.</source>
-        <translation type="unfinished"></translation>
+        <source>Please check the address and try again.</source>
+        <translation>Te rugam verifica adresa si introduce-o din nou</translation>
     </message>
     <message>
         <location line="-81"/>
@@ -3266,28 +2117,16 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
 </context>
 <context>
-    <name>TrafficGraphWidget</name>
-    <message>
-        <location filename="../trafficgraphwidget.cpp" line="+79"/>
-        <source>KB/s</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>TransactionDesc</name>
     <message>
-        <location filename="../transactiondesc.cpp" line="+20"/>
+        <location filename="../transactiondesc.cpp" line="+19"/>
         <source>Open until %1</source>
         <translation>Deschis până la %1</translation>
     </message>
     <message numerus="yes">
         <location line="-2"/>
         <source>Open for %n block(s)</source>
-        <translation>
-            <numerusform>Deschde pentru încă %1 bloc</numerusform>
-            <numerusform>Deschde pentru încă %1 blocuri</numerusform>
-            <numerusform>Deschde pentru încă %1 blocuri</numerusform>
-        </translation>
+        <translation><numerusform>Deschde pentru încă %1 bloc</numerusform><numerusform>Deschde pentru încă %1 blocuri</numerusform><numerusform>Deschde pentru încă %1 blocuri</numerusform></translation>
     </message>
     <message>
         <location line="+8"/>
@@ -3310,18 +2149,14 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>%1 confirmări</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+18"/>
         <source>Status</source>
         <translation>Stare</translation>
     </message>
     <message numerus="yes">
         <location line="+7"/>
         <source>, broadcast through %n node(s)</source>
-        <translation>
-            <numerusform>, distribuit prin %n nod</numerusform>
-            <numerusform>, distribuit prin %n noduri</numerusform>
-            <numerusform>, distribuit prin %n de noduri</numerusform>
-        </translation>
+        <translation><numerusform>, distribuit prin %n nod</numerusform><numerusform>, distribuit prin %n noduri</numerusform><numerusform>, distribuit prin %n de noduri</numerusform></translation>
     </message>
     <message>
         <location line="+4"/>
@@ -3367,18 +2202,14 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <location line="+12"/>
         <location line="+45"/>
         <location line="+17"/>
-        <location line="+38"/>
+        <location line="+30"/>
         <source>Credit</source>
         <translation>Credit</translation>
     </message>
     <message numerus="yes">
-        <location line="-110"/>
+        <location line="-102"/>
         <source>matures in %n more block(s)</source>
-        <translation>
-            <numerusform>se maturizează în încă %n bloc</numerusform>
-            <numerusform>se maturizează în încă %n blocuri</numerusform>
-            <numerusform>se maturizează în încă %n de blocuri</numerusform>
-        </translation>
+        <translation><numerusform>se maturizează în încă %n bloc</numerusform><numerusform>se maturizează în încă %n blocuri</numerusform><numerusform>se maturizează în încă %n de blocuri</numerusform></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3389,12 +2220,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <location line="+44"/>
         <location line="+8"/>
         <location line="+15"/>
-        <location line="+38"/>
+        <location line="+30"/>
         <source>Debit</source>
         <translation>Debit</translation>
     </message>
     <message>
-        <location line="-47"/>
+        <location line="-39"/>
         <source>Transaction fee</source>
         <translation>Comisionul tranzacţiei</translation>
     </message>
@@ -3414,13 +2245,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Comentarii</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+2"/>
         <source>Transaction ID</source>
         <translation>ID-ul tranzactiei</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Generated coins must mature 50 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <source>Generated coins must mature 510 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
         <translation>Monedele generate trebuie să se maturizeze 510 blocuri înainte de a fi cheltuite. Când ați generat acest bloc,  a fost trimis la rețea pentru a fi adăugat la lanțul de blocuri. În cazul în care nu reușește să intre în lanț, starea sa se ​​va schimba in &quot;nu a fost acceptat&quot;, și nu va putea fi cheltuit. Acest lucru se poate întâmpla din când în când, dacă un alt nod generează un bloc cu câteva secunde inaintea blocului tau.</translation>
     </message>
     <message>
@@ -3439,7 +2270,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Intrari</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+23"/>
         <source>Amount</source>
         <translation>Sumă</translation>
     </message>
@@ -3454,7 +2285,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Fals!</translation>
     </message>
     <message>
-        <location line="-217"/>
+        <location line="-211"/>
         <source>, has not been successfully broadcast yet</source>
         <translation>, nu s-a propagat încă</translation>
     </message>
@@ -3467,7 +2298,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>TransactionDescDialog</name>
     <message>
-        <location filename="../forms/transactiondescdialog.ui" line="+20"/>
+        <location filename="../forms/transactiondescdialog.ui" line="+14"/>
         <source>Transaction details</source>
         <translation>Detaliile tranzacției</translation>
     </message>
@@ -3478,37 +2309,9 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
 </context>
 <context>
-    <name>TransactionPage</name>
-    <message>
-        <location filename="../forms/transactionpage.ui" line="+6"/>
-        <source>Address Book</source>
-        <translation type="unfinished">Agendă</translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wallet Transactions&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+121"/>
-        <source>Specify Range:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>to</source>
-        <translation type="unfinished">către</translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>Double-click to edit address or label</source>
-        <translation type="unfinished">Dublu-click pentru a edita adresa sau eticheta</translation>
-    </message>
-</context>
-<context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+231"/>
+        <location filename="../transactiontablemodel.cpp" line="+226"/>
         <source>Date</source>
         <translation>Data</translation>
     </message>
@@ -3528,7 +2331,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Cantitate</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+60"/>
         <source>Open until %1</source>
         <translation>Deschis până la %1</translation>
     </message>
@@ -3540,19 +2343,10 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message numerus="yes">
         <location line="-15"/>
         <source>Open for %n more block(s)</source>
-        <translation>
-            <numerusform>Deschis pentru încă %1 bloc</numerusform>
-            <numerusform>Deschis pentru încă %1 blocuri</numerusform>
-            <numerusform>Deschis pentru încă %1 de blocuri</numerusform>
-        </translation>
+        <translation><numerusform>Deschis pentru încă %1 bloc</numerusform><numerusform>Deschis pentru încă %1 blocuri</numerusform><numerusform>Deschis pentru încă %1 de blocuri</numerusform></translation>
     </message>
     <message>
-        <location line="-49"/>
-        <source>Narration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+55"/>
+        <location line="+6"/>
         <source>Offline</source>
         <translation>Deconectat</translation>
     </message>
@@ -3617,7 +2411,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>(n/a)</translation>
     </message>
     <message>
-        <location line="+198"/>
+        <location line="+190"/>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
         <translation>Starea tranzacției. Treci cu mausul peste acest câmp pentru afișarea numărului de confirmări.</translation>
     </message>
@@ -3645,13 +2439,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>TransactionView</name>
     <message>
-        <location filename="../transactionview.cpp" line="+41"/>
-        <location line="+8"/>
+        <location filename="../transactionview.cpp" line="+55"/>
+        <location line="+16"/>
         <source>All</source>
         <translation>Toate</translation>
     </message>
     <message>
-        <location line="-7"/>
+        <location line="-15"/>
         <source>Today</source>
         <translation>Astăzi</translation>
     </message>
@@ -3681,7 +2475,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Între...</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+11"/>
         <source>Received with</source>
         <translation>Recepționat cu</translation>
     </message>
@@ -3706,17 +2500,17 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Altele</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>Enter address or label to search</source>
         <translation>Introdu adresa sau eticheta pentru căutare</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Min amount</source>
         <translation>Cantitatea minimă</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+34"/>
         <source>Copy address</source>
         <translation>Copiază adresa</translation>
     </message>
@@ -3746,7 +2540,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Arată detaliile tranzacției</translation>
     </message>
     <message>
-        <location line="+149"/>
+        <location line="+144"/>
         <source>Export Transaction Data</source>
         <translation>Exporta datele trazactiei</translation>
     </message>
@@ -3801,18 +2595,20 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Nu s-a putut scrie în fișier %1.</translation>
     </message>
     <message>
+        <location line="+100"/>
         <source>Range:</source>
-        <translation type="vanished">Interval:</translation>
+        <translation>Interval:</translation>
     </message>
     <message>
+        <location line="+8"/>
         <source>to</source>
-        <translation type="vanished">către</translation>
+        <translation>către</translation>
     </message>
 </context>
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+370"/>
+        <location filename="../walletmodel.cpp" line="+206"/>
         <source>Sending...</source>
         <translation>Se trimite...</translation>
     </message>
@@ -3831,8 +2627,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or vTorrentd</source>
-        <translation>Trimite comanda catre server sau vTorrentd</translation>
+        <source>Send command to -server or vtorrentd</source>
+        <translation>Trimite comanda catre server sau vtorrentd</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3851,13 +2647,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: vTorrent.conf)</source>
-        <translation>Specifica fisier de configurare(implicit: vTorrent.conf)</translation>
+        <source>Specify configuration file (default: vtorrent.conf)</source>
+        <translation>Specifica fisier de configurare(implicit: vtorrent.conf)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: vTorrentd.pid)</source>
-        <translation>Speficica fisier pid(implicit: vTorrentd.pid)</translation>
+        <source>Specify pid file (default: vtorrentd.pid)</source>
+        <translation>Speficica fisier pid(implicit: vtorrentd.pid)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3942,7 +2738,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <location line="-87"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 22523 or testnet: 22521)</source>
-        <translation>Ascultă pentru conexiuni JSON-RPC pe &lt;port&gt; (implicit:22523 sau testnet: 22521)</translation>
+        <translation>Ascultă pentru conexiuni JSON-RPC pe &lt;port&gt; (implicit:22521 sau testnet: 22521)</translation>
     </message>
     <message>
         <location line="-11"/>
@@ -4196,7 +2992,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=vTorrentrpc
+rpcuser=vtorrentrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -4205,7 +3001,7 @@ It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s &quot;vTorrent Alert&quot; admin@foo.com
 </source>
         <translation>%s, trebuie să configurați o parolă rpc în fișierul de configurare: %s
-Este recomandat să folosiți următoarea parolă generată aleator: rpcuser=vTorrentrpc
+Este recomandat să folosiți următoarea parolă generată aleator: rpcuser=vtorrentrpc
 rpcpassword=%s
 (nu trebuie să țineți minte această parolă)
 Username-ul și parola NU TREBUIE să fie aceleași.
@@ -4512,555 +3308,6 @@ If the file does not exist, create it with owner-readable-only file permissions.
         <translation>Trebuie sa setezi rpcpassword=&lt;password&gt; în fișierul de configurare:⏎
 %s⏎
 Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către proprietar.</translation>
-    </message>
-</context>
-<context>
-    <name>tradingBittrex</name>
-    <message>
-        <location filename="../tradingdialog_bittrex.cpp" line="+500"/>
-        <location line="+84"/>
-        <source>BUY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-84"/>
-        <location line="+84"/>
-        <source>SELL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-80"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>tradingBittrex_UI</name>
-    <message>
-        <location filename="../forms/tradingdialog_bittrex.ui" line="+6"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+76"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <source>BALANCE_GROUPBOX</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-592"/>
-        <location line="+183"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+67"/>
-        <location line="+183"/>
-        <source>TR00012</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-680"/>
-        <source>Last Price (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <source>LastPrice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <location line="+106"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+144"/>
-        <location line="+106"/>
-        <location line="+1048"/>
-        <location line="+98"/>
-        <location line="+2668"/>
-        <location line="+98"/>
-        <source>CAN_BE_ZERO</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-4418"/>
-        <source>BidPrice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Bid Price (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+79"/>
-        <source>AskPrice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Ask Price (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+79"/>
-        <source>DayHigh</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>24 Hour High</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+67"/>
-        <source>24 Hour Low</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <source>DayLow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+106"/>
-        <source>VolumeBTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Volume (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <source>Summary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+113"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Buy vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+449"/>
-        <location line="+1025"/>
-        <location line="+502"/>
-        <location line="+1239"/>
-        <location line="+1025"/>
-        <location line="+502"/>
-        <location line="+2248"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <location line="+1166"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <source>0.00000000</source>
-        <translation type="unfinished">0.00000000</translation>
-    </message>
-    <message>
-        <location line="-9912"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;BTC Available&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+117"/>
-        <location line="+2766"/>
-        <location line="+2908"/>
-        <location line="+2278"/>
-        <source>TR00031</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7949"/>
-        <location line="+2766"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Units&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2750"/>
-        <location line="+64"/>
-        <location line="+62"/>
-        <location line="+61"/>
-        <location line="+2579"/>
-        <location line="+64"/>
-        <location line="+62"/>
-        <location line="+61"/>
-        <location line="+2721"/>
-        <location line="+63"/>
-        <location line="+61"/>
-        <location line="+60"/>
-        <location line="+2094"/>
-        <location line="+63"/>
-        <location line="+61"/>
-        <location line="+60"/>
-        <source>:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-8091"/>
-        <location line="+2766"/>
-        <location line="+2907"/>
-        <location line="+2278"/>
-        <source>TR00030</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7948"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Bid&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+59"/>
-        <location line="+2766"/>
-        <location line="+2906"/>
-        <location line="+2278"/>
-        <source>TR00033</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7947"/>
-        <location line="+2766"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Zero profit Price&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2705"/>
-        <location line="+2766"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Total w/ 0.25% Fee&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2680"/>
-        <location line="+46"/>
-        <location line="+2720"/>
-        <location line="+46"/>
-        <location line="+3350"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <source>VTR</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7176"/>
-        <location line="+46"/>
-        <location line="+502"/>
-        <location line="+502"/>
-        <location line="+1716"/>
-        <location line="+46"/>
-        <location line="+502"/>
-        <location line="+502"/>
-        <location line="+4526"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <source>BTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-8260"/>
-        <location line="+2766"/>
-        <source>Set</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2738"/>
-        <location line="+2766"/>
-        <source> %</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2696"/>
-        <location line="+150"/>
-        <location line="+2616"/>
-        <location line="+150"/>
-        <source>AS_MARKET_SELL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2900"/>
-        <location line="+2766"/>
-        <source>Max</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2741"/>
-        <location line="+150"/>
-        <location line="+2616"/>
-        <location line="+150"/>
-        <source>AS_MARKET_BUY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2900"/>
-        <location line="+2766"/>
-        <source>½</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2747"/>
-        <location line="+150"/>
-        <location line="+2616"/>
-        <location line="+150"/>
-        <source>AS_LAST_PRICE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2900"/>
-        <location line="+2766"/>
-        <source>%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2692"/>
-        <location line="+2766"/>
-        <source>Ask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2725"/>
-        <location line="+2766"/>
-        <source>Bid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2731"/>
-        <location line="+2766"/>
-        <source>Last</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2704"/>
-        <location line="+58"/>
-        <source>Buy vTorrent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+153"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sell vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+468"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;VTR Available&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+184"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ask&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1903"/>
-        <location line="+58"/>
-        <source>Sell vTorrent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+69"/>
-        <source>Order Book</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+261"/>
-        <source>Market History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+60"/>
-        <source>Open Orders</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+60"/>
-        <source>Your History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+60"/>
-        <source>Balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>Account Balances</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+68"/>
-        <source>&lt;b&gt;vTorrent (VTR)&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+70"/>
-        <location line="+2278"/>
-        <source>Show &amp;QR Code</source>
-        <translation type="unfinished">Arată cod &amp;QR</translation>
-    </message>
-    <message>
-        <location line="-2204"/>
-        <location line="+2278"/>
-        <source>Generate New Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2149"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Balance&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2215"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Available&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2217"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pending&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2218"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Deposit Address&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-531"/>
-        <source>Account VTR Deposit Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+74"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Bitcoin (BTC)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2204"/>
-        <source>Account BTC Deposit Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+38"/>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+64"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your Exchange API Key&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>Login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>This information can be obtained from inside your Bittrex account Settings.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+41"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;API Key&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <location line="+81"/>
-        <source>Paste address from clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-71"/>
-        <location line="+81"/>
-        <source>Alt+P</source>
-        <translation type="unfinished">Alt+P</translation>
-    </message>
-    <message>
-        <location line="-68"/>
-        <location line="+81"/>
-        <source>X</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-54"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Secret Key&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+122"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pushbullet API Key&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+36"/>
-        <source>Enable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>Enable Pushbullet to get notifications from the client.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+96"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Personalized Settings&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Customise your trading experience.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Exchange API Setting&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source> Realtime Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+38"/>
-        <source>Update Now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Trading Bot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Enable Advance Functions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Notifications&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Enable Notification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Price Alarm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Successful Trade</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

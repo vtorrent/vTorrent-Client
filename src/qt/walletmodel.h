@@ -1,27 +1,34 @@
 #ifndef WALLETMODEL_H
 #define WALLETMODEL_H
 
+#include <QObject>
+#include <vector>
+#include <map>
+
 #include "allocators.h" /* for SecureString */
 
-#include <map>
-#include <vector>
-
-#include <QObject>
-
-class AddressTableModel;
 class OptionsModel;
+class AddressTableModel;
 class TransactionTableModel;
-class CCoinControl;
-class CKeyID;
-class COutPoint;
-class COutput;
-class CPubKey;
 class CWallet;
+class CKeyID;
+class CPubKey;
+class COutput;
+class COutPoint;
 class uint256;
+class CCoinControl;
 
 QT_BEGIN_NAMESPACE
 class QTimer;
 QT_END_NAMESPACE
+
+enum eTxnTypeInd
+{
+    TXT_VTR_TO_VTR = 0,
+    TXT_VTR_TO_ANON,
+    TXT_ANON_TO_ANON,
+    TXT_ANON_TO_VTR,
+};
 
 class SendCoinsRecipient
 {
@@ -31,6 +38,8 @@ public:
     QString narration;
     int typeInd;
     qint64 amount;
+    int txnTypeInd;
+    int nRingSize;
 };
 
 /** Interface to Bitcoin wallet from Qt view code. */
@@ -53,6 +62,13 @@ public:
         TransactionCreationFailed, // Error returned when wallet is still locked
         TransactionCommitFailed,
         NarrationTooLong,
+        RingSizeError,
+        InputTypeError,
+        SCR_NeedFullMode,
+        SCR_StealthAddressFail,
+        SCR_AmountWithFeeExceedsTokenBalance,
+        SCR_Error,
+        SCR_ErrorWithMsg,
         Aborted
     };
 
@@ -68,6 +84,7 @@ public:
     TransactionTableModel *getTransactionTableModel();
 
     qint64 getBalance() const;
+    qint64 getTokenBalance() const;
     qint64 getStake() const;
     qint64 getUnconfirmedBalance() const;
     qint64 getImmatureBalance() const;
@@ -85,18 +102,26 @@ public:
                          QString hex=QString()):
             status(status), fee(fee), hex(hex) {}
         StatusCode status;
+        
+        
         qint64 fee; // is used in case status is "AmountWithFeeExceedsBalance"
         QString hex; // is filled with the transaction hash if status is "OK", error message otherwise
     };
 
     // Send coins to a list of recipients
     SendCoinsReturn sendCoins(const QList<SendCoinsRecipient> &recipients, const CCoinControl *coinControl=NULL);
-
+    SendCoinsReturn sendCoinsAnon(const QList<SendCoinsRecipient> &recipients, const CCoinControl *coinControl=NULL);
+    
     // Wallet encryption
+#ifndef OTP_ENABLED
     bool setWalletEncrypted(bool encrypted, const SecureString &passphrase);
-    // Passphrase only needed when unlocking
     bool setWalletLocked(bool locked, const SecureString &passPhrase=SecureString());
     bool changePassphrase(const SecureString &oldPass, const SecureString &newPass);
+#else
+    bool setWalletEncryptedOTP(bool encrypted, const SecureString &passphrase, const QByteArray otp_secret, const SecureString &veri_otpcode=SecureString(), const bool otp_enable=false);
+    bool setWalletLockedOTP(bool locked, const SecureString &passPhrase=SecureString(), const SecureString &otpcode=SecureString(), bool stakingOnly=true);
+    bool changePassphraseOTP(const SecureString &oldPass, const SecureString &newPass, const SecureString &otpcode, const QByteArray otp_secret, const SecureString &veri_otpcode, const bool otp_enable);
+#endif
     // Wallet backup
     bool backupWallet(const QString &filename);
 
@@ -129,7 +154,7 @@ public:
     void lockCoin(COutPoint& output);
     void unlockCoin(COutPoint& output);
     void listLockedCoins(std::vector<COutPoint>& vOutpts);
-
+    
 private:
     CWallet *wallet;
 
@@ -142,6 +167,7 @@ private:
 
     // Cache some values to be able to detect changes
     qint64 cachedBalance;
+    qint64 cachedTokenBal;
     qint64 cachedStake;
     qint64 cachedUnconfirmedBalance;
     qint64 cachedImmatureBalance;
@@ -162,13 +188,13 @@ public slots:
     /* New transaction, or transaction changed status */
     void updateTransaction(const QString &hash, int status);
     /* New, updated or removed address book entry */
-    void updateAddressBook(const QString &address, const QString &label, bool isMine, int status);
+    void updateAddressBook(const QString &address, const QString &label, bool isMine, int status, bool fManual);
     /* Current, immature or unconfirmed balance might have changed - emit 'balanceChanged' if so */
     void pollBalanceChanged();
 
 signals:
     // Signal that balance in wallet changed
-    void balanceChanged(qint64 balance, qint64 stake, qint64 unconfirmedBalance, qint64 immatureBalance);
+    void balanceChanged(qint64 balance, qint64 tokenBal, qint64 stake, qint64 unconfirmedBalance, qint64 immatureBalance);
 
     // Number of transactions in wallet changed
     void numTransactionsChanged(int count);

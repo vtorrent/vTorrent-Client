@@ -5,12 +5,14 @@
 #ifndef BITCOIN_BLOOM_H
 #define BITCOIN_BLOOM_H
 
-#include "serialize.h"
+
 
 #include <vector>
 
-class COutPoint;
-class CTransaction;
+#include "core.h"
+#include "serialize.h"
+
+
 class uint256;
 
 // 20,000 items with fp rate < 0.1% or 10,000 items and <0.0001%

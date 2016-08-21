@@ -6,23 +6,24 @@
 #include <boost/assign/list_of.hpp>
 
 #include "base58.h"
-#include "bitcoinrpc.h"
+#include "rpcserver.h"
 #include "txdb.h"
 #include "init.h"
 #include "main.h"
 #include "net.h"
-#include "keystore.h"
-#include "wallet.h"
-
+#ifndef OTP_ENABLED
+    #include "wallet.h"
+#else
+    #include "wallet_otp.h"
+#endif
 using namespace std;
-using namespace boost;
 using namespace boost::assign;
 using namespace json_spirit;
 
 void ScriptPubKeyToJSON(const CScript& scriptPubKey, Object& out, bool fIncludeHex)
 {
     txnouttype type;
-    vector<CTxDestination> addresses;
+    std::vector<CTxDestination> addresses;
     int nRequired;
 
     out.push_back(Pair("asm", scriptPubKey.ToString()));
@@ -34,7 +35,7 @@ void ScriptPubKeyToJSON(const CScript& scriptPubKey, Object& out, bool fIncludeH
     {
         out.push_back(Pair("type", GetTxnOutputType(type)));
         return;
-    }
+    };
 
     out.push_back(Pair("reqSigs", nRequired));
     out.push_back(Pair("type", GetTxnOutputType(type)));
@@ -72,6 +73,13 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, Object& entry)
                 
                 in.push_back(Pair("keyimage", HexStr(vchImage)));
                 in.push_back(Pair("ringsize", nRingSize));
+
+                CTxDB txdb("r");
+                CKeyImageSpent ski;
+                bool fInMemPool;
+
+                if (GetKeyImage(&txdb, vchImage, ski, fInMemPool))
+                    in.push_back(Pair("value", ValueFromAmount(ski.nValue)));
             } else
             {
                 in.push_back(Pair("txid", txin.prevout.hash.GetHex()));
@@ -82,7 +90,7 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, Object& entry)
             o.push_back(Pair("asm", txin.scriptSig.ToString()));
             o.push_back(Pair("hex", HexStr(txin.scriptSig.begin(), txin.scriptSig.end())));
             in.push_back(Pair("scriptSig", o));
-        }
+        };
         in.push_back(Pair("sequence", (int64_t)txin.nSequence));
         vin.push_back(in);
     };
@@ -96,7 +104,7 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, Object& entry)
         out.push_back(Pair("value", ValueFromAmount(txout.nValue)));
         out.push_back(Pair("n", (int64_t)i));
         Object o;
-        ScriptPubKeyToJSON(txout.scriptPubKey, o, false);
+        ScriptPubKeyToJSON(txout.scriptPubKey, o, true);
         out.push_back(Pair("scriptPubKey", o));
         vout.push_back(out);
     };
@@ -114,11 +122,10 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, Object& entry)
                 entry.push_back(Pair("confirmations", 1 + nBestHeight - pindex->nHeight));
                 entry.push_back(Pair("time", (int64_t)pindex->nTime));
                 entry.push_back(Pair("blocktime", (int64_t)pindex->nTime));
-            }
-            else
+            } else
                 entry.push_back(Pair("confirmations", 0));
-        }
-    }
+        };
+    };
 }
 
 Value getrawtransaction(const Array& params, bool fHelp)
@@ -340,7 +347,7 @@ Value decodescript(const Array& params, bool fHelp)
     {
         // Empty scripts are valid
     }
-    ScriptPubKeyToJSON(script, r, false);
+    ScriptPubKeyToJSON(script, r, true);
 
     r.push_back(Pair("p2sh", CBitcoinAddress(script.GetID()).ToString()));
     return r;
@@ -410,7 +417,27 @@ Value signrawtransaction(const Array& params, bool fHelp)
                 mapPrevOut[txin.prevout] = mapPrevTx[prevHash].second.vout[txin.prevout.n].scriptPubKey;
         };
     };
-
+    
+    bool fGivenKeys = false;
+    CBasicKeyStore tempKeystore;
+    if (params.size() > 2 && params[2].type() != null_type)
+    {
+        fGivenKeys = true;
+        Array keys = params[2].get_array();
+        BOOST_FOREACH(Value k, keys)
+        {
+            CBitcoinSecret vchSecret;
+            bool fGood = vchSecret.SetString(k.get_str());
+            if (!fGood)
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid private key");
+            CKey key = vchSecret.GetKey();
+            tempKeystore.AddKey(key);
+        };
+    } else
+    {
+        EnsureWalletIsUnlocked();
+    };
+    
     // Add previous txouts given in the RPC call:
     if (params.size() > 1 && params[1].type() != null_type)
     {
@@ -437,7 +464,7 @@ Value signrawtransaction(const Array& params, bool fHelp)
             string pkHex = find_value(prevOut, "scriptPubKey").get_str();
             if (!IsHex(pkHex))
                 throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "scriptPubKey must be hexadecimal");
-            vector<unsigned char> pkData(ParseHex(pkHex));
+            std::vector<unsigned char> pkData(ParseHex(pkHex));
             CScript scriptPubKey(pkData.begin(), pkData.end());
 
             COutPoint outpoint(txid, nOut);
@@ -455,28 +482,21 @@ Value signrawtransaction(const Array& params, bool fHelp)
             {
                 mapPrevOut[outpoint] = scriptPubKey;
             };
+            
+            // if redeemScript given and not using the local wallet (private keys
+            // given), add redeemScript to the tempKeystore so it can be signed:
+            if (fGivenKeys && scriptPubKey.IsPayToScriptHash())
+            {
+                Value v = find_value(prevOut, "redeemScript");
+                if (!(v == Value::null))
+                {
+                    std::vector<unsigned char> rsData(ParseHexV(v, "redeemScript"));
+                    CScript redeemScript(rsData.begin(), rsData.end());
+                    tempKeystore.AddCScript(redeemScript);
+                };
+            };
         }
     }
-
-    bool fGivenKeys = false;
-    CBasicKeyStore tempKeystore;
-    if (params.size() > 2 && params[2].type() != null_type)
-    {
-        fGivenKeys = true;
-        Array keys = params[2].get_array();
-        BOOST_FOREACH(Value k, keys)
-        {
-            CBitcoinSecret vchSecret;
-            bool fGood = vchSecret.SetString(k.get_str());
-            if (!fGood)
-                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid private key");
-            CKey key = vchSecret.GetKey();
-            tempKeystore.AddKey(key);
-        }
-    } else
-    {
-        EnsureWalletIsUnlocked();
-    };
     
     const CKeyStore& keystore = (fGivenKeys ? tempKeystore : *pwalletMain);
 
@@ -511,19 +531,23 @@ Value signrawtransaction(const Array& params, bool fHelp)
             continue;
         };
         const CScript& prevPubKey = mapPrevOut[txin.prevout];
-
+        
         txin.scriptSig.clear();
         // Only sign SIGHASH_SINGLE if there's a corresponding output:
         if (!fHashSingle || (i < mergedTx.vout.size()))
+        {
             SignSignature(keystore, prevPubKey, mergedTx, i, nHashType);
-
+        }
+        
         // ... and merge in other signatures:
         BOOST_FOREACH(const CTransaction& txv, txVariants)
         {
             txin.scriptSig = CombineSignatures(prevPubKey, mergedTx, i, txin.scriptSig, txv.vin[i].scriptSig);
         };
-        if (!VerifyScript(txin.scriptSig, prevPubKey, mergedTx, i, 0))
+        if (!VerifyScript(txin.scriptSig, prevPubKey, mergedTx, i, STANDARD_SCRIPT_VERIFY_FLAGS, 0))
+        {
             fComplete = false;
+        };
     };
 
     Object result;
@@ -572,7 +596,7 @@ Value sendrawtransaction(const Array& params, bool fHelp)
     {
         // push to local node
         CTxDB txdb("r");
-        if (!tx.AcceptToMemoryPool(txdb))
+        if (!AcceptToMemoryPool(mempool, tx, txdb))
             throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "TX rejected");
 
         SyncWithWallets(tx, NULL, true);

@@ -2,10 +2,13 @@
 #include "bitcoinaddressvalidator.h"
 #include "walletmodel.h"
 #include "bitcoinunits.h"
-#include "util.h"
+#ifndef OTP_ENABLED
+    #include "util.h"
+#else
+    #include "util_otp.h"
+#endif
 #include "init.h"
 
-// #include <QDebug>
 #include <QString>
 #include <QDateTime>
 #include <QDoubleValidator>
@@ -18,7 +21,9 @@
 #include <QClipboard>
 #include <QFileDialog>
 #include <QDesktopServices>
+#include <QDesktopWidget>
 #include <QThread>
+#include <QSettings>
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
@@ -53,6 +58,79 @@ QString dateTimeStr(qint64 nTime)
     return dateTimeStr(QDateTime::fromTime_t((qint32)nTime));
 }
 
+QString formatDurationStr(int secs)
+{
+    QStringList strList;
+    int days = secs / 86400;
+    int hours = (secs % 86400) / 3600;
+    int mins = (secs % 3600) / 60;
+    int seconds = secs % 60;
+
+    if (days)
+        strList.append(QString(QObject::tr("%1 d")).arg(days));
+    if (hours)
+        strList.append(QString(QObject::tr("%1 h")).arg(hours));
+    if (mins)
+        strList.append(QString(QObject::tr("%1 m")).arg(mins));
+    if (seconds || (!days && !hours && !mins))
+        strList.append(QString(QObject::tr("%1 s")).arg(seconds));
+
+    return strList.join(" ");
+}
+
+QString formatServicesStr(quint64 mask)
+{
+    QStringList strList;
+    
+    // TODO: add vtr
+    // Just scan the last 8 bits for now.
+    for (int i = 0; i < 8; i++)
+    {
+        uint64_t check = 1 << i;
+        if (!(mask & check))
+            continue;
+        switch (check)
+        {
+            case NODE_NETWORK:
+                strList.append("NETWORK");
+                break;
+            //case NODE_GETUTXO:
+            //    strList.append("GETUTXO");
+            //    break;
+            
+            case THIN_SUPPORT:
+                strList.append("THIN_SUPPORT");
+                break;
+            case THIN_STAKE:
+                strList.append("THIN_STAKE");
+                break;
+            case THIN_STEALTH:
+                strList.append("THIN_STEALTH");
+                break;
+            case SMSG_RELAY:
+                strList.append("SMSG_RELAY");
+                break;
+            default:
+                strList.append(QString("%1[%2]").arg("UNKNOWN").arg(check));
+        };
+    };
+
+    if (strList.size())
+        return strList.join(", ");
+    else
+        return QObject::tr("None");
+}
+
+QString formatPingTime(double dPingTime)
+{
+    return dPingTime == 0 ? QObject::tr("N/A") : QString(QObject::tr("%1 ms")).arg(QString::number((int)(dPingTime * 1000), 10));
+}
+
+QString formatTimeOffset(int64_t nTimeOffset)
+{
+  return QString(QObject::tr("%1 s")).arg(QString::number((int)nTimeOffset, 10));
+}
+
 QFont bitcoinAddressFont()
 {
     QFont font("Monospace");
@@ -83,7 +161,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // NovaCoin: check prefix
-    if(uri.scheme() != QString("vTorrent"))
+    if(uri.scheme() != QString("vtorrent"))
         return false;
 
     SendCoinsRecipient rv;
@@ -108,7 +186,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::BTC, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::VTR, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -128,16 +206,39 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert vTorrent:// to vTorrent:
+    // Convert vtorrent:// to vtorrent:
     //
     //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("vTorrent://"))
+    if(uri.startsWith("vtorrent://"))
     {
-        uri.replace(0, 12, "vTorrent:");
+        uri.replace(0, 12, "vtorrent:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
+}
+
+void saveWindowGeometry(const QString& strSetting, QWidget *parent)
+{
+    QSettings settings;
+    settings.setValue(strSetting + "Pos", parent->pos());
+    settings.setValue(strSetting + "Size", parent->size());
+}
+
+void restoreWindowGeometry(const QString& strSetting, const QSize& defaultSize, QWidget *parent)
+{
+    QSettings settings;
+    QPoint pos = settings.value(strSetting + "Pos").toPoint();
+    QSize size = settings.value(strSetting + "Size", defaultSize).toSize();
+
+    if (!pos.x() && !pos.y()) {
+        QRect screen = QApplication::desktop()->screenGeometry();
+        pos.setX((screen.width() - size.width()) / 2);
+        pos.setY((screen.height() - size.height()) / 2);
+    }
+
+    parent->resize(size);
+    parent->move(pos);
 }
 
 QString HtmlEscape(const QString& str, bool fMultiLine)
@@ -360,7 +461,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "vTorrent.desktop";
+    return GetAutostartDir() / "vtorrent.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -426,10 +527,10 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
-    header = tr("vTorrent-Core") + " " + tr("version") + " " +
-        QString::fromStdString(FormatFullVersion()) + "\n\n\n" +
-        tr("Usage:") + "\n\n" +
-        "  vTorrent-qt [" + tr("command-line options") + "]                     " + "\n";
+    header = tr("vTorrent") + " " + tr("version") + " " +
+        QString::fromStdString(FormatFullVersion()) + "\n\n" +
+        tr("Usage:") + "\n" +
+        "  vtorrent [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 
@@ -438,7 +539,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         "  -min                   " + tr("Start minimized") + "\n" +
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
-    setWindowTitle(tr("vTorrent-Core"));
+    setWindowTitle(tr("vTorrent"));
     setTextFormat(Qt::PlainText);
     // setMinimumWidth is ignored for QMessageBox so put in non-breaking spaces to make it wider.
     setText(header + QString(QChar(0x2003)).repeated(50));
@@ -461,35 +562,6 @@ void HelpMessageBox::showOrPrint()
         // On other operating systems, print help text to console
         printToConsole();
 #endif
-}
-
-void SetThemeQSS(QApplication& app)
-{
-    app.setStyleSheet(
-                      "QLabel { color: rgb(59, 59, 59); }"
-                      "QDialog { background-color: rgb(255, 255, 255); }"
-                      "QPushButton    { background-color: rgb(220,220,220); color: rgb(0, 0, 0); border-style: outset; border-width: 0px; padding: 5px;}"
-                      "QPushButton:disabled { background-color: rgb(220,220,220,100); color: rgb(0, 0, 0, 100); border-style: outset; border-width: 0px; padding: 5px;}"
-                      "QPushButton:pressed { background-color: rgb(82,82,82); color: rgb(255,255,255); border-style: inset; border-width: 0px; padding: 5px;}"
-                      "QPushButton:hover { background-color: rgb(82,82,82,100); color: rgb(255,255,255); border-style: inset; border-width: 0px; padding: 5px;}"
-                      "QButton    { background-color: rgb(220,220,220); color: rgb(0, 0, 0); border-style: outset; border-width: 0px; padding: 5px;}"
-                      "QDoubleSpinBox { background: rgb(250,250,250); color: rgb(57,57,57); border-color: rgb(194,194,194); }"
-                      "QLineEdit      { background: rgb(250,250,250); color: rgb(57,57,57); border-color: rgb(194,194,194); }"
-                      "QTextEdit      { background: rgb(250,250,250); color: rgb(57,57,57); }"
-                      "QPlainTextEdit { background: rgb(250,250,250); color: rgb(57,57,57); }"
-                      "QMenuBar       { background-color: #4A3132; color: rgb(250,250,250); border-color: rgb(250,250,250); font-size:12px;}"
-                      "QMenuBar::item { background-color: #4A3132; color: rgb(250,250,250); }"
-                      "QMenu          { background-color: #4A3132; color: rgb(250,250,250); font-size:12px;}"
-                      "QMenu::item    { background-color: #4A3132; color: rgb(250,250,250); padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px;}"
-                      "QMenu::item:disabled { color: rgb(200,200,200); }"
-                      "QMenu::item:selected { background: rgb(82,82,82); }"
-                      "QMenu::item:!selected { }"
-                      "QProgressBar   { color: rgb(255,255,255); background-color: #9E9E9E; border: 1px solid grey; padding: 1px; text-align: center; }"
-                      "QProgressBar::chunk { color: rgb(255,255,255); background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #78d, stop: 0.4999 #46a, stop: 0.5 #45a, stop: 1 #238 ); }"
-                      "QTableView     { background: rgb(255,255,255); color: rgb(0,0,0); gridline-color: rgb(157,160,165); }"
-                      "QTabWidget::pane { background-color: rgb(250,250,250);}"
-                      "QHeaderView::section { background: rgb(110,110,110); color: rgb(255,255,255); }"
-                      );
 }
 
 } // namespace GUIUtil

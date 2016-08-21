@@ -1,20 +1,22 @@
+// Copyright (c) 2011-2013 The Bitcoin developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #include "notificator.h"
 
-#include <QMetaType>
-#include <QVariant>
-#include <QIcon>
 #include <QApplication>
-#include <QStyle>
 #include <QByteArray>
-#include <QSystemTrayIcon>
-#include <QMessageBox>
-#include <QTemporaryFile>
+#include <QIcon>
 #include <QImageWriter>
-#include <QDebug>
-
+#include <QMessageBox>
+#include <QMetaType>
+#include <QStyle>
+#include <QSystemTrayIcon>
+#include <QTemporaryFile>
+#include <QVariant>
 #ifdef USE_DBUS
-#include <QtDBus/QtDBus>
 #include <stdint.h>
+#include <QtDBus>
 #endif
 // Include ApplicationServices.h after QtDbus to avoid redefinition of check().
 // This affects at least OSX 10.6. See /usr/include/AssertMacros.h for details.
@@ -31,7 +33,7 @@
 const int FREEDESKTOP_NOTIFICATION_ICON_SIZE = 128;
 #endif
 
-Notificator::Notificator(const QString &programName, QSystemTrayIcon *trayicon, QWidget *parent):
+Notificator::Notificator(const QString &programName, QSystemTrayIcon *trayicon, QWidget *parent) :
     QObject(parent),
     parent(parent),
     programName(programName),
@@ -47,7 +49,7 @@ Notificator::Notificator(const QString &programName, QSystemTrayIcon *trayicon, 
     }
 #ifdef USE_DBUS
     interface = new QDBusInterface("org.freedesktop.Notifications",
-          "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
+        "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
     if(interface->isValid())
     {
         mode = Freedesktop;

@@ -1,3 +1,7 @@
+// Copyright (c) 2011-2013 The Bitcoin Core developers
+// Distributed under the MIT/X11 software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #include "macdockiconhandler.h"
 
 #include <QImageWriter>
@@ -65,7 +69,7 @@ MacDockIconHandler::MacDockIconHandler() : QObject()
 }
 
 void MacDockIconHandler::setMainWindow(QMainWindow *window) {
-    this->mainWindowHandler = window;
+    this->mainWindow = window;
 }
 
 MacDockIconHandler::~MacDockIconHandler()
@@ -123,10 +127,10 @@ MacDockIconHandler *MacDockIconHandler::instance()
 
 void MacDockIconHandler::handleDockIconClickEvent()
 {
-    if (this->mainWindowHandler)
+    if (this->mainWindow)
     {
-        this->mainWindowHandler->activateWindow();
-        this->mainWindowHandler->show();
+        this->mainWindow->activateWindow();
+        this->mainWindow->show();
     }
 
     emit this->dockIconClicked();

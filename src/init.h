@@ -5,12 +5,17 @@
 #ifndef BITCOIN_INIT_H
 #define BITCOIN_INIT_H
 
-#include "wallet.h"
+#ifndef OTP_ENABLED
+    #include "wallet.h"
+#else
+    #include "wallet_otp.h"
+#endif
 
 extern CWallet* pwalletMain;
 void StartShutdown();
-void Shutdown(void* parg);
-bool AppInit2();
+bool ShutdownRequested();
+void Shutdown();
+bool AppInit2(boost::thread_group& threadGroup);
 std::string HelpMessage();
 
 #endif

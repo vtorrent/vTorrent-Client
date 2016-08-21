@@ -12,10 +12,30 @@
 #include <string>
 #include <vector>
 
+
 #include <leveldb/db.h>
 #include <leveldb/write_batch.h>
 
 #include "ringsig.h"
+
+/*
+prefixes
+    ao
+    ki
+    version
+    tx
+    bidx
+    bhdx
+    hashBestChain
+    hashBestHeaderChain
+    bnBestInvalidTrust
+    hashSyncCheckpoint
+    strCheckpointPubKey
+    
+    
+    old:
+        blockindex
+*/
 
 // Class that provides access to a LevelDB. Note that this class is frequently
 // instantiated on the stack and then destroyed again, so instantiation has to
@@ -89,7 +109,7 @@ protected:
                 if (status.IsNotFound())
                     return false;
                 // Some unexpected error.
-                printf("LevelDB read failure: %s\n", status.ToString().c_str());
+                LogPrintf("LevelDB read failure: %s\n", status.ToString().c_str());
                 return false;
             }
         }
@@ -127,7 +147,7 @@ protected:
         leveldb::Status status = pdb->Put(leveldb::WriteOptions(), ssKey.str(), ssValue.str());
         if (!status.ok())
         {
-            printf("LevelDB write failure: %s\n", status.ToString().c_str());
+            LogPrintf("LevelDB write failure: %s\n", status.ToString().c_str());
             return false;
         };
         
@@ -204,6 +224,9 @@ public:
     }
     
     
+    int CheckVersion();
+    int RecreateDB();
+
     bool WriteKeyImage(ec_point& keyImage, CKeyImageSpent& keyImageSpent);
     bool ReadKeyImage(ec_point& keyImage, CKeyImageSpent& keyImageSpent);
     bool EraseKeyImage(ec_point& keyImage);
@@ -211,6 +234,8 @@ public:
     bool WriteAnonOutput(CPubKey& pkCoin, CAnonOutput& ao);
     bool ReadAnonOutput(CPubKey& pkCoin, CAnonOutput& ao);
     bool EraseAnonOutput(CPubKey& pkCoin);
+    
+    bool EraseRange(const std::string &sPrefix, uint32_t &nAffected);
     
     bool ReadTxIndex(uint256 hash, CTxIndex& txindex);
     bool UpdateTxIndex(uint256 hash, const CTxIndex& txindex);

@@ -6,6 +6,7 @@
 #define COIN_STATE_H
 
 #include <string>
+#include <limits>
 #include "sync.h"
 
 enum eNodeType
@@ -39,19 +40,26 @@ enum eBlockFlags
 
 enum
 {
-    NODE_NETWORK        = (1 << 0),
-    THIN_SUPPORT        = (1 << 1),
-    THIN_STAKE          = (1 << 2),
-    THIN_STEALTH        = (1 << 3),
-    SMSG_RELAY          = (1 << 4),
+    NODE_NETWORK = (1 << 0),
+    THIN_SUPPORT = (1 << 1),
+    THIN_STAKE   = (1 << 2),  // deprecated
+    THIN_STEALTH = (1 << 3),
+    SMSG_RELAY   = (1 << 4),
 };
-
 
 const int64_t GENESIS_BLOCK_TIME = 1414644354;
 
 static const int64_t COIN = 100000000;
 static const int64_t CENT = 1000000;
 
+/** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
+static const int64_t MIN_TX_FEE = 10000;
+static const int64_t MIN_TX_FEE_ANON = 1000000;
+/** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
+static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
+static const int64_t COIN_YEAR_REWARD = 5 * CENT; // 5% per year
+
+static const int64_t MBLK_RECEIVE_TIMEOUT = 60; // seconds
 
 extern int nNodeMode;
 extern int nNodeState;
@@ -62,14 +70,10 @@ extern int nBloomFilterElements;
 
 extern int nMinStakeInterval;
 
-extern int nThinStakeDelay;
 extern int nThinIndexWindow;
-extern int nLastTryThinStake;
 
 static const int nTryStakeMempoolTimeout = 5 * 60; // seconds
 static const int nTryStakeMempoolMaxAsk = 16;
-
-extern uint32_t nMaxThinStakeCandidates;
 
 extern uint64_t nLocalServices;
 extern uint32_t nLocalRequirements;
@@ -83,11 +87,11 @@ extern bool fDebugNet;
 extern bool fDebugSmsg;
 extern bool fDebugChain;
 extern bool fDebugRingSig;
+extern bool fDebugPoS;
 extern bool fNoSmsg;
 extern bool fPrintToConsole;
-extern bool fPrintToDebugger;
-extern bool fRequestShutdown;
-extern bool fShutdown;
+extern bool fPrintToDebugLog;
+//extern bool fShutdown;
 extern bool fDaemon;
 extern bool fServer;
 extern bool fCommandLine;
@@ -97,12 +101,28 @@ extern bool fLogTimestamps;
 extern bool fReopenDebugLog;
 extern bool fThinFullIndex;
 extern bool fReindexing;
+extern bool fHaveGUI;
+extern volatile bool fIsStaking;
+extern bool fMakeExtKeyInitials;
+extern volatile bool fPassGuiAddresses;
 
-extern CCriticalSection cs_threadCount;
-extern int nThreadCount;
+extern bool fConfChange;
+extern bool fEnforceCanonical;
+extern unsigned int nNodeLifespan;
+extern unsigned int nDerivationMethodIndex;
+extern unsigned int nMinerSleep;
+extern unsigned int nBlockMaxSize;
+extern unsigned int nBlockPrioritySize;
+extern unsigned int nBlockMinSize;
+extern int64_t nMinTxFee;
 
 extern unsigned int nStakeSplitAge;
+extern int nStakeMinConfirmations;
+extern int64_t nStakeSplitThreshold;
 extern int64_t nStakeCombineThreshold;
+
+extern uint32_t nExtKeyLookAhead;
+extern int64_t nTimeLastMblkRecv;
 
 
 #endif /* COIN_STATE_H */

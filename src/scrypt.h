@@ -4,7 +4,11 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#include "util.h"
+#ifndef OTP_ENABLED
+    #include "util.h"
+#else
+    #include "util_otp.h"
+#endif
 #include "net.h"
 
 uint256 scrypt_salted_multiround_hash(const void* input, size_t inputlen, const void* salt, size_t saltlen, const unsigned int nRounds);

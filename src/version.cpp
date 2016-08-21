@@ -8,11 +8,7 @@
 // Name of client reported in the 'version' message. Report the same name
 // for both bitcoind and bitcoin-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
-#ifdef FULLCLIENT
-const std::string CLIENT_NAME("vTorrent");
-#else
-const std::string CLIENT_NAME("vTorrent-classic");
-#endif
+const std::string CLIENT_NAME("vTorrent-Core");
 
 // Client version number
 #define CLIENT_VERSION_SUFFIX   ""

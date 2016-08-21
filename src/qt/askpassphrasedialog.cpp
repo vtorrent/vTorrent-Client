@@ -34,7 +34,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
         case Encrypt: // Ask passphrase x2
             ui->passLabel1->hide();
             ui->passEdit1->hide();
-            ui->warningLabel->setText(tr("Enter the new passphrase to the client.<br/><br/>Please use a passphrase of <b>10 or more random characters</b>.<br/>"));
+            ui->warningLabel->setText(tr("Enter the new passphrase to the wallet.<br/>Please use a passphrase of <b>10 or more random characters</b>, or <b>eight or more words</b>."));
             setWindowTitle(tr("Encrypt client"));
             break;
         case UnlockStaking:
@@ -42,7 +42,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             ui->stakingCheckBox->show();
             // fallthru
         case Unlock: // Ask passphrase
-            ui->warningLabel->setText(tr("This operation needs your client passphrase to unlock the client.<br/><br/>"));
+            ui->warningLabel->setText(tr("This operation needs your client passphrase to unlock the client."));
             ui->passLabel2->hide();
             ui->passEdit2->hide();
             ui->passLabel3->hide();
@@ -50,7 +50,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             setWindowTitle(tr("Unlock client"));
             break;
         case Decrypt:   // Ask passphrase
-            ui->warningLabel->setText(tr("This operation needs your client passphrase to decrypt the client.<br/><br/>"));
+            ui->warningLabel->setText(tr("This operation needs your wallet passphrase to decrypt the wallet."));
             ui->passLabel2->hide();
             ui->passEdit2->hide();
             ui->passLabel3->hide();
@@ -59,7 +59,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             break;
         case ChangePass: // Ask old passphrase + new passphrase x2
             setWindowTitle(tr("Change passphrase"));
-            ui->warningLabel->setText(tr("Enter the old and new passphrase to the client.<br/><br/>"));
+            ui->warningLabel->setText(tr("Enter the old and new passphrase to the client."));
             break;
     }
 
@@ -104,8 +104,8 @@ void AskPassphraseDialog::accept()
             // Cannot encrypt with empty passphrase
             break;
         }
-        QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm client encryption"),
-                 tr("Warning: If you encrypt your client and lose your passphrase, you will <b>LOSE ALL OF YOUR VTR</b>!") + "<br><br>" + tr("Are you sure you wish to encrypt your client?"),
+        QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm wallet encryption"),
+                 tr("Warning: If you encrypt your client and lose your passphrase, you will <b>LOSE ALL OF YOUR COINS</b>!") + "<br><br>" + tr("Are you sure you wish to encrypt your wallet?"),
                  QMessageBox::Yes|QMessageBox::Cancel,
                  QMessageBox::Cancel);
         if(retval == QMessageBox::Yes)
@@ -137,7 +137,7 @@ void AskPassphraseDialog::accept()
             else
             {
                 QMessageBox::critical(this, tr("Client encryption failed"),
-                                     tr("The supplied passphrases do not match."));
+                                     tr("The supplied passphrases or authentication code was incorrect."));
             }
         }
         else
@@ -149,8 +149,8 @@ void AskPassphraseDialog::accept()
     case Unlock:
         if(!model->setWalletLocked(false, oldpass))
         {
-            QMessageBox::critical(this, tr("Client unlock failed"),
-                                  tr("The passphrase entered for the client decryption was incorrect."));
+            QMessageBox::critical(this, tr("Wallet unlock failed"),
+                                  tr("The passphrase entered for the wallet decryption was incorrect."));
         }
         else
         {
@@ -181,13 +181,13 @@ void AskPassphraseDialog::accept()
             else
             {
                 QMessageBox::critical(this, tr("Client encryption failed"),
-                                     tr("The passphrase entered for the client decryption was incorrect."));
+                                     tr("The supplied passphrases or authentication code entered for the client encryption modify was incorrect."));
             }
         }
         else
         {
             QMessageBox::critical(this, tr("Client encryption failed"),
-                                 tr("The supplied passphrases do not match."));
+                                 tr("The supplied passphrases or authentication code was incorrect."));
         }
         break;
     }

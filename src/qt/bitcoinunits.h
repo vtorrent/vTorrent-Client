@@ -17,9 +17,10 @@ public:
      */
     enum Unit
     {
-        BTC,
-        mBTC,
-        uBTC
+        VTR,
+        mVTR,
+        uVTR,
+        sVTR
     };
 
     //! @name Static API
@@ -42,9 +43,6 @@ public:
     static int decimals(int unit);
     //! Format as string
     static QString format(int unit, qint64 amount, bool plussign=false);
-    static QString formatQuotient(int unit, qint64 amount, bool plussign=false);
-    static QString formatRemainder(int unit, qint64 amount, bool plussign=false);
-
     //! Format as string (with unit)
     static QString formatWithUnit(int unit, qint64 amount, bool plussign=false);
     //! Parse string to coin amount
@@ -61,6 +59,7 @@ public:
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
     ///@}
+
 private:
     QList<BitcoinUnits::Unit> unitlist;
 };

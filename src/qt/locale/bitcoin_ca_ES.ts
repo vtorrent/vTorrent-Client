@@ -1,59 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ca_ES">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca_ES" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../forms/aboutdialog.ui" line="+26"/>
+        <location filename="../forms/aboutdialog.ui" line="+14"/>
         <source>About vTorrent</source>
         <translation>Sobre vTorrent</translation>
     </message>
     <message>
-        <location line="+63"/>
-        <source>&lt;b&gt;vTorrent&lt;/b&gt; core</source>
-        <translation type="unfinished"></translation>
+        <location line="+39"/>
+        <source>&lt;b&gt;vTorrent&lt;/b&gt; version</source>
+        <translation>versió &lt;b&gt;vTorrent&lt;/b&gt;</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014-2015 The BlackCoin developers
-Copyright © 2014-2015 The ShadowCoin developers
+Copyright © 2014 The BlackCoin developers
 Copyright © 2014-2015 The vTorrent developers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href=&quot;https://www.openssl.org/&quot;&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;vTorrent&lt;/b&gt; version</source>
-        <translation type="vanished">versió &lt;b&gt;vTorrent&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Copyright © 2009-2014 The Bitcoin developers
+        <translation>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The vTorrent developers
-Copyright © 2014 The vTorrent developers</source>
-        <translation type="vanished">Copyright © 2009-2014 The Bitcoin developers
-Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The vTorrent developers
-Copyright © 2014 The vTorrent developers</translation>
+Copyright © 2014 The BlackCoin developers
+Copyright © 2014-2015 The vTorrent developers</translation>
     </message>
     <message>
+        <location line="+15"/>
         <source>
 This is experimental software.
 
 Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation type="vanished">\n Aquest és software experimental.\n\n Distribuït sota llicència de software MIT/11, veure l&apos;arxiu COPYING o http://www.opensource.org/licenses/mit-license.php.\n\nAquest producte inclou software desarrollat pel projecte OpenSSL per a l&apos;ús de OppenSSL Toolkit (http://www.openssl.org/) i de software criptogràfic escrit per l&apos;Eric Young (eay@cryptsoft.com) i software UPnP escrit per en Thomas Bernard.</translation>
+        <translation>\n Aquest és software experimental.\n\n Distribuït sota llicència de software MIT/11, veure l&apos;arxiu COPYING o http://www.opensource.org/licenses/mit-license.php.\n\nAquest producte inclou software desarrollat pel projecte OpenSSL per a l&apos;ús de OppenSSL Toolkit (http://www.openssl.org/) i de software criptogràfic escrit per l&apos;Eric Young (eay@cryptsoft.com) i software UPnP escrit per en Thomas Bernard.</translation>
     </message>
 </context>
 <context>
@@ -64,17 +41,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Llibreta d&apos;adreces</translation>
     </message>
     <message>
-        <location line="+32"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Receive vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>These are your addresses for receiving payments. Give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>Double-click to edit address or label</source>
         <translation>Feu doble clic per editar l&apos;adreça o l&apos;etiqueta</translation>
     </message>
@@ -94,11 +61,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Nova adreça</translation>
     </message>
     <message>
+        <location line="-46"/>
         <source>These are your vTorrent addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation type="vanished">Aquestes són les teves adreces de vTorrent per rebre els pagaments. És possible que vulgueu donar una diferent a cada remitent per a poder realitzar un seguiment de qui li está pagant.</translation>
+        <translation>Aquestes són les teves adreces de vTorrent per rebre els pagaments. És possible que vulgueu donar una diferent a cada remitent per a poder realitzar un seguiment de qui li está pagant.</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+60"/>
         <source>&amp;Copy Address</source>
         <translation>&amp;Copiar adreça</translation>
     </message>
@@ -138,7 +106,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Esborrar</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+73"/>
+        <location filename="../addressbookpage.cpp" line="+65"/>
         <source>Copy &amp;Label</source>
         <translation>Copiar &amp;Etiqueta</translation>
     </message>
@@ -148,7 +116,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Editar</translation>
     </message>
     <message>
-        <location line="+308"/>
+        <location line="+250"/>
         <source>Export Address Book Data</source>
         <translation>Exportar dades de la llibreta d&apos;adreces </translation>
     </message>
@@ -171,7 +139,7 @@ This product includes software developed by the OpenSSL Project for use in the O
 <context>
     <name>AddressTableModel</name>
     <message>
-        <location filename="../addresstablemodel.cpp" line="+156"/>
+        <location filename="../addresstablemodel.cpp" line="+144"/>
         <source>Label</source>
         <translation>Etiqueta</translation>
     </message>
@@ -194,7 +162,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Dialeg de contrasenya</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+21"/>
         <source>Enter passphrase</source>
         <translation>Introdueix contrasenya</translation>
     </message>
@@ -209,7 +177,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Repeteix la nova contrasenya</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+33"/>
         <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
         <translation>Serveix per desactivar l&apos;enviament trivial de diners quan el compte del sistema operatiu ha estat compromès. No ofereix seguretat real.</translation>
     </message>
@@ -219,58 +187,34 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Només per a fer &quot;stake&quot;</translation>
     </message>
     <message>
+        <location filename="../askpassphrasedialog.cpp" line="+35"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation type="vanished">Introdueixi la nova contrasenya al moneder&lt;br/&gt;Si us plau useu una contrasenya de &lt;b&gt;10 o més caracters aleatoris&lt;/b&gt;, o &lt;b&gt;vuit o més paraules&lt;/b&gt;.</translation>
-    </message>
-    <message>
-        <source>Encrypt wallet</source>
-        <translation type="vanished">Xifrar el moneder</translation>
-    </message>
-    <message>
-        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation type="vanished">Aquesta operació requereix la seva contrasenya del moneder per a desbloquejar-lo.</translation>
-    </message>
-    <message>
-        <source>Unlock wallet</source>
-        <translation type="vanished">Desbloqueja el moneder</translation>
-    </message>
-    <message>
-        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation type="vanished">Aquesta operació requereix la seva contrasenya del moneder per a desencriptar-lo.</translation>
-    </message>
-    <message>
-        <source>Decrypt wallet</source>
-        <translation type="vanished">Desencripta el moneder</translation>
-    </message>
-    <message>
-        <location filename="../askpassphrasedialog.cpp" line="+37"/>
-        <source>Enter the new passphrase to the client.&lt;br/&gt;&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Introdueixi la nova contrasenya al moneder&lt;br/&gt;Si us plau useu una contrasenya de &lt;b&gt;10 o més caracters aleatoris&lt;/b&gt;, o &lt;b&gt;vuit o més paraules&lt;/b&gt;.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Encrypt client</source>
-        <translation type="unfinished"></translation>
+        <source>Encrypt wallet</source>
+        <translation>Xifrar el moneder</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>This operation needs your client passphrase to unlock the client.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation>Aquesta operació requereix la seva contrasenya del moneder per a desbloquejar-lo.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Unlock client</source>
-        <translation type="unfinished"></translation>
+        <source>Unlock wallet</source>
+        <translation>Desbloqueja el moneder</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>This operation needs your client passphrase to decrypt the client.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>Aquesta operació requereix la seva contrasenya del moneder per a desencriptar-lo.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Decrypt client</source>
-        <translation type="unfinished"></translation>
+        <source>Decrypt wallet</source>
+        <translation>Desencripta el moneder</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -279,192 +223,147 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+1"/>
-        <source>Enter the old and new passphrase to the client.&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <source>Enter the old and new passphrase to the wallet.</source>
+        <translation>Introdueixi tant l&apos;antiga com la nova contrasenya de moneder.</translation>
     </message>
     <message>
-        <location line="+45"/>
-        <source>Confirm client encryption</source>
-        <translation type="unfinished"></translation>
+        <location line="+46"/>
+        <source>Confirm wallet encryption</source>
+        <translation>Confirmar l&apos;encriptació del moneder</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your client and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR SHARES&lt;/b&gt;!</source>
-        <translation type="unfinished"></translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
+        <translation>Avís: Si xifra el seu moneder i perd la contrasenya, podrà &lt;b&gt; PERDRE TOTES LES SEVES MONEDES &lt;/ b&gt;!</translation>
     </message>
     <message>
         <location line="+0"/>
-        <source>Are you sure you wish to encrypt your client?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <location line="+60"/>
-        <source>Client encrypted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-58"/>
-        <source>vTorrent will close now to finish the encryption process. Remember that encrypting your client cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>IMPORTANT: Any previous backups you have made of your client file should be replaced with the newly generated, encrypted client file. For security reasons, previous backups of the unencrypted client file will become useless as soon as you start using the new, encrypted client.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
-        <location line="+7"/>
-        <location line="+44"/>
-        <location line="+6"/>
-        <source>Client encryption failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-56"/>
-        <source>Client encryption failed due to an internal error. Your client was not encrypted.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
-        <source>Client unlock failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <location line="+12"/>
-        <location line="+19"/>
-        <source>The passphrase entered for the client decryption was incorrect.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-20"/>
-        <source>Client decryption failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Client passphrase was successfully changed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter the old and new passphrase to the wallet.</source>
-        <translation type="vanished">Introdueixi tant l&apos;antiga com la nova contrasenya de moneder.</translation>
-    </message>
-    <message>
-        <source>Confirm wallet encryption</source>
-        <translation type="vanished">Confirmar l&apos;encriptació del moneder</translation>
-    </message>
-    <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
-        <translation type="vanished">Avís: Si xifra el seu moneder i perd la contrasenya, podrà &lt;b&gt; PERDRE TOTES LES SEVES MONEDES &lt;/ b&gt;!</translation>
-    </message>
-    <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation type="vanished">Esteu segur que voleu encriptar el vostre moneder?</translation>
+        <translation>Esteu segur que voleu encriptar el vostre moneder?</translation>
     </message>
     <message>
+        <location line="+15"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation type="vanished">IMPORTANT: Tota copia de seguretat que hagis realitzat hauria de ser reemplaçada pel, recentment generat, arxiu encriptat del moneder.</translation>
+        <translation>IMPORTANT: Tota copia de seguretat que hagis realitzat hauria de ser reemplaçada pel, recentment generat, arxiu encriptat del moneder.</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+103"/>
         <location line="+24"/>
         <source>Warning: The Caps Lock key is on!</source>
         <translation>Advertència: Les lletres majúscules estàn activades!</translation>
     </message>
     <message>
+        <location line="-133"/>
+        <location line="+60"/>
         <source>Wallet encrypted</source>
-        <translation type="vanished">Moneder encriptat</translation>
+        <translation>Moneder encriptat</translation>
     </message>
     <message>
+        <location line="-58"/>
         <source>vTorrent will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation type="vanished">vTorrent tancarà ara per acabar el procés de xifrat. Recordeu que l&apos;encriptació del seu moneder no pot protegir completament les seves monedes de ser robades pel malware que pugui infectar al seu equip.</translation>
+        <translation>vTorrent tancarà ara per acabar el procés de xifrat. Recordeu que l&apos;encriptació del seu moneder no pot protegir completament les seves monedes de ser robades pel malware que pugui infectar al seu equip.</translation>
     </message>
     <message>
+        <location line="+13"/>
+        <location line="+7"/>
+        <location line="+44"/>
+        <location line="+6"/>
         <source>Wallet encryption failed</source>
-        <translation type="vanished">L&apos;encriptació del moneder ha fallat</translation>
+        <translation>L&apos;encriptació del moneder ha fallat</translation>
     </message>
     <message>
+        <location line="-56"/>
         <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
-        <translation type="vanished">L&apos;encriptació del moneder ha fallat per un error intern. El seu moneder no ha estat encriptat.</translation>
+        <translation>L&apos;encriptació del moneder ha fallat per un error intern. El seu moneder no ha estat encriptat.</translation>
     </message>
     <message>
-        <location line="-110"/>
+        <location line="+7"/>
         <location line="+50"/>
         <source>The supplied passphrases do not match.</source>
         <translation>La contrasenya introduïda no coincideix.</translation>
     </message>
     <message>
+        <location line="-38"/>
         <source>Wallet unlock failed</source>
-        <translation type="vanished">El desbloqueig del moneder ha fallat</translation>
+        <translation>El desbloqueig del moneder ha fallat</translation>
     </message>
     <message>
+        <location line="+1"/>
+        <location line="+12"/>
+        <location line="+19"/>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation type="vanished">La contrasenya introduïda per a desencriptar el moneder és incorrecte.</translation>
+        <translation>La contrasenya introduïda per a desencriptar el moneder és incorrecte.</translation>
     </message>
     <message>
+        <location line="-20"/>
         <source>Wallet decryption failed</source>
-        <translation type="vanished">La desencriptació del moneder ha fallat</translation>
+        <translation>La desencriptació del moneder ha fallat</translation>
     </message>
     <message>
+        <location line="+14"/>
         <source>Wallet passphrase was successfully changed.</source>
-        <translation type="vanished">La contrasenya del moneder ha estat modificada correctament.</translation>
+        <translation>La contrasenya del moneder ha estat modificada correctament.</translation>
     </message>
 </context>
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+412"/>
+        <location filename="../bitcoingui.cpp" line="+280"/>
         <source>Sign &amp;message...</source>
         <translation>Signar &amp;missatge...</translation>
     </message>
     <message>
-        <location line="+321"/>
+        <location line="+242"/>
         <source>Synchronizing with network...</source>
         <translation>Sincronitzant amb la xarxa ...</translation>
     </message>
     <message>
+        <location line="-308"/>
         <source>&amp;Overview</source>
-        <translation type="vanished">&amp;Panorama general</translation>
+        <translation>&amp;Panorama general</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>Show general overview of wallet</source>
-        <translation type="vanished">Mostra panorama general del moneder</translation>
+        <translation>Mostra panorama general del moneder</translation>
     </message>
     <message>
+        <location line="+17"/>
         <source>&amp;Transactions</source>
-        <translation type="vanished">&amp;Transaccions</translation>
+        <translation>&amp;Transaccions</translation>
     </message>
     <message>
-        <location line="-419"/>
+        <location line="+1"/>
         <source>Browse transaction history</source>
         <translation>Cerca a l&apos;historial de transaccions</translation>
     </message>
     <message>
+        <location line="+5"/>
         <source>&amp;Address Book</source>
-        <translation type="vanished">&amp;Llibreta d&apos;adreces</translation>
+        <translation>&amp;Llibreta d&apos;adreces</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+1"/>
         <source>Edit the list of stored addresses and labels</source>
         <translation>Edició de la llista d&apos;adreces i etiquetes emmagatzemades</translation>
     </message>
     <message>
+        <location line="-13"/>
         <source>&amp;Receive coins</source>
-        <translation type="vanished">&amp;Rebre monedes</translation>
+        <translation>&amp;Rebre monedes</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>Show the list of addresses for receiving payments</source>
-        <translation type="vanished">Mostra la llista d&apos;adreces per rebre pagaments</translation>
+        <translation>Mostra la llista d&apos;adreces per rebre pagaments</translation>
     </message>
     <message>
+        <location line="-7"/>
         <source>&amp;Send coins</source>
-        <translation type="vanished">&amp;Enviar monedes</translation>
+        <translation>&amp;Enviar monedes</translation>
     </message>
     <message>
-        <location line="+67"/>
+        <location line="+35"/>
         <source>E&amp;xit</source>
         <translation>S&amp;ortir</translation>
     </message>
@@ -494,43 +393,42 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Opcions...</translation>
     </message>
     <message>
+        <location line="+4"/>
         <source>&amp;Encrypt Wallet...</source>
-        <translation type="vanished">&amp;Xifrar moneder</translation>
+        <translation>&amp;Xifrar moneder</translation>
     </message>
     <message>
+        <location line="+3"/>
         <source>&amp;Backup Wallet...</source>
-        <translation type="vanished">&amp;Realitzar copia de seguretat del moneder...</translation>
+        <translation>&amp;Realitzar copia de seguretat del moneder...</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+2"/>
         <source>&amp;Change Passphrase...</source>
         <translation>&amp;Canviar contrasenya...</translation>
     </message>
     <message numerus="yes">
-        <location line="+329"/>
+        <location line="+250"/>
         <source>~%n block(s) remaining</source>
-        <translation>
-            <numerusform>~%n bloc restant</numerusform>
-            <numerusform>~%n blocs restants</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>~%n bloc restant</numerusform><numerusform>~%n blocs restants</numerusform></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+6"/>
         <source>Downloaded %1 of %2 blocks of transaction history (%3% done).</source>
         <translation>Descarregats %1 de %2 blocs d&apos;historial de transaccions (%3% completat).</translation>
     </message>
     <message>
-        <location line="-327"/>
+        <location line="-247"/>
         <source>&amp;Export...</source>
         <translation>&amp;Exportar...</translation>
     </message>
     <message>
+        <location line="-62"/>
         <source>Send coins to a vTorrent address</source>
-        <translation type="vanished">Enviar monedes a una adreça vTorrent</translation>
+        <translation>Enviar monedes a una adreça vTorrent</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="+45"/>
         <source>Modify configuration options for vTorrent</source>
         <translation>Modificar les opcions de configuració per a vTorrent</translation>
     </message>
@@ -540,19 +438,22 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Exportar les dades de la pestanya actual a un arxiu</translation>
     </message>
     <message>
+        <location line="-14"/>
         <source>Encrypt or decrypt wallet</source>
-        <translation type="vanished">Xifrar o desxifrar moneder</translation>
+        <translation>Xifrar o desxifrar moneder</translation>
     </message>
     <message>
+        <location line="+3"/>
         <source>Backup wallet to another location</source>
-        <translation type="vanished">Realitzar còpia de seguretat del moneder a un altre directori</translation>
+        <translation>Realitzar còpia de seguretat del moneder a un altre directori</translation>
     </message>
     <message>
+        <location line="+2"/>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation type="vanished">Canviar la constrasenya d&apos;encriptació del moneder</translation>
+        <translation>Canviar la constrasenya d&apos;encriptació del moneder</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+10"/>
         <source>&amp;Debug window</source>
         <translation>&amp;Finestra de depuració</translation>
     </message>
@@ -567,16 +468,17 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Verifica el missatge..</translation>
     </message>
     <message>
-        <location line="-303"/>
+        <location line="-200"/>
         <source>vTorrent</source>
         <translation>vTorrent</translation>
     </message>
     <message>
+        <location line="+0"/>
         <source>Wallet</source>
-        <translation type="vanished">Moneder</translation>
+        <translation>Moneder</translation>
     </message>
     <message>
-        <location line="+281"/>
+        <location line="+178"/>
         <source>&amp;About vTorrent</source>
         <translation>&amp;Sobre vTorrent</translation>
     </message>
@@ -586,19 +488,22 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Mostrar / Amagar</translation>
     </message>
     <message>
+        <location line="+9"/>
         <source>Unlock wallet</source>
-        <translation type="vanished">Desbloquejar el moneder</translation>
+        <translation>Desbloquejar el moneder</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>&amp;Lock Wallet</source>
-        <translation type="vanished">&amp;Bloquejar moneder</translation>
+        <translation>&amp;Bloquejar moneder</translation>
     </message>
     <message>
+        <location line="+1"/>
         <source>Lock wallet</source>
-        <translation type="vanished">Bloquejar moneder</translation>
+        <translation>Bloquejar moneder</translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="+34"/>
         <source>&amp;File</source>
         <translation>&amp;Arxiu</translation>
     </message>
@@ -613,271 +518,86 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Ajuda</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+9"/>
         <source>Tabs toolbar</source>
         <translation>Barra d&apos;eines de seccions</translation>
     </message>
     <message>
+        <location line="+8"/>
         <source>Actions toolbar</source>
-        <translation type="vanished">Barra d&apos;eines d&apos;accions</translation>
+        <translation>Barra d&apos;eines d&apos;accions</translation>
     </message>
     <message>
-        <location line="+75"/>
+        <location line="+13"/>
         <location line="+9"/>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
     </message>
     <message>
         <location line="+0"/>
-        <location line="+75"/>
+        <location line="+60"/>
         <source>vTorrent client</source>
         <translation>Client vTorrent</translation>
     </message>
     <message numerus="yes">
         <location line="+70"/>
         <source>%n active connection(s) to vTorrent network</source>
-        <translation>
-            <numerusform>%n conexió activa a la xarxa vTorrent</numerusform>
-            <numerusform>%n conexions actives a la xarxa vTorrent</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>%n conexió activa a la xarxa vTorrent</numerusform><numerusform>%n conexions actives a la xarxa vTorrent</numerusform></translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="+40"/>
         <source>Downloaded %1 blocks of transaction history.</source>
         <translation>Descarregats %1 blocs d&apos;historial de transaccions</translation>
     </message>
     <message>
-        <location line="+326"/>
-        <source>Client is &lt;b&gt;not encrypted&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>Client is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>Client is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>Backup Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Client Data (*.dat)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>There was an error trying to save the client data to the new location.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+107"/>
+        <location line="+413"/>
         <source>Staking.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
         <translation>Fent &quot;stake&quot;.&lt;br&gt;El teu pes és %1&lt;br&gt;El pes de la xarxa és %2&lt;br&gt;El temps estimat per a guanyar una recompensa és 3%</translation>
     </message>
     <message>
+        <location line="+6"/>
         <source>Not staking because wallet is locked</source>
-        <translation type="vanished">No s&apos;està fent &quot;stake&quot; perquè el moneder esa bloquejat</translation>
+        <translation>No s&apos;està fent &quot;stake&quot; perquè el moneder esa bloquejat</translation>
     </message>
     <message>
+        <location line="+2"/>
         <source>Not staking because wallet is offline</source>
-        <translation type="vanished">No s&apos;està fent &quot;stake&quot; perquè el moneder està fora de línia</translation>
+        <translation>No s&apos;està fent &quot;stake&quot; perquè el moneder està fora de línia</translation>
     </message>
     <message>
+        <location line="+2"/>
         <source>Not staking because wallet is syncing</source>
-        <translation type="vanished">No s&apos;està fent &quot;stake&quot; perquè el moneder està sincronitzant</translation>
+        <translation>No s&apos;està fent &quot;stake&quot; perquè el moneder està sincronitzant</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+2"/>
         <source>Not staking because you don&apos;t have mature coins</source>
         <translation>No s&apos;està fent &quot;stake&quot; perquè no tens monedes madures</translation>
     </message>
     <message numerus="yes">
-        <location line="-474"/>
+        <location line="-403"/>
         <source>%n second(s) ago</source>
-        <translation>
-            <numerusform>fa %n segon</numerusform>
-            <numerusform>fa %n segons</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>fa %n segon</numerusform><numerusform>fa %n segons</numerusform></translation>
     </message>
     <message>
+        <location line="-284"/>
         <source>&amp;Unlock Wallet...</source>
-        <translation type="vanished">&amp;Desbloquejar moneder</translation>
-    </message>
-    <message>
-        <location line="-663"/>
-        <source>Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+185"/>
-        <source>&amp;DASHBOARD</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Show general overview of client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;SEND</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Send shares to a vTorrent address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;RECEIVE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Show the list of addresses for receiving shares</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;HISTORY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;ADDRESSES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;MESSAGES</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>View and Send Encrypted messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>&amp;BLOCK EXPLORER</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Explore the BlockChain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;Bittrex VTR-BTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Trades VTR-BTC at Bittrex</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;EmpoEX VTR-BTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Trades VTR-BTC at EmpoEX</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>&amp;TORRENT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Torrent Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+48"/>
-        <source>&amp;Encrypt Client...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Encrypt or decrypt client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>&amp;Backup Client...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Backup client private key to another location</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Change the passphrase used for client encryption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>&amp;Unlock Client...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Unlock client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>&amp;Lock Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Lock client</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Desbloquejar moneder</translation>
     </message>
     <message numerus="yes">
-        <location line="+366"/>
+        <location line="+288"/>
         <source>%n minute(s) ago</source>
-        <translation>
-            <numerusform>fa %n minut</numerusform>
-            <numerusform>fa %n minuts</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>fa %n minut</numerusform><numerusform>fa %n minuts</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n hour(s) ago</source>
-        <translation>
-            <numerusform>fa %n hora</numerusform>
-            <numerusform>fa %n hores</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>fa %n hora</numerusform><numerusform>fa %n hores</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n day(s) ago</source>
-        <translation>
-            <numerusform>fa %n dia</numerusform>
-            <numerusform>fa %n dies</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>fa %n dia</numerusform><numerusform>fa %n dies</numerusform></translation>
     </message>
     <message>
         <location line="+6"/>
@@ -890,12 +610,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Posar-se al dia ...</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+10"/>
         <source>Last received block was generated %1.</source>
         <translation>El darrer bloc rebut s&apos;ha generat %1.</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+59"/>
         <source>This transaction is over the size limit.  You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network.  Do you want to pay the fee?</source>
         <translation>Aquesta transacció es troba sobre el límit de mida. Encara pot enviar-la amb una comisió de 1%, aquesta va als nodes que processen la seva transacció i ajuda a mantenir la xarxa. Vol pagar la quota?</translation>
     </message>
@@ -924,21 +644,7 @@ Address: %4
         <translation>Data: %1\nQuantitat %2\n Tipus: %3\n Adreça: %4\n</translation>
     </message>
     <message>
-        <location line="+28"/>
-        <source>Incoming Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Date: %1
-From Address: %2
-To Address: %3
-Message: %4
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+119"/>
+        <location line="+100"/>
         <location line="+15"/>
         <source>URI handling</source>
         <translation>Manejant URI</translation>
@@ -950,213 +656,70 @@ Message: %4
         <translation>l&apos;URI no es pot analitzar! Això pot ser causat per una adreça vTorrent no vàlida o paràmetres URI malformats.</translation>
     </message>
     <message>
+        <location line="+18"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation type="vanished">El moneder està &lt;b&gt;encriptat&lt;/b&gt; i actualment &lt;b&gt;desbloquejat&lt;/b&gt;</translation>
+        <translation>El moneder està &lt;b&gt;encriptat&lt;/b&gt; i actualment &lt;b&gt;desbloquejat&lt;/b&gt;</translation>
     </message>
     <message>
+        <location line="+10"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
-        <translation type="vanished">El moneder està &lt;b&gt;encriptat&lt;/b&gt; i actualment &lt;b&gt;bloquejat&lt;/b&gt;</translation>
+        <translation>El moneder està &lt;b&gt;encriptat&lt;/b&gt; i actualment &lt;b&gt;bloquejat&lt;/b&gt;</translation>
     </message>
     <message>
+        <location line="+25"/>
         <source>Backup Wallet</source>
-        <translation type="vanished">Realitzar còpia de seguretat del moneder</translation>
+        <translation>Realitzar còpia de seguretat del moneder</translation>
     </message>
     <message>
+        <location line="+0"/>
         <source>Wallet Data (*.dat)</source>
-        <translation type="vanished">Dades del moneder (*.dat)</translation>
+        <translation>Dades del moneder (*.dat)</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+3"/>
         <source>Backup Failed</source>
         <translation>Còpia de seguretat fallida</translation>
     </message>
     <message>
+        <location line="+0"/>
         <source>There was an error trying to save the wallet data to the new location.</source>
-        <translation type="vanished">Hi ha un error al tractar de salvar les dades del seu moneder a la nova ubicació.</translation>
+        <translation>Hi ha un error al tractar de salvar les dades del seu moneder a la nova ubicació.</translation>
     </message>
     <message numerus="yes">
-        <location line="+91"/>
+        <location line="+76"/>
         <source>%n second(s)</source>
-        <translation>
-            <numerusform>%n segon</numerusform>
-            <numerusform>%n segons</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>%n segon</numerusform><numerusform>%n segons</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n minute(s)</source>
-        <translation>
-            <numerusform>%n minut</numerusform>
-            <numerusform>%n minuts</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>%n minut</numerusform><numerusform>%n minuts</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n hour(s)</source>
-        <translation>
-            <numerusform>%n hora</numerusform>
-            <numerusform>%n hores</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>%n hora</numerusform><numerusform>%n hores</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n day(s)</source>
-        <translation>
-            <numerusform>%n dia</numerusform>
-            <numerusform>%n dies</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>%n dia</numerusform><numerusform>%n dies</numerusform></translation>
     </message>
     <message>
-        <location line="+10"/>
-        <source>Not staking because client is locked</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because client is offline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because client is syncing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+18"/>
         <source>Not staking</source>
         <translation>No s&apos;està fent &quot;stake&quot; </translation>
     </message>
     <message>
-        <location filename="../bitcoin.cpp" line="+114"/>
+        <location filename="../bitcoin.cpp" line="+109"/>
         <source>A fatal error occurred. vTorrent can no longer continue safely and will quit.</source>
         <translation>S&apos;ha produït un error fatal. vTorrent ja no pot continuar de forma segura i es tancarà.</translation>
     </message>
 </context>
 <context>
-    <name>BlockBrowser</name>
-    <message>
-        <location filename="../forms/blockbrowser.ui" line="+23"/>
-        <source>Form</source>
-        <translation type="unfinished">Formulari</translation>
-    </message>
-    <message>
-        <location line="+57"/>
-        <source>vTorrent - Block Explorer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+79"/>
-        <source>Jump to Block</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Block Height:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <location line="+63"/>
-        <location line="+14"/>
-        <location line="+14"/>
-        <source>0</source>
-        <translation type="unfinished">0</translation>
-    </message>
-    <message>
-        <location line="-84"/>
-        <source>Block Hash:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <location line="+20"/>
-        <source>0x0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-13"/>
-        <source>Block Merkle:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Block nNonce:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Block nBits:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Block Timestamp:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Block Difficulty:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>0.00</source>
-        <translation type="unfinished">0.00</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Block Hashrate:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>0000 KH/s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+56"/>
-        <source>Decode Transaction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Transaction ID:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>000</source>
-        <translation type="unfinished">000</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Value out:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Fees:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Outputs:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Inputs:</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+110"/>
+        <location filename="../clientmodel.cpp" line="+90"/>
         <source>Network Alert</source>
         <translation>Alerta de xarxa</translation>
     </message>
@@ -1164,37 +727,37 @@ Message: %4
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+20"/>
+        <location filename="../forms/coincontroldialog.ui" line="+14"/>
         <source>Coin Control</source>
         <translation>Opcions del control de monedes</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+31"/>
         <source>Quantity:</source>
         <translation>Quantitat:</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+32"/>
         <source>Bytes:</source>
         <translation>Bytes:</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+48"/>
         <source>Amount:</source>
         <translation>Quantitat:</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+32"/>
         <source>Priority:</source>
         <translation>Prioritat:</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+48"/>
         <source>Fee:</source>
         <translation>Quota:</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Low Output:</source>
         <translation>Sortida baixa:</translation>
     </message>
@@ -1204,17 +767,17 @@ Message: %4
         <translation>no</translation>
     </message>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+50"/>
+        <location filename="../forms/coincontroldialog.ui" line="+51"/>
         <source>After Fee:</source>
         <translation>Quota posterior:</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Change:</source>
         <translation>Canvi:</translation>
     </message>
     <message>
-        <location line="+68"/>
+        <location line="+69"/>
         <source>(un)select all</source>
         <translation>(de)seleccionar tot</translation>
     </message>
@@ -1432,7 +995,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>EditAddressDialog</name>
     <message>
-        <location filename="../forms/editaddressdialog.ui" line="+26"/>
+        <location filename="../forms/editaddressdialog.ui" line="+14"/>
         <source>Edit Address</source>
         <translation>Editar Adreça</translation>
     </message>
@@ -1442,7 +1005,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>&amp;Etiqueta</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+10"/>
         <source>The label associated with this address book entry</source>
         <translation>L&apos;etiqueta associada amb aquesta entrada de la llibreta d&apos;adreces</translation>
     </message>
@@ -1452,14 +1015,9 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>&amp;Direcció</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+10"/>
         <source>The address associated with this address book entry. This can only be modified for sending addresses.</source>
         <translation>La direcció associada amb aquesta entrada de la llibreta d&apos;adreces. Només pot ser modificada per a l&apos;enviament d&apos;adreces.</translation>
-    </message>
-    <message>
-        <location line="+26"/>
-        <source>&amp;Stealth Address</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../editaddressdialog.cpp" line="+20"/>
@@ -1467,22 +1025,22 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Nova adreça de recepció.</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+4"/>
         <source>New sending address</source>
         <translation>Nova adreça d&apos;enviament</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+3"/>
         <source>Edit receiving address</source>
         <translation>Editar adreces de recepció</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+4"/>
         <source>Edit sending address</source>
         <translation>Editar adreces d&apos;enviament</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+76"/>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
         <translation>L&apos;adreça introduïda &quot;%1&quot; ja és present a la llibreta d&apos;adreces.</translation>
     </message>
@@ -1505,10 +1063,10 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+424"/>
+        <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
-        <source>vTorrent-Client</source>
-        <translation>vTorrent-Client</translation>
+        <source>vTorrent-Qt</source>
+        <translation>vTorrent-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1547,360 +1105,19 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
 </context>
 <context>
-    <name>MRichTextEdit</name>
-    <message>
-        <location filename="../plugins/mrichtexteditor/mrichtextedit.ui" line="+56"/>
-        <source>Paragraph formatting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+23"/>
-        <source>Undo (CTRL+Z)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Undo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <location line="+3"/>
-        <source>Redo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Cut (CTRL+X)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Cut</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Copy (CTRL+C)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Copy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Paste (CTRL+V)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Paste</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+28"/>
-        <source>Link (CTRL+L)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+34"/>
-        <source>Bold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <source>Italic (CTRL+I)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Italic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+24"/>
-        <source>Underline (CTRL+U)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Underline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Strike Out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Bullet list (CTRL+-)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Bullet list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
-        <source>Ordered list (CTRL+=)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Ordered list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
-        <source>Decrease indentation (CTRL+,)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Decrease indentation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
-        <source>Increase indentation (CTRL+.)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Increase indentation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+40"/>
-        <source>Text background color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>Font size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/mrichtexteditor/mrichtextedit.cpp" line="+59"/>
-        <source>Standard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Heading 4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Monospace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+143"/>
-        <source>Create a link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Link URL:</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MessageModel</name>
-    <message>
-        <location filename="../messagemodel.cpp" line="+310"/>
-        <source>Type</source>
-        <translation type="unfinished">Tipus</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Sent Date Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Received Date Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Label</source>
-        <translation type="unfinished">Etiqueta</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>To Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>From Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Message</source>
-        <translation type="unfinished">Missatge</translation>
-    </message>
-    <message>
-        <location line="+82"/>
-        <source>Send Secure Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Send failed: %1.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+67"/>
-        <source>(no label)</source>
-        <translation type="unfinished">(sense etiqueta)</translation>
-    </message>
-</context>
-<context>
-    <name>MessagePage</name>
-    <message>
-        <location filename="../forms/messagepage.ui" line="+14"/>
-        <source>Address Book</source>
-        <translation type="unfinished">Llibreta d&apos;adreces</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>These are your sent and received encrypted messages. Click on an item to read it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>Click on a message to view it</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>&amp;Back</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Contact:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>&amp;Conversation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Sign a message to prove you own a vTorrent address</source>
-        <translation type="unfinished">Signar un missatge per demostrar que és propietari d&apos;una adreça vTorrent</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Send</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <location line="+14"/>
-        <source>Copy the currently selected address to the system clipboard</source>
-        <translation type="unfinished">Copiar l&apos;adreça seleccionada al porta-retalls del sistema</translation>
-    </message>
-    <message>
-        <location line="-11"/>
-        <source>&amp;Copy From Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Copy To &amp;Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+11"/>
-        <source>Delete the currently selected address from the list</source>
-        <translation type="unfinished">Esborrar l&apos;adreça sel·leccionada</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Delete</source>
-        <translation type="unfinished">&amp;Esborrar</translation>
-    </message>
-    <message>
-        <location filename="../messagepage.cpp" line="+182"/>
-        <source>Send Secure Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Send failed: %1.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+213"/>
-        <source>Export Messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Comma separated file (*.csv)</source>
-        <translation type="unfinished">Arxiu de separació per comes (*.csv)</translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Error exporting</source>
-        <translation type="unfinished">Error a l&apos;exportar</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Could not write to file %1.</source>
-        <translation type="unfinished">No s&apos;ha pogut escriure al fitxer %1.</translation>
-    </message>
-</context>
-<context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+26"/>
+        <location filename="../forms/optionsdialog.ui" line="+14"/>
         <source>Options</source>
         <translation>Opcions</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+16"/>
         <source>&amp;Main</source>
         <translation>&amp;Principal</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+6"/>
         <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.01 recommended.</source>
         <translation>Comisió opcional per kB que ajuda a assegurar-se que les seves transaccions es processen ràpidament. La majoria de les transaccions són 1 kB. Comisió d&apos;0.01 recomenada.</translation>
     </message>
@@ -1940,12 +1157,12 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>&amp;Separar bases de dades a l&apos;apagar l&apos;equip</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>&amp;Network</source>
         <translation>&amp;Xarxa</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+6"/>
         <source>Automatically open the vTorrent client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Obrir automàticament el port de client vTorrent en el router. Això només funciona quan el router és compatible amb UPnP i està habilitat.</translation>
     </message>
@@ -1995,12 +1212,12 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Versió SOCKS del proxy (per exemple 5)</translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+36"/>
         <source>&amp;Window</source>
         <translation>&amp;Finestra</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+6"/>
         <source>Show only a tray icon after minimizing the window.</source>
         <translation>Mostrar només l&apos;icona de la barra al minimitzar l&apos;aplicació.</translation>
     </message>
@@ -2020,12 +1237,12 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>M&amp;inimitzar al tancar</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>&amp;Display</source>
         <translation>&amp;Pantalla</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+8"/>
         <source>User Interface &amp;language:</source>
         <translation>Llenguatge de la Interfície d&apos;Usuari:</translation>
     </message>
@@ -2045,13 +1262,13 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Sel·lecciona la unitat de subdivisió per defecte per mostrar en la interficie quan s&apos;envien monedes.</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+9"/>
         <source>Whether to show vTorrent addresses in the transaction list or not.</source>
         <translation>Per mostrar vTorrent adreces a la llista de transaccions o no.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Display addresses in transaction list (stealth address is too long)</source>
+        <source>&amp;Display addresses in transaction list</source>
         <translation>&amp;Mostrar adreces al llistat de transaccions</translation>
     </message>
     <message>
@@ -2065,7 +1282,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Mostrar controls i característiques de la moneda (només per a experts!)</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+71"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
@@ -2105,85 +1322,79 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>OverviewPage</name>
     <message>
+        <location filename="../forms/overviewpage.ui" line="+14"/>
         <source>Form</source>
-        <translation type="vanished">Formulari</translation>
+        <translation>Formulari</translation>
     </message>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+65"/>
+        <location line="+33"/>
+        <location line="+231"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the vTorrent network after a connection is established, but this process has not completed yet.</source>
         <translation>La informació mostrada pot estar fora de data. El seu moneder es sincronitza automàticament amb la xarxa vTorrent després d&apos;establir una connexió, però aquest procés no s&apos;ha completat encara.</translation>
     </message>
     <message>
-        <location line="+77"/>
-        <source>&lt;b&gt;Current Balance&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+132"/>
+        <location line="-160"/>
         <source>Stake:</source>
         <translation>En &quot;stake&quot;:</translation>
     </message>
     <message>
-        <location line="+61"/>
+        <location line="+29"/>
         <source>Unconfirmed:</source>
         <translation>Sense confirmar:</translation>
     </message>
     <message>
+        <location line="-107"/>
         <source>Wallet</source>
-        <translation type="vanished">Moneder</translation>
+        <translation>Moneder</translation>
     </message>
     <message>
-        <location line="-122"/>
+        <location line="+49"/>
         <source>Spendable:</source>
         <translation>Disponible:</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+16"/>
         <source>Your current spendable balance</source>
         <translation>El balanç de saldo actual disponible</translation>
     </message>
     <message>
-        <location line="+153"/>
+        <location line="+71"/>
         <source>Immature:</source>
         <translation>Immatur:</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+13"/>
         <source>Mined balance that has not yet matured</source>
         <translation>Balanç minat que encara no ha madurat</translation>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+20"/>
         <source>Total:</source>
         <translation>Total:</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+16"/>
         <source>Your current total balance</source>
         <translation>El seu balanç total</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+46"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Transaccions recents&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-160"/>
+        <location line="-108"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
         <translation>Total de transaccions que encara no s&apos;han confirmat, i encara no compten per al balanç actual</translation>
     </message>
     <message>
-        <location line="-315"/>
-        <source>Wallet Summary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+254"/>
+        <location line="-29"/>
         <source>Total of coins that was staked, and do not yet count toward the current balance</source>
         <translation>Total de les monedes que s&apos;han posat a fer &quot;stake&quot; (en joc, aposta), i encara no compten per al balanç actual</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+114"/>
+        <location filename="../overviewpage.cpp" line="+113"/>
+        <location line="+1"/>
         <source>out of sync</source>
         <translation>Fora de sincronia</translation>
     </message>
@@ -2191,32 +1402,32 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>QRCodeDialog</name>
     <message>
-        <location filename="../forms/qrcodedialog.ui" line="+20"/>
+        <location filename="../forms/qrcodedialog.ui" line="+14"/>
         <source>QR Code Dialog</source>
         <translation>Diàleg de codi QR</translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+59"/>
         <source>Request Payment</source>
         <translation>Sol·licitud de pagament</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+56"/>
         <source>Amount:</source>
         <translation>Quantitat:</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="-44"/>
         <source>Label:</source>
         <translation>Etiqueta:</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+19"/>
         <source>Message:</source>
         <translation>Missatge:</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+71"/>
         <source>&amp;Save As...</source>
         <translation>&amp;Desa com ...</translation>
     </message>
@@ -2227,7 +1438,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>The entered amount is invalid.</source>
+        <source>The entered amount is invalid, please check.</source>
         <translation>La quantitat introduïda no és vàlida, comproveu-ho si us plau.</translation>
     </message>
     <message>
@@ -2249,170 +1460,133 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+148"/>
+        <location filename="../forms/rpcconsole.ui" line="+46"/>
         <source>Client name</source>
         <translation>Nom del client</translation>
     </message>
     <message>
-        <location line="+22"/>
-        <location line="+65"/>
-        <location line="+68"/>
-        <location line="+65"/>
-        <location line="+117"/>
-        <location line="+65"/>
-        <location line="+65"/>
-        <location line="+111"/>
-        <location filename="../rpcconsole.cpp" line="+356"/>
+        <location line="+10"/>
+        <location line="+23"/>
+        <location line="+26"/>
+        <location line="+23"/>
+        <location line="+23"/>
+        <location line="+36"/>
+        <location line="+53"/>
+        <location line="+23"/>
+        <location line="+23"/>
+        <location filename="../rpcconsole.cpp" line="+348"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location line="-513"/>
+        <location line="-217"/>
         <source>Client version</source>
         <translation>Versió del client</translation>
     </message>
     <message>
-        <location line="-150"/>
+        <location line="-45"/>
         <source>&amp;Information</source>
         <translation>&amp;Informació</translation>
     </message>
     <message>
-        <location line="+51"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;vTorrent Core&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+164"/>
+        <location line="+68"/>
         <source>Using OpenSSL version</source>
         <translation>Utilitzant OpenSSL versió</translation>
     </message>
     <message>
-        <location line="+68"/>
+        <location line="+49"/>
         <source>Startup time</source>
         <translation>&amp;Temps d&apos;inici</translation>
     </message>
     <message>
+        <location line="+29"/>
         <source>Network</source>
-        <translation type="vanished">Xarxa</translation>
+        <translation>Xarxa</translation>
     </message>
     <message>
-        <location line="+358"/>
+        <location line="+7"/>
         <source>Number of connections</source>
         <translation>Nombre de connexions</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+23"/>
         <source>On testnet</source>
         <translation>A testnet</translation>
     </message>
     <message>
+        <location line="+23"/>
         <source>Block chain</source>
-        <translation type="vanished">Bloquejar cadena</translation>
+        <translation>Bloquejar cadena</translation>
     </message>
     <message>
-        <location line="-300"/>
+        <location line="+7"/>
         <source>Current number of blocks</source>
         <translation>Nombre de blocs actuals</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+23"/>
         <source>Estimated total blocks</source>
         <translation>Total estimat de blocs</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+23"/>
         <source>Last block time</source>
         <translation>Últim temps de bloc</translation>
     </message>
     <message>
+        <location line="+52"/>
         <source>&amp;Open</source>
-        <translation type="vanished">&amp;Obrir</translation>
+        <translation>&amp;Obrir</translation>
     </message>
     <message>
-        <location line="+261"/>
+        <location line="+16"/>
         <source>Command-line options</source>
         <translation>Opcions de la línia d&apos;ordres</translation>
     </message>
     <message>
-        <source>Show the vTorrent-Client help message to get a list with possible vTorrent command-line options.</source>
-        <translation type="vanished">Mostra el missatge d&apos;ajuda de vTorrent-Client per obtenir una llista amb les possibles opcions de línia d&apos;ordres vTorrent.</translation>
+        <location line="+7"/>
+        <source>Show the vTorrent-Qt help message to get a list with possible vTorrent command-line options.</source>
+        <translation>Mostra el missatge d&apos;ajuda de vTorrent-Qt per obtenir una llista amb les possibles opcions de línia d&apos;ordres vTorrent.</translation>
     </message>
     <message>
+        <location line="+3"/>
         <source>&amp;Show</source>
-        <translation type="vanished">&amp;Mostra</translation>
+        <translation>&amp;Mostra</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+24"/>
         <source>&amp;Console</source>
         <translation>&amp;Consola</translation>
     </message>
     <message>
+        <location line="-260"/>
         <source>Build date</source>
-        <translation type="vanished">Data de compilació</translation>
+        <translation>Data de compilació</translation>
     </message>
     <message>
-        <location line="-868"/>
+        <location line="-104"/>
         <source>vTorrent - Debug window</source>
         <translation>vTorrent - Finestra Depuració</translation>
     </message>
     <message>
+        <location line="+25"/>
         <source>vTorrent Core</source>
-        <translation type="vanished">Nucli vTorrent</translation>
+        <translation>Nucli vTorrent</translation>
     </message>
     <message>
-        <location line="+841"/>
+        <location line="+279"/>
         <source>Debug log file</source>
         <translation>Dietàri de depuració</translation>
     </message>
     <message>
-        <location line="-3"/>
+        <location line="+7"/>
         <source>Open the vTorrent debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Obriu el fitxer de registre de depuració vTorrent des del directori de dades actual. Això pot trigar uns segons en els arxius de registre de grans dimensions.</translation>
     </message>
     <message>
-        <location line="-441"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Block chain&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+247"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Network&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+175"/>
-        <source>Show the vTorrent-Qt help message to get a list with possible XCash command-line options.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+107"/>
+        <location line="+102"/>
         <source>Clear console</source>
         <translation>Netejar consola</translation>
-    </message>
-    <message>
-        <location line="+23"/>
-        <source>&amp;Network Traffic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+52"/>
-        <source>&amp;Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>Totals</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+65"/>
-        <source>In:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+80"/>
-        <source>Out:</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
@@ -2429,41 +1603,6 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
         <translation>Escriu &lt;b&gt;help&lt;\b&gt; per a obtenir una llistat de les ordres disponibles.</translation>
     </message>
-    <message>
-        <location line="+126"/>
-        <source>%1 B</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 KB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 MB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 GB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>%1 m</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>%1 h</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>%1 h %2 m</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SendCoinsDialog</name>
@@ -2476,17 +1615,11 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <location line="+6"/>
         <location line="+5"/>
         <location line="+5"/>
-        <location line="+5"/>
         <source>Send Coins</source>
         <translation>Enviar monedes</translation>
     </message>
     <message>
-        <location line="+32"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Send vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+72"/>
+        <location line="+76"/>
         <source>Coin Control Features</source>
         <translation>(Opcions del control del Coin)</translation>
     </message>
@@ -2506,41 +1639,41 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Fons insuficient</translation>
     </message>
     <message>
-        <location line="+86"/>
+        <location line="+77"/>
         <source>Quantity:</source>
         <translation>Quantitat:</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <location line="+34"/>
+        <location line="+22"/>
+        <location line="+35"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location line="-18"/>
+        <location line="-19"/>
         <source>Bytes:</source>
         <translation>Bytes:</translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+51"/>
         <source>Amount:</source>
         <translation>Quantitat:</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <location line="+84"/>
-        <location line="+84"/>
-        <location line="+31"/>
+        <location line="+22"/>
+        <location line="+86"/>
+        <location line="+86"/>
+        <location line="+32"/>
         <source>0.00 VTR</source>
         <translation>123.456 VTR {0.00 ?}</translation>
     </message>
     <message>
-        <location line="-186"/>
+        <location line="-191"/>
         <source>Priority:</source>
         <translation>Prioritat:</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+19"/>
         <source>medium</source>
         <translation>mig</translation>
     </message>
@@ -2550,12 +1683,12 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Quota:</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Low Output:</source>
         <translation>Sortida baixa:</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+19"/>
         <source>no</source>
         <translation>no</translation>
     </message>
@@ -2565,17 +1698,17 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Quota posterior:</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+35"/>
         <source>Change</source>
         <translation>Canvi</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+50"/>
         <source>custom change address</source>
         <translation>Adreça de canvi pròpia</translation>
     </message>
     <message>
-        <location line="+121"/>
+        <location line="+106"/>
         <source>Send to multiple recipients at once</source>
         <translation>Enviar a multiples destinataris al mateix temps</translation>
     </message>
@@ -2585,7 +1718,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Afegir &amp;Destinatari</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+20"/>
         <source>Remove all transaction fields</source>
         <translation>Traieu tots els camps de transacció</translation>
     </message>
@@ -2595,13 +1728,9 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Esborrar &amp;Tot</translation>
     </message>
     <message>
-        <location line="+30"/>
-        <source>Spendable:</source>
-        <translation type="unfinished">Disponible:</translation>
-    </message>
-    <message>
+        <location line="+28"/>
         <source>Balance:</source>
-        <translation type="vanished">Balanç:</translation>
+        <translation>Balanç:</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -2619,13 +1748,9 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>E&amp;nviar</translation>
     </message>
     <message>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">Introdueix una adreça vTorrent (p.ex. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location filename="../sendcoinsdialog.cpp" line="-178"/>
-        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
-        <translation type="unfinished"></translation>
+        <location filename="../sendcoinsdialog.cpp" line="-173"/>
+        <source>Enter a vTorrent address (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>Introdueix una adreça vTorrent (p.ex. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -2723,18 +1848,9 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Error: La transacció ha sigut rebutjada. Això pot passar si algunes de les monedes al moneder ja s&apos;han gastat, per exemple, si vostè utilitza una còpia del wallet.dat i les monedes han estat gastades a la cópia pero no s&apos;han marcat com a gastades aqui.</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Error: Narration is too long.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+251"/>
-        <source>WARNING: Invalid address, stealth address is not supported</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>WARNING: Invalid vTorrent address</source>
-        <translation type="vanished">ADVERTÈNCIA: Direcció vTorrent invàlida</translation>
+        <translation>ADVERTÈNCIA: Direcció vTorrent invàlida</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -2755,48 +1871,33 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Formulari</translation>
     </message>
     <message>
-        <location line="+60"/>
-        <source>The address to send the payment to  (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+182"/>
-        <source>N&amp;arration:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <location filename="../sendcoinsentry.cpp" line="+25"/>
-        <source>Enter a short note to send with payment (max 24 characters)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+42"/>
+        <location line="+15"/>
         <source>A&amp;mount:</source>
         <translation>Q&amp;uantitat:</translation>
     </message>
     <message>
-        <location line="-271"/>
+        <location line="+13"/>
         <source>Pay &amp;To:</source>
         <translation>Pagar &amp;A:</translation>
     </message>
     <message>
-        <location line="+169"/>
-        <location filename="../sendcoinsentry.cpp" line="-2"/>
+        <location line="+24"/>
+        <location filename="../sendcoinsentry.cpp" line="+25"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Introdueixi una etiquera per a aquesta adreça per afegir-la a la llibreta d&apos;adreces</translation>
     </message>
     <message>
-        <location line="-25"/>
+        <location line="+9"/>
         <source>&amp;Label:</source>
         <translation>&amp;Etiqueta:</translation>
     </message>
     <message>
-        <source>The address to send the payment to  (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">L&apos;adreça per a enviar el pagament (per exemple: XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <location line="+18"/>
+        <source>The address to send the payment to  (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>L&apos;adreça per a enviar el pagament (per exemple: XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
-        <location line="-100"/>
+        <location line="+10"/>
         <source>Choose address from address book</source>
         <translation>Trieu la direcció de la llibreta d&apos;adreces</translation>
     </message>
@@ -2806,7 +1907,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Alta+A</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+7"/>
         <source>Paste address from clipboard</source>
         <translation>Enganxar adreça del porta-retalls</translation>
     </message>
@@ -2816,295 +1917,73 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Alt+P</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+7"/>
         <source>Remove this recipient</source>
         <translation>Eliminar aquest destinatari</translation>
     </message>
     <message>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">Introdueix una adreça vTorrent (p.ex. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SendMessagesDialog</name>
-    <message>
-        <location filename="../forms/sendmessagesdialog.ui" line="+14"/>
-        <source>Send Messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+30"/>
-        <source>Address &amp;From:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Choose address from address book</source>
-        <translation type="unfinished">Trieu la direcció de la llibreta d&apos;adreces</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+A</source>
-        <translation type="unfinished">Alta+A</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Paste address from clipboard</source>
-        <translation type="unfinished">Enganxar adreça del porta-retalls</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+P</source>
-        <translation type="unfinished">Alt+P</translation>
-    </message>
-    <message>
-        <location line="+65"/>
-        <source>Send to multiple recipients at once</source>
-        <translation type="unfinished">Enviar a multiples destinataris al mateix temps</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Add &amp;Recipient</source>
-        <translation type="unfinished">Afegir &amp;Destinatari</translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>Remove all transaction fields</source>
-        <translation type="unfinished">Traieu tots els camps de transacció</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Clear &amp;All</source>
-        <translation type="unfinished">Esborrar &amp;Tot</translation>
-    </message>
-    <message>
-        <location line="+36"/>
-        <source>Confirm the send action</source>
-        <translation type="unfinished">Confirmi l&apos;acció d&apos;enviament</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>S&amp;end</source>
-        <translation type="unfinished">E&amp;nviar</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sendmessagesdialog.cpp" line="+37"/>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="unfinished">Introdueix una adreça vTorrent (p.ex. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location line="+121"/>
-        <source>&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</source>
-        <translation type="unfinished">&lt;b&gt;%1&lt;/b&gt; a %2 (%3)</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Confirm send messages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Are you sure you want to send %1?</source>
-        <translation type="unfinished">Esteu segur que voleu enviar %1?</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source> and </source>
-        <translation type="unfinished">i</translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <location line="+5"/>
-        <location line="+5"/>
-        <location line="+5"/>
-        <location line="+5"/>
-        <source>Send Message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-19"/>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation type="unfinished">L&apos;adreça remetent no és vàlida, si us plau comprovi-la.</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>The message can&apos;t be empty.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation type="unfinished">S&apos;ha trobat una adreça duplicada, tan sols es pot enviar a cada adreça un cop per ordre de enviament.</translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Error: Message creation failed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Error: The message was rejected.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SendMessagesEntry</name>
-    <message>
-        <location filename="../forms/sendmessagesentry.ui" line="+14"/>
-        <source>Form</source>
-        <translation type="unfinished">Formulari</translation>
-    </message>
-    <message>
-        <location line="+20"/>
-        <source>The address to send the payment to  (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Choose address from address book</source>
-        <translation type="unfinished">Trieu la direcció de la llibreta d&apos;adreces</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+A</source>
-        <translation type="unfinished">Alta+A</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Paste address from clipboard</source>
-        <translation type="unfinished">Enganxar adreça del porta-retalls</translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Alt+P</source>
-        <translation type="unfinished">Alt+P</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Remove this recipient</source>
-        <translation type="unfinished">Eliminar aquest destinatari</translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>&amp;Message:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>Send &amp;To:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <location filename="../sendmessagesentry.cpp" line="+27"/>
-        <source>Enter a label for this address to add it to your address book</source>
-        <translation type="unfinished">Introdueixi una etiquera per a aquesta adreça per afegir-la a la llibreta d&apos;adreces</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>&amp;Label:</source>
-        <translation type="unfinished">&amp;Etiqueta:</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>&amp;Public Key:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sendmessagesentry.cpp" line="+1"/>
-        <source>Enter a vTorrent address (e.g. xr14AeRk6Gt3C44kTVPU7ZGLbGDuRmqBUAcgcQYwCDKKCsygxdpKzEvWLwRtdGeKFfBKTWrvzxDND5HHxBdjrjayYUd8dH6mhbdZ8A)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Enter the public key for the address above, it is not in the blockchain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>You cannot send a blank message!</source>
-        <translation type="unfinished"></translation>
+        <source>Enter a vTorrent address (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>Introdueix una adreça vTorrent (p.ex. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
 </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <location filename="../forms/signverifymessagedialog.ui" line="+20"/>
+        <location filename="../forms/signverifymessagedialog.ui" line="+14"/>
         <source>Signatures - Sign / Verify a Message</source>
         <translation>Signatures .Signar/Verificar un Missatge</translation>
     </message>
     <message>
-        <location line="+31"/>
-        <location line="+195"/>
+        <location line="+13"/>
+        <location line="+124"/>
         <source>&amp;Sign Message</source>
         <translation>&amp;Signar Missatge</translation>
     </message>
     <message>
+        <location line="-118"/>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation type="vanished">Pots signar missatges amb la teva adreça per provar que són teus. Sigues cautelòs al signar qualsevol cosa, ja que els atacs phising poden intentar confondre&apos;t per a que els hi signis amb la teva identitat. Tan sols signa als documents completament detallats amb els que hi estàs d&apos;acord.</translation>
+        <translation>Pots signar missatges amb la teva adreça per provar que són teus. Sigues cautelòs al signar qualsevol cosa, ja que els atacs phising poden intentar confondre&apos;t per a que els hi signis amb la teva identitat. Tan sols signa als documents completament detallats amb els que hi estàs d&apos;acord.</translation>
     </message>
     <message>
-        <source>The address to sign the message with (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">L&apos;adreça per a signar el missatge (per exemple XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location line="-183"/>
-        <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague. Only sign fully-detailed statements you agree to. Only normal addresses is supported.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+43"/>
-        <source>The address to sign the message with (e.g. SDywGBZBowrSSUwwNUo1DFSDTibzKid93H)</source>
-        <translation type="unfinished"></translation>
+        <location line="+18"/>
+        <source>The address to sign the message with (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>L&apos;adreça per a signar el missatge (per exemple XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location line="+275"/>
+        <location line="+203"/>
         <source>Choose an address from the address book</source>
         <translation>Trieu una adreça de la llibreta d&apos;adreces</translation>
     </message>
     <message>
-        <location line="-265"/>
-        <location line="+275"/>
+        <location line="-193"/>
+        <location line="+203"/>
         <source>Alt+A</source>
         <translation>Alta+A</translation>
     </message>
     <message>
-        <location line="-265"/>
-        <location line="+275"/>
-        <location line="+63"/>
+        <location line="-193"/>
         <source>Paste address from clipboard</source>
         <translation>Enganxar adreça del porta-retalls</translation>
     </message>
     <message>
-        <location line="-328"/>
-        <location line="+275"/>
-        <location line="+63"/>
+        <location line="+10"/>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
     </message>
     <message>
-        <location line="-325"/>
+        <location line="+12"/>
         <source>Enter the message you want to sign here</source>
         <translation>Introdueix aqui el missatge que vols signar</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+24"/>
         <source>Copy the current signature to the system clipboard</source>
         <translation>Copiar la signatura actual al porta-retalls del sistema</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+21"/>
         <source>Sign the message to prove you own this vTorrent address</source>
         <translation>Signar un missatge per demostrar que és propietari d&apos;aquesta adreça vTorrent</translation>
     </message>
@@ -3115,36 +1994,28 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <location line="+269"/>
+        <location line="+146"/>
         <source>Clear &amp;All</source>
         <translation>Esborrar &amp;Tot</translation>
     </message>
     <message>
-        <location line="-203"/>
-        <location line="+186"/>
+        <location line="-87"/>
+        <location line="+70"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Verificar el missatge</translation>
     </message>
     <message>
-        <location line="-174"/>
-        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Only normal addresses is supported.</source>
-        <translation type="unfinished"></translation>
+        <location line="-64"/>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
+        <translation>Introdueixi l&apos;adreça signant, missatge (assegura&apos;t que copies salts de línia, espais, tabuladors, etc excactament tot el text) i la signatura a sota per verificar el missatge. Per evitar ser enganyat per un atac home-entre-mig, vés amb compte de no llegir més en la signatura del que hi ha al missatge signat mateix.</translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>The address the message was signed with (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>La direcció que va ser signada amb un missatge (per exemple XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>The address the message was signed with (e.g. SDywGBZBowrSSUwwNUo1DFSDTibzKid93H)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
-        <translation type="vanished">Introdueixi l&apos;adreça signant, missatge (assegura&apos;t que copies salts de línia, espais, tabuladors, etc excactament tot el text) i la signatura a sota per verificar el missatge. Per evitar ser enganyat per un atac home-entre-mig, vés amb compte de no llegir més en la signatura del que hi ha al missatge signat mateix.</translation>
-    </message>
-    <message>
-        <source>The address the message was signed with (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">La direcció que va ser signada amb un missatge (per exemple XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
-    </message>
-    <message>
-        <location line="+131"/>
         <source>Verify the message to ensure it was signed with the specified vTorrent address</source>
         <translation>Comproveu el missatge per assegurar-se que es va signar amb l&apos;adreça vTorrent especificada.</translation>
     </message>
@@ -3154,11 +2025,13 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Neteja tots els camps de verificació de missatge</translation>
     </message>
     <message>
-        <source>Enter a vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="vanished">Introdueix una adreça vTorrent (p.ex. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</translation>
+        <location filename="../signverifymessagedialog.cpp" line="+27"/>
+        <location line="+3"/>
+        <source>Enter a vTorrent address (e.g. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</source>
+        <translation>Introdueix una adreça vTorrent (p.ex. XDN6TyyoWuXPJYaVtpMrRYRE5sxDtkBkhH)</translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+28"/>
+        <location line="-2"/>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
         <translation>Clica &quot;Signar Missatge&quot; per a generar una signatura</translation>
     </message>
@@ -3168,40 +2041,18 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Introduïu la signatura vTorrent</translation>
     </message>
     <message>
-        <source>The entered address is invalid. Stealth address is not supported.</source>
-        <translation type="vanished">L&apos;adreça intoduïda és invàlida.</translation>
-    </message>
-    <message>
-        <source>Please check the address and try again.</source>
-        <translation type="vanished">Siu us plau, comprovi l&apos;adreça i provi de nou.</translation>
-    </message>
-    <message>
-        <location line="-4"/>
-        <location line="+3"/>
-        <source>Enter an vTorrent address (e.g. XCEGNQ1XEFiewoQ9fFbgcRJbBioMLVaRKS)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+83"/>
+        <location line="+82"/>
         <location line="+81"/>
         <source>The entered address is invalid.</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;adreça intoduïda és invàlida.</translation>
     </message>
     <message>
         <location line="-81"/>
         <location line="+8"/>
         <location line="+73"/>
         <location line="+8"/>
-        <source>Stealth address is not yet supported.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-89"/>
-        <location line="+8"/>
-        <location line="+73"/>
-        <location line="+8"/>
-        <source>Please check the address and retry.</source>
-        <translation type="unfinished"></translation>
+        <source>Please check the address and try again.</source>
+        <translation>Siu us plau, comprovi l&apos;adreça i provi de nou.</translation>
     </message>
     <message>
         <location line="-81"/>
@@ -3257,28 +2108,16 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
 </context>
 <context>
-    <name>TrafficGraphWidget</name>
-    <message>
-        <location filename="../trafficgraphwidget.cpp" line="+79"/>
-        <source>KB/s</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>TransactionDesc</name>
     <message>
-        <location filename="../transactiondesc.cpp" line="+20"/>
+        <location filename="../transactiondesc.cpp" line="+19"/>
         <source>Open until %1</source>
         <translation>Obert fins %1</translation>
     </message>
     <message numerus="yes">
         <location line="-2"/>
         <source>Open for %n block(s)</source>
-        <translation>
-            <numerusform>Obert per a %n bloc</numerusform>
-            <numerusform>Obert per a %n blocs</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>Obert per a %n bloc</numerusform><numerusform>Obert per a %n blocs</numerusform></translation>
     </message>
     <message>
         <location line="+8"/>
@@ -3301,18 +2140,14 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>%1 confrimacions</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+18"/>
         <source>Status</source>
         <translation>Estat</translation>
     </message>
     <message numerus="yes">
         <location line="+7"/>
         <source>, broadcast through %n node(s)</source>
-        <translation>
-            <numerusform>, transmès a través de %n node</numerusform>
-            <numerusform>, transmès a través de %n nodes</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>, transmès a través de %n node</numerusform><numerusform>, transmès a través de %n nodes</numerusform></translation>
     </message>
     <message>
         <location line="+4"/>
@@ -3358,18 +2193,14 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <location line="+12"/>
         <location line="+45"/>
         <location line="+17"/>
-        <location line="+38"/>
+        <location line="+30"/>
         <source>Credit</source>
         <translation>Crèdit</translation>
     </message>
     <message numerus="yes">
-        <location line="-110"/>
+        <location line="-102"/>
         <source>matures in %n more block(s)</source>
-        <translation>
-            <numerusform>madura en %n bloc més</numerusform>
-            <numerusform>madura en %n blocs més</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>madura en %n bloc més</numerusform><numerusform>madura en %n blocs més</numerusform></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3380,12 +2211,12 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <location line="+44"/>
         <location line="+8"/>
         <location line="+15"/>
-        <location line="+38"/>
+        <location line="+30"/>
         <source>Debit</source>
         <translation>Dèbit</translation>
     </message>
     <message>
-        <location line="-47"/>
+        <location line="-39"/>
         <source>Transaction fee</source>
         <translation>Comissió de transacció</translation>
     </message>
@@ -3405,13 +2236,13 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Comentar</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+2"/>
         <source>Transaction ID</source>
         <translation>ID de transacció</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Generated coins must mature 50 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <source>Generated coins must mature 510 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
         <translation>Les monedes generades han de madurar 510 blocs abans per a poder estar disponibles. En generar aquest bloc, que va ser transmès a la xarxa per ser afegit a la cadena de bloc. Si no aconsegueix entrar a la cadena, el seu estat canviarà a &quot;no acceptat&quot; i no es podrà gastar. Això pot succeir de tant en tant si un altre node genera un bloc a pocs segons del seu.</translation>
     </message>
     <message>
@@ -3430,7 +2261,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Entrades</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+23"/>
         <source>Amount</source>
         <translation>Quantitat</translation>
     </message>
@@ -3445,7 +2276,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>fals</translation>
     </message>
     <message>
-        <location line="-217"/>
+        <location line="-211"/>
         <source>, has not been successfully broadcast yet</source>
         <translation>, encara no ha estat emès correctement</translation>
     </message>
@@ -3458,7 +2289,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>TransactionDescDialog</name>
     <message>
-        <location filename="../forms/transactiondescdialog.ui" line="+20"/>
+        <location filename="../forms/transactiondescdialog.ui" line="+14"/>
         <source>Transaction details</source>
         <translation>Detall de la transacció</translation>
     </message>
@@ -3469,37 +2300,9 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
 </context>
 <context>
-    <name>TransactionPage</name>
-    <message>
-        <location filename="../forms/transactionpage.ui" line="+6"/>
-        <source>Address Book</source>
-        <translation type="unfinished">Llibreta d&apos;adreces</translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wallet Transactions&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+121"/>
-        <source>Specify Range:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>to</source>
-        <translation type="unfinished">a</translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>Double-click to edit address or label</source>
-        <translation type="unfinished">Feu doble clic per editar l&apos;adreça o l&apos;etiqueta</translation>
-    </message>
-</context>
-<context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+231"/>
+        <location filename="../transactiontablemodel.cpp" line="+226"/>
         <source>Date</source>
         <translation>Data</translation>
     </message>
@@ -3519,7 +2322,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Quantitat</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+60"/>
         <source>Open until %1</source>
         <translation>Obert fins %1</translation>
     </message>
@@ -3531,19 +2334,10 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     <message numerus="yes">
         <location line="-15"/>
         <source>Open for %n more block(s)</source>
-        <translation>
-            <numerusform>Obert per a %n bloc més</numerusform>
-            <numerusform>Obert per a %n blocs més</numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <translation><numerusform>Obert per a %n bloc més</numerusform><numerusform>Obert per a %n blocs més</numerusform></translation>
     </message>
     <message>
-        <location line="-49"/>
-        <source>Narration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+55"/>
+        <location line="+6"/>
         <source>Offline</source>
         <translation>Desconnectat</translation>
     </message>
@@ -3608,7 +2402,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>(n/a)</translation>
     </message>
     <message>
-        <location line="+198"/>
+        <location line="+190"/>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
         <translation>Estat de la transacció. Desplaça&apos;t per aquí sobre per mostrar el nombre de confirmacions.</translation>
     </message>
@@ -3636,13 +2430,13 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>TransactionView</name>
     <message>
-        <location filename="../transactionview.cpp" line="+41"/>
-        <location line="+8"/>
+        <location filename="../transactionview.cpp" line="+55"/>
+        <location line="+16"/>
         <source>All</source>
         <translation>Tot</translation>
     </message>
     <message>
-        <location line="-7"/>
+        <location line="-15"/>
         <source>Today</source>
         <translation>Avui</translation>
     </message>
@@ -3672,7 +2466,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Rang...</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+11"/>
         <source>Received with</source>
         <translation>Rebut desde</translation>
     </message>
@@ -3697,17 +2491,17 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Altres</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+7"/>
         <source>Enter address or label to search</source>
         <translation>Introdueix una adreça o una etiqueta per cercar</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Min amount</source>
         <translation>Quantitat mínima</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+34"/>
         <source>Copy address</source>
         <translation>Copiar adreça </translation>
     </message>
@@ -3737,7 +2531,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Mostra detalls de la transacció</translation>
     </message>
     <message>
-        <location line="+149"/>
+        <location line="+144"/>
         <source>Export Transaction Data</source>
         <translation>Exportació de dades de transaccions</translation>
     </message>
@@ -3792,18 +2586,20 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>No s&apos;ha pogut escriure al fitxer %1.</translation>
     </message>
     <message>
+        <location line="+100"/>
         <source>Range:</source>
-        <translation type="vanished">Rang:</translation>
+        <translation>Rang:</translation>
     </message>
     <message>
+        <location line="+8"/>
         <source>to</source>
-        <translation type="vanished">a</translation>
+        <translation>a</translation>
     </message>
 </context>
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+370"/>
+        <location filename="../walletmodel.cpp" line="+206"/>
         <source>Sending...</source>
         <translation>Enviant...</translation>
     </message>
@@ -3822,8 +2618,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or vTorrentd</source>
-        <translation>Enviar comandes a -server o vTorrentd</translation>
+        <source>Send command to -server or vtorrentd</source>
+        <translation>Enviar comandes a -server o vtorrentd</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3842,13 +2638,13 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: vTorrent.conf)</source>
-        <translation>Especifiqueu el fitxer de configuració (per defecte: vTorrent.conf)</translation>
+        <source>Specify configuration file (default: vtorrent.conf)</source>
+        <translation>Especifiqueu el fitxer de configuració (per defecte: vtorrent.conf)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: vTorrentd.pid)</source>
-        <translation>Especificar arxiu pid (per defecte: vTorrentd.pid)</translation>
+        <source>Specify pid file (default: vtorrentd.pid)</source>
+        <translation>Especificar arxiu pid (per defecte: vtorrentd.pid)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3933,7 +2729,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     <message>
         <location line="-87"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 22523 or testnet: 22521)</source>
-        <translation>Escoltar connexions JSON-RPC al port &lt;port&gt; (per defecte: 22523 o testnet: 22521)</translation>
+        <translation>Escoltar connexions JSON-RPC al port &lt;port&gt; (per defecte: 22521 o testnet: 22521)</translation>
     </message>
     <message>
         <location line="-11"/>
@@ -4187,7 +2983,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=vTorrentrpc
+rpcuser=vtorrentrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -4198,7 +2994,7 @@ for example: alertnotify=echo %%s | mail -s &quot;vTorrent Alert&quot; admin@foo
         <translation>%s, ha d&apos;establir un rpcpassword al fitxer de configuració:
 %s
 Es recomana utilitzar la següent contrasenya aleatòria:
-rpcuser=vTorrentrpc
+rpcuser=vtorrentrpc
 rpcpassword=%s
 (No cal recordar aquesta contrasenya)
 El nom d&apos;usuari i contrasenya NO HA DE SER el mateix.
@@ -4504,555 +3300,6 @@ Executar una ordre quan es rep un avís rellevant (%s en cmd es substitueix per 
 %s
 If the file does not exist, create it with owner-readable-only file permissions.</source>
         <translation>Has de configurar el rpcpassword=&lt;password&gt; a l&apos;arxiu de configuració:\n %s\n Si l&apos;arxiu no existeix, crea&apos;l amb els permís owner-readable-only.</translation>
-    </message>
-</context>
-<context>
-    <name>tradingBittrex</name>
-    <message>
-        <location filename="../tradingdialog_bittrex.cpp" line="+500"/>
-        <location line="+84"/>
-        <source>BUY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-84"/>
-        <location line="+84"/>
-        <source>SELL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-80"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>tradingBittrex_UI</name>
-    <message>
-        <location filename="../forms/tradingdialog_bittrex.ui" line="+6"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+76"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <source>BALANCE_GROUPBOX</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-592"/>
-        <location line="+183"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+67"/>
-        <location line="+183"/>
-        <source>TR00012</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-680"/>
-        <source>Last Price (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <source>LastPrice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <location line="+106"/>
-        <location line="+125"/>
-        <location line="+125"/>
-        <location line="+144"/>
-        <location line="+106"/>
-        <location line="+1048"/>
-        <location line="+98"/>
-        <location line="+2668"/>
-        <location line="+98"/>
-        <source>CAN_BE_ZERO</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-4418"/>
-        <source>BidPrice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Bid Price (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+79"/>
-        <source>AskPrice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Ask Price (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+79"/>
-        <source>DayHigh</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>24 Hour High</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+67"/>
-        <source>24 Hour Low</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <source>DayLow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+106"/>
-        <source>VolumeBTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Volume (BTC)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <source>Summary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+113"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Buy vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+449"/>
-        <location line="+1025"/>
-        <location line="+502"/>
-        <location line="+1239"/>
-        <location line="+1025"/>
-        <location line="+502"/>
-        <location line="+2248"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <location line="+1166"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <source>0.00000000</source>
-        <translation type="unfinished">0.00000000</translation>
-    </message>
-    <message>
-        <location line="-9912"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;BTC Available&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+117"/>
-        <location line="+2766"/>
-        <location line="+2908"/>
-        <location line="+2278"/>
-        <source>TR00031</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7949"/>
-        <location line="+2766"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Units&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2750"/>
-        <location line="+64"/>
-        <location line="+62"/>
-        <location line="+61"/>
-        <location line="+2579"/>
-        <location line="+64"/>
-        <location line="+62"/>
-        <location line="+61"/>
-        <location line="+2721"/>
-        <location line="+63"/>
-        <location line="+61"/>
-        <location line="+60"/>
-        <location line="+2094"/>
-        <location line="+63"/>
-        <location line="+61"/>
-        <location line="+60"/>
-        <source>:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-8091"/>
-        <location line="+2766"/>
-        <location line="+2907"/>
-        <location line="+2278"/>
-        <source>TR00030</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7948"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Bid&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+59"/>
-        <location line="+2766"/>
-        <location line="+2906"/>
-        <location line="+2278"/>
-        <source>TR00033</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7947"/>
-        <location line="+2766"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Zero profit Price&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2705"/>
-        <location line="+2766"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Total w/ 0.25% Fee&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2680"/>
-        <location line="+46"/>
-        <location line="+2720"/>
-        <location line="+46"/>
-        <location line="+3350"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <source>VTR</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-7176"/>
-        <location line="+46"/>
-        <location line="+502"/>
-        <location line="+502"/>
-        <location line="+1716"/>
-        <location line="+46"/>
-        <location line="+502"/>
-        <location line="+502"/>
-        <location line="+4526"/>
-        <location line="+556"/>
-        <location line="+556"/>
-        <source>BTC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-8260"/>
-        <location line="+2766"/>
-        <source>Set</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2738"/>
-        <location line="+2766"/>
-        <source> %</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2696"/>
-        <location line="+150"/>
-        <location line="+2616"/>
-        <location line="+150"/>
-        <source>AS_MARKET_SELL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2900"/>
-        <location line="+2766"/>
-        <source>Max</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2741"/>
-        <location line="+150"/>
-        <location line="+2616"/>
-        <location line="+150"/>
-        <source>AS_MARKET_BUY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2900"/>
-        <location line="+2766"/>
-        <source>½</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2747"/>
-        <location line="+150"/>
-        <location line="+2616"/>
-        <location line="+150"/>
-        <source>AS_LAST_PRICE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2900"/>
-        <location line="+2766"/>
-        <source>%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2692"/>
-        <location line="+2766"/>
-        <source>Ask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2725"/>
-        <location line="+2766"/>
-        <source>Bid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2731"/>
-        <location line="+2766"/>
-        <source>Last</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2704"/>
-        <location line="+58"/>
-        <source>Buy vTorrent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+153"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sell vTorrent&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+468"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;VTR Available&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+184"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ask&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1903"/>
-        <location line="+58"/>
-        <source>Sell vTorrent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+69"/>
-        <source>Order Book</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+261"/>
-        <source>Market History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+60"/>
-        <source>Open Orders</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+60"/>
-        <source>Your History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+60"/>
-        <source>Balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>Account Balances</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+68"/>
-        <source>&lt;b&gt;vTorrent (VTR)&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+70"/>
-        <location line="+2278"/>
-        <source>Show &amp;QR Code</source>
-        <translation type="unfinished">Mostra el códi &amp;QR</translation>
-    </message>
-    <message>
-        <location line="-2204"/>
-        <location line="+2278"/>
-        <source>Generate New Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2149"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Balance&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2215"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Available&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2217"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pending&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2218"/>
-        <location line="+2278"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Deposit Address&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-531"/>
-        <source>Account VTR Deposit Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+74"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Bitcoin (BTC)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2204"/>
-        <source>Account BTC Deposit Address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+38"/>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+64"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your Exchange API Key&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>Login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>This information can be obtained from inside your Bittrex account Settings.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+41"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;API Key&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+31"/>
-        <location line="+81"/>
-        <source>Paste address from clipboard</source>
-        <translation type="unfinished">Enganxar adreça del porta-retalls</translation>
-    </message>
-    <message>
-        <location line="-71"/>
-        <location line="+81"/>
-        <source>Alt+P</source>
-        <translation type="unfinished">Alt+P</translation>
-    </message>
-    <message>
-        <location line="-68"/>
-        <location line="+81"/>
-        <source>X</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-54"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Secret Key&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+122"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pushbullet API Key&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+36"/>
-        <source>Enable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>Enable Pushbullet to get notifications from the client.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+96"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Personalized Settings&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Customise your trading experience.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Exchange API Setting&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source> Realtime Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+38"/>
-        <source>Update Now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Trading Bot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Enable Advance Functions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Notifications&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Enable Notification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Price Alarm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source> Successful Trade</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
-    <height>180</height>
+    <width>606</width>
+    <height>209</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -26,9 +26,6 @@
    <string>Passphrase Dialog</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="spacing">
-    <number>10</number>
-   </property>
    <item>
     <widget class="QLabel" name="warningLabel">
      <property name="textFormat">

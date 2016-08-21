@@ -4,6 +4,6 @@ See doc/readme-qt.rst for instructions on building vTorrent QT,
 the intended-for-end-users, nice-graphical-interface, reference
 implementation of vTorrent.
 
-See doc/build-*.txt for instructions on building vTorrentd,
+See doc/build-*.txt for instructions on building vtorrentd,
 the intended-for-services, no-graphical-interface, reference
 implementation of vTorrent.

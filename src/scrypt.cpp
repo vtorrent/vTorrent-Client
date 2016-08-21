@@ -33,7 +33,11 @@
 #include "scrypt.h"
 #include "pbkdf2.h"
 
-#include "util.h"
+#ifndef OTP_ENABLED
+    #include "util.h"
+#else
+    #include "util_otp.h"
+#endif
 #include "net.h"
 
 #define SCRYPT_BUFFER_SIZE (131072 + 63)
