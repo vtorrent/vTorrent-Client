@@ -2084,6 +2084,61 @@ bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue, std::strin
 }
 
 
+bool CWallet::NewStealthAddress(std::string& sError, std::string& sLabel, CStealthAddress& sxAddr)
+{
+    ec_secret scan_secret;
+    ec_secret spend_secret;
+
+    if (GenerateRandomSecret(scan_secret) != 0
+        || GenerateRandomSecret(spend_secret) != 0)
+    {
+        sError = "GenerateRandomSecret failed.";
+        printf("Error CWallet::NewStealthAddress - %s\n", sError.c_str());
+        return false;
+    };
+
+    ec_point scan_pubkey, spend_pubkey;
+    if (SecretToPublicKey(scan_secret, scan_pubkey) != 0)
+    {
+        sError = "Could not get scan public key.";
+        printf("Error CWallet::NewStealthAddress - %s\n", sError.c_str());
+        return false;
+    };
+
+    if (SecretToPublicKey(spend_secret, spend_pubkey) != 0)
+    {
+        sError = "Could not get spend public key.";
+        printf("Error CWallet::NewStealthAddress - %s\n", sError.c_str());
+        return false;
+    };
+
+    if (fDebug)
+    {
+        printf("getnewstealthaddress: ");
+        printf("scan_pubkey ");
+        for (uint32_t i = 0; i < scan_pubkey.size(); ++i)
+            printf("%02x", scan_pubkey[i]);
+        printf("\n");
+
+        printf("spend_pubkey ");
+        for (uint32_t i = 0; i < spend_pubkey.size(); ++i)
+            printf("%02x", spend_pubkey[i]);
+        printf("\n");
+    };
+
+
+    sxAddr.label = sLabel;
+    sxAddr.scan_pubkey = scan_pubkey;
+    sxAddr.spend_pubkey = spend_pubkey;
+
+    sxAddr.scan_secret.resize(32);
+    memcpy(&sxAddr.scan_secret[0], &scan_secret.e[0], 32);
+    sxAddr.spend_secret.resize(32);
+    memcpy(&sxAddr.spend_secret[0], &spend_secret.e[0], 32);
+
+    return true;
+}
+
 bool CWallet::AddStealthAddress(CStealthAddress& sxAddr)
 {
     LOCK(cs_wallet);

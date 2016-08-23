@@ -29,8 +29,6 @@
 #include "stealth.h"
 #include "smessage.h"
 
-
-
 extern bool fWalletUnlockStakingOnly;
 extern bool fConfChange;
 class CAccountingEntry;
