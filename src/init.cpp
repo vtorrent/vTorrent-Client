@@ -179,7 +179,7 @@ void HandleSIGHUP(int)
 //
 // Start
 //
-#if !defined(QT_GUI)
+#if defined(QT_CLI)
 bool AppInit(int argc, char* argv[])
 {
     bool fRet = false;

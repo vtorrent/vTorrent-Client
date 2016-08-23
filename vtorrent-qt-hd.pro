@@ -2,14 +2,14 @@ TEMPLATE = app
 TARGET = vtorrent
 VERSION = 0.8.1 #ba6535fa03eb7992df77092ae73bc1b1acf2605d
 INCLUDEPATH += src src/json src/qt
-DEFINES += QT_GUI
+#DEFINES += QT_CLI
 DEFINES += BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
 
-#CONFIG += bittorrent_enabled
-#CONFIG += otp_enabled
-#CONFIG += trading_enabled
+CONFIG += bittorrent_enabled
+CONFIG += otp_enabled
+CONFIG += trading_enabled
 
 # Mobile devices
 android:ios{
