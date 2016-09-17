@@ -239,7 +239,7 @@ Value getnewaddress(const Array& params, bool fHelp)
         "If normal is specified, a normal address will be provided. "
             "If [account] is specified, it is added to the address book "
             "so payments received with the address will be credited to [account].");
-    
+
     // Parse the account first so we don't generate a key if there's an error
     if(params.size() > 1)
     {
@@ -2163,13 +2163,13 @@ Value makekeypair(const Array& params, bool fHelp)
 Value getnewstealthaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
-        throw runtime_error(
+        throw std::runtime_error(
             "getnewstealthaddress [label]\n"
             "Returns a new vTorrent stealth address for receiving payments anonymously."
             + HelpRequiringPassphrase());
 
     if (pwalletMain->IsLocked())
-        throw runtime_error("Failed: Wallet must be unlocked.");
+        throw std::runtime_error("Failed: Wallet must be unlocked.");
 
     std::string sLabel;
     if (params.size() > 0)
@@ -2179,10 +2179,10 @@ Value getnewstealthaddress(const Array& params, bool fHelp)
     std::string sError;
 
     if (!pwalletMain->NewStealthAddress(sError, sLabel, sxAddr))
-        throw runtime_error(std::string("Could get new stealth address: ") + sError);
+        throw std::runtime_error(std::string("Could get new stealth address: ") + sError);
 
     if (!pwalletMain->AddStealthAddress(sxAddr))
-        throw runtime_error("Could not save to wallet.");
+        throw std::runtime_error("Could not save to wallet.");
 
     return sxAddr.Encoded();
 }
