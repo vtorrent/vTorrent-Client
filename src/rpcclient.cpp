@@ -131,8 +131,13 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "listtransactions", 1 },
     { "listtransactions", 2 },
     { "listaccounts", 0 },
+#ifndef OTP_ENABLED
     { "walletpassphrase", 1 },
     { "walletpassphrase", 2 },
+#else
+    { "walletpassphrase", 2 },
+    { "walletpassphrase", 3 },
+#endif
     { "getblocktemplate", 0 },
     { "listsinceblock", 1 },
     { "clearwallettransactions", 0},

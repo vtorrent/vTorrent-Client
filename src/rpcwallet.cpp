@@ -266,6 +266,7 @@ Value getnewaddress(const Array& params, bool fHelp)
     }
 }
 
+
 Value getnewextaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
@@ -1959,15 +1960,13 @@ Value validateaddress(const Array& params, bool fHelp)
 
         CKeyID ckidTo = cpkTo.GetID();
 
-        CBitcoinAddress addrTo(ckidTo);
-
         if (SecretToPublicKey(ephem_secret, ephem_pubkey) != 0)
         {
         throw std::runtime_error("Could not generate ephem public key.");
         return false;
         };
 
-        ret.push_back(Pair("address", addrTo.ToString()));
+        ret.push_back(Pair("address", params[0].get_str()));
             }
             else
         {
@@ -2161,9 +2160,34 @@ Value makekeypair(const Array& params, bool fHelp)
     return result;
 }
 
-
-
 Value getnewstealthaddress(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() > 1)
+        throw runtime_error(
+            "getnewstealthaddress [label]\n"
+            "Returns a new vTorrent stealth address for receiving payments anonymously."
+            + HelpRequiringPassphrase());
+
+    if (pwalletMain->IsLocked())
+        throw runtime_error("Failed: Wallet must be unlocked.");
+
+    std::string sLabel;
+    if (params.size() > 0)
+        sLabel = params[0].get_str();
+
+    CStealthAddress sxAddr;
+    std::string sError;
+
+    if (!pwalletMain->NewStealthAddress(sError, sLabel, sxAddr))
+        throw runtime_error(std::string("Could get new stealth address: ") + sError);
+
+    if (!pwalletMain->AddStealthAddress(sxAddr))
+        throw runtime_error("Could not save to wallet.");
+
+    return sxAddr.Encoded();
+}
+
+Value getnewstealthaddressfromaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw std::runtime_error(
@@ -2177,11 +2201,10 @@ Value getnewstealthaddress(const Array& params, bool fHelp)
     std::string sLabel;
     if (params.size() > 0)
         sLabel = params[0].get_str();
-    
-    
+
     CEKAStealthKey akStealth;
     std::string sError;
-    
+
     if (0 != pwalletMain->NewStealthKeyFromAccount(sLabel, akStealth))
         throw std::runtime_error("NewStealthKeyFromAccount failed.");
     return akStealth.ToStealthAddress();

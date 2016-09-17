@@ -14,7 +14,6 @@
 #endif
 #include "base58.h"
 
-#include <QDebug>
 #include <QSet>
 #include <QTimer>
 

@@ -11,7 +11,6 @@
 #include "net.h"
 #include "sync.h"
 
-#include <QDebug>
 #include <QList>
 #include <QTimer>
 

@@ -257,13 +257,17 @@ Value dumpprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "dumpprivkey <vtorrentaddress/public_key_hex>\n"
-            "Reveals the private key corresponding to <vtorrentaddress>.");
+            "dumpprivkey <vtorrentaddress/public_key_hex>");
 
     EnsureWalletIsUnlocked();
     
     if (fWalletUnlockStakingOnly)
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Wallet is unlocked for staking only.");
+
+    string strAddress = params[0].get_str();
+
+    CBitcoinAddress address;
+    CKeyID keyID;
 
     // Stealth Address handling Courtesy of Bittrex richie http://www.bittrex.com
     std::set<CStealthAddress>::iterator it;
@@ -276,15 +280,11 @@ Value dumpprivkey(const Array& params, bool fHelp)
         {
                 string privKey = HexStr(it->scan_secret.begin(), it->scan_secret.end())+":"+HexStr(it->spend_secret.begin(), it->spend_secret.end());
                 return privKey;
-        };
+        }
     }
 
     // never gets here if key is found
 
-    string strAddress = params[0].get_str();
-    
-    CBitcoinAddress address;
-    CKeyID keyID;
     bool fIsPubkey = false;
     if (IsHex(strAddress) && strAddress.size() > 60) // pubkey input
     {

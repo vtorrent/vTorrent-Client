@@ -160,7 +160,7 @@ OBJS= \
     obj/txmempool.o \
     obj/chainparams.o \
     obj/state.o \
-    obj/bloom.o 
+    obj/bloom.o
 
 
 all: vTorrentd
