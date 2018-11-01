@@ -1,0 +1,367 @@
+diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original/qtbase/src/corelib/json/qjson.cpp source/qtbase/src/corelib/json/qjson.cpp
+--- original/qtbase/src/corelib/json/qjson.cpp
++++ source/qtbase/src/corelib/json/qjson.cpp
+@@ -71,7 +71,7 @@
+     int alloc = sizeof(Header) + size;
+     Header *h = (Header *) malloc(alloc);
+     h->tag = QJsonDocument::BinaryFormatTag;
+-    h->version = 1;
++    h->version = 2;
+     Base *b = h->root();
+     b->size = size;
+     b->is_object = header->root()->is_object;
+@@ -131,7 +131,7 @@
+ 
+ bool Data::valid() const
+ {
+-    if (header->tag != QJsonDocument::BinaryFormatTag || header->version != 1u)
++    if (header->tag != QJsonDocument::BinaryFormatTag || header->version != 2u)
+         return false;
+ 
+     bool res = false;
+diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original/qtbase/src/corelib/json/qjson_p.h source/qtbase/src/corelib/json/qjson_p.h
+--- original/qtbase/src/corelib/json/qjson_p.h
++++ source/qtbase/src/corelib/json/qjson_p.h
+@@ -81,40 +81,40 @@
+     Latin1 data: 2 bytes header + string.length()
+     Full Unicode: 4 bytes header + 2*(string.length())
+ 
+-  Values: 4 bytes + size of data (size can be 0 for some data)
++  Values: 8 bytes + size of data (size can be 0 for some data)
+     bool: 0 bytes
+-    double: 8 bytes (0 if integer with less than 27bits)
++    double: 8 bytes (0 if integer with less than 30bits)
+     string: see above
+     array: size of array
+     object: size of object
+-  Array: 12 bytes + 4*length + size of Value data
+-  Object: 12 bytes + 8*length + size of Key Strings + size of Value data
++  Array: 20 bytes + 8*length + size of Value data
++  Object: 20 bytes + 8*length + size of Key Strings + size of Value data
+ 
+   For an example such as
+ 
+-    {                                           // object: 12 + 5*8                   = 52
++    {                                           // object: 20 + 5*8                   = 60
+          "firstName": "John",                   // key 12, value 8                    = 20
+          "lastName" : "Smith",                  // key 12, value 8                    = 20
+          "age"      : 25,                       // key 8, value 0                     = 8
+-         "address"  :                           // key 12, object below               = 140
+-         {                                      // object: 12 + 4*8
++         "address"  :                           // key 12, object below               = 148
++         {                                      // object: 20 + 4*8
+              "streetAddress": "21 2nd Street",  // key 16, value 16
+              "city"         : "New York",       // key 8, value 12
+              "state"        : "NY",             // key 8, value 4
+              "postalCode"   : "10021"           // key 12, value 8
+-         },                                     // object total: 128
+-         "phoneNumber":                         // key: 16, value array below         = 172
+-         [                                      // array: 12 + 2*4 + values below: 156
+-             {                                  // object 12 + 2*8
++         },                                     // object total: 136
++         "phoneNumber":                         // key: 16, value array below         = 196
++         [                                      // array: 20 + 2*4 + values below: 180
++             {                                  // object 20 + 2*8
+                "type"  : "home",                // key 8, value 8
+                "number": "212 555-1234"         // key 8, value 16
+-             },                                 // object total: 68
+-             {                                  // object 12 + 2*8
++             },                                 // object total: 76
++             {                                  // object 20 + 2*8
+                "type"  : "fax",                 // key 8, value 8
+                "number": "646 555-4567"         // key 8, value 16
+-             }                                  // object total: 68
++             }                                  // object total: 76
+          ]                                      // array total: 156
+-    }                                           // great total:                         412 bytes
++    }                                           // great total:                         452 bytes
+ 
+     The uncompressed text file used roughly 500 bytes, so in this case we end up using about
+     the same space as the text representation.
+@@ -172,28 +172,31 @@
+ typedef q_littleendian<unsigned short> qle_ushort;
+ typedef q_littleendian<int> qle_int;
+ typedef q_littleendian<unsigned int> qle_uint;
++typedef q_littleendian<unsigned long long> qle_ullint;
++typedef quint64 ulonglong;
+ 
+-template<int pos, int width>
++template<int pos, int width, typename BackingType = uint>
+ class qle_bitfield
+ {
++    Q_STATIC_ASSERT_X(pos + width <= sizeof(BackingType) * 8, "Backing type is too small!");
++    Q_STATIC_ASSERT_X(width <= sizeof(BackingType) * 8, "Width cannot exceed the backing type!");
++
+ public:
+-    uint val;
++    BackingType val;
+ 
+-    enum {
+-        mask = ((1u << width) - 1) << pos
+-    };
++    static Q_CONSTEXPR BackingType mask = ((static_cast<BackingType>(1) << width) - 1) << pos;
+ 
+     void operator =(uint t) {
+-        uint i = qFromLittleEndian(val);
++        BackingType i = qFromLittleEndian(val);
+         i &= ~mask;
+-        i |= t << pos;
++        i |= static_cast<BackingType>(t) << pos;
+         val = qToLittleEndian(i);
+     }
+     operator uint() const {
+-        uint t = qFromLittleEndian(val);
++        BackingType t = qFromLittleEndian(val);
+         t &= mask;
+         t >>= pos;
+-        return t;
++        return static_cast<uint>(t);
+     }
+     bool operator !() const {
+         return !operator uint();
+@@ -223,28 +226,29 @@
+     }
+ };
+ 
+-template<int pos, int width>
++template<int pos, int width, typename BackingType = uint>
+ class qle_signedbitfield
+ {
++    Q_STATIC_ASSERT_X(pos + width <= sizeof(BackingType) * 8, "Backing type is too small!");
++    Q_STATIC_ASSERT_X(width <= sizeof(BackingType) * 8, "Width cannot exceed the backing type!");
++
+ public:
+-    uint val;
++    BackingType val;
+ 
+-    enum {
+-        mask = ((1u << width) - 1) << pos
+-    };
++    static Q_CONSTEXPR BackingType mask = ((static_cast<BackingType>(1) << width) - 1) << pos;
+ 
+     void operator =(int t) {
+-        uint i = qFromLittleEndian(val);
++        BackingType i = qFromLittleEndian(val);
+         i &= ~mask;
+         i |= t << pos;
+         val = qToLittleEndian(i);
+     }
+     operator int() const {
+-        uint i = qFromLittleEndian(val);
+-        i <<= 32 - width - pos;
+-        int t = (int) i;
+-        t >>= 32 - width;
+-        return t;
++        BackingType i = qFromLittleEndian(val);
++        i <<= sizeof(BackingType) * 8 - width - pos;
++        auto t = static_cast<typename std::make_signed<BackingType>::type>(i);
++        t >>= sizeof(t) * 8 - width;
++        return static_cast<int>(t);
+     }
+     bool operator !() const {
+         return !operator int();
+@@ -266,7 +270,7 @@
+     }
+ };
+ 
+-typedef qle_uint offset;
++typedef qle_ullint offset;
+ 
+ // round the size up to the next 4 byte boundary
+ inline int alignedSize(int size) { return (size + 3) & ~3; }
+@@ -293,7 +297,7 @@
+     return alignedSize(l);
+ }
+ 
+-// returns INT_MAX if it can't compress it into 28 bits
++// returns INT_MAX if it can't compress it into 30 bits
+ static inline int compressedNumber(double d)
+ {
+     // this relies on details of how ieee floats are represented
+@@ -304,7 +308,7 @@
+     quint64 val;
+     memcpy (&val, &d, sizeof(double));
+     int exp = (int)((val & exponent_mask) >> exponent_off) - 1023;
+-    if (exp < 0 || exp > 25)
++    if (exp < 0 || exp > 28)
+         return INT_MAX;
+ 
+     quint64 non_int = val & (fraction_mask >> exp);
+@@ -631,20 +635,22 @@
+     bool isValid(int maxSize) const;
+ };
+ 
+-
+ class Value
+ {
++    using BackingType = quint64;
++    static Q_CONSTEXPR int MaxWidth = 30;
+ public:
+     enum {
+-        MaxSize = (1<<27) - 1
++        MaxSize = (1<<MaxWidth) - 1
+     };
++
+     union {
+-        uint _dummy;
+-        qle_bitfield<0, 3> type;
+-        qle_bitfield<3, 1> latinOrIntValue;
+-        qle_bitfield<4, 1> latinKey;
+-        qle_bitfield<5, 27> value;
+-        qle_signedbitfield<5, 27> int_value;
++        BackingType _dummy;
++        qle_bitfield<0, 3, BackingType> type;
++        qle_bitfield<3, 1, BackingType> latinOrIntValue;
++        qle_bitfield<4, 1, BackingType> latinKey;
++        qle_bitfield<5, MaxWidth, BackingType> value;
++        qle_signedbitfield<5, MaxWidth, BackingType> int_value;
+     };
+ 
+     inline char *data(const Base *b) const { return ((char *)b) + value; }
+@@ -761,7 +767,7 @@
+ class Header {
+ public:
+     qle_uint tag; // 'qbjs'
+-    qle_uint version; // 1
++    qle_uint version; // 2
+     Base *root() { return (Base *)(this + 1); }
+ };
+ 
+@@ -840,7 +846,7 @@
+         header = (Header *)malloc(alloc);
+         Q_CHECK_PTR(header);
+         header->tag = QJsonDocument::BinaryFormatTag;
+-        header->version = 1;
++        header->version = 2;
+         Base *b = header->root();
+         b->size = sizeof(Base);
+         b->is_object = (valueType == QJsonValue::Object);
+@@ -882,7 +888,7 @@
+         memcpy(raw + sizeof(Header), b, b->size);
+         Header *h = (Header *)raw;
+         h->tag = QJsonDocument::BinaryFormatTag;
+-        h->version = 1;
++        h->version = 2;
+         Data *d = new Data(raw, size);
+         d->compactionCounter = (b == header->root()) ? compactionCounter : 0;
+         return d;
+diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original/qtbase/src/corelib/json/qjsonarray.cpp source/qtbase/src/corelib/json/qjsonarray.cpp
+--- original/qtbase/src/corelib/json/qjsonarray.cpp
++++ source/qtbase/src/corelib/json/qjsonarray.cpp
+@@ -297,7 +297,7 @@
+     array.a->tableOffset = currentOffset;
+     if (!array.detach2(sizeof(QJsonPrivate::offset)*values.size()))
+         return QJsonArray();
+-    memcpy(array.a->table(), values.constData(), values.size()*sizeof(uint));
++    memcpy(array.a->table(), values.constData(), values.size()*sizeof(QJsonPrivate::offset));
+     array.a->length = values.size();
+     array.a->size = currentOffset + sizeof(QJsonPrivate::offset)*values.size();
+ 
+diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original/qtbase/src/corelib/json/qjsondocument.cpp source/qtbase/src/corelib/json/qjsondocument.cpp
+--- original/qtbase/src/corelib/json/qjsondocument.cpp
++++ source/qtbase/src/corelib/json/qjsondocument.cpp
+@@ -236,7 +236,7 @@
+     memcpy(&root, data.constData() + sizeof(QJsonPrivate::Header), sizeof(QJsonPrivate::Base));
+ 
+     // do basic checks here, so we don't try to allocate more memory than we can.
+-    if (h.tag != QJsonDocument::BinaryFormatTag || h.version != 1u ||
++    if (h.tag != QJsonDocument::BinaryFormatTag || h.version != 2u ||
+         sizeof(QJsonPrivate::Header) + root.size > (uint)data.size())
+         return QJsonDocument();
+ 
+diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original/qtbase/src/corelib/json/qjsonobject.cpp source/qtbase/src/corelib/json/qjsonobject.cpp
+--- original/qtbase/src/corelib/json/qjsonobject.cpp
++++ source/qtbase/src/corelib/json/qjsonobject.cpp
+@@ -247,7 +247,7 @@
+     object.o->tableOffset = currentOffset;
+     if (!object.detach2(sizeof(QJsonPrivate::offset)*offsets.size()))
+         return QJsonObject();
+-    memcpy(object.o->table(), offsets.constData(), offsets.size()*sizeof(uint));
++    memcpy(object.o->table(), offsets.constData(), offsets.size()*sizeof(QJsonPrivate::offset));
+     object.o->length = offsets.size();
+     object.o->size = currentOffset + sizeof(QJsonPrivate::offset)*offsets.size();
+ 
+diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original/qtbase/src/corelib/json/qjsonparser.cpp source/qtbase/src/corelib/json/qjsonparser.cpp
+--- original/qtbase/src/corelib/json/qjsonparser.cpp
++++ source/qtbase/src/corelib/json/qjsonparser.cpp
+@@ -308,7 +308,7 @@
+     // fill in Header data
+     QJsonPrivate::Header *h = (QJsonPrivate::Header *)data;
+     h->tag = QJsonDocument::BinaryFormatTag;
+-    h->version = 1u;
++    h->version = 2u;
+ 
+     current = sizeof(QJsonPrivate::Header);
+ 
+@@ -356,7 +356,7 @@
+ }
+ 
+ 
+-void Parser::ParsedObject::insert(uint offset) {
++void Parser::ParsedObject::insert(quint64 offset) {
+     const QJsonPrivate::Entry *newEntry = reinterpret_cast<const QJsonPrivate::Entry *>(parser->data + objectPosition + offset);
+     int min = 0;
+     int n = offsets.size();
+@@ -422,7 +422,7 @@
+     int table = objectOffset;
+     // finalize the object
+     if (parsedObject.offsets.size()) {
+-        int tableSize = parsedObject.offsets.size()*sizeof(uint);
++        int tableSize = parsedObject.offsets.size()*sizeof(quint64);
+         table = reserveSpace(tableSize);
+         if (table < 0)
+             return false;
+diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original/qtbase/src/corelib/json/qjsonparser_p.h source/qtbase/src/corelib/json/qjsonparser_p.h
+--- original/qtbase/src/corelib/json/qjsonparser_p.h
++++ source/qtbase/src/corelib/json/qjsonparser_p.h
+@@ -55,6 +55,8 @@
+ #include <qjsondocument.h>
+ #include <qvarlengtharray.h>
+ 
++#include "qjson_p.h"
++
+ QT_BEGIN_NAMESPACE
+ 
+ namespace QJsonPrivate {
+@@ -72,11 +74,11 @@
+         ParsedObject(Parser *p, int pos) : parser(p), objectPosition(pos) {
+             offsets.reserve(64);
+         }
+-        void insert(uint offset);
++        void insert(quint64 offset);
+ 
+         Parser *parser;
+         int objectPosition;
+-        QVector<uint> offsets;
++        QVector<quint64> offsets;
+ 
+         inline QJsonPrivate::Entry *entryAt(int i) const {
+             return reinterpret_cast<QJsonPrivate::Entry *>(parser->data + objectPosition + offsets[i]);
+diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original/tests/auto/corelib/json/tst_qtjson.cpp source/tests/auto/corelib/json/tst_qtjson.cpp
+--- original/tests/auto/corelib/json/tst_qtjson.cpp
++++ source/tests/auto/corelib/json/tst_qtjson.cpp
+@@ -203,15 +203,23 @@
+             (1<<26),
+             (1<<27),
+             (1<<28),
++            (1<<29),
++            (1<<30),
+             -(1<<26),
+             -(1<<27),
+             -(1<<28),
++            -(1<<29),
++            -(1<<30),
+             (1<<26) - 1,
+             (1<<27) - 1,
+             (1<<28) - 1,
++            (1<<29) - 1,
++            (1<<30) - 1,
+             -((1<<26) - 1),
+             -((1<<27) - 1),
+-            -((1<<28) - 1)
++            -((1<<28) - 1),
++            -((1<<29) - 1),
++            -((1<<30) - 1)
+         };
+         int n = sizeof(numbers)/sizeof(int);
+ 
