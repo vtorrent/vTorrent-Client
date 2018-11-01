@@ -337,9 +337,9 @@ diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original
  
          inline QJsonPrivate::Entry *entryAt(int i) const {
              return reinterpret_cast<QJsonPrivate::Entry *>(parser->data + objectPosition + offsets[i]);
-diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original/tests/auto/corelib/json/tst_qtjson.cpp source/tests/auto/corelib/json/tst_qtjson.cpp
---- original/tests/auto/corelib/json/tst_qtjson.cpp
-+++ source/tests/auto/corelib/json/tst_qtjson.cpp
+diff -Nuar '--exclude=*.git' '--exclude=*.pro.user' '--exclude=*.bjson' original/qtbase/tests/auto/corelib/json/tst_qtjson.cpp source/qtbase/tests/auto/corelib/json/tst_qtjson.cpp
+--- original/qtbase/tests/auto/corelib/json/tst_qtjson.cpp
++++ source/qtbase/tests/auto/corelib/json/tst_qtjson.cpp
 @@ -203,15 +203,23 @@
              (1<<26),
              (1<<27),
